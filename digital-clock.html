@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
-  <title>時計・タイマー Ver.1.9.5</title>
+  <title>時計・タイマー Ver.1.9.6</title>
 
   <style>
     :root {
@@ -396,12 +396,12 @@
     }
 
     .segment-h {
-      align-self: center;
-      height: 50%;
+      align-self: stretch;
+      height: 100%;
       border-radius: 2px;
       background: #333333;
       border: 1px solid #555555;
-      transition: height .12s linear, background .12s linear;
+      transition: background .12s linear;
     }
 
     .segment-h.on {
@@ -598,12 +598,12 @@
     }
 
     .segment-v {
-      justify-self: center;
-      width: 50%;
+      justify-self: stretch;
+      width: 100%;
       border-radius: 2px;
       background: #333333;
       border: 1px solid #555555;
-      transition: width .12s linear, background .12s linear;
+      transition: background .12s linear;
     }
 
     .segment-v.on {
