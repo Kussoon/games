@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
+  <title>時計・タイマー Ver.1.9.5</title>
+
+  <style>
+    :root {
+      --safe-top: env(safe-area-inset-top);
+      --safe-right: env(safe-area-inset-right);
+      --safe-bottom: env(safe-area-inset-bottom);
+      --safe-left: env(safe-area-inset-left);
+      --main-opacity: 1;
+      --sub-opacity: .76;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "Helvetica Neue", Arial, "Hiragino Sans", "Yu Gothic", sans-serif;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      background: #000;
+    }
+
+    body.level-0 {
+      --main-opacity: 1;
+      --sub-opacity: .76;
+    }
+
+    body.level-1 {
+      --main-opacity: .45;
+      --sub-opacity: .36;
+    }
+
+    body.level-2 {
+      --main-opacity: .20;
+      --sub-opacity: .16;
+    }
+
+
+    body.fullscreen #top-switches,
+    body.fullscreen #menu-btn,
+    body.fullscreen #menu,
+    body.fullscreen #wake-status {
+      display: none !important;
+    }
+
+
+    #fullscreen-close-btn {
+      display: none;
+      position: fixed;
+      top: max(12px, calc(8px + var(--safe-top)));
+      right: max(12px, calc(8px + var(--safe-right)));
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 50%;
+      background: rgba(24,24,24,.78);
+      color: rgba(255,255,255,.92);
+      font-size: 30px;
+      font-weight: 300;
+      line-height: 1;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body.fullscreen #fullscreen-close-btn {
+      display: flex;
+    }
+
+    #fullscreen-close-btn:active {
+      background: rgba(70,70,70,.92);
+    }
+
+    body.fullscreen #landscape-layout {
+      padding:
+        calc(10px + var(--safe-top))
+        max(2vw, calc(14px + var(--safe-right)))
+        calc(12px + var(--safe-bottom))
+        max(2vw, calc(14px + var(--safe-left)));
+    }
+
+    body.fullscreen #landscape-time {
+      font-size: min(22vw, 46vh);
+      line-height: .86;
+    }
+
+    body.fullscreen #landscape-date {
+      margin-top: 2.2vh;
+      font-size: min(4.1vw, 7vh);
+    }
+
+    body.fullscreen #landscape-year-remaining {
+      margin-top: 1.4vh;
+      font-size: min(2.4vw, 4.4vh);
+    }
+
+    body.fullscreen #portrait-layout {
+      padding:
+        calc(10px + var(--safe-top))
+        calc(10px + var(--safe-right))
+        calc(14px + var(--safe-bottom))
+        calc(10px + var(--safe-left));
+    }
+
+    body.fullscreen .portrait-time-part {
+      font-size: min(48vw, 29vh);
+      line-height: .84;
+    }
+
+    body.fullscreen #portrait-date {
+      font-size: min(5.8vw, 4vh);
+      padding-bottom: .2vh;
+    }
+
+    body.fullscreen #portrait-year-remaining {
+      margin-top: .5vh;
+      font-size: min(4.8vw, 3.2vh);
+      padding-bottom: .5vh;
+    }
+
+    body.fullscreen #landscape-timer-status,
+    body.fullscreen #portrait-timer-status,
+    body.fullscreen .keypad {
+      display: none !important;
+    }
+
+    body.fullscreen #landscape-visual {
+      min-height: 48vh;
+      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 28%);
+      gap: 2.8vw;
+    }
+
+    body.fullscreen #landscape-bar-panel,
+    body.fullscreen #landscape-digits-panel {
+      height: min(42vh, 290px);
+      min-height: 210px;
+    }
+
+    body.fullscreen #landscape-timer-display {
+      font-size: min(9.5vw, 16vh);
+    }
+
+    body.fullscreen #landscape-segment-bar {
+      height: 94%;
+    }
+
+    body.fullscreen #portrait-visual {
+      height: 78vh;
+      align-items: stretch;
+      grid-template-columns: minmax(126px, 38%) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    body.fullscreen #portrait-segment-bar {
+      width: 84%;
+    }
+
+    body.fullscreen #portrait-timer-display {
+      font-size: min(19vw, 11.5vh);
+    }
+
+    body.fullscreen #portrait-bar-panel,
+    body.fullscreen #portrait-digits-panel {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .no-fullscreen-exit {
+      display: inline-block;
+    }
+
+    /* ---------- 共通上部切替 ---------- */
+
+    #top-switches {
+      position: fixed;
+      top: max(12px, calc(8px + var(--safe-top)));
+      left: max(12px, calc(8px + var(--safe-left)));
+      right: max(12px, calc(8px + var(--safe-right)));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      z-index: 30;
+      pointer-events: none;
+    }
+
+    .switch-group {
+      display: flex;
+      gap: 8px;
+      pointer-events: auto;
+    }
+
+    .switch-btn {
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 12px;
+      background: rgba(36,36,36,.92);
+      color: #fff;
+      min-width: 68px;
+      padding: 9px 14px;
+      font-size: 15px;
+      font-weight: 650;
+      box-shadow: 0 3px 12px rgba(0,0,0,.30);
+    }
+
+    .switch-btn.active {
+      background: rgba(255,255,255,.20);
+      border-color: rgba(255,255,255,.48);
+    }
+
+    /* ---------- メニュー ---------- */
+
+    #menu-btn {
+      position: fixed;
+      right: max(16px, calc(12px + var(--safe-right)));
+      bottom: max(16px, calc(12px + var(--safe-bottom)));
+      width: 58px;
+      height: 58px;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 15px;
+      background: rgba(35,35,35,.94);
+      color: rgba(255,255,255,.94);
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+    }
+
+    #menu {
+      position: fixed;
+      right: max(16px, calc(12px + var(--safe-right)));
+      bottom: max(84px, calc(80px + var(--safe-bottom)));
+      width: 210px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 15px;
+      background: rgba(24,24,24,.98);
+      z-index: 39;
+      display: none;
+    }
+
+    #menu.show {
+      display: block;
+    }
+
+    .menu-title {
+      font-size: 13px;
+      color: rgba(255,255,255,.64);
+      margin: 1px 3px 8px;
+    }
+
+    .menu-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .menu-group button {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 10px;
+      background: rgba(255,255,255,.07);
+      color: #fff;
+      padding: 10px 12px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .menu-group button.active {
+      background: rgba(255,255,255,.22);
+      border-color: rgba(255,255,255,.45);
+    }
+
+    #wake-status {
+      position: fixed;
+      left: max(10px, calc(7px + var(--safe-left)));
+      bottom: max(8px, calc(6px + var(--safe-bottom)));
+      font-size: 10px;
+      opacity: .18;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    /* ---------- 横レイアウト ---------- */
+
+    #landscape-layout {
+      position: fixed;
+      inset: 0;
+      padding:
+        calc(64px + var(--safe-top))
+        max(5vw, calc(24px + var(--safe-right)))
+        calc(18px + var(--safe-bottom))
+        max(5vw, calc(24px + var(--safe-left)));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #landscape-clock {
+      width: 100%;
+      text-align: center;
+    }
+
+    #landscape-time {
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+      line-height: .90;
+      letter-spacing: -.045em;
+      white-space: nowrap;
+      font-size: min(19vw, 39vh);
+      opacity: var(--main-opacity);
+    }
+
+    #landscape-date {
+      margin-top: 3.8vh;
+      font-size: min(3.4vw, 6vh);
+      font-weight: 500;
+      opacity: var(--sub-opacity);
+    }
+
+
+    #landscape-year-remaining {
+      margin-top: 1.6vh;
+      display: grid;
+      gap: .5vh;
+      justify-items: center;
+      font-size: min(2.1vw, 3.8vh);
+      font-weight: 500;
+      opacity: var(--sub-opacity);
+    }
+
+    #landscape-timer {
+      width: 100%;
+      max-width: 92vw;
+      text-align: center;
+    }
+
+    #landscape-visual {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(200px, 26%);
+      gap: 2.2vw;
+      align-items: stretch;
+    }
+
+    .lcd-panel {
+      border: 2px solid rgba(255,255,255,.17);
+      border-radius: 18px;
+      background: rgba(220,224,206,.09);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,.5);
+    }
+
+    #landscape-bar-panel {
+      height: min(31vh, 210px);
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+    }
+
+    #landscape-segment-bar {
+      position: relative;
+      width: 100%;
+      height: 90%;
+      display: grid;
+      grid-template-columns: repeat(60, minmax(0, 1fr));
+      gap: 2px;
+      align-items: stretch;
+    }
+
+    .segment-h {
+      align-self: center;
+      height: 50%;
+      border-radius: 2px;
+      background: #333333;
+      border: 1px solid #555555;
+      transition: height .12s linear, background .12s linear;
+    }
+
+    .segment-h.on {
+      height: 100%;
+      background: #fff3a6;
+      border-color: #e7d76e;
+      box-shadow: 0 0 4px rgba(255,243,166,.22);
+    }
+
+    #landscape-digits-panel {
+      min-height: 150px;
+      height: min(31vh, 210px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+    }
+
+    #landscape-timer-display {
+      color: #f6f6f2;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+      letter-spacing: -.04em;
+      white-space: nowrap;
+      font-size: min(8vw, 14vh);
+    }
+
+    #landscape-timer-status {
+      margin-top: 2vh;
+      font-size: min(2.1vw, 4vh);
+      opacity: var(--sub-opacity);
+      min-height: 1.2em;
+    }
+
+    /* 刀：横レイアウトでは縦向き */
+    #katana-h {
+      position: absolute;
+      top: -10%;
+      left: 100%;
+      width: 30px;
+      height: 122%;
+      transform: translateX(-50%);
+      z-index: 8;
+      pointer-events: none;
+      transition: left .12s linear;
+    }
+
+    #katana-h .blade {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      width: 8px;
+      height: 74%;
+      border-radius: 4px 4px 1px 1px;
+      background: linear-gradient(
+        to right,
+        #f7f9fb 0%,
+        #ffffff 24%,
+        #ffffff 50%,
+        #f2f6fa 74%,
+        #dde6ee 100%
+      );
+      box-shadow:
+        0 0 7px rgba(255,255,255,.92),
+        0 0 14px rgba(235,245,255,.55);
+    }
+
+    #katana-h .blade::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 0;
+      border-left: 3.5px solid transparent;
+      border-right: 3.5px solid transparent;
+      border-bottom: 9px solid #ffffff;
+    }
+
+    #katana-h .guard {
+      position: absolute;
+      left: 1px;
+      top: 73%;
+      width: 25px;
+      height: 5px;
+      border-radius: 3px;
+      background: #ffffff;
+    }
+
+    #katana-h .handle {
+      position: absolute;
+      left: 8px;
+      top: calc(73% + 5px);
+      width: 11px;
+      height: 23%;
+      min-height: 25px;
+      border: 2px solid #efefef;
+      border-radius: 3px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #242424 0 5px,
+        #bcbcbc 5px 7px
+      );
+    }
+
+    /* ---------- 縦レイアウト ---------- */
+
+    #portrait-layout {
+      position: fixed;
+      inset: 0;
+      padding:
+        calc(70px + var(--safe-top))
+        calc(16px + var(--safe-right))
+        calc(80px + var(--safe-bottom))
+        calc(16px + var(--safe-left));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #portrait-clock {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr auto;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .portrait-time-part {
+      width: 100%;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+      line-height: .88;
+      letter-spacing: -.035em;
+      font-size: min(42vw, 25vh);
+      opacity: var(--main-opacity);
+    }
+
+    #portrait-date {
+      font-size: min(5vw, 3.4vh);
+      font-weight: 500;
+      opacity: var(--sub-opacity);
+      padding-bottom: 1vh;
+    }
+
+
+    #portrait-year-remaining {
+      margin-top: .8vh;
+      display: grid;
+      gap: .5vh;
+      justify-items: center;
+      font-size: min(4.2vw, 2.8vh);
+      font-weight: 500;
+      opacity: var(--sub-opacity);
+      padding-bottom: 1vh;
+    }
+
+    #portrait-timer {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto auto auto;
+      gap: 12px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    #portrait-visual {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(100px, 34%) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    #portrait-bar-panel {
+      position: relative;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 16px;
+    }
+
+    #portrait-segment-bar {
+      position: relative;
+      width: 80%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: repeat(60, minmax(0, 1fr));
+      gap: 2px;
+    }
+
+    .segment-v {
+      justify-self: center;
+      width: 50%;
+      border-radius: 2px;
+      background: #333333;
+      border: 1px solid #555555;
+      transition: width .12s linear, background .12s linear;
+    }
+
+    .segment-v.on {
+      width: 100%;
+      background: #fff3a6;
+      border-color: #e7d76e;
+      box-shadow: 0 0 4px rgba(255,243,166,.22);
+    }
+
+    #portrait-digits-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      padding: 12px;
+    }
+
+    #portrait-timer-display {
+      color: #f6f6f2;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+      line-height: .95;
+      letter-spacing: -.04em;
+      white-space: nowrap;
+      font-size: min(16vw, 9vh);
+    }
+
+    #portrait-timer-status {
+      font-size: min(4vw, 2.5vh);
+      opacity: var(--sub-opacity);
+      min-height: 1.2em;
+    }
+
+    /* 刀：縦レイアウトでは横向き */
+    #katana-v {
+      position: absolute;
+      left: -22%;
+      bottom: 100%;
+      width: 146%;
+      height: 30px;
+      transform: translateY(50%);
+      z-index: 8;
+      pointer-events: none;
+      transition: bottom .12s linear;
+    }
+
+    #katana-v .blade {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 74%;
+      height: 8px;
+      border-radius: 4px 1px 1px 4px;
+      background: linear-gradient(
+        to bottom,
+        #f7f9fb 0%,
+        #ffffff 24%,
+        #ffffff 50%,
+        #f2f6fa 74%,
+        #dde6ee 100%
+      );
+      box-shadow:
+        0 0 7px rgba(255,255,255,.92),
+        0 0 14px rgba(235,245,255,.55);
+    }
+
+    #katana-v .blade::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 0;
+      border-top: 3.5px solid transparent;
+      border-bottom: 3.5px solid transparent;
+      border-right: 10px solid #ffffff;
+    }
+
+    #katana-v .guard {
+      position: absolute;
+      left: 73%;
+      top: 1px;
+      width: 5px;
+      height: 25px;
+      border-radius: 3px;
+      background: #ffffff;
+    }
+
+    #katana-v .handle {
+      position: absolute;
+      left: calc(73% + 5px);
+      top: 8px;
+      width: 23%;
+      min-width: 26px;
+      height: 11px;
+      border: 2px solid #efefef;
+      border-radius: 3px;
+      background: repeating-linear-gradient(
+        to right,
+        #242424 0 5px,
+        #bcbcbc 5px 7px
+      );
+    }
+
+    /* ---------- タイマー操作 ---------- */
+
+    .timer-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .control-btn,
+    .key-btn {
+      border: 1px solid rgba(255,255,255,.30);
+      background: rgba(255,255,255,.07);
+      color: #fff;
+      border-radius: 11px;
+      font-weight: 600;
+    }
+
+    .control-btn {
+      min-width: 100px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    body.fullscreen .control-btn {
+      min-width: 112px;
+      padding: 12px 24px;
+      font-size: 18px;
+    }
+
+    .keypad {
+      width: min(1180px, 94vw);
+      display: grid;
+      gap: 9px;
+    }
+
+    .digit-row {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .key-action-row {
+      width: min(460px, 74vw);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .key-btn {
+      min-height: 42px;
+      padding: 8px 8px;
+      font-size: 18px;
+    }
+
+    .key-btn.small {
+      font-size: 14px;
+    }
+
+    /* 縦画面ではテンキーを5列×2段に再配置して押しやすく */
+    #portrait-timer .digit-row {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    #portrait-timer .keypad {
+      width: min(92vw, 520px);
+    }
+
+    #portrait-timer .key-action-row {
+      width: 100%;
+    }
+
+    #portrait-timer .key-btn {
+      min-height: 42px;
+    }
+
+    #flash-overlay {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 80;
+    }
+
+    #flash-overlay.flashing {
+      pointer-events: auto;
+      animation: flash 1s steps(1, end) 6;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 0; }
+      50% { opacity: .72; }
+    }
+
+    @media (max-height: 520px) {
+      #landscape-layout {
+        padding-top: calc(58px + var(--safe-top));
+      }
+
+      #landscape-bar-panel,
+      #landscape-digits-panel {
+        min-height: 118px;
+        height: 24vh;
+      }
+
+      .key-btn {
+        min-height: 36px;
+        padding: 6px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .switch-btn {
+        min-width: 58px;
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+
+      #portrait-layout {
+        padding-left: calc(10px + var(--safe-left));
+        padding-right: calc(10px + var(--safe-right));
+      }
+    }
+  </style>
+</head>
+
+<body class="level-0">
+  <div id="top-switches">
+    <div class="switch-group">
+      <button id="clock-mode-btn" class="switch-btn active" type="button">時計</button>
+      <button id="timer-mode-btn" class="switch-btn" type="button">タイマー</button>
+    </div>
+
+    <div class="switch-group">
+      <button id="landscape-btn" class="switch-btn active" type="button">横</button>
+      <button id="portrait-btn" class="switch-btn" type="button">縦</button>
+      <button id="fullscreen-btn" class="switch-btn" type="button">全画面</button>
+    </div>
+  </div>
+
+  <!-- 横画面 -->
+  <main id="landscape-layout">
+    <section id="landscape-clock">
+      <div id="landscape-time"><span class="no-fullscreen-exit">00:00:00</span></div>
+      <div id="landscape-date"><span class="no-fullscreen-exit">----</span></div>
+      <div id="landscape-year-remaining" class="no-fullscreen-exit">
+        <div id="landscape-weeks-left">今年の残り週数 --週</div>
+        <div id="landscape-days-left">今年の残り日数 --日</div>
+      </div>
+    </section>
+
+    <section id="landscape-timer" class="hidden">
+      <div id="landscape-visual">
+        <div id="landscape-bar-panel" class="lcd-panel no-fullscreen-exit">
+          <div id="landscape-segment-bar" aria-label="残り時間バー">
+            <div id="katana-h" aria-hidden="true">
+              <div class="blade"></div>
+              <div class="guard"></div>
+              <div class="handle"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="landscape-digits-panel" class="lcd-panel no-fullscreen-exit">
+          <div id="landscape-timer-display">05:00</div>
+        </div>
+      </div>
+
+      <div id="landscape-timer-status">入力時間</div>
+
+      <div class="timer-controls no-fullscreen-exit">
+        <button id="landscape-start-btn" class="control-btn" type="button">スタート</button>
+        <button id="landscape-reset-btn" class="control-btn" type="button">リセット</button>
+      </div>
+
+      <div class="keypad">
+        <div class="digit-row">
+          <button class="key-btn timer-key" type="button" data-key="1">1</button>
+          <button class="key-btn timer-key" type="button" data-key="2">2</button>
+          <button class="key-btn timer-key" type="button" data-key="3">3</button>
+          <button class="key-btn timer-key" type="button" data-key="4">4</button>
+          <button class="key-btn timer-key" type="button" data-key="5">5</button>
+          <button class="key-btn timer-key" type="button" data-key="6">6</button>
+          <button class="key-btn timer-key" type="button" data-key="7">7</button>
+          <button class="key-btn timer-key" type="button" data-key="8">8</button>
+          <button class="key-btn timer-key" type="button" data-key="9">9</button>
+          <button class="key-btn timer-key" type="button" data-key="0">0</button>
+        </div>
+        <div class="key-action-row">
+          <button class="key-btn small double-zero-key" type="button">00</button>
+          <button class="key-btn small clear-key" type="button">クリア</button>
+          <button class="key-btn small backspace-key" type="button">←</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 縦画面 -->
+  <main id="portrait-layout" class="hidden">
+    <section id="portrait-clock">
+      <div id="portrait-hour" class="portrait-time-part"><span class="no-fullscreen-exit">00</span></div>
+      <div id="portrait-minute" class="portrait-time-part"><span class="no-fullscreen-exit">00</span></div>
+      <div id="portrait-second" class="portrait-time-part"><span class="no-fullscreen-exit">00</span></div>
+      <div id="portrait-date"><span class="no-fullscreen-exit">----</span></div>
+      <div id="portrait-year-remaining" class="no-fullscreen-exit">
+        <div id="portrait-weeks-left">今年の残り週数 --週</div>
+        <div id="portrait-days-left">今年の残り日数 --日</div>
+      </div>
+    </section>
+
+    <section id="portrait-timer" class="hidden">
+      <div id="portrait-visual">
+        <div id="portrait-bar-panel" class="lcd-panel no-fullscreen-exit">
+          <div id="portrait-segment-bar" aria-label="縦型残り時間バー">
+            <div id="katana-v" aria-hidden="true">
+              <div class="blade"></div>
+              <div class="guard"></div>
+              <div class="handle"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="portrait-digits-panel" class="lcd-panel no-fullscreen-exit">
+          <div id="portrait-timer-display">05:00</div>
+        </div>
+      </div>
+
+      <div id="portrait-timer-status">入力時間</div>
+
+      <div class="timer-controls no-fullscreen-exit">
+        <button id="portrait-start-btn" class="control-btn" type="button">スタート</button>
+        <button id="portrait-reset-btn" class="control-btn" type="button">リセット</button>
+      </div>
+
+      <div class="keypad">
+        <div class="digit-row">
+          <button class="key-btn timer-key" type="button" data-key="1">1</button>
+          <button class="key-btn timer-key" type="button" data-key="2">2</button>
+          <button class="key-btn timer-key" type="button" data-key="3">3</button>
+          <button class="key-btn timer-key" type="button" data-key="4">4</button>
+          <button class="key-btn timer-key" type="button" data-key="5">5</button>
+          <button class="key-btn timer-key" type="button" data-key="6">6</button>
+          <button class="key-btn timer-key" type="button" data-key="7">7</button>
+          <button class="key-btn timer-key" type="button" data-key="8">8</button>
+          <button class="key-btn timer-key" type="button" data-key="9">9</button>
+          <button class="key-btn timer-key" type="button" data-key="0">0</button>
+        </div>
+        <div class="key-action-row">
+          <button class="key-btn small double-zero-key" type="button">00</button>
+          <button class="key-btn small clear-key" type="button">クリア</button>
+          <button class="key-btn small backspace-key" type="button">←</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="fullscreen-close-btn" type="button" aria-label="全画面を閉じる">×</button>
+  <button id="menu-btn" type="button" aria-label="設定">☰</button>
+
+  <section id="menu" aria-label="設定メニュー">
+    <div class="menu-title">明るさ</div>
+    <div class="menu-group">
+      <button type="button" data-level="0">通常</button>
+      <button type="button" data-level="1">暗い</button>
+      <button type="button" data-level="2">超暗い</button>
+    </div>
+  </section>
+
+  <div id="wake-status" aria-hidden="true"></div>
+  <div id="flash-overlay"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+      const SEGMENT_COUNT = 60;
+
+      // ----- state -----
+      let currentMode = localStorage.getItem("clock-mode") || "clock";
+      let currentLayout = localStorage.getItem("clock-layout") || "landscape";
+      let brightnessLevel = Number(localStorage.getItem("clock-brightness-level") || 0);
+
+      if (!["clock", "timer"].includes(currentMode)) currentMode = "clock";
+      if (!["landscape", "portrait"].includes(currentLayout)) currentLayout = "landscape";
+      if (![0,1,2].includes(brightnessLevel)) brightnessLevel = 0;
+      let fullscreenActive = false;
+
+      function enterFullscreenMode() {
+        fullscreenActive = true;
+        document.body.classList.add("fullscreen");
+        menu.classList.remove("show");
+      }
+
+      function exitFullscreenMode() {
+        fullscreenActive = false;
+        document.body.classList.remove("fullscreen");
+      }
+
+      function toggleFullscreenMode() {
+        if (fullscreenActive) exitFullscreenMode();
+        else enterFullscreenMode();
+      }
+
+      // ----- top switches -----
+      const clockModeBtn = document.getElementById("clock-mode-btn");
+      const timerModeBtn = document.getElementById("timer-mode-btn");
+      const landscapeBtn = document.getElementById("landscape-btn");
+      const portraitBtn = document.getElementById("portrait-btn");
+      const fullscreenBtn = document.getElementById("fullscreen-btn");
+
+      const landscapeLayout = document.getElementById("landscape-layout");
+      const portraitLayout = document.getElementById("portrait-layout");
+      const landscapeClock = document.getElementById("landscape-clock");
+      const landscapeTimer = document.getElementById("landscape-timer");
+      const portraitClock = document.getElementById("portrait-clock");
+      const portraitTimer = document.getElementById("portrait-timer");
+
+      function applyView() {
+        const isLandscape = currentLayout === "landscape";
+        const isClock = currentMode === "clock";
+
+        landscapeLayout.classList.toggle("hidden", !isLandscape);
+        portraitLayout.classList.toggle("hidden", isLandscape);
+
+        landscapeClock.classList.toggle("hidden", !isClock);
+        landscapeTimer.classList.toggle("hidden", isClock);
+        portraitClock.classList.toggle("hidden", !isClock);
+        portraitTimer.classList.toggle("hidden", isClock);
+
+        clockModeBtn.classList.toggle("active", isClock);
+        timerModeBtn.classList.toggle("active", !isClock);
+        landscapeBtn.classList.toggle("active", isLandscape);
+        portraitBtn.classList.toggle("active", !isLandscape);
+
+        localStorage.setItem("clock-mode", currentMode);
+        localStorage.setItem("clock-layout", currentLayout);
+      }
+
+      clockModeBtn.addEventListener("click", () => {
+        currentMode = "clock";
+        applyView();
+      });
+
+      timerModeBtn.addEventListener("click", () => {
+        currentMode = "timer";
+        applyView();
+      });
+
+      landscapeBtn.addEventListener("click", () => {
+        currentLayout = "landscape";
+        applyView();
+      });
+
+      portraitBtn.addEventListener("click", () => {
+        currentLayout = "portrait";
+        applyView();
+      });
+
+      fullscreenBtn.addEventListener("click", () => {
+        toggleFullscreenMode();
+      });
+
+      function protectedInFullscreen(target) {
+        return !!target.closest(
+          ".no-fullscreen-exit, button, .lcd-panel"
+        );
+      }
+
+      landscapeLayout.addEventListener("click", (e) => {
+        if (!fullscreenActive) return;
+        if (protectedInFullscreen(e.target)) return;
+        exitFullscreenMode();
+      });
+
+      portraitLayout.addEventListener("click", (e) => {
+        if (!fullscreenActive) return;
+        if (protectedInFullscreen(e.target)) return;
+        exitFullscreenMode();
+      });
+
+      // ----- brightness -----
+      const brightnessButtons = [...document.querySelectorAll("[data-level]")];
+
+      function applyBrightness() {
+        document.body.classList.remove("level-0", "level-1", "level-2");
+        document.body.classList.add(`level-${brightnessLevel}`);
+
+        brightnessButtons.forEach(btn => {
+          btn.classList.toggle(
+            "active",
+            Number(btn.dataset.level) === brightnessLevel
+          );
+        });
+
+        localStorage.setItem("clock-brightness-level", String(brightnessLevel));
+      }
+
+      brightnessButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          brightnessLevel = Number(btn.dataset.level);
+          applyBrightness();
+          menu.classList.remove("show");
+        });
+      });
+
+      // ----- menu -----
+      const fullscreenCloseBtn = document.getElementById("fullscreen-close-btn");
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+
+      fullscreenCloseBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        exitFullscreenMode();
+      });
+
+      menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.toggle("show");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && e.target !== menuBtn) {
+          menu.classList.remove("show");
+        }
+      });
+
+      // ----- clock -----
+      const landscapeTime = document.querySelector("#landscape-time .no-fullscreen-exit");
+      const landscapeDate = document.querySelector("#landscape-date .no-fullscreen-exit");
+      const portraitHour = document.querySelector("#portrait-hour .no-fullscreen-exit");
+      const portraitMinute = document.querySelector("#portrait-minute .no-fullscreen-exit");
+      const portraitSecond = document.querySelector("#portrait-second .no-fullscreen-exit");
+      const portraitDate = document.querySelector("#portrait-date .no-fullscreen-exit");
+      const landscapeWeeksLeft = document.getElementById("landscape-weeks-left");
+      const landscapeDaysLeft = document.getElementById("landscape-days-left");
+      const portraitWeeksLeft = document.getElementById("portrait-weeks-left");
+      const portraitDaysLeft = document.getElementById("portrait-days-left");
+
+      function pad2(n) {
+        return String(n).padStart(2, "0");
+      }
+
+      function getYearRemaining(now) {
+        // 「残り日数」は今日を含めず、明日から12月31日までの日数。
+        const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        const nextYear = new Date(now.getFullYear() + 1, 0, 1);
+        const msPerDay = 24 * 60 * 60 * 1000;
+        const daysLeft = Math.max(0, Math.round((nextYear - tomorrow) / msPerDay));
+        const weeksLeft = Math.ceil(daysLeft / 7);
+        return { daysLeft, weeksLeft };
+      }
+
+      function updateClock() {
+        const now = new Date();
+        const h = pad2(now.getHours());
+        const m = pad2(now.getMinutes());
+        const s = pad2(now.getSeconds());
+        const dateText =
+          `${now.getMonth() + 1}月${now.getDate()}日 ${weekdays[now.getDay()]}曜日`;
+
+        landscapeTime.textContent = `${h}:${m}:${s}`;
+        landscapeDate.textContent = dateText;
+
+        portraitHour.textContent = h;
+        portraitMinute.textContent = m;
+        portraitSecond.textContent = s;
+        portraitDate.textContent = dateText;
+
+        const { daysLeft, weeksLeft } = getYearRemaining(now);
+        const weeksText = `今年の残り週数 ${weeksLeft}週`;
+        const daysText = `今年の残り日数 ${daysLeft}日`;
+
+        landscapeWeeksLeft.textContent = weeksText;
+        landscapeDaysLeft.textContent = daysText;
+        portraitWeeksLeft.textContent = weeksText;
+        portraitDaysLeft.textContent = daysText;
+      }
+
+      function startClock() {
+        updateClock();
+
+        function tick() {
+          const delay = 1000 - (Date.now() % 1000) + 8;
+          setTimeout(() => {
+            updateClock();
+            tick();
+          }, delay);
+        }
+
+        tick();
+      }
+
+      // ----- timer segments -----
+      const landscapeSegmentBar = document.getElementById("landscape-segment-bar");
+      const portraitSegmentBar = document.getElementById("portrait-segment-bar");
+      const katanaH = document.getElementById("katana-h");
+      const katanaV = document.getElementById("katana-v");
+
+      const hSegments = [];
+      const vSegments = [];
+
+      for (let i = 0; i < SEGMENT_COUNT; i++) {
+        const h = document.createElement("div");
+        h.className = "segment-h";
+        landscapeSegmentBar.insertBefore(h, katanaH);
+        hSegments.push(h);
+
+        const v = document.createElement("div");
+        v.className = "segment-v";
+        portraitSegmentBar.insertBefore(v, katanaV);
+        vSegments.push(v);
+      }
+
+      // ----- timer state -----
+      let inputDigits = "0500";
+      let selectedSeconds = 5 * 60;
+      let remainingSeconds = selectedSeconds;
+      let timerRunning = false;
+      let endTimestamp = null;
+      let timerInterval = null;
+
+      const landscapeTimerDisplay = document.getElementById("landscape-timer-display");
+      const portraitTimerDisplay = document.getElementById("portrait-timer-display");
+      const landscapeTimerStatus = document.getElementById("landscape-timer-status");
+      const portraitTimerStatus = document.getElementById("portrait-timer-status");
+      const landscapeStartBtn = document.getElementById("landscape-start-btn");
+      const portraitStartBtn = document.getElementById("portrait-start-btn");
+      const landscapeResetBtn = document.getElementById("landscape-reset-btn");
+      const portraitResetBtn = document.getElementById("portrait-reset-btn");
+
+      function formatTimer(seconds) {
+        const total = Math.max(0, Math.ceil(seconds));
+        const hours = Math.floor(total / 3600);
+        const mins = Math.floor((total % 3600) / 60);
+        const secs = total % 60;
+
+        if (hours > 0) {
+          return `${pad2(hours)}:${pad2(mins)}:${pad2(secs)}`;
+        }
+        return `${pad2(mins)}:${pad2(secs)}`;
+      }
+
+      function setStatus(text) {
+        landscapeTimerStatus.textContent = text;
+        portraitTimerStatus.textContent = text;
+      }
+
+      function setStartButton(text) {
+        landscapeStartBtn.textContent = text;
+        portraitStartBtn.textContent = text;
+      }
+
+      function updateProgress() {
+        const ratio = selectedSeconds > 0
+          ? Math.max(0, Math.min(1, remainingSeconds / selectedSeconds))
+          : 0;
+
+        const onCount = Math.ceil(ratio * SEGMENT_COUNT);
+
+        // 横：左側が残り、右側が経過
+        hSegments.forEach((el, index) => {
+          el.classList.toggle("on", index < onCount);
+        });
+
+        // 縦：下側が残り、上側が経過
+        vSegments.forEach((el, index) => {
+          el.classList.toggle("on", index >= SEGMENT_COUNT - onCount);
+        });
+
+        const markerPercent = Math.max(.8, Math.min(99.2, ratio * 100));
+        katanaH.style.left = `${markerPercent}%`;
+        katanaV.style.bottom = `${markerPercent}%`;
+      }
+
+      function updateTimerDisplay() {
+        const text = formatTimer(remainingSeconds);
+        landscapeTimerDisplay.textContent = text;
+        portraitTimerDisplay.textContent = text;
+        updateProgress();
+      }
+
+      function digitsToSeconds(digits) {
+        const padded = digits.padStart(4, "0").slice(-4);
+        let minutes = Number(padded.slice(0, 2));
+        let seconds = Number(padded.slice(2, 4));
+        minutes += Math.floor(seconds / 60);
+        seconds %= 60;
+        return minutes * 60 + seconds;
+      }
+
+      function secondsToDigits(totalSeconds) {
+        totalSeconds = Math.max(0, Math.floor(totalSeconds));
+        const minutes = Math.min(99, Math.floor(totalSeconds / 60));
+        const seconds = totalSeconds % 60;
+        return `${pad2(minutes)}${pad2(seconds)}`;
+      }
+
+      function stopTimerInterval() {
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+      }
+
+      function syncTimerFromInput() {
+        stopTimerInterval();
+        timerRunning = false;
+        endTimestamp = null;
+
+        selectedSeconds = digitsToSeconds(inputDigits);
+        remainingSeconds = selectedSeconds;
+        inputDigits = secondsToDigits(selectedSeconds);
+
+        setStartButton("スタート");
+        setStatus(selectedSeconds > 0 ? "入力時間" : "時間を入力");
+        updateTimerDisplay();
+      }
+
+      function pushDigits(digits) {
+        if (timerRunning) return;
+        for (const digit of String(digits)) {
+          inputDigits = (inputDigits + digit).slice(-4);
+        }
+        syncTimerFromInput();
+      }
+
+      function clearInput() {
+        if (timerRunning) return;
+        inputDigits = "0000";
+        syncTimerFromInput();
+      }
+
+      function backspaceInput() {
+        if (timerRunning) return;
+        inputDigits = ("0" + inputDigits.slice(0, -1)).slice(-4);
+        syncTimerFromInput();
+      }
+
+      function startTimer() {
+        if (remainingSeconds <= 0) {
+          remainingSeconds = selectedSeconds;
+        }
+
+        if (remainingSeconds <= 0) return;
+
+        timerRunning = true;
+        endTimestamp = Date.now() + remainingSeconds * 1000;
+        setStartButton("一時停止");
+        setStatus("計測中");
+
+        stopTimerInterval();
+
+        timerInterval = setInterval(() => {
+          remainingSeconds = Math.max(0, (endTimestamp - Date.now()) / 1000);
+          updateTimerDisplay();
+
+          if (remainingSeconds <= 0) {
+            finishTimer();
+          }
+        }, 200);
+      }
+
+      function pauseTimer() {
+        if (!timerRunning) return;
+
+        remainingSeconds = Math.max(0, (endTimestamp - Date.now()) / 1000);
+        timerRunning = false;
+        endTimestamp = null;
+        stopTimerInterval();
+
+        setStartButton("再開");
+        setStatus("一時停止");
+        updateTimerDisplay();
+      }
+
+      function toggleTimer() {
+        if (timerRunning) pauseTimer();
+        else startTimer();
+      }
+
+      function resetTimer() {
+        timerRunning = false;
+        endTimestamp = null;
+        stopTimerInterval();
+        remainingSeconds = selectedSeconds;
+
+        setStartButton("スタート");
+        setStatus(selectedSeconds > 0 ? "入力時間" : "時間を入力");
+        updateTimerDisplay();
+      }
+
+      const flashOverlay = document.getElementById("flash-overlay");
+      let flashTimerId = null;
+
+      function stopFinishFlash() {
+        flashOverlay.classList.remove("flashing");
+
+        if (flashTimerId) {
+          clearTimeout(flashTimerId);
+          flashTimerId = null;
+        }
+      }
+
+      // タイマー終了時の点滅中は、画面を1回タップすれば即停止。
+      // オーバーレイ自身で受けるため、全画面モード解除などには波及しない。
+      flashOverlay.addEventListener("pointerdown", (event) => {
+        if (!flashOverlay.classList.contains("flashing")) return;
+        event.preventDefault();
+        event.stopPropagation();
+        stopFinishFlash();
+      });
+
+      function finishTimer() {
+        timerRunning = false;
+        endTimestamp = null;
+        remainingSeconds = 0;
+        stopTimerInterval();
+
+        setStartButton("もう一度");
+        setStatus("終了");
+        updateTimerDisplay();
+
+        stopFinishFlash();
+        void flashOverlay.offsetWidth;
+        flashOverlay.classList.add("flashing");
+
+        flashTimerId = setTimeout(() => {
+          stopFinishFlash();
+        }, 6500);
+      }
+
+      landscapeStartBtn.addEventListener("click", toggleTimer);
+      portraitStartBtn.addEventListener("click", toggleTimer);
+      landscapeResetBtn.addEventListener("click", resetTimer);
+      portraitResetBtn.addEventListener("click", resetTimer);
+
+      document.querySelectorAll(".timer-key").forEach(btn => {
+        btn.addEventListener("click", () => {
+          pushDigits(btn.dataset.key);
+        });
+      });
+
+      document.querySelectorAll(".double-zero-key").forEach(btn => {
+        btn.addEventListener("click", () => pushDigits("00"));
+      });
+
+      document.querySelectorAll(".clear-key").forEach(btn => {
+        btn.addEventListener("click", clearInput);
+      });
+
+      document.querySelectorAll(".backspace-key").forEach(btn => {
+        btn.addEventListener("click", backspaceInput);
+      });
+
+      // ----- Wake Lock -----
+      const wakeStatus = document.getElementById("wake-status");
+      let wakeLock = null;
+
+      async function requestWakeLock() {
+        if (!("wakeLock" in navigator)) {
+          wakeStatus.textContent = "常時点灯：非対応";
+          return;
+        }
+
+        try {
+          wakeLock = await navigator.wakeLock.request("screen");
+          wakeStatus.textContent = "常時点灯";
+
+          wakeLock.addEventListener("release", () => {
+            wakeStatus.textContent = "";
+          });
+        } catch (_) {
+          wakeStatus.textContent = "タップで常時点灯";
+        }
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          requestWakeLock();
+
+          if (timerRunning && endTimestamp) {
+            remainingSeconds = Math.max(0, (endTimestamp - Date.now()) / 1000);
+
+            if (remainingSeconds <= 0) finishTimer();
+            else updateTimerDisplay();
+          }
+        }
+      });
+
+      document.addEventListener("pointerdown", () => {
+        if (!wakeLock || wakeLock.released) {
+          requestWakeLock();
+        }
+      }, { passive: true });
+
+      // init
+      applyBrightness();
+      applyView();
+      updateTimerDisplay();
+      startClock();
+      requestWakeLock();
+    })();
+  </script>
+</body>
+</html>
