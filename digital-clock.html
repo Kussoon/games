@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
-  <title>時計・タイマー Ver.2.0.3</title>
+  <title>時計・タイマー Ver.2.0.4</title>
 
   <style>
     :root {
@@ -439,10 +439,10 @@
     /* 刀：横レイアウトでは縦向き */
     #katana-h {
       position: absolute;
-      top: -12%;
+      top: -10%;
       left: 100%;
-      width: 42px;
-      height: 126%;
+      width: 30px;
+      height: 122%;
       transform: translateX(-50%);
       z-index: 8;
       pointer-events: none;
@@ -451,93 +451,70 @@
 
     #katana-h .blade {
       position: absolute;
-      left: 10px;
+      left: 7px;
       top: 0;
-      width: 18px;
+      width: 12px;
       height: 74%;
-      border: 1.4px solid rgba(0,0,0,.82);
-      border-radius: 52% 48% 18% 82% / 7% 7% 96% 96%;
+      border-radius: 70% 30% 24% 76% / 12% 12% 88% 88%;
       background: linear-gradient(
         to right,
-        #6f747a 0%,
-        #cfd4d8 18%,
-        #f6f7f8 42%,
-        #dadde0 64%,
-        #8f9499 100%
+        #dfe7ee 0%,
+        #ffffff 24%,
+        #ffffff 48%,
+        #eef3f7 72%,
+        #cbd5de 100%
       );
       box-shadow:
-        0 0 4px rgba(255,255,255,.50),
-        0 0 10px rgba(235,245,255,.28);
-      transform: skewX(-6deg);
+        0 0 7px rgba(255,255,255,.95),
+        0 0 15px rgba(235,245,255,.58);
+      transform: skewX(-2deg);
       clip-path: polygon(
-        47% 0%,
-        94% 2%,
-        100% 89%,
-        77% 100%,
-        20% 100%,
-        4% 90%,
-        16% 14%
+        42% 0%,
+        88% 2%,
+        100% 91%,
+        82% 100%,
+        28% 100%,
+        8% 92%,
+        18% 18%
       );
-      overflow: hidden;
     }
 
     #katana-h .blade::before {
       content: "";
       position: absolute;
-      left: 3px;
-      top: 6%;
-      width: 9px;
-      height: 84%;
-      border-radius: 58% 42% 20% 80% / 8% 8% 94% 94%;
-      background: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(255,255,255,.95) 32%,
-        rgba(255,255,255,.80) 48%,
-        rgba(255,255,255,0) 88%
-      );
-      opacity: .95;
-    }
-
-    #katana-h .blade::after {
-      content: "";
-      position: absolute;
-      left: 5px;
-      top: 8%;
+      top: -7px;
+      left: 2px;
       width: 8px;
-      height: 76%;
-      opacity: .70;
-      background:
-        radial-gradient(circle at 50% 8px, rgba(255,255,255,.05) 0 4px, transparent 5px) 0 0/100% 18px repeat-y,
-        linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.56) 48%, rgba(255,255,255,0) 100%);
-      filter: blur(.2px);
-      clip-path: polygon(50% 0%, 95% 6%, 63% 12%, 88% 18%, 45% 24%, 74% 30%, 34% 37%, 70% 44%, 28% 51%, 61% 58%, 21% 65%, 58% 73%, 18% 80%, 51% 88%, 25% 100%, 0% 100%, 0% 0%);
+      height: 13px;
+      background: #ffffff;
+      border-radius: 70% 30% 18% 82%;
+      transform: rotate(-10deg);
     }
 
     #katana-h .guard {
       position: absolute;
       left: 1px;
       top: 73%;
-      width: 40px;
-      height: 8px;
-      border-radius: 99px;
-      background: radial-gradient(circle at 50% 50%, #505050 0%, #121212 72%, #000 100%);
-      box-shadow: 0 0 3px rgba(255,255,255,.18);
+      width: 25px;
+      height: 5px;
+      border-radius: 3px;
+      background: #ffffff;
     }
 
     #katana-h .handle {
       position: absolute;
-      left: 9px;
-      top: calc(73% + 8px);
-      width: 17px;
+      left: 8px;
+      top: calc(73% + 5px);
+      width: 11px;
       height: 23%;
-      min-height: 30px;
-      border: 1.4px solid rgba(0,0,0,.86);
-      border-radius: 9px 9px 6px 6px;
-      background:
-        linear-gradient(135deg, transparent 0 16%, #f0f0f0 17% 32%, transparent 33% 49%, #f0f0f0 50% 65%, transparent 66% 82%, #f0f0f0 83% 100%) center 2px/100% 18px repeat-y,
-        linear-gradient(to bottom, #232323 0%, #0f0f0f 100%);
-      box-shadow: inset 0 0 3px rgba(255,255,255,.08);
+      min-height: 25px;
+      border: 2px solid #efefef;
+      border-radius: 3px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #242424 0 5px,
+        #bcbcbc 5px 7px
+      );
     }
 
     /* ---------- 縦レイアウト ---------- */
@@ -675,10 +652,10 @@
     /* 刀：縦レイアウトでは横向き */
     #katana-v {
       position: absolute;
-      left: -24%;
+      left: -22%;
       bottom: 100%;
-      width: 150%;
-      height: 42px;
+      width: 146%;
+      height: 30px;
       transform: translateY(50%);
       z-index: 8;
       pointer-events: none;
@@ -688,92 +665,69 @@
     #katana-v .blade {
       position: absolute;
       left: 0;
-      top: 10px;
+      top: 7px;
       width: 74%;
-      height: 18px;
-      border: 1.4px solid rgba(0,0,0,.82);
-      border-radius: 10% 90% 72% 28% / 54% 54% 46% 46%;
+      height: 13px;
+      border-radius: 12% 88% 76% 24% / 65% 55% 45% 35%;
       background: linear-gradient(
         to bottom,
-        #6f747a 0%,
-        #cfd4d8 18%,
-        #f6f7f8 42%,
-        #dadde0 64%,
-        #8f9499 100%
+        #dfe7ee 0%,
+        #ffffff 24%,
+        #ffffff 48%,
+        #eef3f7 72%,
+        #cbd5de 100%
       );
       box-shadow:
-        0 0 4px rgba(255,255,255,.50),
-        0 0 10px rgba(235,245,255,.28);
-      transform: skewY(-6deg);
+        0 0 7px rgba(255,255,255,.95),
+        0 0 15px rgba(235,245,255,.58);
+      transform: skewY(-2deg);
       clip-path: polygon(
-        0% 42%,
-        7% 14%,
-        87% 0%,
-        100% 17%,
-        100% 75%,
-        92% 97%,
-        12% 86%
+        0% 38%,
+        8% 12%,
+        88% 0%,
+        100% 18%,
+        100% 72%,
+        90% 96%,
+        10% 88%
       );
-      overflow: hidden;
     }
 
     #katana-v .blade::before {
       content: "";
       position: absolute;
-      left: 5%;
-      top: 3px;
-      width: 84%;
-      height: 9px;
-      border-radius: 99px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(255,255,255,.97) 34%,
-        rgba(255,255,255,.78) 50%,
-        rgba(255,255,255,0) 92%
-      );
-      opacity: .92;
-    }
-
-    #katana-v .blade::after {
-      content: "";
-      position: absolute;
-      left: 9%;
-      top: 4px;
-      width: 78%;
-      height: 9px;
-      opacity: .70;
-      background:
-        radial-gradient(circle at 8px 50%, rgba(255,255,255,.05) 0 4px, transparent 5px) 0 0/18px 100% repeat-x,
-        linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.56) 48%, rgba(255,255,255,0) 100%);
-      filter: blur(.2px);
-      clip-path: polygon(0% 50%, 6% 4%, 12% 40%, 18% 8%, 24% 46%, 30% 10%, 36% 54%, 42% 18%, 48% 60%, 54% 24%, 60% 66%, 66% 30%, 72% 72%, 78% 36%, 84% 80%, 90% 44%, 96% 90%, 100% 54%, 100% 100%, 0% 100%);
+      left: -8px;
+      top: 2px;
+      width: 13px;
+      height: 8px;
+      background: #ffffff;
+      border-radius: 65% 35% 28% 72%;
+      transform: rotate(-8deg);
     }
 
     #katana-v .guard {
       position: absolute;
       left: 73%;
-      top: 3px;
-      width: 8px;
-      height: 36px;
-      border-radius: 99px;
-      background: radial-gradient(circle at 50% 50%, #505050 0%, #121212 72%, #000 100%);
-      box-shadow: 0 0 3px rgba(255,255,255,.18);
+      top: 1px;
+      width: 5px;
+      height: 25px;
+      border-radius: 3px;
+      background: #ffffff;
     }
 
     #katana-v .handle {
       position: absolute;
-      left: calc(73% + 8px);
-      top: 10px;
+      left: calc(73% + 5px);
+      top: 8px;
       width: 23%;
-      min-width: 34px;
-      height: 16px;
-      border: 1.4px solid rgba(0,0,0,.86);
-      border-radius: 6px 10px 10px 6px;
-      background:
-        linear-gradient(135deg, transparent 0 16%, #f0f0f0 17% 32%, transparent 33% 49%, #f0f0f0 50% 65%, transparent 66% 82%, #f0f0f0 83% 100%) 2px center/18px 100% repeat-x,
-        linear-gradient(to right, #232323 0%, #0f0f0f 100%);
-      box-shadow: inset 0 0 3px rgba(255,255,255,.08);
+      min-width: 26px;
+      height: 11px;
+      border: 2px solid #efefef;
+      border-radius: 3px;
+      background: repeating-linear-gradient(
+        to right,
+        #242424 0 5px,
+        #bcbcbc 5px 7px
+      );
     }
 
     /* ---------- タイマー操作 ---------- */
@@ -1808,16 +1762,39 @@
       portraitResetBtn.addEventListener("click", resetTimer);
 
       const quarterMessages = [
-        "今日のタスクは？",
-        "進捗はどうですか？",
-        "次の15分で何をしますか？",
-        "今いちばん大事なことは？",
-        "集中できていますか？",
-        "一度、姿勢を整えましょう",
-        "やることを一つに絞れていますか？",
-        "今の作業は予定どおりですか？"
+        "今、この瞬間に集中できていますか？",
+        "今やっていることは大事ですか？",
+        "次の15分をどう使いますか？",
+        "今できることを一つだけ。",
+        "目の前のことに戻りましょう。",
+        "今を雑に使っていませんか？",
+        "今日という日は今日だけです。",
+        "今の15分を大切に。",
+        "今、一番したいことは何ですか？",
+        "今、一番すべきことは何ですか？",
+        "何となく時間を使っていませんか？",
+        "この15分で一つ進めましょう。",
+        "今ここに意識を戻しましょう。",
+        "過去より、次の15分。",
+        "未来より、まず今。",
+        "小さくても前へ。",
+        "今できる一歩は何ですか？",
+        "この時間を自分で選べていますか？",
+        "今の行動は未来につながっていますか？",
+        "やらないことを一つ決めませんか？",
+        "気が散っていませんか？",
+        "一度、頭の中を整理しましょう。",
+        "急がず、止まらず。",
+        "今の自分に必要なのは何ですか？",
+        "15分あれば、何か一つできます。",
+        "今を楽しめていますか？",
+        "今日をちゃんと生きていますか？",
+        "この瞬間を後回しにしない。",
+        "次の15分を、自分のために。",
+        "今、この時間を大切に。"
       ];
 
+      let quarterMessageBag = [];
       let lastQuarterKey = "";
       let lastCuckooKey = "";
       let dismissedSedentaryKey = "";
@@ -1867,8 +1844,19 @@
         dismissClockMessages();
       });
 
+      function shuffleQuarterMessages() {
+        quarterMessageBag = [...quarterMessages];
+        for (let i = quarterMessageBag.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [quarterMessageBag[i], quarterMessageBag[j]] = [quarterMessageBag[j], quarterMessageBag[i]];
+        }
+      }
+
       function randomQuarterMessage() {
-        return quarterMessages[Math.floor(Math.random() * quarterMessages.length)];
+        if (quarterMessageBag.length === 0) {
+          shuffleQuarterMessages();
+        }
+        return quarterMessageBag.pop();
       }
 
       function showQuarterReminder(quarterKey) {
