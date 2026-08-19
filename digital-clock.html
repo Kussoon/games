@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
-  <title>時計・タイマー Ver.2.0</title>
+  <title>時計・タイマー Ver.2.0.1</title>
 
   <style>
     :root {
@@ -803,6 +803,10 @@
       inset: 0;
       pointer-events: none;
       z-index: 70;
+    }
+
+    #clock-alert-layer.dismissible {
+      pointer-events: auto;
     }
 
     #sedentary-alert {
@@ -1666,6 +1670,7 @@
 
       const flashOverlay = document.getElementById("flash-overlay");
       const quarterFlashOverlay = document.getElementById("quarter-flash-overlay");
+      const clockAlertLayer = document.getElementById("clock-alert-layer");
       const sedentaryAlert = document.getElementById("sedentary-alert");
       const quarterReminder = document.getElementById("quarter-reminder");
       const cuckooScene = document.getElementById("cuckoo-scene");
@@ -1727,15 +1732,60 @@
 
       let lastQuarterKey = "";
       let lastCuckooKey = "";
+      let dismissedSedentaryKey = "";
+      let dismissedQuarterKey = "";
+      let currentSedentaryKey = "";
+      let currentQuarterKey = "";
       let quarterReminderHideTimer = null;
       let cuckooHideTimer = null;
+
+      function refreshDismissLayer() {
+        const hasDismissibleMessage =
+          sedentaryAlert.classList.contains("show") ||
+          quarterReminder.classList.contains("show");
+
+        clockAlertLayer.classList.toggle("dismissible", hasDismissibleMessage);
+      }
+
+      function dismissClockMessages() {
+        if (sedentaryAlert.classList.contains("show")) {
+          dismissedSedentaryKey = currentSedentaryKey;
+          sedentaryAlert.classList.remove("show");
+        }
+
+        if (quarterReminder.classList.contains("show")) {
+          dismissedQuarterKey = currentQuarterKey;
+          quarterReminder.classList.remove("show");
+
+          if (quarterReminderHideTimer) {
+            clearTimeout(quarterReminderHideTimer);
+            quarterReminderHideTimer = null;
+          }
+        }
+
+        refreshDismissLayer();
+      }
+
+      // 表示中の「座りすぎ注意」「15分リマインダー」は、
+      // 画面のどこを1回タップしても消える。
+      clockAlertLayer.addEventListener("pointerdown", (event) => {
+        if (
+          !sedentaryAlert.classList.contains("show") &&
+          !quarterReminder.classList.contains("show")
+        ) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+        dismissClockMessages();
+      });
 
       function randomQuarterMessage() {
         return quarterMessages[Math.floor(Math.random() * quarterMessages.length)];
       }
 
-      function showQuarterReminder() {
+      function showQuarterReminder(quarterKey) {
         const message = randomQuarterMessage();
+        currentQuarterKey = quarterKey;
 
         quarterFlashOverlay.classList.remove("flashing");
         void quarterFlashOverlay.offsetWidth;
@@ -1743,14 +1793,19 @@
 
         setTimeout(() => {
           quarterFlashOverlay.classList.remove("flashing");
-          quarterReminder.textContent = message;
-          quarterReminder.classList.add("show");
+          // フラッシュ中にすでにこの回を消した扱いにしていない場合のみ表示。
+          if (dismissedQuarterKey !== quarterKey) {
+            quarterReminder.textContent = message;
+            quarterReminder.classList.add("show");
+            refreshDismissLayer();
+          }
 
           if (quarterReminderHideTimer) clearTimeout(quarterReminderHideTimer);
 
           quarterReminderHideTimer = setTimeout(() => {
             quarterReminder.classList.remove("show");
             quarterReminderHideTimer = null;
+            refreshDismissLayer();
           }, 5 * 60 * 1000);
         }, 4100);
       }
@@ -1775,23 +1830,41 @@
       function updateClockReminders(now) {
         if (currentMode !== "clock") {
           sedentaryAlert.classList.remove("show");
+          quarterReminder.classList.remove("show");
+          refreshDismissLayer();
           return;
         }
 
         const minute = now.getMinutes();
         const second = now.getSeconds();
 
-        sedentaryAlert.classList.toggle("show", minute >= 50);
+        if (minute >= 50) {
+          currentSedentaryKey =
+            `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}-${now.getHours()}-50`;
+
+          if (dismissedSedentaryKey !== currentSedentaryKey) {
+            sedentaryAlert.classList.add("show");
+          } else {
+            sedentaryAlert.classList.remove("show");
+          }
+        } else {
+          sedentaryAlert.classList.remove("show");
+          currentSedentaryKey = "";
+        }
 
         if ([0, 15, 30, 45].includes(minute) && second <= 1) {
           const quarterKey =
             `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}-${now.getHours()}-${minute}`;
 
+          currentQuarterKey = quarterKey;
+
           if (quarterKey !== lastQuarterKey) {
             lastQuarterKey = quarterKey;
-            showQuarterReminder();
+            showQuarterReminder(quarterKey);
           }
         }
+
+        refreshDismissLayer();
 
         if (minute === 0 && second <= 1) {
           const cuckooKey =
