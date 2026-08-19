@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
-  <title>時計・タイマー Ver.1.9.6</title>
+  <title>時計・タイマー Ver.2.0</title>
 
   <style>
     :root {
@@ -798,6 +798,240 @@
       animation: flash 1s steps(1, end) 6;
     }
 
+    #clock-alert-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 70;
+    }
+
+    #sedentary-alert {
+      position: fixed;
+      left: 50%;
+      bottom: max(6vh, calc(36px + var(--safe-bottom)));
+      transform: translateX(-50%);
+      width: min(92vw, 920px);
+      padding: 14px 24px;
+      border-radius: 18px;
+      background: rgba(18,18,18,.90);
+      border: 1px solid rgba(255,255,255,.26);
+      color: #fff3a6;
+      text-align: center;
+      font-size: min(5.5vw, 6vh);
+      font-weight: 800;
+      letter-spacing: .03em;
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+
+    #sedentary-alert.show { opacity: 1; }
+
+    #quarter-reminder {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(.96);
+      width: min(88vw, 920px);
+      padding: 24px 30px;
+      border-radius: 22px;
+      background: rgba(10,10,10,.94);
+      border: 2px solid rgba(255,255,255,.38);
+      color: #fff;
+      text-align: center;
+      font-size: min(5vw, 6.5vh);
+      font-weight: 750;
+      letter-spacing: .025em;
+      opacity: 0;
+      transition: opacity .22s ease, transform .22s ease;
+    }
+
+    #quarter-reminder.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    #quarter-flash-overlay {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 90;
+    }
+
+    #quarter-flash-overlay.flashing {
+      animation: quarter-flash .8s steps(1, end) 5;
+    }
+
+    @keyframes quarter-flash {
+      0%, 100% { opacity: 0; }
+      50% { opacity: .78; }
+    }
+
+    #cuckoo-scene {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: min(58vw, 420px);
+      height: min(42vh, 300px);
+      transform: translate(-50%, -50%) scale(.9);
+      opacity: 0;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    #cuckoo-scene.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .cuckoo-house {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 66%;
+      height: 62%;
+      transform: translate(-50%, -42%);
+      background: #3a2b24;
+      border: 3px solid #9b7a5d;
+      border-radius: 8px 8px 16px 16px;
+    }
+
+    .cuckoo-roof {
+      position: absolute;
+      left: 50%;
+      top: 5%;
+      width: 0;
+      height: 0;
+      transform: translateX(-50%);
+      border-left: 120px solid transparent;
+      border-right: 120px solid transparent;
+      border-bottom: 90px solid #5a3d2f;
+    }
+
+    .cuckoo-door-frame {
+      position: absolute;
+      left: 50%;
+      top: 20%;
+      width: 34%;
+      height: 42%;
+      transform: translateX(-50%);
+      border: 3px solid #d4b58a;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .cuckoo-door {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: #704b36;
+      border: 1px solid #b58c68;
+      transition: transform .35s ease;
+    }
+
+    .cuckoo-door.left { left: 0; }
+    .cuckoo-door.right { right: 0; }
+
+    #cuckoo-scene.animate .cuckoo-door.left { transform: translateX(-105%); }
+    #cuckoo-scene.animate .cuckoo-door.right { transform: translateX(105%); }
+
+    .cuckoo-bird {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 58px;
+      height: 42px;
+      transform: translate(-50%, -50%) translateY(24px) scale(.6);
+      opacity: 0;
+      transition: transform .5s ease .35s, opacity .3s ease .35s;
+    }
+
+    #cuckoo-scene.animate .cuckoo-bird {
+      transform: translate(-50%, -50%) translateY(-28px) scale(1);
+      opacity: 1;
+    }
+
+    .cuckoo-body {
+      position: absolute;
+      left: 10px;
+      top: 11px;
+      width: 38px;
+      height: 26px;
+      background: #d8d2c5;
+      border-radius: 50% 55% 48% 52%;
+    }
+
+    .cuckoo-head {
+      position: absolute;
+      left: 32px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      background: #e8e2d7;
+      border-radius: 50%;
+    }
+
+    .cuckoo-eye {
+      position: absolute;
+      right: 4px;
+      top: 6px;
+      width: 4px;
+      height: 4px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    .cuckoo-beak {
+      position: absolute;
+      right: -10px;
+      top: 7px;
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 11px solid #e8b84a;
+    }
+
+    .cuckoo-wing {
+      position: absolute;
+      left: 7px;
+      top: 15px;
+      width: 23px;
+      height: 12px;
+      background: #aaa394;
+      border-radius: 55% 45% 60% 40%;
+      transform: rotate(-18deg);
+      transform-origin: right center;
+    }
+
+    #cuckoo-scene.animate .cuckoo-wing {
+      animation: cuckoo-wing .35s ease-in-out 4 .5s;
+    }
+
+    .cuckoo-perch {
+      position: absolute;
+      left: 50%;
+      top: 61%;
+      width: 36%;
+      height: 7px;
+      transform: translateX(-50%);
+      background: #d1b082;
+      border-radius: 6px;
+    }
+
+    @keyframes cuckoo-wing {
+      0%, 100% { transform: rotate(-18deg); }
+      50% { transform: rotate(-48deg); }
+    }
+
+    @media (orientation: portrait) {
+      #sedentary-alert { font-size: min(7vw, 4.8vh); width: 90vw; }
+      #quarter-reminder { font-size: min(7vw, 4.8vh); width: 88vw; }
+      #cuckoo-scene { width: min(84vw, 390px); height: min(34vh, 300px); }
+    }
+
     @keyframes flash {
       0%, 100% { opacity: 0; }
       50% { opacity: .72; }
@@ -978,6 +1212,32 @@
   </section>
 
   <div id="wake-status" aria-hidden="true"></div>
+
+  <div id="clock-alert-layer" aria-live="polite">
+    <div id="sedentary-alert">座りすぎ注意⚠️</div>
+    <div id="quarter-reminder"></div>
+
+    <div id="cuckoo-scene" aria-hidden="true">
+      <div class="cuckoo-roof"></div>
+      <div class="cuckoo-house">
+        <div class="cuckoo-door-frame">
+          <div class="cuckoo-door left"></div>
+          <div class="cuckoo-door right"></div>
+          <div class="cuckoo-bird">
+            <div class="cuckoo-body"></div>
+            <div class="cuckoo-head">
+              <div class="cuckoo-eye"></div>
+              <div class="cuckoo-beak"></div>
+            </div>
+            <div class="cuckoo-wing"></div>
+          </div>
+        </div>
+        <div class="cuckoo-perch"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="quarter-flash-overlay"></div>
   <div id="flash-overlay"></div>
 
   <script>
@@ -1187,6 +1447,8 @@
         landscapeDaysLeft.textContent = daysText;
         portraitWeeksLeft.textContent = weeksText;
         portraitDaysLeft.textContent = daysText;
+
+        updateClockReminders(now);
       }
 
       function startClock() {
@@ -1403,6 +1665,11 @@
       }
 
       const flashOverlay = document.getElementById("flash-overlay");
+      const quarterFlashOverlay = document.getElementById("quarter-flash-overlay");
+      const sedentaryAlert = document.getElementById("sedentary-alert");
+      const quarterReminder = document.getElementById("quarter-reminder");
+      const cuckooScene = document.getElementById("cuckoo-scene");
+
       let flashTimerId = null;
 
       function stopFinishFlash() {
@@ -1446,6 +1713,96 @@
       portraitStartBtn.addEventListener("click", toggleTimer);
       landscapeResetBtn.addEventListener("click", resetTimer);
       portraitResetBtn.addEventListener("click", resetTimer);
+
+      const quarterMessages = [
+        "今日のタスクは？",
+        "進捗はどうですか？",
+        "次の15分で何をしますか？",
+        "今いちばん大事なことは？",
+        "集中できていますか？",
+        "一度、姿勢を整えましょう",
+        "やることを一つに絞れていますか？",
+        "今の作業は予定どおりですか？"
+      ];
+
+      let lastQuarterKey = "";
+      let lastCuckooKey = "";
+      let quarterReminderHideTimer = null;
+      let cuckooHideTimer = null;
+
+      function randomQuarterMessage() {
+        return quarterMessages[Math.floor(Math.random() * quarterMessages.length)];
+      }
+
+      function showQuarterReminder() {
+        const message = randomQuarterMessage();
+
+        quarterFlashOverlay.classList.remove("flashing");
+        void quarterFlashOverlay.offsetWidth;
+        quarterFlashOverlay.classList.add("flashing");
+
+        setTimeout(() => {
+          quarterFlashOverlay.classList.remove("flashing");
+          quarterReminder.textContent = message;
+          quarterReminder.classList.add("show");
+
+          if (quarterReminderHideTimer) clearTimeout(quarterReminderHideTimer);
+
+          quarterReminderHideTimer = setTimeout(() => {
+            quarterReminder.classList.remove("show");
+            quarterReminderHideTimer = null;
+          }, 5 * 60 * 1000);
+        }, 4100);
+      }
+
+      function showCuckoo() {
+        cuckooScene.classList.remove("show", "animate");
+        void cuckooScene.offsetWidth;
+        cuckooScene.classList.add("show");
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => cuckooScene.classList.add("animate"));
+        });
+
+        if (cuckooHideTimer) clearTimeout(cuckooHideTimer);
+
+        cuckooHideTimer = setTimeout(() => {
+          cuckooScene.classList.remove("animate", "show");
+          cuckooHideTimer = null;
+        }, 6000);
+      }
+
+      function updateClockReminders(now) {
+        if (currentMode !== "clock") {
+          sedentaryAlert.classList.remove("show");
+          return;
+        }
+
+        const minute = now.getMinutes();
+        const second = now.getSeconds();
+
+        sedentaryAlert.classList.toggle("show", minute >= 50);
+
+        if ([0, 15, 30, 45].includes(minute) && second <= 1) {
+          const quarterKey =
+            `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}-${now.getHours()}-${minute}`;
+
+          if (quarterKey !== lastQuarterKey) {
+            lastQuarterKey = quarterKey;
+            showQuarterReminder();
+          }
+        }
+
+        if (minute === 0 && second <= 1) {
+          const cuckooKey =
+            `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}-${now.getHours()}`;
+
+          if (cuckooKey !== lastCuckooKey) {
+            lastCuckooKey = cuckooKey;
+            showCuckoo();
+          }
+        }
+      }
 
       document.querySelectorAll(".timer-key").forEach(btn => {
         btn.addEventListener("click", () => {
