@@ -59,7 +59,8 @@
       <p>画面に表示されたコミュニティの町域を、地図から探してタップします。</p>
       <ul>
         <li>全26問・出題順は毎回ランダム</li>
-        <li>所属する町域のどこをタップしても正解</li>
+        <li>26コミュニティを独自の色で表示</li>
+        <li>コミュニティ区域のどこをタップしても正解</li>
         <li>誤タップ1回につき1点減点</li>
         <li>地図は拡大・縮小・移動できます</li>
       </ul><br>
@@ -77,7 +78,7 @@
       <div id="map" aria-label="西宮市コミュニティ場所当て地図"></div>
       <div class="tools"><button type="button" id="resetView">全体表示</button></div>
     </div>
-    <p class="hint">指1本で移動、2本指で拡大・縮小できます。町域の白線も位置の手掛かりです。</p>
+    <p class="hint">指1本で移動、2本指で拡大・縮小できます。白線がコミュニティの境界です。</p>
   </section>
 
   <section id="resultScreen" class="hidden">
@@ -108,7 +109,7 @@
   const message = document.getElementById('message');
   const map = L.map('map',{zoomControl:true,attributionControl:false,minZoom:10,maxZoom:18});
   let mapping;
-  let townLayer;
+  let communityLayer;
   let allBounds;
   let communities=[];
   let order=[];
@@ -119,20 +120,26 @@
   let locked=false;
   let marked=new Map();
 
-  const neutralStyle={color:'#fff',weight:1.05,fillColor:'#78b7d8',fillOpacity:.78};
   const correctStyle={color:'#08743f',weight:2.2,fillColor:'#35c979',fillOpacity:.94};
   const wrongStyle={color:'#a52121',weight:2.2,fillColor:'#ef6565',fillOpacity:.94};
 
   function show(id){screens.forEach(name=>document.getElementById(name).classList.toggle('hidden',name!==id));}
   function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-  function infoFor(feature){const name=feature.properties.S_NAME;return{name,...(mapping.towns[name]||{community:'対象外',status:'対象外'})};}
-  function accepted(info,answer){return info.community===answer || (info.name==='岡田山' && (answer==='広田'||answer==='上ヶ原'));}
-  function answerLabel(info){return info.name==='岡田山'?'1〜3 広田、4〜7 上ヶ原':info.community;}
+  function colorFor(name){
+    if(name==='1〜3 広田、4〜7 上ヶ原')return '#ffd34d';
+    if(name==='対象外（水域）')return '#9ba9b5';
+    const position=communities.indexOf(name);
+    return `hsl(${(position*137.508)%360} 63% 57%)`;
+  }
+  function baseStyle(feature){return{color:'#fff',weight:2,fillColor:colorFor(feature.properties.community),fillOpacity:.86};}
+  function infoFor(feature){return feature.properties;}
+  function accepted(info,answer){return info.community===answer || (info.community==='1〜3 広田、4〜7 上ヶ原'&&(answer==='広田'||answer==='上ヶ原'));}
+  function answerLabel(info){return info.community;}
 
   function clearMarks(){
     marked.forEach(timer=>clearTimeout(timer));
     marked.clear();
-    if(townLayer)townLayer.setStyle(neutralStyle);
+    if(communityLayer)communityLayer.setStyle(baseStyle);
   }
 
   function loadQuestion(){
@@ -146,7 +153,7 @@
   }
 
   function startRound(){
-    if(!townLayer){message.textContent='地図を読み込んでいます。少しお待ちください。';return;}
+    if(!communityLayer){message.textContent='地図を読み込んでいます。少しお待ちください。';return;}
     order=shuffle(communities);index=0;totalWrong=0;show('gameScreen');
     setTimeout(()=>{
       map.invalidateSize();
@@ -163,7 +170,7 @@
     }
     if(accepted(info,target)){
       locked=true;
-      townLayer.eachLayer(item=>{if(accepted(infoFor(item.feature),target))item.setStyle(correctStyle);});
+      communityLayer.eachLayer(item=>{if(accepted(infoFor(item.feature),target))item.setStyle(correctStyle);});
       feedback.className='feedback good';
       feedback.textContent=currentWrong===0?'正解！ 一発で当たりました。':'正解！ 次の問題へ進みます。';
       message.textContent=`正解です！ 緑色の区域が「${target}」です。`;
@@ -173,7 +180,7 @@
       layer.setStyle(wrongStyle);
       feedback.className='feedback bad';feedback.textContent=`そこは「${answerLabel(info)}」です。もう一度探してください。`;
       if(marked.has(layer))clearTimeout(marked.get(layer));
-      marked.set(layer,setTimeout(()=>{if(!locked)layer.setStyle(neutralStyle);marked.delete(layer);},650));
+      marked.set(layer,setTimeout(()=>{if(!locked)layer.setStyle(baseStyle(layer.feature));marked.delete(layer);},650));
     }
   }
 
@@ -197,9 +204,28 @@
     fetch('community-town-map.json').then(r=>{if(!r.ok)throw Error('割り当てデータ');return r.json()})
   ]).then(([topology,mapData])=>{
     mapping=mapData;communities=mapping.communities;
-    const geojson=topojson.feature(topology,topology.objects.town);
-    townLayer=L.geoJSON(geojson,{style:neutralStyle,onEachFeature(feature,layer){layer.on('click',()=>handleAnswer(infoFor(feature),layer));}}).addTo(map);
-    allBounds=townLayer.getBounds();map.fitBounds(allBounds,{padding:[8,8]});
+    const geometries=topology.objects.town.geometries;
+    const features=communities.map(community=>{
+      const members=geometries.filter(item=>mapping.towns[item.properties.S_NAME]?.community===community);
+      const merged=topojson.merge(topology,members);
+      merged.properties={community};
+      return merged;
+    });
+    const specialGeometry=geometries.find(item=>item.properties.S_NAME==='岡田山');
+    const special=topojson.feature(topology,specialGeometry);
+    special.properties={community:'1〜3 広田、4〜7 上ヶ原'};
+    features.push(special);
+    const waterGeometry=geometries.find(item=>mapping.towns[item.properties.S_NAME]?.community==='対象外（水域）');
+    if(waterGeometry){
+      const water=topojson.feature(topology,waterGeometry);
+      water.properties={community:'対象外（水域）'};
+      features.push(water);
+    }
+    communityLayer=L.geoJSON({type:'FeatureCollection',features},{
+      style:baseStyle,
+      onEachFeature(feature,layer){layer.on('click',()=>handleAnswer(infoFor(feature),layer));}
+    }).addTo(map);
+    allBounds=communityLayer.getBounds();map.fitBounds(allBounds,{padding:[8,8]});
   }).catch(error=>{
     message.textContent='地図を読み込めませんでした。必要なデータファイルを確認してください。';
     document.getElementById('startBtn').disabled=true;
