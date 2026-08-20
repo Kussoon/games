@@ -60,7 +60,7 @@
     <div class="tools"><button type="button" id="resetView">全体表示</button></div>
   </div>
   <div class="legend" id="legend"></div>
-  <div class="warning"><strong>確認事項：</strong>岡田山は町内の番地によって「広田」と「上ヶ原」に分かれますが、GeoShapeでは町全体が一つの図形です。この確認版では黄色の「境界要確認」としています。海上の港湾区域は対象外です。</div>
+  <div class="warning"><strong>岡田山：</strong>1〜3 広田、4〜7 上ヶ原。GeoShapeでは町全体が一つの図形のため、黄色で表示しています。海上の港湾区域は対象外です。</div>
   <p class="credit">出典：『国勢調査町丁・字等別境界データセット』（CODH作成）「令和2年国勢調査町丁・字等別境界データ」（e-Stat）を加工。CC BY 4.0／doi:10.20676/00000450</p>
 </main>
 
@@ -80,7 +80,7 @@
   let selectedTown = '';
 
   function colorFor(name, communities) {
-    if (name === '境界要確認') return '#ffd34d';
+    if (name === '1〜3 広田、4〜7 上ヶ原') return '#ffd34d';
     if (name === '対象外（水域）') return '#9ba9b5';
     if (name === '未割当') return '#ed6a5a';
     const index = communities.indexOf(name);
@@ -111,9 +111,9 @@
   ]).then(([topology, mapData]) => {
     mapping = mapData;
     mapping.communities.forEach(name => filter.add(new Option(name, name)));
-    ['境界要確認','対象外（水域）'].forEach(name => filter.add(new Option(name, name)));
+    ['1〜3 広田、4〜7 上ヶ原','対象外（水域）'].forEach(name => filter.add(new Option(name, name)));
 
-    [...mapping.communities,'境界要確認','対象外（水域）'].forEach(name => {
+    [...mapping.communities,'1〜3 広田、4〜7 上ヶ原','対象外（水域）'].forEach(name => {
       const item = document.createElement('span');
       item.innerHTML = `<i class="swatch" style="background:${colorFor(name,mapping.communities)}"></i>${name}`;
       legend.appendChild(item);
