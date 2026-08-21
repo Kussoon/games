@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.3.3</title>
+<title>都道府県名記憶ゲーム Ver.3.4</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -106,59 +106,90 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .card{position:relative}
 @media(max-width:520px){.mascot-corner{width:62px;max-height:90px}}
 
+
+/* Ver.3.4 home */
+.home-hero{position:relative;min-height:150px;padding:18px 130px 14px 8px;text-align:left;margin-bottom:10px}
+.home-hero h1{font-size:clamp(30px,7.2vw,44px);line-height:1.15;margin:0 0 12px;color:#174f9a}
+.home-hero .sub{font-weight:900;color:#304858;font-size:15px}
+.home-mascot{position:absolute;right:5px;bottom:0;width:118px;max-height:145px;object-fit:contain}
+.home-card{padding:12px}
+.home-modes{display:grid;grid-template-columns:1fr;gap:10px}
+.home-modes .mode{display:grid;grid-template-columns:58px 1fr 24px;align-items:center;min-height:105px;padding:12px 14px;text-align:left}
+.mode-icon{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:12px;background:rgba(255,255,255,.66);font-size:28px}
+.mode-copy strong{font-size:19px;margin-bottom:5px}
+.mode-copy small{font-size:13px}
+.chev{font-size:34px;line-height:1;color:#183a5a;text-align:right}
+.home-region-box{margin-top:14px;padding:12px;border:1px solid #cfe0eb;border-radius:14px;background:#fbfdff}
+.home-region-box h2{font-size:15px;color:#24548b;margin:0 0 10px}
+.home-region-box .selected{margin-top:9px}
+
+/* Character placement in game screens */
+.studyViewport,.quizViewport,.quiz2Viewport,.canvasWrap{position:relative}
+.screen-mascot{position:absolute;right:4px;bottom:2px;width:118px;max-height:155px;object-fit:contain;z-index:6;pointer-events:none}
+#writePage .screen-mascot{width:105px;max-height:140px}
+.mascot-corner{display:none!important}
+
+@media(max-width:520px){
+  .home-hero{min-height:132px;padding:14px 100px 8px 2px}
+  .home-mascot{width:92px;max-height:120px}
+  .home-hero h1{font-size:31px}
+  .home-modes .mode{grid-template-columns:52px 1fr 20px;min-height:96px;padding:10px}
+  .mode-icon{width:44px;height:44px;font-size:24px}
+  .mode-copy strong{font-size:17px}
+  .mode-copy small{font-size:12px}
+  .screen-mascot{width:98px;max-height:132px}
+  #writePage .screen-mascot{width:88px}
+}
+
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.3.3 完成候補版 -->
+<!-- 都道府県名記憶ゲーム Ver.3.4 完成候補版 -->
 <main>
-<header>
-  <h1>🗾 都道府県名記憶ゲーム</h1>
-  <div class="sub">場所・名前・漢字を、楽しく覚えよう</div>
+
+<header class="home-hero">
+  <div class="home-title-wrap">
+    <h1>🗾 都道府県名記憶ゲーム</h1>
+    <div class="sub">4つのモードで都道府県名をマスターしよう！</div>
+  </div>
+  <img class="home-mascot" src="images/kisaragi-teacher.png" alt="">
 </header>
 
-<section class="card teacher">
-  <img src="images/kisaragi-teacher.png" alt="">
-  <div class="bubble">
-    まず地方を選んでから、遊び方を選んでください。
-    1地方ずつでも、3地方まとめても、全国でも挑戦できます。
-  </div>
-</section>
-
-<section class="card">
-  <h2>① 地方を選ぶ</h2>
-  <div id="regions" class="region-grid"></div>
-
-  <h2 style="margin-top:14px">まとめて挑戦</h2>
-  <div id="ranges" class="range-grid"></div>
-
-  <div id="selected" class="selected">選択中：05 近畿</div>
-</section>
-
-<section class="card">
-  <h2>② 遊び方を選ぶ</h2>
-  <div class="modes">
+<section class="card home-card">
+  <div class="modes home-modes">
     <button class="mode study" data-mode="study">
-      <strong>📖 学習モード</strong>
-      <small>都道府県名と場所を地図で確認します。</small>
+      <span class="mode-icon">📖</span>
+      <span class="mode-copy"><strong>1　学習モード</strong><small>地図で位置と名前を確認して覚えよう！</small></span>
+      <span class="chev">›</span>
     </button>
     <button class="mode q1" data-mode="q1">
-      <strong>📍 クイズ1　名前 → 場所</strong>
-      <small>「○○県はどこですか？」に、県の形そのものをタップして答えます。</small>
+      <span class="mode-icon">📍</span>
+      <span class="mode-copy"><strong>2　クイズ1　名前 → 場所</strong><small>県名を見て、地図の中から場所をタップ！</small></span>
+      <span class="chev">›</span>
     </button>
     <button class="mode q2" data-mode="q2">
-      <strong>🔎 クイズ2　場所 → 名前</strong>
-      <small>光った都道府県を見て、4択から県名を選びます。</small>
+      <span class="mode-icon">🔎</span>
+      <span class="mode-copy"><strong>3　クイズ2　場所 → 名前</strong><small>光った県の名前を4つの選択肢から選ぼう！</small></span>
+      <span class="chev">›</span>
     </button>
     <button class="mode write" data-mode="write">
-      <strong>✍️ 漢字書き取り</strong>
-      <small>ひらがなの県名を見て、指やスタイラスで漢字を書きます。</small>
+      <span class="mode-icon">✏️</span>
+      <span class="mode-copy"><strong>4　漢字書き取り</strong><small>ひらがなを見て、漢字で書いてみよう！</small></span>
+      <span class="chev">›</span>
     </button>
   </div>
+
+  <div class="home-region-box">
+    <h2>学習する範囲を選んでください</h2>
+    <div id="regions" class="region-grid"></div>
+    <div id="ranges" class="range-grid"></div>
+    <div id="selected" class="selected">選択中：05 近畿</div>
+  </div>
+
   <div id="notice"></div>
 </section>
 
-
-<section id="studyPage" class="card"><img class="mascot-corner" src="images/kisaragi-teacher.png" alt="">
+<section id="studyPage" class="card">
   <div class="study-head"><button id="studyBack" class="back">← 地方選択へ</button><strong>📖 学習モード</strong></div>
   <div id="studyTitle" class="studyTitle"></div>
   <div class="studyHelp">県名と位置を確認しましょう。2本指で拡大縮小、1本指で移動できます。</div>
@@ -370,15 +401,15 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
       <line x1="655.658" y1="718.715" x2="823.545" y2="718.715" style=""/>
     </g>
   </g>
-</svg></div>
+</svg><img class="screen-mascot" src="images/kisaragi-teacher.png" alt=""></div>
   <div class="zoomRow"><button id="zoomOut" class="zoomBtn">−</button><button id="zoomReset" class="zoomBtn">全体表示</button><button id="zoomIn" class="zoomBtn">＋</button></div>
 </section>
 
-<section id="quiz1Page" class="card"><img class="mascot-corner" src="images/kisaragi-teacher.png" alt="">
+<section id="quiz1Page" class="card">
   <div class="quizHead"><button id="quizBack" class="back">← 地方選択へ</button><strong>📍 クイズ1　名前 → 場所</strong></div>
   <div id="quizTitle" class="quizTitle"></div>
   <div id="quizProgress" class="quizProgress"></div>
-  <div id="quizViewport" class="quizViewport"></div>
+  <div id="quizViewport" class="quizViewport"><img class="screen-mascot" src="images/kisaragi-teacher.png" alt=""></div>
   <div id="quizMessage" class="quizMessage"></div>
   <div class="quizControls">
     <button id="quizNext" class="nextBtn">次の問題 ▶</button>
@@ -391,11 +422,11 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </section>
 
 
-<section id="quiz2Page" class="card"><img class="mascot-corner" src="images/kisaragi-teacher.png" alt="">
+<section id="quiz2Page" class="card">
   <div class="quizHead"><button id="quiz2Back" class="back">← 地方選択へ</button><strong>🔎 クイズ2　場所 → 名前</strong></div>
   <div id="quiz2Title" class="quiz2Title">光っている都道府県の名前を選んでください</div>
   <div id="quiz2Progress" class="quiz2Progress"></div>
-  <div id="quiz2Viewport" class="quiz2Viewport"></div>
+  <div id="quiz2Viewport" class="quiz2Viewport"><img class="screen-mascot" src="images/kisaragi-teacher.png" alt=""></div>
   <div id="quiz2Choices" class="choiceGrid"></div>
   <div id="quiz2Message" class="q2Message"></div>
   <div class="quizControls">
@@ -409,12 +440,12 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </section>
 
 
-<section id="writePage" class="card"><img class="mascot-corner" src="images/kisaragi-teacher.png" alt="">
+<section id="writePage" class="card">
   <div class="writeHead"><button id="writeBack" class="back">← 地方選択へ</button><strong>✍️ 漢字書き取り</strong></div>
   <div id="writeTitle" class="writeTitle">ひらがなを漢字で書いてみよう</div>
   <div id="writeProgress" class="writeProgress"></div>
   <div id="writeKana" class="writeKana"></div>
-  <div class="canvasWrap"><canvas id="writeCanvas"></canvas></div>
+  <div class="canvasWrap"><canvas id="writeCanvas"></canvas><img class="screen-mascot" src="images/kisaragi-teacher.png" alt=""></div>
   <div class="writeControls">
     <button id="writeClear" class="clearBtn">書き直す</button>
     <button id="showAnswer" class="answerBtn">答えを見る</button>
@@ -431,11 +462,10 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.3.3 完成候補版</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.3.4 完成候補版</div>
 <footer class="credit">
-  地図データ：Geolonia「japanese-prefectures」SVG Map of Japan<br>
-  Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
-  <a href="https://github.com/geolonia/japanese-prefectures">https://github.com/geolonia/japanese-prefectures</a>
+  地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
+  Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL
 </footer>
 </main>
 
