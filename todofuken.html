@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.3.5</title>
+<title>都道府県名記憶ゲーム Ver.3.6</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -149,7 +149,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.3.5 -->
+<!-- 都道府県名記憶ゲーム Ver.3.6 -->
 <main>
 
 <header class="home-hero">
@@ -161,6 +161,14 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </header>
 
 <section class="card home-card">
+  <div class="home-region-box">
+    <h2>学習する範囲を選んでください</h2>
+    <div id="regions" class="region-grid"></div>
+    <div id="ranges" class="range-grid"></div>
+    <div id="selected" class="selected">選択中：5 近畿</div>
+  </div>
+
+
   <div class="modes home-modes">
     <button class="mode study" data-mode="study">
       <span class="mode-icon">📖</span>
@@ -182,13 +190,6 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
       <span class="mode-copy"><strong>4　漢字書き取り</strong><small>ひらがなを見て、漢字で書いてみよう！</small></span>
       <span class="chev">›</span>
     </button>
-  </div>
-
-  <div class="home-region-box">
-    <h2>学習する範囲を選んでください</h2>
-    <div id="regions" class="region-grid"></div>
-    <div id="ranges" class="range-grid"></div>
-    <div id="selected" class="selected">選択中：05 近畿</div>
   </div>
 
   <div id="notice"></div>
@@ -456,7 +457,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.3.5</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.3.6</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL
@@ -477,12 +478,12 @@ function choose(label,btn){
   selected=label;
   document.querySelectorAll(".region,.range").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
-  selectedEl.textContent="選択中："+label;
+  selectedEl.textContent="選択中："+label.replace(/^0([1-9]) /,"$1 ");
 }
 singles.forEach(label=>{
   const b=document.createElement("button");
   b.className="region";
-  b.textContent=label;
+  b.textContent=label.replace(/^0([1-9]) /,"$1 ");
   b.onclick=()=>choose(label,b);
   regions.appendChild(b);
   if(label===selected)b.classList.add("active");
@@ -590,7 +591,7 @@ function fitStudy(codes){
 function openStudy(){
   document.querySelectorAll("main>header,.teacher,main>.card:not(#studyPage)").forEach(e=>e.style.display="none");
   document.getElementById("studyPage").style.display="block";
-  document.getElementById("studyTitle").textContent=selected+" を見て覚えよう";
+  document.getElementById("studyTitle").textContent=selected.replace(/^0([1-9]) /,"$1 ")+" を見て覚えよう";
   requestAnimationFrame(()=>fitStudy(STUDY_SETS[selected]));
 }
 document.getElementById("studyBack").onclick=()=>{
