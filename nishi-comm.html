@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>西宮市町名記憶ゲーム Ver.6.1</title>
+  <title>西宮市町名記憶ゲーム Ver.6.1.1</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     :root{--navy:#17385e;--blue:#2f75b5;--pale:#edf7ff;--ink:#243445}
@@ -43,11 +43,11 @@
 <main class="page">
   <a class="games-home" href="index.html">← ゲーム選択へ</a>
   <h1>西宮市町名記憶ゲーム</h1>
-  <div class="sub">如月先生と西宮市の町を覚えよう！</div>
+  <div class="sub">西宮市の町を楽しく覚えよう！</div>
 
   <section class="hero">
-    <img src="images/kisaragi-teacher.png" alt="如月先生">
-    <div class="speech">こんにちは、如月です。コミュニティの場所から町別の詳しい地図まで、順番に挑戦しましょう！</div>
+    <img src="images/kisaragi-teacher.png" alt="案内キャラクター">
+    <div class="speech">コミュニティの場所から町別の詳しい地図まで、順番に挑戦しましょう！</div>
   </section>
 
   <section class="overview" aria-labelledby="overviewTitle">
@@ -67,7 +67,7 @@
 
   <p class="note">各ゲームはスマートフォンで地図を拡大・縮小して操作できます。</p>
   <p class="credit">地図データ：<a href="https://geoshape.ex.nii.ac.jp/ka/resource/28204.html">『国勢調査町丁・字等別境界データセット』</a>（CODH作成）「令和2年国勢調査町丁・字等別境界データ」（e-Stat）を加工。CC BY 4.0／doi:10.20676/00000450<br>コミュニティ区分：平成15年度（2003年度）西宮市市民自然調査結果報告「<a href="https://ikimono.leaf.or.jp/district/town/index.html">コミュニティ町名一覧</a>」を参考に、現在の26地区に合わせて一部統合・調整。<br>本地図は個人制作の非公式な学習用コンテンツで、西宮市および関係団体が運営・監修するものではありません。</p>
-  <footer class="footer"><strong>Kussoon Games　Version 6.1</strong><br>© KUSSOON 2026 All Rights Reserved.</footer>
+  <footer class="footer"><strong>Version 6.1.1</strong><br>© KUSSOON 2026 All Rights Reserved.</footer>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
@@ -111,7 +111,8 @@
       },
       onEachFeature(feature,shape){
         if(feature.properties.community==='岡田山')return;
-        shape.bindTooltip(feature.properties.community,{permanent:true,direction:'center',className:'community-label',interactive:false});
+        const offset=feature.properties.community==='上ヶ原'?L.point(25,20):L.point(0,0);
+        shape.bindTooltip(feature.properties.community,{permanent:true,direction:'center',offset,className:'community-label',interactive:false});
       }
     }).addTo(map);
     map.fitBounds(layer.getBounds(),{padding:[5,5],animate:false});
