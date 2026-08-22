@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.0</title>
+<title>都道府県名記憶ゲーム Ver.4.2</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -88,7 +88,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .writeKana{text-align:center;font-size:clamp(30px,8vw,52px);font-weight:1000;color:#155574;margin:12px 0}
 .writeProgress{text-align:center;font-weight:800;opacity:.8}
 .canvasWrap{background:#fff;color-scheme:light;border:4px solid #86c9e6;border-radius:22px;overflow:hidden;margin:12px 0}
-#writeCanvas{display:block;width:100%;height:330px;background:#fff;touch-action:none}
+#writeCanvas{display:block;width:100%;height:360px;background:#fff;touch-action:none}
 .writeControls{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:10px 0}
 .writeControls button{border:0;border-radius:14px;padding:12px 16px;font-size:17px;font-weight:900}
 .clearBtn{background:#edf2f4;color:#40515a}
@@ -149,7 +149,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.0 -->
+<!-- 都道府県名記憶ゲーム Ver.4.2 -->
 <main>
 
 <header class="home-hero">
@@ -457,7 +457,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.0</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.2</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL
@@ -514,29 +514,31 @@ document.querySelectorAll(".mode").forEach(btn=>{
 
 const PREF_NAMES=["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"];
 const LABEL_OFFSETS={
-  1:{dx:-55,dy:10},
+  1:{dx:-45,dy:10},
   2:{dx:0,dy:14},
   4:{dx:-8,dy:0},
-  8:{dx:8,dy:0},
+  5:{dx:6,dy:0},
+  8:{dx:14,dy:0},
   13:{dx:0,dy:0},
   14:{dx:0,dy:0},
-  15:{dx:12,dy:8},
-  18:{dx:0,dy:7},
+  15:{dx:18,dy:8},
+  18:{dx:0,dy:-4},
   21:{dx:8,dy:0},
   22:{dx:0,dy:8},
   26:{dx:-1,dy:-1},
-  27:{dx:0,dy:6},
-  28:{dx:-8,dy:-12},
+  27:{dx:0,dy:10},
+  28:{dx:-12,dy:-12},
   29:{dx:0,dy:-5},
   31:{dx:0,dy:-5},
-  32:{dx:-8,dy:18},
+  32:{dx:-14,dy:24},
+  37:{dx:0,dy:6},
   39:{dx:-8,dy:-12},
   40:{dx:0,dy:-4},
   41:{dx:0,dy:0},
-  43:{dx:8,dy:0},
+  43:{dx:12,dy:0},
   44:{dx:-8,dy:0},
   45:{dx:-4,dy:-6},
-  46:{dx:12,dy:-18}
+  46:{dx:18,dy:-18}
 };
 
 const LABEL_ANCHORS={
@@ -545,7 +547,7 @@ const LABEL_ANCHORS={
   17:{x:17,y:63},   // 石川県：左寄せして欠けを防ぐ
   30:{x:15,y:29},   // 和歌山県：左寄せして欠けを防ぐ
   41:{x:20,y:20},   // 佐賀県：県本体中央付近
-  42:{x:68,y:112}   // 長崎県：より右下へ
+  42:{x:72,y:116}   // 長崎県：より右下へ
 };
 const LABEL_FONT_SCALE={
   13:0.92,  // 東京都
@@ -907,12 +909,40 @@ const canvas=document.getElementById("writeCanvas"),ctx=canvas.getContext("2d");
 let writeOrder=[],writeIndex=0,writeMissed=new Set(),writeCurrent=null;
 let drawing=false,lastX=0,lastY=0;
 
+function drawWriteGuide(){
+  const w=canvas.width/(window.devicePixelRatio||1);
+  const h=canvas.height/(window.devicePixelRatio||1);
+  ctx.save();
+  ctx.setLineDash([]);
+  ctx.lineCap="butt";
+  ctx.lineJoin="miter";
+  ctx.strokeStyle="#bcc7cf";
+  ctx.lineWidth=2;
+  ctx.strokeRect(6,6,w-12,h-12);
+  ctx.setLineDash([8,10]);
+  ctx.strokeStyle="#c7d0d7";
+  ctx.beginPath();
+  ctx.moveTo(w/2,8);
+  ctx.lineTo(w/2,h-8);
+  ctx.moveTo(8,h/2);
+  ctx.lineTo(w-8,h/2);
+  ctx.stroke();
+  ctx.restore();
+}
 function resizeCanvas(){
   const dpr=window.devicePixelRatio||1,rect=canvas.getBoundingClientRect();
   canvas.width=Math.max(1,Math.round(rect.width*dpr));canvas.height=Math.max(1,Math.round(rect.height*dpr));
-  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineCap="round";ctx.lineJoin="round";ctx.strokeStyle="#1677d2";ctx.lineWidth=7;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.lineCap="round";ctx.lineJoin="round";ctx.strokeStyle="#1677d2";ctx.lineWidth=7;
+  clearCanvas();
 }
-function clearCanvas(){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,canvas.width,canvas.height);ctx.restore()}
+function clearCanvas(){
+  ctx.save();
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.restore();
+  drawWriteGuide();
+}
 function cpoint(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
 canvas.addEventListener("pointerdown",e=>{drawing=true;canvas.setPointerCapture(e.pointerId);const p=cpoint(e);lastX=p.x;lastY=p.y});
 canvas.addEventListener("pointermove",e=>{if(!drawing)return;const p=cpoint(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y});
