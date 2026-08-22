@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>西宮市町名記憶ゲーム Ver.6.0.1</title>
+  <title>西宮市町名記憶ゲーム Ver.6.1</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     :root{--navy:#17385e;--blue:#2f75b5;--pale:#edf7ff;--ink:#243445}
     *{box-sizing:border-box}
@@ -23,9 +24,19 @@
     .mode:hover{transform:translateY(-1px);box-shadow:0 5px 15px #17385e30}.mode:active{transform:translateY(1px)}
     .mode small{display:block;margin:4px 0 0 32px;color:#60758a;font-size:13px;font-weight:700}
     .mode.primary{background:linear-gradient(135deg,#276eaf,#48a0d7);color:#fff}.mode.primary small{color:#eaf7ff}
+    .overview{margin:14px 0;padding:11px;background:#fff;border-radius:20px;box-shadow:0 3px 13px #17385e24}
+    .overview h2{margin:1px 0 3px;text-align:center;color:var(--navy);font-size:clamp(18px,5vw,24px)}
+    .overview-intro{margin:0 0 8px;text-align:center;color:#60758a;font-size:12px;font-weight:700}
+    #communityOverview{height:min(68vh,620px);min-height:480px;border-radius:14px;background:#dfeaf1;pointer-events:none}
+    .map-status{display:flex;min-height:480px;align-items:center;justify-content:center;padding:20px;text-align:center;color:#60758a;font-weight:800}
+    .community-label{border:0!important;background:#ffffffdf!important;color:#17385e!important;border-radius:4px!important;padding:1px 3px!important;box-shadow:0 1px 3px #17385e55!important;font-size:clamp(7px,1.8vw,10px)!important;font-weight:900!important;line-height:1.15!important;white-space:nowrap!important}
+    .community-label:before{display:none!important}
+    .map-note{margin:7px 2px 1px;text-align:center;color:#60758a;font-size:10px;line-height:1.45}
     .note{margin:14px 3px;text-align:center;color:#647586;font-size:11px;line-height:1.5}
     .footer{margin-top:14px;padding-top:10px;border-top:1px solid #cfdae3;text-align:center;color:#71808d;font-size:10px}
-    @media(max-width:480px){body{padding-left:8px;padding-right:8px}.hero{grid-template-columns:70px 1fr;gap:9px;padding:9px}.hero img{width:70px;height:70px}.speech{font-size:13px;padding:9px 11px}.mode{min-height:68px}}
+    .credit{margin-top:14px;padding-top:10px;border-top:1px solid #cfdae3;color:#647586;font-size:9px;line-height:1.55}
+    .credit a{color:#356f9f}
+    @media(max-width:480px){body{padding-left:8px;padding-right:8px}.hero{grid-template-columns:70px 1fr;gap:9px;padding:9px}.hero img{width:70px;height:70px}.speech{font-size:13px;padding:9px 11px}.mode{min-height:68px}.overview{padding:8px}#communityOverview{height:62vh;min-height:460px}}
   </style>
 </head>
 <body>
@@ -39,6 +50,15 @@
     <div class="speech">こんにちは、如月です。コミュニティの場所から町別の詳しい地図まで、順番に挑戦しましょう！</div>
   </section>
 
+  <section class="overview" aria-labelledby="overviewTitle">
+    <h2 id="overviewTitle">西宮市 26コミュニティ全図</h2>
+    <p class="overview-intro">コミュニティ名と位置を、まず全体で確認できます。</p>
+    <div id="communityOverview" aria-label="西宮市を26コミュニティに色分けした地図">
+      <div class="map-status">地図を読み込んでいます…</div>
+    </div>
+    <p class="map-note">白線はコミュニティの境界です。岡田山は黄色で「1〜3 広田、4〜7 上ヶ原」を示しています。</p>
+  </section>
+
   <nav class="menu" aria-label="ゲームモード">
     <button class="mode primary" type="button" onclick="location.href='nishinomiya/community-map-quiz.html'">📍 コミュニティの場所当て<small>色分け地図で26コミュニティを当てよう</small></button>
     <button class="mode" type="button" onclick="location.href='nishinomiya/area-select.html'">🏠 コミュニティごとの町名チャレンジ<small>区域を選んで町名に挑戦</small></button>
@@ -46,7 +66,61 @@
   </nav>
 
   <p class="note">各ゲームはスマートフォンで地図を拡大・縮小して操作できます。</p>
-  <footer class="footer"><strong>Kussoon Games　Version 6.0.1</strong><br>© KUSSOON 2026 All Rights Reserved.</footer>
+  <p class="credit">地図データ：<a href="https://geoshape.ex.nii.ac.jp/ka/resource/28204.html">『国勢調査町丁・字等別境界データセット』</a>（CODH作成）「令和2年国勢調査町丁・字等別境界データ」（e-Stat）を加工。CC BY 4.0／doi:10.20676/00000450<br>コミュニティ区分：平成15年度（2003年度）西宮市市民自然調査結果報告「<a href="https://ikimono.leaf.or.jp/district/town/index.html">コミュニティ町名一覧</a>」を参考に、現在の26地区に合わせて一部統合・調整。<br>本地図は個人制作の非公式な学習用コンテンツで、西宮市および関係団体が運営・監修するものではありません。</p>
+  <footer class="footer"><strong>Kussoon Games　Version 6.1</strong><br>© KUSSOON 2026 All Rights Reserved.</footer>
 </main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+(() => {
+  const container=document.getElementById('communityOverview');
+  const map=L.map(container,{
+    attributionControl:false,zoomControl:false,dragging:false,touchZoom:false,
+    scrollWheelZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:false,
+    tap:false,zoomSnap:.1
+  });
+  let communities=[];
+  function colorFor(name){
+    const position=communities.indexOf(name);
+    return `hsl(${(position*137.508)%360} 63% 57%)`;
+  }
+  Promise.all([
+    fetch('nishinomiya/nishinomiya-towns.topojson').then(r=>{if(!r.ok)throw Error('境界データ');return r.json()}),
+    fetch('nishinomiya/community-town-map.json').then(r=>{if(!r.ok)throw Error('割り当てデータ');return r.json()})
+  ]).then(([topology,mapping])=>{
+    communities=mapping.communities;
+    const geometries=topology.objects.town.geometries;
+    const features=communities.map(community=>{
+      const members=geometries.filter(item=>mapping.towns[item.properties.S_NAME]?.community===community);
+      const merged=topojson.merge(topology,members);
+      merged.properties={community};
+      return merged;
+    });
+    const specialGeometry=geometries.find(item=>item.properties.S_NAME==='岡田山');
+    if(specialGeometry){
+      const special=topojson.feature(topology,specialGeometry);
+      special.properties={community:'岡田山'};
+      features.push(special);
+    }
+    container.querySelector('.map-status')?.remove();
+    const layer=L.geoJSON({type:'FeatureCollection',features},{
+      interactive:false,
+      style(feature){
+        const special=feature.properties.community==='岡田山';
+        return{color:'#fff',weight:special?1.4:2,fillColor:special?'#ffd34d':colorFor(feature.properties.community),fillOpacity:.88};
+      },
+      onEachFeature(feature,shape){
+        if(feature.properties.community==='岡田山')return;
+        shape.bindTooltip(feature.properties.community,{permanent:true,direction:'center',className:'community-label',interactive:false});
+      }
+    }).addTo(map);
+    map.fitBounds(layer.getBounds(),{padding:[5,5],animate:false});
+    setTimeout(()=>map.invalidateSize({animate:false}),0);
+  }).catch(error=>{
+    container.innerHTML='<div class="map-status">地図を読み込めませんでした。データファイルをご確認ください。</div>';
+    console.error(error);
+  });
+})();
+</script>
 </body>
 </html>
