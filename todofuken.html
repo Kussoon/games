@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.4</title>
+<title>都道府県名記憶ゲーム Ver.4.5</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -149,7 +149,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.4 -->
+<!-- 都道府県名記憶ゲーム Ver.4.5 -->
 <main>
 
 <header class="home-hero">
@@ -457,7 +457,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.4</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.5</div>
 <footer class="credit">
   <div style="font-weight:800;color:#5b6f79;margin-bottom:8px">© KUSSOON 2026 All Rights Reserved.</div>
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
@@ -563,7 +563,25 @@ const prefEls=[...japanSvg.querySelectorAll(".prefecture")];
 let baseVB=null,currentVB=null,studyPointers=new Map(),lastDist=0;
 
 function applyVB(){japanSvg.setAttribute("viewBox",`${currentVB.x} ${currentVB.y} ${currentVB.w} ${currentVB.h}`)}
-function clearLabels(){japanSvg.querySelectorAll(".pref-name").forEach(x=>x.remove())}
+function clearLabels(){japanSvg.querySelectorAll(".pref-name,.pref-callout").forEach(x=>x.remove())}
+function ensureStudyMarker(){
+  if(japanSvg.querySelector('#studyArrowHead')) return;
+  const defs=document.createElementNS("http://www.w3.org/2000/svg","defs");
+  const marker=document.createElementNS("http://www.w3.org/2000/svg","marker");
+  marker.setAttribute('id','studyArrowHead');
+  marker.setAttribute('markerWidth','8');
+  marker.setAttribute('markerHeight','8');
+  marker.setAttribute('refX','6');
+  marker.setAttribute('refY','3');
+  marker.setAttribute('orient','auto');
+  marker.setAttribute('markerUnits','strokeWidth');
+  const path=document.createElementNS("http://www.w3.org/2000/svg","path");
+  path.setAttribute('d','M0,0 L0,6 L6,3 z');
+  path.setAttribute('fill','#355b6a');
+  marker.appendChild(path);
+  defs.appendChild(marker);
+  japanSvg.insertBefore(defs,japanSvg.firstChild);
+}
 function fitStudy(codes){
   prefEls.forEach(g=>g.classList.toggle("hidden-pref",!codes.includes(Number(g.dataset.code))));
   clearLabels();
@@ -580,22 +598,38 @@ function fitStudy(codes){
   const w=maxX-minX,h=maxY-minY,pad=Math.max(w,h)*.10;
   baseVB={x:minX-pad,y:minY-pad,w:w+pad*2,h:h+pad*2};
   currentVB={...baseVB};applyVB();
-  const fs=codes.length<=9?5.6:codes.length<=21?5.2:5.5;
+  ensureStudyMarker();
+  const viewportRect=svp.getBoundingClientRect();
+  const studyScale=Math.min(viewportRect.width/baseVB.w,viewportRect.height/baseVB.h);
+  const desiredPx=18;
+  const fs=desiredPx/studyScale;
+  const calloutCodes=new Set([13]);
   chosen.forEach(g=>{
     const b=g.getBBox();
-    const t=document.createElementNS("http://www.w3.org/2000/svg","text");
-    t.setAttribute("class","pref-name");
     const code=Number(g.dataset.code);
     const off=LABEL_OFFSETS[code]||{dx:0,dy:0};
     const anchor=LABEL_ANCHORS[code];
     const tx=anchor?anchor.x:(b.x+b.width/2+off.dx);
     const ty=anchor?anchor.y:(b.y+b.height/2+off.dy);
-    const scale=LABEL_FONT_SCALE[code]||1;
+    const t=document.createElementNS("http://www.w3.org/2000/svg","text");
+    t.setAttribute("class","pref-name");
     t.setAttribute("x",tx);
     t.setAttribute("y",ty);
-    t.setAttribute("font-size",fs*scale);
+    t.setAttribute("font-size",fs);
     t.textContent=PREF_NAMES[code-1];
     g.appendChild(t);
+    if(calloutCodes.has(code)){
+      const line=document.createElementNS("http://www.w3.org/2000/svg","line");
+      line.setAttribute('class','pref-callout');
+      line.setAttribute('x1',tx+fs*1.4);
+      line.setAttribute('y1',ty);
+      line.setAttribute('x2',b.x+b.width/2);
+      line.setAttribute('y2',b.y+b.height/2);
+      line.setAttribute('stroke','#355b6a');
+      line.setAttribute('stroke-width',Math.max(1.3,fs*0.12));
+      line.setAttribute('marker-end','url(#studyArrowHead)');
+      g.insertBefore(line,t);
+    }
   });
 }
 function openStudy(){
