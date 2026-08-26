@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.6</title>
+<title>都道府県名記憶ゲーム Ver.4.7</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -58,6 +58,28 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 #quizSvg .prefecture.q-correct{fill:#70c86b}
 #quizSvg .prefecture.q-wrong{fill:#ef7777}
 .quizMessage{min-height:46px;margin:12px auto 4px;text-align:center;font-size:22px;font-weight:900}
+.mapFeedback{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:20;
+  display:none;
+  min-width:150px;
+  padding:12px 20px;
+  border-radius:18px;
+  background:rgba(255,255,255,.94);
+  border:3px solid #6c8794;
+  text-align:center;
+  font-size:clamp(26px,7vw,42px);
+  font-weight:1000;
+  line-height:1.15;
+  box-shadow:0 4px 14px #0003;
+  pointer-events:none;
+}
+.mapFeedback.correct{display:block;color:#1f7b32;border-color:#65b86d}
+.mapFeedback.wrong{display:block;color:#c92f2f;border-color:#e27777}
+
 .quizControls{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:12px 0}
 .quizControls button,.retryBtn{border:0;border-radius:16px;padding:13px 18px;font-size:17px;font-weight:900}
 .nextBtn{background:#f4c542;color:#493600}
@@ -156,7 +178,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.6 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7 -->
 <main>
 
 <header class="home-hero">
@@ -464,7 +486,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.6</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -682,6 +704,7 @@ const quizViewport=document.getElementById("quizViewport");
 const quizTitle=document.getElementById("quizTitle");
 const quizProgress=document.getElementById("quizProgress");
 const quizMessage=document.getElementById("quizMessage");
+const quizMapFeedback=document.getElementById("quizMapFeedback");
 const quizNext=document.getElementById("quizNext");
 const quizRetry=document.getElementById("quizRetry");
 const quizResult=document.getElementById("quizResult");
@@ -707,6 +730,7 @@ function qFit(codes){
 }
 function qQuestion(){
   quizAnswered=false; quizNext.disabled=true;
+  quizMapFeedback.className="mapFeedback";quizMapFeedback.textContent="";
   quizPrefs.forEach(g=>g.classList.remove("q-correct","q-wrong"));
   const code=quizOrder[quizIndex];
   quizTitle.textContent=`「${PREF_NAMES[code-1]}」はどこですか？`;
@@ -719,12 +743,20 @@ function qTap(g){
   const tapped=Number(g.dataset.code),answer=quizOrder[quizIndex];
   if(tapped===answer){
     g.classList.add("q-correct"); quizMessage.textContent="";
+    quizMapFeedback.textContent="正解です！";
+    quizMapFeedback.className="mapFeedback correct";
     quizAnswered=true; quizNext.disabled=false;
     setTimeout(()=>{if(++quizIndex>=quizOrder.length)qFinish();else qQuestion()},2000);
   }else{
     g.classList.add("q-wrong"); quizWrong.add(answer);
-    quizMessage.textContent=`❌ そこは${PREF_NAMES[tapped-1]}です。もう一度どうぞ。`;
-    setTimeout(()=>g.classList.remove("q-wrong"),500);
+    quizMessage.textContent="";
+    quizMapFeedback.textContent="違います！";
+    quizMapFeedback.className="mapFeedback wrong";
+    setTimeout(()=>{
+      g.classList.remove("q-wrong");
+      quizMapFeedback.className="mapFeedback";
+      quizMapFeedback.textContent="";
+    },900);
     quizRetry.style.display="inline-block";
   }
 }
@@ -809,6 +841,7 @@ const quiz2Viewport=document.getElementById("quiz2Viewport");
 const quiz2Progress=document.getElementById("quiz2Progress");
 const quiz2Choices=document.getElementById("quiz2Choices");
 const quiz2Message=document.getElementById("quiz2Message");
+const quiz2MapFeedback=document.getElementById("quiz2MapFeedback");
 const quiz2Next=document.getElementById("quiz2Next");
 const quiz2Retry=document.getElementById("quiz2Retry");
 const quiz2Result=document.getElementById("quiz2Result");
@@ -837,6 +870,7 @@ function makeChoices(answer,codes){
 }
 function q2Question(){
   quiz2Answered=false;quiz2Next.disabled=true;
+  quiz2MapFeedback.className="mapFeedback";quiz2MapFeedback.textContent="";
   quiz2Prefs.forEach(g=>g.classList.remove("q2-highlight"));
   const answer=quiz2Order[quiz2Index];
   const target=quiz2Prefs.find(g=>Number(g.dataset.code)===answer);
@@ -860,13 +894,21 @@ function q2Answer(code,btn){
   if(code===answer){
     btn.classList.add("correct");
     quiz2Message.textContent="";
+    quiz2MapFeedback.textContent="正解です！";
+    quiz2MapFeedback.className="mapFeedback correct";
     quiz2Answered=true;quiz2Next.disabled=false;
-    setTimeout(()=>{if(++quiz2Index>=quiz2Order.length)q2Finish();else q2Question()},250);
+    setTimeout(()=>{if(++quiz2Index>=quiz2Order.length)q2Finish();else q2Question()},2000);
   }else{
     btn.classList.add("wrong");
     quiz2Wrong.add(answer);
-    quiz2Message.textContent="❌ おしい！ もう一度選んでください。";
-    setTimeout(()=>btn.classList.remove("wrong"),500);
+    quiz2Message.textContent="";
+    quiz2MapFeedback.textContent="違います！";
+    quiz2MapFeedback.className="mapFeedback wrong";
+    setTimeout(()=>{
+      btn.classList.remove("wrong");
+      quiz2MapFeedback.className="mapFeedback";
+      quiz2MapFeedback.textContent="";
+    },900);
     quiz2Retry.style.display="inline-block";
   }
 }
