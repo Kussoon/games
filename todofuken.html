@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.9</title>
+<title>都道府県名記憶ゲーム Ver.4.10</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -178,7 +178,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.9 -->
+<!-- 都道府県名記憶ゲーム Ver.4.10 -->
 <main>
 
 <header class="home-hero">
@@ -486,7 +486,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.9</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.10</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -606,69 +606,6 @@ function ensureStudyLabelLayer(){
   }
   return layer;
 }
-const REGION_LABEL_POSITIONS={
-  "02 東北":{
-    4:{dx:16,dy:10}, 6:{dx:-16,dy:10}
-  },
-  "03 関東":{
-    13:{dx:-8,dy:-12}, 14:{dx:-8,dy:14}
-  },
-  "04 中部":{
-    16:{dx:16,dy:-6}, 17:{dx:-18,dy:-8}, 18:{dx:-18,dy:2},
-    21:{dx:8,dy:8}, 22:{dx:12,dy:10}, 23:{dx:-12,dy:10}
-  },
-  "05 近畿":{
-    25:{dx:16,dy:-8}, 26:{dx:-16,dy:-8}, 27:{dx:-14,dy:6},
-    29:{dx:-2,dy:18}, 24:{dx:18,dy:8}
-  },
-  "06 中国":{
-    31:{dx:18,dy:-8}, 32:{dx:-18,dy:-10}, 33:{dx:18,dy:0},
-    34:{dx:0,dy:16}, 35:{dx:-18,dy:14}
-  },
-  "07 四国":{
-    37:{dx:0,dy:-10}, 38:{dx:-20,dy:8}, 39:{dx:0,dy:14}
-  },
-  "08 九州":{
-    40:{dx:0,dy:-12}, 41:{dx:-18,dy:0}, 42:{dx:-18,dy:6},
-    43:{dx:12,dy:6}, 44:{dx:12,dy:-4}, 45:{dx:12,dy:8},
-    46:{dx:0,dy:8}
-  }
-};
-function rectsOverlap(a,b,pad=0){
-  return !(a.x+a.width+pad<b.x || b.x+b.width+pad<a.x || a.y+a.height+pad<b.y || b.y+b.height+pad<a.y);
-}
-function clampLabel(item, bounds, margin){
-  const bb=item.el.getBBox();
-  if(bb.x < bounds.x + margin) item.x += (bounds.x + margin - bb.x);
-  if(bb.x + bb.width > bounds.x + bounds.w - margin) item.x -= (bb.x + bb.width - (bounds.x + bounds.w - margin));
-  if(bb.y < bounds.y + margin) item.y += (bounds.y + margin - bb.y);
-  if(bb.y + bb.height > bounds.y + bounds.h - margin) item.y -= (bb.y + bb.height - (bounds.y + bounds.h - margin));
-  item.el.setAttribute("x", item.x);
-  item.el.setAttribute("y", item.y);
-}
-function resolveStudyCollisions(items, bounds, fs){
-  const pad=Math.max(1.2,fs*0.1);
-  const maxStep=Math.max(2.2,fs*0.6);
-  for(let iter=0; iter<18; iter++){
-    let moved=false;
-    for(let i=0;i<items.length;i++){
-      for(let j=i+1;j<items.length;j++){
-        const a=items[i], b=items[j];
-        const ra=a.el.getBBox(), rb=b.el.getBBox();
-        if(!rectsOverlap(ra,rb,pad)) continue;
-        const overlapY=Math.min(ra.y+ra.height,rb.y+rb.height)-Math.max(ra.y,rb.y);
-        const step=Math.min(maxStep, Math.max(2, overlapY/2 + pad));
-        if((i+j)%2===0){ a.y-=step; b.y+=step; }
-        else { a.y+=step; b.y-=step; }
-        a.el.setAttribute("y", a.y);
-        b.el.setAttribute("y", b.y);
-        clampLabel(a,bounds,pad); clampLabel(b,bounds,pad);
-        moved=true
-      }
-    }
-    if(!moved) break;
-  }
-}
 function fitStudy(codes){
   prefEls.forEach(g=>g.classList.toggle("hidden-pref",!codes.includes(Number(g.dataset.code))));
   clearLabels();
@@ -687,28 +624,18 @@ function fitStudy(codes){
   currentVB={...baseVB};applyVB();
   const viewportRect=svp.getBoundingClientRect();
   const studyScale=Math.min(viewportRect.width/baseVB.w,viewportRect.height/baseVB.h);
-  const desiredPx=17;
+  const desiredPx=18;
   const fs=desiredPx/studyScale;
   const labelLayer=ensureStudyLabelLayer();
-  const items=[];
+
   chosen.forEach(g=>{
     const b=g.getBBox();
     const code=Number(g.dataset.code);
     const off=LABEL_OFFSETS[code]||{dx:0,dy:0};
-    const baseX=b.x+b.width/2;
-    const baseY=b.y+b.height/2;
-    const regionPos=(REGION_LABEL_POSITIONS[selected]||{})[code];
-    let tx, ty;
-    if(regionPos && typeof regionPos.x==="number" && typeof regionPos.y==="number"){
-      tx=regionPos.x; ty=regionPos.y;
-    }else if(regionPos){
-      tx=baseX+(regionPos.dx||0);
-      ty=baseY+(regionPos.dy||0);
-    }else{
-      const anchor=LABEL_ANCHORS[code];
-      tx=anchor?anchor.x:(baseX+off.dx);
-      ty=anchor?anchor.y:(baseY+off.dy);
-    }
+    const anchor=LABEL_ANCHORS[code];
+    const tx=anchor?anchor.x:(b.x+b.width/2+off.dx);
+    const ty=anchor?anchor.y:(b.y+b.height/2+off.dy);
+
     const t=document.createElementNS("http://www.w3.org/2000/svg","text");
     t.setAttribute("class","pref-name");
     t.setAttribute("x",tx);
@@ -716,11 +643,7 @@ function fitStudy(codes){
     t.setAttribute("font-size",fs);
     t.textContent=PREF_NAMES[code-1];
     labelLayer.appendChild(t);
-    items.push({code,el:t,x:tx,y:ty});
   });
-  if(codes.length<=9){
-    resolveStudyCollisions(items, baseVB, fs);
-  }
 }
 function openStudy(){
   document.querySelectorAll("main>header,.teacher,main>.card:not(#studyPage)").forEach(e=>e.style.display="none");
