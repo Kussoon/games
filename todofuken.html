@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.7.4</title>
+<title>都道府県名記憶ゲーム Ver.4.7.5</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -178,7 +178,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.7.4 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7.5 -->
 <main>
 
 <header class="home-hero">
@@ -485,7 +485,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.4</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.5</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -630,7 +630,7 @@ function fitStudy(codes){
   const viewportRect=svp.getBoundingClientRect();
   const studyScale=Math.min(viewportRect.width/baseVB.w,viewportRect.height/baseVB.h);
   const desiredPx=18;
-  const fs=5.0;
+  const fs=codes.length<=9 ? 3.0 : codes.length<=21 ? 3.0 : 3.0;
   const calloutCodes=new Set([]);
   chosen.forEach(g=>{
     const b=g.getBBox();
