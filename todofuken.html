@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.7.10</title>
+<title>都道府県名記憶ゲーム Ver.4.7.11</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -178,7 +178,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.7.10 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7.11 -->
 <main>
 
 <header class="home-hero">
@@ -485,7 +485,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.10</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.11</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -584,6 +584,21 @@ const LABEL_FONT_SCALE={
   41:0.92   // 佐賀県
 };
 
+const STUDY_REGION_CONFIGS={
+  "01 北海道":{pad:0.16,fontFactor:3.8},
+  "02 東北":{pad:0.12,fontFactor:3.8,labels:{4:{dx:14,dy:10},6:{dx:-14,dy:10}}},
+  "03 関東":{pad:0.12,fontFactor:3.8,labels:{8:{dx:10,dy:0},11:{dx:-8,dy:-8},12:{dx:10,dy:6},13:{dx:0,dy:-12,scale:0.90},14:{dx:-6,dy:12}}},
+  "04 中部":{pad:0.12,fontFactor:3.8,labels:{16:{dx:10,dy:-12},17:{dx:-18,dy:-10},18:{dx:-18,dy:12},21:{dx:0,dy:8},22:{dx:16,dy:12},23:{dx:-16,dy:12}}},
+  "05 近畿":{pad:0.12,fontFactor:3.8,labels:{24:{dx:22,dy:0},25:{dx:18,dy:-14},26:{dx:-14,dy:-12},27:{dx:-18,dy:8},28:{dx:-18,dy:-10},29:{dx:0,dy:18},30:{dx:-6,dy:14}}},
+  "06 中国":{pad:0.12,fontFactor:3.8,labels:{31:{dx:12,dy:-10},32:{dx:-18,dy:-12},33:{dx:18,dy:0},34:{dx:0,dy:14},35:{dx:-14,dy:12}}},
+  "07 四国":{pad:0.14,fontFactor:3.8,labels:{37:{dx:0,dy:-10},38:{dx:-18,dy:8},39:{dx:0,dy:12}}},
+  "08 九州":{pad:0.14,fontFactor:3.8,labels:{40:{dx:8,dy:-10},41:{dx:-16,dy:0,scale:0.92},42:{dx:-18,dy:6},43:{dx:8,dy:8},44:{dx:14,dy:-4},45:{dx:10,dy:10},46:{dx:0,dy:14}}},
+  "09 沖縄":{pad:0.22,fontFactor:3.8},
+  "1〜3":{pad:0.12,fontFactor:3.0},
+  "4〜6":{pad:0.12,fontFactor:3.0},
+  "7〜9":{pad:0.12,fontFactor:3.0},
+  "全国":{pad:0.15,fontFactor:2.6}
+};
 
 const STUDY_SETS={"01 北海道":[1],"02 東北":[2,3,4,5,6,7],"03 関東":[8,9,10,11,12,13,14],"04 中部":[15,16,17,18,19,20,21,22,23],"05 近畿":[24,25,26,27,28,29,30],"06 中国":[31,32,33,34,35],"07 四国":[36,37,38,39],"08 九州":[40,41,42,43,44,45,46],"09 沖縄":[47],"1〜3":[1,2,3,4,5,6,7,8,9,10,11,12,13,14],"4〜6":[15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],"7〜9":[36,37,38,39,40,41,42,43,44,45,46,47],"全国":Array.from({length:47},(_,i)=>i+1)};
 const japanSvg=document.querySelector("#studyPage #japanSvg");
@@ -591,26 +606,22 @@ const prefEls=[...japanSvg.querySelectorAll(".prefecture")];
 let baseVB=null,currentVB=null,studyPointers=new Map(),lastDist=0;
 
 function applyVB(){japanSvg.setAttribute("viewBox",`${currentVB.x} ${currentVB.y} ${currentVB.w} ${currentVB.h}`)}
-function clearLabels(){japanSvg.querySelectorAll(".pref-name,.pref-callout").forEach(x=>x.remove())}
-function ensureStudyMarker(){
-  if(japanSvg.querySelector('#studyArrowHead')) return;
-  const defs=document.createElementNS("http://www.w3.org/2000/svg","defs");
-  const marker=document.createElementNS("http://www.w3.org/2000/svg","marker");
-  marker.setAttribute('id','studyArrowHead');
-  marker.setAttribute('markerWidth','8');
-  marker.setAttribute('markerHeight','8');
-  marker.setAttribute('refX','6');
-  marker.setAttribute('refY','3');
-  marker.setAttribute('orient','auto');
-  marker.setAttribute('markerUnits','strokeWidth');
-  const path=document.createElementNS("http://www.w3.org/2000/svg","path");
-  path.setAttribute('d','M0,0 L0,6 L6,3 z');
-  path.setAttribute('fill','#355b6a');
-  marker.appendChild(path);
-  defs.appendChild(marker);
-  japanSvg.insertBefore(defs,japanSvg.firstChild);
+function clearLabels(){
+  japanSvg.querySelectorAll(".pref-name,.pref-callout").forEach(x=>x.remove());
+  const layer=japanSvg.querySelector("#studyLabelsLayer");
+  if(layer) layer.remove();
+}
+function ensureStudyLabelLayer(){
+  let layer=japanSvg.querySelector("#studyLabelsLayer");
+  if(!layer){
+    layer=document.createElementNS("http://www.w3.org/2000/svg","g");
+    layer.setAttribute("id","studyLabelsLayer");
+    japanSvg.appendChild(layer);
+  }
+  return layer;
 }
 function fitStudy(codes){
+  const region=STUDY_REGION_CONFIGS[selected]||{};
   prefEls.forEach(g=>g.classList.toggle("hidden-pref",!codes.includes(Number(g.dataset.code))));
   clearLabels();
   let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
@@ -623,41 +634,37 @@ function fitStudy(codes){
       minX=Math.min(minX,q.x);minY=Math.min(minY,q.y);maxX=Math.max(maxX,q.x);maxY=Math.max(maxY,q.y);
     });
   });
-  const w=maxX-minX,h=maxY-minY,pad=Math.max(w,h)*.10;
-  baseVB={x:minX-pad,y:minY-pad,w:w+pad*2,h:h+pad*2};
+  const w=maxX-minX,h=maxY-minY,pad=Math.max(w,h)*(region.pad ?? .10);
+  baseVB={x:minX-pad+(region.shiftX??0),y:minY-pad+(region.shiftY??0),w:w+pad*2+(region.expandW??0),h:h+pad*2+(region.expandH??0)};
   currentVB={...baseVB};applyVB();
-  ensureStudyMarker();
   const viewportRect=svp.getBoundingClientRect();
   const studyScale=Math.min(viewportRect.width/baseVB.w,viewportRect.height/baseVB.h);
-  const desiredPx=18;
-  const fs=(desiredPx/studyScale)*(3.2/5.6);
-  const calloutCodes=new Set([]);
+  const baseFactor=region.fontFactor ?? 3.2;
+  const fs=(18/studyScale)*(baseFactor/5.6);
+  const labelLayer=ensureStudyLabelLayer();
   chosen.forEach(g=>{
     const b=g.getBBox();
     const code=Number(g.dataset.code);
-    const off=LABEL_OFFSETS[code]||{dx:0,dy:0};
-    const anchor=LABEL_ANCHORS[code];
-    const tx=anchor?anchor.x:(b.x+b.width/2+off.dx);
-    const ty=anchor?anchor.y:(b.y+b.height/2+off.dy);
+    const baseOff=LABEL_OFFSETS[code]||{dx:0,dy:0};
+    const baseAnchor=LABEL_ANCHORS[code];
+    const override=region.labels?.[code]||{};
+    let tx=baseAnchor?baseAnchor.x:(b.x+b.width/2+baseOff.dx);
+    let ty=baseAnchor?baseAnchor.y:(b.y+b.height/2+baseOff.dy);
+    if(baseAnchor){
+      tx=(typeof override.x==='number') ? override.x : tx+(override.dx||0);
+      ty=(typeof override.y==='number') ? override.y : ty+(override.dy||0);
+    }else{
+      tx=(typeof override.x==='number') ? override.x : tx+(override.dx||0);
+      ty=(typeof override.y==='number') ? override.y : ty+(override.dy||0);
+    }
+    const scale=override.scale ?? LABEL_FONT_SCALE[code] ?? 1;
     const t=document.createElementNS("http://www.w3.org/2000/svg","text");
     t.setAttribute("class","pref-name");
     t.setAttribute("x",tx);
     t.setAttribute("y",ty);
-    t.setAttribute("font-size",fs);
+    t.setAttribute("font-size",fs*scale);
     t.textContent=PREF_NAMES[code-1];
-    g.appendChild(t);
-    if(calloutCodes.has(code)){
-      const line=document.createElementNS("http://www.w3.org/2000/svg","line");
-      line.setAttribute('class','pref-callout');
-      line.setAttribute('x1',tx+fs*1.4);
-      line.setAttribute('y1',ty);
-      line.setAttribute('x2',b.x+b.width/2);
-      line.setAttribute('y2',b.y+b.height/2);
-      line.setAttribute('stroke','#355b6a');
-      line.setAttribute('stroke-width',Math.max(1.3,fs*0.12));
-      line.setAttribute('marker-end','url(#studyArrowHead)');
-      g.insertBefore(line,t);
-    }
+    labelLayer.appendChild(t);
   });
 }
 function openStudy(){
