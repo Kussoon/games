@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.7.25</title>
+<title>都道府県名記憶ゲーム Ver.4.7.26</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -61,20 +61,20 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .mapFeedback{
   position:absolute;
   left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
+  top:10px;
+  transform:translateX(-50%);
   z-index:20;
   display:none;
-  min-width:150px;
-  padding:12px 20px;
-  border-radius:18px;
+  min-width:110px;
+  padding:7px 14px;
+  border-radius:13px;
   background:rgba(255,255,255,.94);
-  border:3px solid #6c8794;
+  border:2px solid #6c8794;
   text-align:center;
-  font-size:clamp(26px,7vw,42px);
+  font-size:clamp(17px,4.5vw,24px);
   font-weight:1000;
   line-height:1.15;
-  box-shadow:0 4px 14px #0003;
+  box-shadow:0 3px 10px #0002;
   pointer-events:none;
 }
 .mapFeedback.correct{display:block;color:#1f7b32;border-color:#65b86d}
@@ -98,6 +98,12 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 #quiz2Svg .prefecture.q2-hidden{display:none}
 #quiz2Svg .prefecture.q2-highlight{
   animation:q2Blink 1s steps(1,end) infinite;
+  stroke-width:5;
+}
+#quiz2Svg .prefecture.q2-correct{
+  animation:none !important;
+  fill:#70c86b !important;
+  stroke:#fff !important;
   stroke-width:5;
 }
 @keyframes q2Blink{
@@ -178,7 +184,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.7.25 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7.26 -->
 <main>
 
 <header class="home-hero">
@@ -488,7 +494,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 <div style="text-align:center;margin:18px 0 8px">
   <a href="https://kussoon.github.io/games/index.html" style="display:inline-block;padding:10px 16px;border-radius:12px;background:#edf2f4;color:#40515a;font-weight:900;text-decoration:none">← ゲーム一覧へ戻る</a>
 </div>
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.25</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.26</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -886,7 +892,7 @@ function makeChoices(answer,codes){
 function q2Question(){
   quiz2Answered=false;quiz2Next.disabled=true;
   quiz2MapFeedback.className="mapFeedback";quiz2MapFeedback.textContent="";
-  quiz2Prefs.forEach(g=>g.classList.remove("q2-highlight"));
+  quiz2Prefs.forEach(g=>g.classList.remove("q2-highlight","q2-correct"));
   const answer=quiz2Order[quiz2Index];
   const target=quiz2Prefs.find(g=>Number(g.dataset.code)===answer);
   if(target)target.classList.add("q2-highlight");
@@ -908,6 +914,11 @@ function q2Answer(code,btn){
   const answer=quiz2Order[quiz2Index];
   if(code===answer){
     btn.classList.add("correct");
+    const target=quiz2Prefs.find(g=>Number(g.dataset.code)===answer);
+    if(target){
+      target.classList.remove("q2-highlight");
+      target.classList.add("q2-correct");
+    }
     quiz2Message.textContent="";
     quiz2MapFeedback.textContent="正解です！";
     quiz2MapFeedback.className="mapFeedback correct";
@@ -928,7 +939,7 @@ function q2Answer(code,btn){
   }
 }
 function q2Finish(){
-  quiz2Prefs.forEach(g=>g.classList.remove("q2-highlight"));
+  quiz2Prefs.forEach(g=>g.classList.remove("q2-highlight","q2-correct"));
   quiz2Choices.innerHTML="";
   quiz2Progress.textContent="";
   quiz2Message.textContent="";
