@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.7.27</title>
+<title>都道府県名記憶ゲーム Ver.4.7.28</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -184,7 +184,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.7.27 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7.28 -->
 <main>
 
 <header class="home-hero">
@@ -494,7 +494,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 <div style="text-align:center;margin:18px 0 8px">
   <a href="https://kussoon.github.io/games/index.html" style="display:inline-block;padding:10px 16px;border-radius:12px;background:#edf2f4;color:#40515a;font-weight:900;text-decoration:none">← ゲーム一覧へ戻る</a>
 </div>
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.27</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.28</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -771,13 +771,14 @@ function qTap(g){
   }else{
     g.classList.add("q-wrong"); quizWrong.add(answer);
     quizMessage.textContent="";
-    quizMapFeedback.textContent="違います！";
+    quizMapFeedback.textContent=`違います！ そこは${PREF_NAMES[tapped-1]}です`;
     quizMapFeedback.className="mapFeedback wrong";
+    quizAnswered=true;
     setTimeout(()=>{
-      g.classList.remove("q-wrong");
       quizMapFeedback.className="mapFeedback";
       quizMapFeedback.textContent="";
-    },900);
+      quizAnswered=false;
+    },1500);
     quizRetry.style.display="inline-block";
   }
 }
@@ -926,15 +927,17 @@ function q2Answer(code,btn){
     setTimeout(()=>{if(++quiz2Index>=quiz2Order.length)q2Finish();else q2Question()},2000);
   }else{
     btn.classList.add("wrong");
+    btn.onclick=null;
     quiz2Wrong.add(answer);
     quiz2Message.textContent="";
     quiz2MapFeedback.textContent="違います！";
     quiz2MapFeedback.className="mapFeedback wrong";
+    quiz2Answered=true;
     setTimeout(()=>{
-      btn.classList.remove("wrong");
       quiz2MapFeedback.className="mapFeedback";
       quiz2MapFeedback.textContent="";
-    },900);
+      quiz2Answered=false;
+    },1500);
     quiz2Retry.style.display="inline-block";
   }
 }
