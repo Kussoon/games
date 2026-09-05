@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.7.35</title>
+<title>都道府県名記憶ゲーム Ver.4.7.36</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -90,6 +90,30 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .zoomQ{background:#e7f4f7;color:#24434b}
 .resultBox{display:none;text-align:center;padding:18px;border-radius:20px;background:rgba(255,255,255,.82);margin:14px 0}.resultActions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}.againBtn{background:#bfe8ff;color:#174c67}.missBtn{background:#ffe181;color:#5a4300}.topBtn{background:#e7edf1;color:#40515a}
 .resultBox strong{font-size:28px}
+
+/* 西宮市町名クイズ風の結果画面 */
+.nishiResult{display:flex;flex-direction:column;gap:10px;text-align:left}
+.nishiResultHead{background:#287bd6;color:#fff;border-radius:12px;padding:10px;text-align:center;font-size:20px;font-weight:950}
+.nishiResultBody{display:grid;grid-template-columns:44% 56%;gap:8px;align-items:center}
+.nishiResultBody img{width:100%;max-height:260px;object-fit:contain}
+.nishiScoreBox{padding:12px;text-align:center;background:#fff;border:1px solid #bdddea;border-radius:13px}
+.nishiOutof{font-size:17px;font-weight:900;color:#14528a}
+.nishiScore{font-size:clamp(40px,12vw,62px);line-height:1;font-weight:950;color:#df4747;margin:4px 0}
+.nishiMistakes{font-size:18px;font-weight:850;margin:8px 0}
+.nishiScoreBox p{font-size:12px;line-height:1.5;margin:5px 0 0}
+.nishiRetry{background:#eaf8e7;border:1px solid #a7d49d;border-radius:13px;padding:9px}
+.nishiRetry strong{display:block;text-align:center;font-size:14px;margin-bottom:7px}
+.nishiRetryBtns{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.nishiResultAction{border:0;border-radius:11px;padding:10px;font-size:15px;font-weight:900}
+.nishiResultAction.again{background:#e24f57;color:#fff}
+.nishiResultAction.missed{background:#2878d2;color:#fff}
+.nishiResultAction.top{background:#eef8fc;color:#235c7d;border:1px solid #bddae7;width:100%}
+.nishiResultAction:disabled{opacity:.45}
+@media(max-width:520px){
+  .nishiResultBody{grid-template-columns:42% 58%}
+  .nishiResultBody img{max-height:220px}
+  .nishiScore{font-size:clamp(36px,11vw,54px)}
+}
 
 
 #quiz2Page{display:none;padding-bottom:8px}
@@ -187,7 +211,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.7.35 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7.36 -->
 <main>
 
 <header class="home-hero">
@@ -494,7 +518,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.35</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.36</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -750,6 +774,9 @@ function qFit(codes){
   qBaseVB={x:minX-pad,y:minY-pad,w:w+pad*2,h:h+pad*2};qVB={...qBaseVB};qApply();
 }
 function qQuestion(){
+  quizTitle.style.display="";
+  quizProgress.style.display="";
+  quizViewport.style.display="";
   quizAnswered=false; quizNext.disabled=true;
   quizMapFeedback.className="mapFeedback";quizMapFeedback.textContent="";
   quizPrefs.forEach(g=>g.classList.remove("q-correct","q-wrong"));
@@ -783,17 +810,34 @@ function qTap(g){
   }
 }
 function qFinish(){
-  quizTitle.textContent="結果";
-  quizProgress.textContent="";
+  quizTitle.style.display="none";
+  quizProgress.style.display="none";
+  quizViewport.style.display="none";
   quizMessage.textContent="";
   quizNext.disabled=true;
   const total=quizOrder.length,wrong=quizWrong.size,ok=total-wrong;
+  const evalText=wrong===0?"🎉 全問クリア！":wrong===1?"あと一歩です！":"間違えた問題をもう一度やってみよう。";
   quizResult.style.display="block";
-  quizResult.innerHTML=`<strong>${ok} / ${total} 正解</strong>${wrong?`<br>間違えた問題：${[...quizWrong].map(c=>PREF_NAMES[c-1]).join("、")}`:"<br>🎉 全問クリア！"}
-  <div class="resultActions">
-    <button id="q1Again" class="againBtn">もう一回</button>
-    <button id="q1Missed" class="missBtn" ${wrong?"":"disabled"}>間違えた問題だけ</button>
-    <button id="q1Top" class="topBtn">トップに戻る</button>
+  quizResult.innerHTML=`
+  <div class="nishiResult">
+    <div class="nishiResultHead">結果</div>
+    <div class="nishiResultBody">
+      <img src="images/kisaragi-teacher.png" alt="如月先生">
+      <div class="nishiScoreBox">
+        <div class="nishiOutof">${total}問中</div>
+        <div class="nishiScore">${ok}問正解</div>
+        <div class="nishiMistakes">間違い ${wrong}問</div>
+        <p>${evalText}</p>
+      </div>
+    </div>
+    <div class="nishiRetry">
+      <strong>もう一度チャレンジしますか？</strong>
+      <div class="nishiRetryBtns">
+        <button id="q1Again" class="nishiResultAction again">もう一回</button>
+        <button id="q1Missed" class="nishiResultAction missed" ${wrong?"":"disabled"}>間違えた問題だけ</button>
+      </div>
+    </div>
+    <button id="q1Top" class="nishiResultAction top">トップに戻る</button>
   </div>`;
   quizRetry.style.display="none";
   document.getElementById("q1Again").onclick=()=>{qFit(STUDY_SETS[selected]);startQuiz(STUDY_SETS[selected],false)};
@@ -891,6 +935,10 @@ function makeChoices(answer,codes){
   return shuffle([answer,...others]);
 }
 function q2Question(){
+  document.getElementById("quiz2Title").style.display="";
+  quiz2Progress.style.display="";
+  quiz2Viewport.style.display="";
+  quiz2Choices.style.display="grid";
   quiz2Answered=false;quiz2Next.disabled=true;
   quiz2MapFeedback.className="mapFeedback";quiz2MapFeedback.textContent="";
   quiz2Prefs.forEach(g=>g.classList.remove("q2-highlight","q2-correct"));
@@ -943,17 +991,35 @@ function q2Answer(code,btn){
 }
 function q2Finish(){
   quiz2Prefs.forEach(g=>g.classList.remove("q2-highlight","q2-correct"));
-  quiz2Choices.innerHTML="";
-  quiz2Progress.textContent="";
+  document.getElementById("quiz2Title").style.display="none";
+  quiz2Progress.style.display="none";
+  quiz2Viewport.style.display="none";
+  quiz2Choices.style.display="none";
   quiz2Message.textContent="";
   quiz2Next.disabled=true;
   const total=quiz2Order.length,wrong=quiz2Wrong.size,ok=total-wrong;
+  const evalText=wrong===0?"🎉 全問クリア！":wrong===1?"あと一歩です！":"間違えた問題をもう一度やってみよう。";
   quiz2Result.style.display="block";
-  quiz2Result.innerHTML=`<strong>${ok} / ${total} 正解</strong>${wrong?`<br>間違えた問題：${[...quiz2Wrong].map(c=>PREF_NAMES[c-1]).join("、")}`:"<br>🎉 全問クリア！"}
-  <div class="resultActions">
-    <button id="q2Again" class="againBtn">もう一回</button>
-    <button id="q2Missed" class="missBtn" ${wrong?"":"disabled"}>間違えた問題だけ</button>
-    <button id="q2Top" class="topBtn">トップに戻る</button>
+  quiz2Result.innerHTML=`
+  <div class="nishiResult">
+    <div class="nishiResultHead">結果</div>
+    <div class="nishiResultBody">
+      <img src="images/kisaragi-teacher.png" alt="如月先生">
+      <div class="nishiScoreBox">
+        <div class="nishiOutof">${total}問中</div>
+        <div class="nishiScore">${ok}問正解</div>
+        <div class="nishiMistakes">間違い ${wrong}問</div>
+        <p>${evalText}</p>
+      </div>
+    </div>
+    <div class="nishiRetry">
+      <strong>もう一度チャレンジしますか？</strong>
+      <div class="nishiRetryBtns">
+        <button id="q2Again" class="nishiResultAction again">もう一回</button>
+        <button id="q2Missed" class="nishiResultAction missed" ${wrong?"":"disabled"}>間違えた問題だけ</button>
+      </div>
+    </div>
+    <button id="q2Top" class="nishiResultAction top">トップに戻る</button>
   </div>`;
   quiz2Retry.style.display="none";
   document.getElementById("q2Again").onclick=()=>{q2Fit(STUDY_SETS[selected]);startQuiz2(STUDY_SETS[selected],false)};
