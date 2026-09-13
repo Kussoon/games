@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
-  <title>時計・タイマー Ver.2.0.4</title>
+  <title>時計・タイマー Ver.2.0.5</title>
 
   <style>
     :root {
@@ -411,6 +411,30 @@
       box-shadow: 0 0 4px rgba(255,243,166,.22);
     }
 
+    .segment-h.zone-1.on {
+      background: #ff9800;
+      border-color: #ffb74d;
+      box-shadow: 0 0 5px rgba(255,152,0,.30);
+    }
+
+    .segment-h.zone-2.on {
+      background: #9be81b;
+      border-color: #b9f35a;
+      box-shadow: 0 0 5px rgba(155,232,27,.28);
+    }
+
+    .segment-h.zone-3.on {
+      background: #19c45a;
+      border-color: #4fe384;
+      box-shadow: 0 0 5px rgba(25,196,90,.28);
+    }
+
+    .segment-h.zone-4.on {
+      background: #1f7cff;
+      border-color: #5ba2ff;
+      box-shadow: 0 0 5px rgba(31,124,255,.28);
+    }
+
     #landscape-digits-panel {
       min-height: 150px;
       height: min(31vh, 210px);
@@ -623,6 +647,30 @@
       background: #fff3a6;
       border-color: #e7d76e;
       box-shadow: 0 0 4px rgba(255,243,166,.22);
+    }
+
+    .segment-v.zone-1.on {
+      background: #ff9800;
+      border-color: #ffb74d;
+      box-shadow: 0 0 5px rgba(255,152,0,.30);
+    }
+
+    .segment-v.zone-2.on {
+      background: #9be81b;
+      border-color: #b9f35a;
+      box-shadow: 0 0 5px rgba(155,232,27,.28);
+    }
+
+    .segment-v.zone-3.on {
+      background: #19c45a;
+      border-color: #4fe384;
+      box-shadow: 0 0 5px rgba(25,196,90,.28);
+    }
+
+    .segment-v.zone-4.on {
+      background: #1f7cff;
+      border-color: #5ba2ff;
+      box-shadow: 0 0 5px rgba(31,124,255,.28);
     }
 
     #portrait-digits-panel {
@@ -1504,12 +1552,14 @@
 
       for (let i = 0; i < SEGMENT_COUNT; i++) {
         const h = document.createElement("div");
-        h.className = "segment-h";
+        const hZone = Math.min(4, Math.floor(i / (SEGMENT_COUNT / 4)) + 1);
+        h.className = `segment-h zone-${hZone}`;
         landscapeSegmentBar.insertBefore(h, katanaH);
         hSegments.push(h);
 
         const v = document.createElement("div");
-        v.className = "segment-v";
+        const vZone = Math.max(1, 4 - Math.floor(i / (SEGMENT_COUNT / 4)));
+        v.className = `segment-v zone-${vZone}`;
         portraitSegmentBar.insertBefore(v, katanaV);
         vSegments.push(v);
       }
