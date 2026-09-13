@@ -19,57 +19,63 @@ h1{margin:4px 0 2px;text-align:center;font-size:34px;color:#17538e}
 a.game{display:block;text-decoration:none;color:#fff;border-radius:16px;padding:17px 16px;font-size:19px;font-weight:900;box-shadow:0 4px 10px #0002}
 a.game small{display:block;font-size:12px;margin-top:4px;font-weight:650}
 .fish{background:#1f78c8}
-.nishi{background:#3f9b64}
-.hyogo{background:#6f5aa8}
 .todofuken{background:#e49a2f}
+.hyogo{background:#6f5aa8}
 .clock{background:#556b8f}
+.hanshin{background:#fff;border:1px solid #c9dfd1;border-radius:16px;padding:13px 12px;box-shadow:0 4px 10px #0001}
+.hanshin-title{font-size:19px;font-weight:900;color:#2f7850;margin:0 0 3px}
+.hanshin-sub{font-size:12px;font-weight:650;color:#5d7467;margin-bottom:10px}
+.city-buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.city-buttons a{display:flex;align-items:center;justify-content:center;min-height:42px;text-decoration:none;color:#fff;background:#3f9b64;border-radius:11px;font-size:15px;font-weight:850;box-shadow:0 2px 6px #0002}
+.city-buttons a:last-child{grid-column:1/-1}
 footer{text-align:center;margin-top:18px;font-size:12px;color:#6d8390;line-height:1.7}
 </style>
 </head>
 <body>
 <main>
-  <h1>🎮 Kussoon Games</h1>
-  <div class="sub">遊びながら、楽しく覚えよう</div>
+<h1>🎮 Kussoon Games</h1>
+<div class="sub">遊びながら、楽しく覚えよう</div>
 
-  <section class="hero">
-    <img src="images/kisaragi-teacher.png" alt="如月先生">
-    <div class="speech">
-      こんにちは、如月です。<br>
-      遊びたいゲームを選んでください！
-    </div>
-  </section>
+<section class="hero">
+<img src="images/kisaragi-teacher.png" alt="如月先生">
+<div class="speech">こんにちは、如月です。<br>遊びたいゲームを選んでください！</div>
+</section>
 
-  <div class="games">
-    <a class="game fish" href="sakana.html">
-      🐟 さかな当てゲーム
-      <small>魚へんの漢字を楽しく覚えよう</small>
-    </a>
+<div class="games">
+<a class="game fish" href="sakana.html">
+🐟 さかな当てゲーム
+<small>魚へんの漢字を楽しく覚えよう</small>
+</a>
 
-    <a class="game nishi" href="https://kussoon.github.io/nishinomiya/index.html">
-      🗺️ 西宮市 町名記憶ゲーム
-      <small>コミュニティの場所と町名を覚えよう</small>
-    </a>
+<a class="game todofuken" href="todofuken.html">
+🗾 都道府県記憶ゲーム
+<small>場所・名前・漢字を楽しく覚えよう</small>
+</a>
 
-    <a class="game hyogo" href="https://kussoon.github.io/hyogo/index.html">
-      🏯 兵庫県 市町村記憶ゲーム
-      <small>市町と神戸市9区の場所と名前を覚えよう</small>
-    </a>
+<a class="game hyogo" href="https://kussoon.github.io/hyogo/index.html">
+🏯 兵庫県 市町村記憶ゲーム
+<small>市町と神戸市9区の場所と名前を覚えよう</small>
+</a>
 
-    <a class="game todofuken" href="todofuken.html">
-      🗾 都道府県記憶ゲーム
-      <small>場所・名前・漢字を楽しく覚えよう</small>
-    </a>
+<section class="hanshin">
+<div class="hanshin-title">🗺️ 阪神間 町名記憶ゲーム</div>
+<div class="hanshin-sub">市を選んで、町名を楽しく覚えよう</div>
+<div class="city-buttons">
+<a href="https://kussoon.github.io/nishinomiya/index.html">西宮市</a>
+<a href="https://kussoon.github.io/takarazuka/index.html">宝塚市</a>
+<a href="https://kussoon.github.io/amagasaki/index.html">尼崎市</a>
+<a href="https://kussoon.github.io/itami/index.html">伊丹市</a>
+<a href="https://kussoon.github.io/ashiya/index.html">芦屋市</a>
+</div>
+</section>
 
-    <a class="game clock" href="digital-clock.html">
-      🕒 バータイマー付きデジタル時計
-      <small>時刻確認・待機時間の管理に</small>
-    </a>
-  </div>
+<a class="game clock" href="digital-clock.html">
+🕒 バータイマー付きデジタル時計
+<small>時刻確認・待機時間の管理に</small>
+</a>
+</div>
 
-  <footer>
-    Presented by Kussoon<br>
-    Version 1.2
-  </footer>
+<footer>Presented by Kussoon<br>Version 1.3</footer>
 </main>
 </body>
 </html>
