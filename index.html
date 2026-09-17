@@ -22,11 +22,30 @@ a.game small{display:block;font-size:12px;margin-top:4px;font-weight:650}
 .todofuken{background:#e49a2f}
 .hyogo{background:#6f5aa8}
 .clock{background:#556b8f}
-.hanshin{background:#3f9b64;border:1px solid #3f9b64;border-radius:16px;padding:13px 12px;box-shadow:0 4px 10px #0001}
-.hanshin-title{font-size:19px;font-weight:900;color:#fff;margin:0 0 3px}
-.hanshin-sub{font-size:12px;font-weight:650;color:#eef8f1;margin-bottom:10px}
+.intersections-trial{
+  background:#f5f7f8;
+  color:#72808a !important;
+  border:1px dashed #c8d0d5;
+  box-shadow:none !important;
+}
+.intersections-trial small{color:#89959d}
+.trial-badge{
+  display:inline-block;
+  margin-left:7px;
+  padding:2px 7px;
+  border:1px solid #c7cfd4;
+  border-radius:999px;
+  background:#fff;
+  color:#7b8790;
+  font-size:11px;
+  font-weight:800;
+  vertical-align:2px;
+}
+.hanshin{background:#fff;border:1px solid #c9dfd1;border-radius:16px;padding:13px 12px;box-shadow:0 4px 10px #0001}
+.hanshin-title{font-size:19px;font-weight:900;color:#2f7850;margin:0 0 3px}
+.hanshin-sub{font-size:12px;font-weight:650;color:#5d7467;margin-bottom:10px}
 .city-buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.city-buttons a{display:flex;align-items:center;justify-content:center;min-height:42px;text-decoration:none;color:#3f9b64;background:#fff;border-radius:11px;font-size:15px;font-weight:850;box-shadow:0 2px 6px #0002}
+.city-buttons a{display:flex;align-items:center;justify-content:center;min-height:42px;text-decoration:none;color:#fff;background:#3f9b64;border-radius:11px;font-size:15px;font-weight:850;box-shadow:0 2px 6px #0002}
 .city-buttons a:first-child{grid-column:1/-1}
 footer{text-align:center;margin-top:18px;font-size:12px;color:#6d8390;line-height:1.7}
 </style>
@@ -69,13 +88,18 @@ footer{text-align:center;margin-top:18px;font-size:12px;color:#6d8390;line-heigh
 </div>
 </section>
 
+<a class="game intersections-trial" href="https://kussoon.com/nishinomiya/nishinomiya-intersections-map.html">
+🚦 西宮市 交差点看板マップ <span class="trial-badge">試作版</span>
+<small>交差点名標識の位置を確認できます</small>
+</a>
+
 <a class="game clock" href="digital-clock.html">
 🕒 バータイマー付きデジタル時計
 <small>時刻確認・待機時間の管理に</small>
 </a>
 </div>
 
-<footer>Version 1.3<br>© 2026 Kussoon. All rights reserved.</footer>
+<footer>Version 1.4<br>© 2026 Kussoon. All rights reserved.</footer>
 </main>
 </body>
 </html>
