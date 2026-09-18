@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>西宮市 新規3交差点 位置登録 Ver.0.8.1</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;color:#17212b;background:#f6f8fa}
+main{max-width:900px;margin:auto;background:#fff;min-height:100%}
+header{padding:12px 14px;border-bottom:1px solid #ddd}
+h1{font-size:20px;margin:0 0 5px}
+.sub{font-size:13px;color:#667;line-height:1.45}
+.status{padding:10px 14px;background:#eef7ff;border-bottom:1px solid #cfe3f2;font-weight:800}
+.target{padding:12px 14px;background:#fff;border-bottom:1px solid #ddd}
+.target-name{font-size:24px;font-weight:900}
+.target-note{font-size:13px;color:#667;margin-top:4px}
+#map{height:55vh;min-height:400px}
+.controls{padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#fff;border-top:1px solid #ddd}
+button{font-size:15px;font-weight:800;padding:12px 8px;border:1px solid #b8c0c8;border-radius:11px;background:#fff}
+button.primary{background:#1f78c8;color:#fff;border-color:#1f78c8}
+button.multi{background:#f5f7f8}
+button.danger{color:#9b3b3b}
+.coord{padding:8px 14px;font-size:13px;color:#445;background:#fafafa;border-top:1px solid #eee;min-height:38px}
+.result{padding:10px 14px 24px;background:#fff}
+.result h2{font-size:16px;margin:4px 0 8px}
+.result-row{padding:8px 0;border-bottom:1px solid #eee;font-size:13px;line-height:1.45}
+.done{font-size:20px;font-weight:900;color:#26734d;padding:8px 0}
+.copybox{width:100%;height:125px;font-size:13px;padding:8px;margin-top:8px}
+.small{font-size:12px;color:#667}
+@media(max-width:600px){#map{height:50vh;min-height:390px}.target-name{font-size:22px}}
+</style>
+</head>
+<body><main>
+<header>
+<h1>西宮市 新規3交差点 位置登録 <small>Ver.0.8.1</small></h1>
+<div class="sub">地図をタップして位置を指定してください。初期表示位置は案内用で、確定座標には使いません。</div>
+</header>
+<div id="status" class="status"></div>
+<div class="target">
+  <div id="name" class="target-name"></div>
+  <div id="note" class="target-note"></div>
+</div>
+<div id="map"></div>
+<div id="coord" class="coord">地図をタップしてください。</div>
+<div class="controls">
+  <button id="confirm" class="primary">この位置に決定</button>
+  <button id="multi" class="multi">＋ 複数地点にする</button>
+  <button id="undo">1つ戻す</button>
+  <button id="reset" class="danger">この地点をやり直す</button>
+</div>
+<div class="result">
+<h2>登録結果</h2>
+<div id="results"></div>
+<textarea id="copybox" class="copybox" readonly placeholder="3件完了すると、ここに送信用データが出ます。"></textarea>
+<button id="copy">結果をコピー</button>
+<div class="small">コピーできない場合は、この欄を長押しして選択・コピーしてください。</div>
+</div>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const targets = [
+  {name:"神祇官町南", center:[34.7411,135.3508], zoom:17, note:"JR西宮駅～西宮北口の間。正しい交差点を地図上で指定してください。"},
+  {name:"神祇官町北", center:[34.7431,135.3508], zoom:17, note:"神祇官町南の北側周辺。初期位置は推定です。"},
+  {name:"両度町", center:[34.7440,135.3532], zoom:17, note:"既存の「両度町東」「両度町南」周辺。初期位置は推定です。"}
+];
+
+let idx = 0;
+let points = [];
+let saved = {};
+let markers = [];
+let line = null;
+
+const map = L.map("map").setView(targets[0].center, targets[0].zoom);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+  maxZoom:20,
+  attribution:"&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+function clearTemp(){
+  markers.forEach(m=>map.removeLayer(m));
+  markers=[];
+  if(line){ map.removeLayer(line); line=null; }
+}
+function drawTemp(){
+  clearTemp();
+  points.forEach((p,i)=>{
+    markers.push(L.marker(p).addTo(map).bindTooltip("地点"+(i+1),{permanent:true,direction:"top"}));
+  });
+  if(points.length>1) line=L.polyline(points,{weight:2,dashArray:"5,5"}).addTo(map);
+  const c=document.getElementById("coord");
+  if(!points.length) c.textContent="地図をタップしてください。";
+  else c.textContent=points.map((p,i)=>`地点${i+1}: ${p[0].toFixed(8)}, ${p[1].toFixed(8)}`).join(" / ");
+}
+function renderResults(){
+  const box=document.getElementById("results");
+  box.innerHTML="";
+  targets.forEach(t=>{
+    const arr=saved[t.name];
+    if(!arr) return;
+    const d=document.createElement("div");
+    d.className="result-row";
+    d.innerHTML=`<b>${t.name}</b><br>`+arr.map((p,i)=>`地点${i+1}: ${p[0]}, ${p[1]}`).join("<br>");
+    box.appendChild(d);
+  });
+  if(Object.keys(saved).length===targets.length){
+    document.getElementById("status").innerHTML="🎉 新規3件の位置登録が完了しました";
+    const lines=["交差点名,地点,緯度,経度"];
+    targets.forEach(t=>saved[t.name].forEach((p,i)=>lines.push(`${t.name},${i+1},${p[0]},${p[1]}`)));
+    document.getElementById("copybox").value=lines.join("\n");
+  }
+}
+function showTarget(){
+  if(idx>=targets.length){
+    clearTemp();
+    document.getElementById("name").textContent="3件完了";
+    document.getElementById("note").textContent="下の結果をコピーしてChatGPTへ送ってください。";
+    document.getElementById("coord").textContent="登録完了です。";
+    renderResults();
+    return;
+  }
+  const t=targets[idx];
+  document.getElementById("status").textContent=`${idx+1} / ${targets.length}件目`;
+  document.getElementById("name").textContent=t.name;
+  document.getElementById("note").textContent=t.note;
+  points=[];
+  clearTemp();
+  map.setView(t.center,t.zoom);
+  drawTemp();
+}
+map.on("click",e=>{
+  if(idx>=targets.length) return;
+  if(points.length===0) points=[[e.latlng.lat,e.latlng.lng]];
+  else if(points.length===1 && document.getElementById("multi").dataset.active==="1") points.push([e.latlng.lat,e.latlng.lng]);
+  else points=[[e.latlng.lat,e.latlng.lng]];
+  drawTemp();
+});
+document.getElementById("multi").onclick=()=>{
+  if(idx>=targets.length) return;
+  const b=document.getElementById("multi");
+  const active=b.dataset.active==="1";
+  b.dataset.active=active?"0":"1";
+  b.textContent=active?"＋ 複数地点にする":"複数地点モード ON";
+};
+document.getElementById("confirm").onclick=()=>{
+  if(idx>=targets.length) return;
+  if(!points.length){alert("先に地図をタップして位置を指定してください。");return;}
+  saved[targets[idx].name]=points.map(p=>[Number(p[0].toFixed(12)),Number(p[1].toFixed(12))]);
+  localStorage.setItem("nishinomiya_new3_v081",JSON.stringify(saved));
+  idx++;
+  document.getElementById("multi").dataset.active="0";
+  document.getElementById("multi").textContent="＋ 複数地点にする";
+  renderResults();
+  showTarget();
+};
+document.getElementById("undo").onclick=()=>{
+  if(idx===0) return;
+  idx--;
+  delete saved[targets[idx].name];
+  localStorage.setItem("nishinomiya_new3_v081",JSON.stringify(saved));
+  renderResults();
+  showTarget();
+};
+document.getElementById("reset").onclick=()=>{points=[];drawTemp();};
+document.getElementById("copy").onclick=async()=>{
+  const txt=document.getElementById("copybox").value;
+  if(!txt){alert("3件の登録を完了してください。");return;}
+  try{await navigator.clipboard.writeText(txt);alert("結果をコピーしました。");}
+  catch(e){document.getElementById("copybox").select();alert("結果欄を選択しました。コピーしてください。");}
+};
+
+// 同じ端末で途中終了しても復元
+try{
+  const prev=JSON.parse(localStorage.getItem("nishinomiya_new3_v081")||"{}");
+  saved=prev && typeof prev==="object"?prev:{};
+  idx=0;
+  while(idx<targets.length && saved[targets[idx].name]) idx++;
+}catch(e){}
+renderResults();
+showTarget();
+</script>
+</body></html>
