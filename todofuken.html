@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.7.39</title>
+<title>都道府県名記憶ゲーム Ver.4.7.40</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -192,6 +192,18 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .home-region-box{margin-top:14px;padding:12px;border:1px solid #cfe0eb;border-radius:14px;background:#fbfdff}
 .home-region-box h2{font-size:15px;color:#24548b;margin:0 0 10px}
 .home-region-box .selected{margin-top:9px}
+.home-guide{margin:0 0 12px;padding:12px;border:2px solid #8dcc8a;border-radius:14px;background:#f4fff3}
+.home-guide h2{margin:0 0 8px;font-size:17px;color:#286126}
+.home-guide p{margin:0 0 10px;font-size:13px;line-height:1.5;font-weight:800;color:#466044}
+.home-step-list{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:0;padding:0;list-style:none;counter-reset:home-step}
+.home-step-list li{position:relative;min-height:86px;padding:9px 7px 7px 31px;border-radius:10px;background:#fff;border:1px solid #c7e5c4;font-size:12px;line-height:1.35;font-weight:800;color:#315a35;counter-increment:home-step}
+.home-step-list li::before{content:counter(home-step);position:absolute;left:7px;top:8px;width:19px;height:19px;border-radius:50%;background:#4aa047;color:#fff;text-align:center;line-height:19px;font-size:12px;font-weight:950}
+.home-step-list strong{display:block;font-size:13px;color:#245b22}
+.all-map-btn{display:block;width:100%;margin-top:9px;padding:10px;background:#4b9e4a;color:#fff;font-size:15px}
+.home-choice-title{display:flex;align-items:center;gap:8px;margin:12px 0 8px;color:#24548b}
+.home-choice-title span{display:inline-flex;width:25px;height:25px;align-items:center;justify-content:center;border-radius:50%;background:#287bd6;color:#fff;font-size:14px;font-weight:950}
+.home-choice-title strong{font-size:16px}
+.home-choice-title small{font-size:12px;font-weight:800;color:#637984}
 
 /* Character placement in game screens */
 .studyViewport,.quizViewport,.quiz2Viewport,.canvasWrap{position:relative}
@@ -209,6 +221,8 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   .mode-copy small{font-size:12px}
   .screen-mascot{width:98px;max-height:132px}
   #writePage .screen-mascot{width:88px}
+  .home-step-list{grid-template-columns:1fr;gap:5px}
+  .home-step-list li{min-height:0;padding:7px 7px 7px 31px}
 }
 
 .mapZoomControls{position:absolute;top:10px;right:10px;display:flex;gap:6px;z-index:10}
@@ -219,25 +233,38 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.7.39 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7.40 -->
 <main>
 
 <header class="home-hero">
   <div class="home-title-wrap">
     <h1>🗾 都道府県名記憶ゲーム</h1>
+    <div class="sub">地図を見て、地方ごとに覚え、全国で挑戦しよう</div>
   </div>
   <img class="home-mascot" src="images/kisaragi-teacher.png" alt="">
 </header>
 
 <section class="card home-card">
+  <div class="home-guide">
+    <h2>はじめての人へ　おすすめの順番</h2>
+    <p>全国の地図で地方の場所を見てから、地方ごとに都道府県名を覚えよう。</p>
+    <ol class="home-step-list">
+      <li><strong>全国の地図を見る</strong>地方名と場所を確認</li>
+      <li><strong>地方ごとに覚える</strong>学習モードから始めよう</li>
+      <li><strong>全国で挑戦</strong>クイズで覚えたか確認</li>
+    </ol>
+    <button id="startAllStudy" class="all-map-btn">全国の地図を見てみる</button>
+  </div>
+
+  <div class="home-choice-title"><span>1</span><div><strong>地方を選ぶ</strong><small>選んだ地方で学習・クイズができます</small></div></div>
   <div class="home-region-box">
-    <h2>学習する範囲を選んでください</h2>
+    <h2>地方・複数地方・全国から選ぼう</h2>
     <div id="regions" class="region-grid"></div>
     <div id="ranges" class="range-grid"></div>
     <div id="selected" class="selected">学習範囲：5 近畿</div>
   </div>
 
-
+  <div class="home-choice-title"><span>2</span><div><strong>やることを選ぶ</strong><small>最初は「学習モード」がおすすめ</small></div></div>
   <div class="modes home-modes">
     <button class="mode study" data-mode="study">
       <span class="mode-icon">📖</span>
@@ -528,7 +555,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.39</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.40</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -564,6 +591,7 @@ ranges.forEach(label=>{
   const b=document.createElement("button");
   b.className="range";
   b.textContent=label;
+  b.dataset.range=label;
   b.onclick=()=>choose(label,b);
   rangesEl.appendChild(b);
 });
@@ -583,6 +611,10 @@ document.querySelectorAll(".mode").forEach(btn=>{
     else { notice.style.display="block"; notice.textContent=`${selected} ／ ${modeNames[btn.dataset.mode]} は次の段階で接続します。`; }
   };
 });
+document.getElementById("startAllStudy").onclick=()=>{
+  document.querySelector('.range[data-range="全国"]').click();
+  openStudy();
+};
 
 const PREF_NAMES=["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"];
 const LABEL_OFFSETS={
@@ -931,14 +963,22 @@ function q2Fit(codes){
   const w=maxX-minX,h=maxY-minY,pad=Math.max(w,h)*.08;
   q2BaseVB={x:minX-pad,y:minY-pad,w:w+pad*2,h:h+pad*2};q2VB={...q2BaseVB};q2Apply();
 }
-const QUIZ2_FALLBACK_CHOICES={
-  1:[2,3,4],      // 北海道：北日本の近い県から出す
-  47:[46,45,44]   // 沖縄：九州の近い県から出す
+const QUIZ2_NEAR_CHOICES={
+  1:[2,3,5,4],2:[1,3,4,5],3:[2,4,5,6],4:[2,3,6,7],5:[2,3,6,4],6:[3,5,4,7],7:[4,6,8,9,10],
+  8:[7,9,10,11],9:[8,10,11,7],10:[8,9,11,19,20],11:[8,9,10,13,12],12:[8,11,13,14],13:[11,12,14,19],14:[12,13,19,22],
+  15:[6,7,10,20,16],16:[15,17,20,21,18],17:[16,18,20,21,15],18:[17,16,21,25,26],19:[10,13,14,20,22],20:[10,15,16,17,19,21],
+  21:[16,17,18,20,23,24,25],22:[14,19,20,21,23],23:[21,22,24,25,27],24:[21,23,25,27,29,30],25:[18,21,23,24,26,27,28],
+  26:[18,25,27,28,29,31],27:[24,25,26,28,29],28:[25,26,27,29,30,31,33],29:[24,26,27,28,30],30:[24,28,29,27],
+  31:[26,28,32,33,34],32:[31,33,34,35],33:[28,31,32,34,35],34:[31,32,33,35,36,37,38],35:[32,33,34,36,37,38],
+  36:[34,35,37,39],37:[34,36,38,39],38:[34,35,37,39],39:[35,36,37,38],40:[41,42,43,44],41:[40,42,43,44],
+  42:[40,41,43,44],43:[40,41,42,44,45],44:[40,41,42,43,45,46],45:[43,44,46,47],46:[44,45,47,43],47:[46,45,44,43]
 };
 function makeChoices(answer,codes){
-  const extras=QUIZ2_FALLBACK_CHOICES[answer]||STUDY_SETS["全国"];
-  const pool=[...new Set([...codes,...extras])];
-  const others=shuffle(pool.filter(c=>c!==answer)).slice(0,3);
+  const near=QUIZ2_NEAR_CHOICES[answer]||[];
+  const inRange=shuffle(near.filter(c=>codes.includes(c)));
+  const nearby=shuffle(near.filter(c=>!codes.includes(c)));
+  const remaining=shuffle(STUDY_SETS["全国"].filter(c=>c!==answer&&!near.includes(c)));
+  const others=[...inRange,...nearby,...remaining].slice(0,3);
   return shuffle([answer,...others]);
 }
 function q2Question(){
