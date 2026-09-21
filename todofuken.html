@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eaf7ff">
-<title>都道府県名記憶ゲーム Ver.4.7.36</title>
+<title>都道府県名記憶ゲーム Ver.4.7.39</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -85,8 +85,6 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .quizControls button,.retryBtn{border:0;border-radius:16px;padding:13px 18px;font-size:17px;font-weight:900}
 .nextBtn{background:#f4c542;color:#493600}
 .retryBtn{background:#ffdf72;color:#4d3900;display:none}
-#quizRetry,#quiz2Retry{position:relative;left:50%;transform:translateX(-50%)}
-#quizRetry{margin-top:10px}
 .zoomQ{background:#e7f4f7;color:#24434b}
 .resultBox{display:none;text-align:center;padding:18px;border-radius:20px;background:rgba(255,255,255,.82);margin:14px 0}.resultActions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}.againBtn{background:#bfe8ff;color:#174c67}.missBtn{background:#ffe181;color:#5a4300}.topBtn{background:#e7edf1;color:#40515a}
 .resultBox strong{font-size:28px}
@@ -94,11 +92,12 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 /* 西宮市町名クイズ風の結果画面 */
 .nishiResult{display:flex;flex-direction:column;gap:10px;text-align:left}
 .nishiResultHead{background:#287bd6;color:#fff;border-radius:12px;padding:10px;text-align:center;font-size:20px;font-weight:950}
-.nishiResultBody{display:grid;grid-template-columns:44% 56%;gap:8px;align-items:center}
+.nishiResultBody{display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);gap:8px;align-items:center}
 .nishiResultBody img{width:100%;max-height:260px;object-fit:contain}
 .nishiScoreBox{padding:12px;text-align:center;background:#fff;border:1px solid #bdddea;border-radius:13px}
 .nishiOutof{font-size:17px;font-weight:900;color:#14528a}
-.nishiScore{font-size:clamp(40px,12vw,62px);line-height:1;font-weight:950;color:#df4747;margin:4px 0}
+.nishiScore{font-size:clamp(40px,12vw,62px);line-height:1;font-weight:950;color:#df4747;margin:4px 0;white-space:nowrap}
+.nishiScoreLabel{font-size:.54em;letter-spacing:0;margin-left:2px}
 .nishiMistakes{font-size:18px;font-weight:850;margin:8px 0}
 .nishiScoreBox p{font-size:12px;line-height:1.5;margin:5px 0 0}
 .nishiRetry{background:#eaf8e7;border:1px solid #a7d49d;border-radius:13px;padding:9px}
@@ -109,10 +108,15 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .nishiResultAction.missed{background:#2878d2;color:#fff}
 .nishiResultAction.top{background:#eef8fc;color:#235c7d;border:1px solid #bddae7;width:100%}
 .nishiResultAction:disabled{opacity:.45}
+.writeMissedList{margin:0;padding:8px 10px;border-radius:10px;background:#fff8df;color:#654b00;font-size:13px;font-weight:800;line-height:1.5}
 @media(max-width:520px){
-  .nishiResultBody{grid-template-columns:42% 58%}
+  .nishiResultBody{grid-template-columns:minmax(0,42fr) minmax(0,58fr)}
   .nishiResultBody img{max-height:220px}
-  .nishiScore{font-size:clamp(36px,11vw,54px)}
+  .nishiScoreBox{padding:10px 7px}
+  .nishiScore{font-size:clamp(34px,9.2vw,46px)}
+  .nishiScoreLabel{font-size:.50em;margin-left:1px}
+  .nishiOutof{font-size:15px}
+  .nishiMistakes{font-size:16px}
 }
 
 
@@ -141,6 +145,9 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .choiceBtn{border:0;border-radius:16px;padding:14px 10px;font-size:18px;font-weight:900;background:#fff7cf;color:#4c3a00;border:2px solid #e8c64a}
 .choiceBtn.correct{background:#c9f0c7;border-color:#67b762;color:#245b22}
 .choiceBtn.wrong{background:#ffd0d0;border-color:#df7777;color:#7a2424}
+/* クイズ2：小さい画面では、答えを地図より先に表示する */
+#quiz2Round{display:flex;flex-direction:column}
+@media(max-width:520px){#quiz2Choices{order:3;margin:8px 0 12px}#quiz2Viewport{order:4}}
 .q2Message{min-height:0;margin:0;text-align:center;font-size:20px;font-weight:900}
 
 
@@ -157,10 +164,11 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 .answerBtn{background:#ffe181;color:#5b4300}
 .writeAnswer{display:none;text-align:center;background:#f3fff2;border:2px solid #9ed29a;border-radius:18px;padding:12px;margin-top:12px}
 .writeAnswer .kanji{font-size:clamp(72px,18vw,128px);line-height:1.2;font-weight:800;color:#1c5b2d;letter-spacing:.04em;padding:8px 4px;font-family:"Yu Kyokasho Yoko","Yu Kyokasho","HGP教科書体","DFKai-SB","Hiragino Mincho ProN","Yu Mincho",serif}
-.selfRow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.selfRow{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.selfRow button{padding:12px 8px;font-size:15px}
 .goodBtn{background:#c9f0c7;color:#245b22}
 .againWriteBtn{background:#ffd8aa;color:#764800}
-.writeRetry{display:none;width:100%;margin-top:10px;background:#ffe181;color:#5b4300}
+.missedWriteBtn{grid-column:1 / -1;background:#ffe181;color:#5b4300}
 .writeResult{display:none;text-align:center;padding:18px;border-radius:20px;background:rgba(255,255,255,.84);margin:14px 0}
 
 
@@ -211,7 +219,7 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
 </style>
 </head>
 <body>
-<!-- 都道府県名記憶ゲーム Ver.4.7.36 -->
+<!-- 都道府県名記憶ゲーム Ver.4.7.39 -->
 <main>
 
 <header class="home-hero">
@@ -478,20 +486,20 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div id="quizViewport" class="quizViewport"><div id="quizMapFeedback" class="mapFeedback" aria-live="polite"></div><div class="mapZoomControls"><button id="quizZoomOut" class="zoomQ">−</button><button id="quizZoomReset" class="zoomQ resetMapBtn">全体表示</button><button id="quizZoomIn" class="zoomQ">＋</button></div></div>
   <div id="quizMessage" class="quizMessage"></div>
   <button id="quizNext" class="nextBtn" style="display:none">次の問題 ▶</button>
-  <button id="quizRetry" class="retryBtn">間違えた問題だけやる</button>
   <div id="quizResult" class="resultBox"></div>
 </section>
 
 
 <section id="quiz2Page" class="card">
   <div class="quizHead"><button id="quiz2Back" class="back">← 範囲選択へ</button><strong>🔎 クイズ2　場所 → 名前</strong></div>
-  <div id="quiz2Title" class="quiz2Title">光っている都道府県は？</div>
-  <div id="quiz2Progress" class="quiz2Progress"></div>
-  <div id="quiz2Viewport" class="quiz2Viewport"><div id="quiz2MapFeedback" class="mapFeedback" aria-live="polite"></div><div class="mapZoomControls"><button id="quiz2ZoomOut" class="zoomQ">−</button><button id="quiz2ZoomReset" class="zoomQ resetMapBtn">全体表示</button><button id="quiz2ZoomIn" class="zoomQ">＋</button></div></div>
-  <div id="quiz2Choices" class="choiceGrid"></div>
+  <div id="quiz2Round">
+    <div id="quiz2Title" class="quiz2Title">光っている都道府県は？</div>
+    <div id="quiz2Progress" class="quiz2Progress"></div>
+    <div id="quiz2Viewport" class="quiz2Viewport"><div id="quiz2MapFeedback" class="mapFeedback" aria-live="polite"></div><div class="mapZoomControls"><button id="quiz2ZoomOut" class="zoomQ">−</button><button id="quiz2ZoomReset" class="zoomQ resetMapBtn">全体表示</button><button id="quiz2ZoomIn" class="zoomQ">＋</button></div></div>
+    <div id="quiz2Choices" class="choiceGrid"></div>
+  </div>
   <div id="quiz2Message" class="q2Message"></div>
   <button id="quiz2Next" class="nextBtn" style="display:none">次の問題 ▶</button>
-  <button id="quiz2Retry" class="retryBtn">間違えた問題だけやる</button>
   <div id="quiz2Result" class="resultBox"></div>
 </section>
 
@@ -500,25 +508,27 @@ button{font:inherit;border:0;border-radius:14px;padding:12px 7px;font-weight:900
   <div class="writeHead"><button id="writeBack" class="back">← 範囲選択へ</button><strong>✍️ 漢字書き取り</strong></div>
   <div id="writeTitle" class="writeTitle">漢字で書こう</div>
   <div id="writeProgress" class="writeProgress"></div>
-  <div id="writeKana" class="writeKana"></div>
-  <div class="canvasWrap"><canvas id="writeCanvas"></canvas><img class="screen-mascot" src="images/kisaragi-teacher.png" alt=""></div>
-  <div class="writeControls">
-    <button id="writeClear" class="clearBtn">書き直す</button>
-    <button id="showAnswer" class="answerBtn">答えを見る</button>
-  </div>
-  <div id="writeAnswer" class="writeAnswer">
-    <div>答え</div>
-    <div id="writeKanji" class="kanji"></div>
-    <div class="selfRow">
-      <button id="selfGood" class="goodBtn">⭕ 書けた！</button>
-      <button id="selfAgain" class="againWriteBtn">△ もう一回書く</button>
+  <div id="writeWorkspace">
+    <div id="writeKana" class="writeKana"></div>
+    <div class="canvasWrap"><canvas id="writeCanvas"></canvas><img class="screen-mascot" src="images/kisaragi-teacher.png" alt=""></div>
+    <div class="writeControls">
+      <button id="writeClear" class="clearBtn">書き直す</button>
+      <button id="showAnswer" class="answerBtn">答えを見る</button>
+    </div>
+    <div id="writeAnswer" class="writeAnswer">
+      <div>答え</div>
+      <div id="writeKanji" class="kanji"></div>
+      <div class="selfRow">
+        <button id="selfGood" class="goodBtn">⭕ 書けた！</button>
+        <button id="selfAgain" class="againWriteBtn">✍️ もう一回書く</button>
+        <button id="selfMissed" class="missedWriteBtn">△ できなかった（あとでやり直す）</button>
+      </div>
     </div>
   </div>
-  <button id="writeRetry" class="writeRetry">できなかった問題だけ</button>
   <div id="writeResult" class="writeResult"></div>
 </section>
 
-<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.36</div>
+<div style="text-align:center;font-size:11px;color:#8aa0aa;margin-top:10px">都道府県名記憶ゲーム Ver.4.7.39</div>
 <footer class="credit">
   地図データ：<a href="https://github.com/geolonia/japanese-prefectures">Geolonia「japanese-prefectures」</a><br>
   Wikipedia「日本地図.svg」をベースにしたデータ／ライセンス：GFDL<br>
@@ -751,7 +761,6 @@ const quizProgress=document.getElementById("quizProgress");
 const quizMessage=document.getElementById("quizMessage");
 const quizMapFeedback=document.getElementById("quizMapFeedback");
 const quizNext=document.getElementById("quizNext");
-const quizRetry=document.getElementById("quizRetry");
 const quizResult=document.getElementById("quizResult");
 let quizSvg=null,quizPrefs=[],quizOrder=[],quizIndex=0,quizWrong=new Set(),quizAnswered=false;
 let qBaseVB=null,qVB=null,qPointers=new Map(),qLastDist=0;
@@ -784,7 +793,6 @@ function qQuestion(){
   quizTitle.textContent=`「${PREF_NAMES[code-1]}」はどこですか？`;
   quizProgress.textContent=`${quizIndex+1} / ${quizOrder.length}`;
   quizMessage.textContent="";
-  quizRetry.style.display=(quizWrong.size && quizIndex>0)?"inline-block":"none";
 }
 function qTap(g){
   if(quizAnswered)return;
@@ -806,7 +814,6 @@ function qTap(g){
       quizMapFeedback.textContent="";
       quizAnswered=false;
     },1500);
-    quizRetry.style.display="inline-block";
   }
 }
 function qFinish(){
@@ -822,10 +829,10 @@ function qFinish(){
   <div class="nishiResult">
     <div class="nishiResultHead">結果</div>
     <div class="nishiResultBody">
-      <img src="images/kisaragi-teacher.png" alt="如月先生">
+      <img src="images/kisaragi-teacher.png" alt="">
       <div class="nishiScoreBox">
         <div class="nishiOutof">${total}問中</div>
-        <div class="nishiScore">${ok}問正解</div>
+        <div class="nishiScore">${ok}<span class="nishiScoreLabel">問正解</span></div>
         <div class="nishiMistakes">間違い ${wrong}問</div>
         <p>${evalText}</p>
       </div>
@@ -839,7 +846,6 @@ function qFinish(){
     </div>
     <button id="q1Top" class="nishiResultAction top">トップに戻る</button>
   </div>`;
-  quizRetry.style.display="none";
   document.getElementById("q1Again").onclick=()=>{qFit(STUDY_SETS[selected]);startQuiz(STUDY_SETS[selected],false)};
   document.getElementById("q1Missed").onclick=()=>{
     if(!quizWrong.size)return;
@@ -873,10 +879,6 @@ document.getElementById("quizBack").onclick=()=>{
   window.scrollTo({top:0,behavior:"smooth"});
 };
 quizNext.onclick=()=>{if(!quizAnswered)return;if(++quizIndex>=quizOrder.length)qFinish();else qQuestion()};
-quizRetry.onclick=()=>{
-  if(!quizWrong.size)return;
-  const arr=[...quizWrong];quizWrong.clear();quizOrder=shuffle(arr);quizIndex=0;quizResult.style.display="none";qQuestion();
-};
 function qZoom(f){
   const cx=qVB.x+qVB.w/2,cy=qVB.y+qVB.h/2,nw=qVB.w*f,nh=qVB.h*f;
   qVB={x:cx-nw/2,y:cy-nh/2,w:nw,h:nh};qApply();
@@ -909,7 +911,6 @@ const quiz2Choices=document.getElementById("quiz2Choices");
 const quiz2Message=document.getElementById("quiz2Message");
 const quiz2MapFeedback=document.getElementById("quiz2MapFeedback");
 const quiz2Next=document.getElementById("quiz2Next");
-const quiz2Retry=document.getElementById("quiz2Retry");
 const quiz2Result=document.getElementById("quiz2Result");
 let quiz2Svg=null,quiz2Prefs=[],quiz2Order=[],quiz2Index=0,quiz2Wrong=new Set(),quiz2Answered=false;
 let q2BaseVB=null,q2VB=null,q2Pointers=new Map(),q2LastDist=0;
@@ -930,8 +931,14 @@ function q2Fit(codes){
   const w=maxX-minX,h=maxY-minY,pad=Math.max(w,h)*.08;
   q2BaseVB={x:minX-pad,y:minY-pad,w:w+pad*2,h:h+pad*2};q2VB={...q2BaseVB};q2Apply();
 }
+const QUIZ2_FALLBACK_CHOICES={
+  1:[2,3,4],      // 北海道：北日本の近い県から出す
+  47:[46,45,44]   // 沖縄：九州の近い県から出す
+};
 function makeChoices(answer,codes){
-  const others=shuffle(codes.filter(c=>c!==answer)).slice(0,3);
+  const extras=QUIZ2_FALLBACK_CHOICES[answer]||STUDY_SETS["全国"];
+  const pool=[...new Set([...codes,...extras])];
+  const others=shuffle(pool.filter(c=>c!==answer)).slice(0,3);
   return shuffle([answer,...others]);
 }
 function q2Question(){
@@ -956,7 +963,6 @@ function q2Question(){
     b.onclick=()=>q2Answer(code,b);
     quiz2Choices.appendChild(b);
   });
-  quiz2Retry.style.display=(quiz2Wrong.size && quiz2Index>0)?"inline-block":"none";
 }
 function q2Answer(code,btn){
   if(quiz2Answered)return;
@@ -986,7 +992,6 @@ function q2Answer(code,btn){
       quiz2MapFeedback.textContent="";
       quiz2Answered=false;
     },1500);
-    quiz2Retry.style.display="inline-block";
   }
 }
 function q2Finish(){
@@ -1004,10 +1009,10 @@ function q2Finish(){
   <div class="nishiResult">
     <div class="nishiResultHead">結果</div>
     <div class="nishiResultBody">
-      <img src="images/kisaragi-teacher.png" alt="如月先生">
+      <img src="images/kisaragi-teacher.png" alt="">
       <div class="nishiScoreBox">
         <div class="nishiOutof">${total}問中</div>
-        <div class="nishiScore">${ok}問正解</div>
+        <div class="nishiScore">${ok}<span class="nishiScoreLabel">問正解</span></div>
         <div class="nishiMistakes">間違い ${wrong}問</div>
         <p>${evalText}</p>
       </div>
@@ -1021,7 +1026,6 @@ function q2Finish(){
     </div>
     <button id="q2Top" class="nishiResultAction top">トップに戻る</button>
   </div>`;
-  quiz2Retry.style.display="none";
   document.getElementById("q2Again").onclick=()=>{q2Fit(STUDY_SETS[selected]);startQuiz2(STUDY_SETS[selected],false)};
   document.getElementById("q2Missed").onclick=()=>{
     if(!quiz2Wrong.size)return;
@@ -1054,10 +1058,6 @@ document.getElementById("quiz2Back").onclick=()=>{
   window.scrollTo({top:0,behavior:"smooth"});
 };
 quiz2Next.onclick=()=>{if(!quiz2Answered)return;if(++quiz2Index>=quiz2Order.length)q2Finish();else q2Question()};
-quiz2Retry.onclick=()=>{
-  if(!quiz2Wrong.size)return;
-  const arr=[...quiz2Wrong];quiz2Wrong.clear();quiz2Order=shuffle(arr);quiz2Index=0;quiz2Result.style.display="none";q2Question();
-};
 function q2Zoom(f){
   const cx=q2VB.x+q2VB.w/2,cy=q2VB.y+q2VB.h/2,nw=q2VB.w*f,nh=q2VB.h*f;
   q2VB={x:cx-nw/2,y:cy-nh/2,w:nw,h:nh};q2Apply();
@@ -1084,7 +1084,7 @@ quiz2Viewport.addEventListener("pointerup",q2End);quiz2Viewport.addEventListener
 
 // ===== 漢字書き取り =====
 const HIRA=["ほっかいどう","あおもりけん","いわてけん","みやぎけん","あきたけん","やまがたけん","ふくしまけん","いばらきけん","とちぎけん","ぐんまけん","さいたまけん","ちばけん","とうきょうと","かながわけん","にいがたけん","とやまけん","いしかわけん","ふくいけん","やまなしけん","ながのけん","ぎふけん","しずおかけん","あいちけん","みえけん","しがけん","きょうとふ","おおさかふ","ひょうごけん","ならけん","わかやまけん","とっとりけん","しまねけん","おかやまけん","ひろしまけん","やまぐちけん","とくしまけん","かがわけん","えひめけん","こうちけん","ふくおかけん","さがけん","ながさきけん","くまもとけん","おおいたけん","みやざきけん","かごしまけん","おきなわけん"];
-const writePage=document.getElementById("writePage"),writeProgress=document.getElementById("writeProgress"),writeKana=document.getElementById("writeKana"),writeAnswer=document.getElementById("writeAnswer"),writeKanji=document.getElementById("writeKanji"),writeRetry=document.getElementById("writeRetry"),writeResult=document.getElementById("writeResult");
+const writePage=document.getElementById("writePage"),writeTitle=document.getElementById("writeTitle"),writeProgress=document.getElementById("writeProgress"),writeWorkspace=document.getElementById("writeWorkspace"),writeKana=document.getElementById("writeKana"),writeAnswer=document.getElementById("writeAnswer"),writeKanji=document.getElementById("writeKanji"),writeResult=document.getElementById("writeResult");
 const canvas=document.getElementById("writeCanvas"),ctx=canvas.getContext("2d");
 let writeOrder=[],writeIndex=0,writeMissed=new Set(),writeCurrent=null;
 let drawing=false,lastX=0,lastY=0;
@@ -1135,41 +1135,68 @@ function writeQuestion(){
   writeKana.textContent=HIRA[writeCurrent-1];
   writeKanji.textContent=PREF_NAMES[writeCurrent-1];
   writeAnswer.style.display="none";writeResult.style.display="none";clearCanvas();
-  writeRetry.style.display=(writeMissed.size&&writeIndex>0)?"block":"none";
 }
 function openWrite(){
   document.querySelectorAll("main>.card").forEach(x=>x.style.display="none");
   writePage.style.display="block";
-  requestAnimationFrame(()=>{resizeCanvas();startWrite(STUDY_SETS[selected],false)});
+  startWrite(STUDY_SETS[selected],false);
   window.scrollTo({top:0,behavior:"smooth"});
 }
+function showWriteWorkspace(){
+  writeTitle.style.display="";
+  writeProgress.style.display="";
+  writeWorkspace.style.display="";
+}
 function startWrite(codes,isRetry=false){
+  showWriteWorkspace();
   writeOrder=shuffle([...(isRetry?writeMissed:codes)]);
   if(!isRetry)writeMissed.clear(); else writeMissed.clear();
-  writeIndex=0;writeResult.style.display="none";writeQuestion();
+  writeIndex=0;
+  writeResult.style.display="none";
+  resizeCanvas();
+  writeQuestion();
 }
 document.getElementById("writeClear").onclick=()=>{clearCanvas();writeAnswer.style.display="none"};
 document.getElementById("showAnswer").onclick=()=>writeAnswer.style.display="block";
 document.getElementById("selfGood").onclick=()=>{writeIndex++;writeQuestion()};
-document.getElementById("selfAgain").onclick=()=>{writeMissed.add(writeCurrent);clearCanvas();writeAnswer.style.display="none";writeRetry.style.display="block"};
-writeRetry.onclick=()=>{
-  if(!writeMissed.size)return;
-  const arr=[...writeMissed];writeMissed.clear();writeOrder=shuffle(arr);writeIndex=0;writeResult.style.display="none";writeQuestion();
-};
+document.getElementById("selfAgain").onclick=()=>{clearCanvas();writeAnswer.style.display="none"};
+document.getElementById("selfMissed").onclick=()=>{writeMissed.add(writeCurrent);writeIndex++;writeQuestion()};
 function finishWrite(){
-  writeKana.textContent="";writeProgress.textContent="";writeAnswer.style.display="none";writeRetry.style.display="none";
+  writeTitle.style.display="none";
+  writeProgress.style.display="none";
+  writeWorkspace.style.display="none";
+  writeKana.textContent="";
+  writeAnswer.style.display="none";
   const total=writeOrder.length,miss=writeMissed.size,ok=total-miss;
+  const evalText=miss===0?"🎉 全問クリア！":miss===1?"あと一歩です！":"できなかった問題をもう一度やってみよう。";
   writeResult.style.display="block";
-  writeResult.innerHTML=`<strong>${ok} / ${total} 書けました</strong>${miss?`<br>できなかった問題：${[...writeMissed].map(c=>PREF_NAMES[c-1]).join("、")}`:"<br>🎉 全問クリア！"}
-  <div class="resultActions">
-    <button id="wAgain" class="againBtn">もう一回</button>
-    <button id="wMissed" class="missBtn" ${miss?"":"disabled"}>間違えた問題だけ</button>
-    <button id="wTop" class="topBtn">トップに戻る</button>
+  writeResult.innerHTML=`
+  <div class="nishiResult">
+    <div class="nishiResultHead">結果</div>
+    <div class="nishiResultBody">
+      <img src="images/kisaragi-teacher.png" alt="">
+      <div class="nishiScoreBox">
+        <div class="nishiOutof">${total}問中</div>
+        <div class="nishiScore">${ok}<span class="nishiScoreLabel">問書けた</span></div>
+        <div class="nishiMistakes">できなかった ${miss}問</div>
+        <p>${evalText}</p>
+      </div>
+    </div>
+    ${miss?`<div class="writeMissedList">できなかった問題：${[...writeMissed].map(c=>PREF_NAMES[c-1]).join("、")}</div>`:""}
+    <div class="nishiRetry">
+      <strong>もう一度チャレンジしますか？</strong>
+      <div class="nishiRetryBtns">
+        <button id="wAgain" class="nishiResultAction again">もう一回</button>
+        <button id="wMissed" class="nishiResultAction missed" ${miss?"":"disabled"}>できなかった問題だけ</button>
+      </div>
+    </div>
+    <button id="wTop" class="nishiResultAction top">トップに戻る</button>
   </div>`;
   document.getElementById("wAgain").onclick=()=>startWrite(STUDY_SETS[selected],false);
   document.getElementById("wMissed").onclick=()=>{
     if(!writeMissed.size)return;
-    const arr=[...writeMissed];writeMissed.clear();writeOrder=shuffle(arr);writeIndex=0;writeResult.style.display="none";writeQuestion();
+    const arr=[...writeMissed];
+    startWrite(arr,false);
   };
   document.getElementById("wTop").onclick=()=>document.getElementById("writeBack").click();
 }
@@ -1178,7 +1205,7 @@ document.getElementById("writeBack").onclick=()=>{
   document.querySelectorAll("main>.card").forEach(x=>{if(!["studyPage","quiz1Page","quiz2Page","writePage"].includes(x.id))x.style.display=""});
   window.scrollTo({top:0,behavior:"smooth"});
 };
-window.addEventListener("resize",()=>{if(writePage.style.display!=="none")resizeCanvas()});
+window.addEventListener("resize",()=>{if(writePage.style.display!=="none"&&writeWorkspace.style.display!=="none")resizeCanvas()});
 
 </script>
 </body>
