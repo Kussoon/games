@@ -1203,7 +1203,60 @@
         padding-right: calc(10px + var(--safe-right));
       }
     }
-  </style>
+  
+    /* 縦時計：日付・年号・残り日数・今日は何の日まで1画面に収める */
+    #portrait-clock {
+      grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto auto;
+      align-content: stretch;
+      padding-top: max(108px, calc(88px + var(--safe-top)));
+      padding-bottom: max(8px, var(--safe-bottom));
+      overflow: hidden;
+    }
+
+    #portrait-clock .portrait-time-part {
+      font-size: min(42vw, 21dvh);
+      line-height: .82;
+      min-height: 0;
+    }
+
+    #portrait-date {
+      font-size: min(8.2vw, 4.7vh);
+      line-height: 1.04;
+      padding-bottom: .2vh;
+      white-space: nowrap;
+    }
+
+    #portrait-year-remaining {
+      margin-top: .2vh;
+      gap: .18vh;
+      font-size: min(5.2vw, 3.15vh);
+      line-height: 1.08;
+      padding: 0 2vw max(.3vh, var(--safe-bottom));
+    }
+
+    body.fullscreen #portrait-clock {
+      padding-top: max(12px, var(--safe-top));
+    }
+
+    body.fullscreen #portrait-clock .portrait-time-part {
+      font-size: min(45vw, 22.5dvh);
+      line-height: .82;
+    }
+
+    body.fullscreen #portrait-date {
+      font-size: min(8.8vw, 5.2vh);
+      line-height: 1.04;
+    }
+
+    body.fullscreen #portrait-year-remaining {
+      margin-top: .2vh;
+      gap: .18vh;
+      font-size: min(5.5vw, 3.35vh);
+      line-height: 1.08;
+      padding-bottom: max(.3vh, var(--safe-bottom));
+    }
+
+</style>
 </head>
 
 <body class="level-0">
