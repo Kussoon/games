@@ -1373,30 +1373,27 @@
     }
 
 
-    /* 全画面タイマー：表示枠と「再開／リセット」の間に明確な余白を確保 */
-    body.fullscreen #landscape-timer {
-      row-gap: 18px !important;
-    }
-
-    body.fullscreen #landscape-timer .timer-controls {
-      margin-top: 12px !important;
-      position: relative;
-      z-index: 2;
+    /* 縦・全画面タイマー：操作ボタン用の場所を先に確保する */
+    body.fullscreen #portrait-visual {
+      height: 70vh !important;
     }
 
     body.fullscreen #portrait-timer {
-      row-gap: 18px !important;
+      row-gap: 0 !important;
+      padding-bottom: max(18px, calc(10px + var(--safe-bottom))) !important;
     }
 
     body.fullscreen #portrait-timer .timer-controls {
-      margin-top: 12px !important;
+      margin-top: 18px !important;
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
 
-    /* 縦では下側の余白も少し確保して、ホームインジケータ側へ寄りすぎないようにする */
-    body.fullscreen #portrait-timer {
-      padding-bottom: max(18px, calc(10px + var(--safe-bottom))) !important;
+    /* 横・全画面も枠とボタンの間だけ安全な余白を確保 */
+    body.fullscreen #landscape-timer .timer-controls {
+      margin-top: 14px !important;
+      position: relative;
+      z-index: 3;
     }
 
 </style>
