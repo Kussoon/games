@@ -1423,6 +1423,55 @@
       margin-top: 0 !important;
     }
 
+
+    /* 横・全画面タイマー：バーと刀を枠内に収める */
+    body.fullscreen.timer-mode #landscape-bar-panel {
+      overflow: hidden !important;
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    body.fullscreen.timer-mode #landscape-segment-bar {
+      width: calc(100% - 30px) !important;
+      margin-left: 0 !important;
+      margin-right: 30px !important;
+      overflow: visible;
+    }
+
+    /* 刀の刃・柄がバー枠から上下にはみ出さない */
+    body.fullscreen.timer-mode #katana-h {
+      top: 0 !important;
+      height: 100% !important;
+    }
+
+    /* 横全画面の残り時間を少し大きく */
+    body.fullscreen.timer-mode #landscape-timer-display {
+      font-size: min(14.4vw, 29dvh) !important;
+    }
+
+
+    /* 横全画面タイマー v8：刀の100%位置＝バー右端になるよう座標系を修正 */
+    body.fullscreen.timer-mode #landscape-bar-panel {
+      overflow: hidden !important;
+      padding: 18px 34px 18px 18px !important;
+    }
+
+    body.fullscreen.timer-mode #landscape-segment-bar {
+      width: 100% !important;
+      height: 94% !important;
+      margin: 0 !important;
+      overflow: visible !important;
+    }
+
+    body.fullscreen.timer-mode #katana-h {
+      top: 0 !important;
+      height: 100% !important;
+    }
+
+    body.fullscreen.timer-mode #landscape-timer-display {
+      font-size: min(15.2vw, 30dvh) !important;
+    }
+
 </style>
 </head>
 
@@ -2332,7 +2381,9 @@
           el.classList.toggle("on", index >= SEGMENT_COUNT - onCount);
         });
 
-        const markerPercent = Math.max(.8, Math.min(99.2, ratio * 100));
+        // 開始時は100%（端）、終了時は0%（反対端）。
+        // 枠内余白はCSS側で確保し、進捗座標そのものは縮めない。
+        const markerPercent = Math.max(0, Math.min(100, ratio * 100));
         katanaH.style.left = `${markerPercent}%`;
         katanaV.style.bottom = `${markerPercent}%`;
       }
