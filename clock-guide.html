@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>デジタル時計・タイマー</title>
+<style>
+:root{
+  --green:#17834b; --green2:#0f6d3c; --pale:#f1f8f3; --line:#d7e7dc;
+  --ink:#1f2b24; --muted:#647169; --white:#fff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#f7faf8;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
+body{min-height:100vh}
+header{
+  background:linear-gradient(135deg,#167c48,#24955a);
+  color:white;text-align:center;padding:34px 18px 28px;
+}
+header h1{font-size:clamp(28px,7vw,44px);margin:0 0 9px;font-weight:800;letter-spacing:.02em}
+header p{margin:0 auto 22px;max-width:680px;line-height:1.7;font-size:15px;opacity:.96}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 42px}
+.launch{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:56px;padding:12px 30px;border-radius:14px;
+  background:white;color:var(--green2);text-decoration:none;
+  font-size:20px;font-weight:800;border:2px solid rgba(255,255,255,.9);
+  box-shadow:0 4px 14px rgba(0,0,0,.12)
+}
+.card{
+  background:white;border:1px solid var(--line);border-radius:18px;
+  padding:24px 22px;margin:18px 0;box-shadow:0 2px 9px rgba(20,70,42,.06)
+}
+.card h2{margin:0 0 12px;color:var(--green2);font-size:25px}
+.card p{line-height:1.8;margin:9px 0;color:#344139}
+.features{margin:14px 0 20px;padding-left:1.35em;line-height:1.85}
+.features li+li{margin-top:3px}
+.action{
+  display:flex;justify-content:center;margin-top:19px
+}
+.action a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;min-width:min(100%,330px);padding:11px 24px;
+  border-radius:13px;background:var(--green);color:white;text-decoration:none;
+  font-size:18px;font-weight:800
+}
+.help{background:var(--pale)}
+.help h2{font-size:21px}
+details{border-top:1px solid #cfe0d4;padding:14px 0}
+details:last-child{padding-bottom:0}
+summary{cursor:pointer;font-weight:800;color:#245d3d;font-size:17px}
+details p{font-size:14px;margin:10px 0 0}
+.note{font-size:13px!important;color:var(--muted)!important}
+footer{text-align:center;color:#8a958e;font-size:12px;padding:5px 16px 30px}
+@media(max-width:520px){
+ header{padding-top:28px}
+ .card{padding:21px 18px}
+ .features{padding-left:1.2em}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>デジタル時計・タイマー</h1>
+  <p>大きく見やすい時計と、時間の経過を色とバーで確認できるタイマーです。スマートフォンを横向き・縦向きのどちらでも使えます。</p>
+  <a class="launch" href="clock.html?mode=clock">時計を表示する</a>
+</header>
+
+<main>
+  <section class="card">
+    <h2>時計</h2>
+    <p>時刻だけでなく、今日と一年の流れもひと目で分かる時計です。</p>
+    <ul class="features">
+      <li>大きな時・分・秒表示。横表示／縦表示／全画面表示に対応</li>
+      <li>月日・曜日と現在の二十四節気を表示</li>
+      <li>西暦・令和・平成・昭和の年数を同時表示</li>
+      <li>今年の残り週数・日数と、366日分の「今日は何の日」を表示</li>
+      <li>15分ごとのメッセージ、毎時50分からの「⚠️座りすぎ注意」、毎正時の鳩時計</li>
+    </ul>
+    <div class="action"><a href="clock.html?mode=clock">時計を表示する</a></div>
+  </section>
+
+  <section class="card">
+    <h2>タイマー</h2>
+    <p>残り時間を数字だけでなく、60本のカラーバーでも直感的に確認できます。</p>
+    <ul class="features">
+      <li>テンキーで分・秒を直接入力</li>
+      <li>オレンジ・黄緑・緑・青の60本バーで残り時間を表示</li>
+      <li>刀の位置で、残り時間と経過時間の境界を確認</li>
+      <li>横表示／縦表示／全画面表示に対応</li>
+      <li>残り時間が5分刻みになるたび画面全体がフラッシュ。0になったときもフラッシュ</li>
+    </ul>
+    <div class="action"><a href="clock.html?mode=timer">タイマーを表示する</a></div>
+  </section>
+
+  <section class="card help">
+    <h2>画面を消さずに使いたいとき</h2>
+    <details>
+      <summary>iPhone / iPad</summary>
+      <p>「設定 → アクセシビリティ → アクセスガイド」でアクセスガイドをオンにし、「画面の自動ロック」を「しない」にします。時計を表示してからサイドボタン（ホームボタン搭載機種ではホームボタン）を3回押して、アクセスガイドを開始します。</p>
+      <p class="note">終了方法は端末の設定によって異なります。Face IDを使う場合は、アクセスガイドのパスコード設定でFace IDを有効にしておくと便利です。</p>
+    </details>
+    <details>
+      <summary>Android</summary>
+      <p>対応ブラウザでは、この時計が画面のスリープを防ぐ機能を利用します。まずはそのままお試しください。画面が消える場合は、端末の「画面消灯」「スリープ」「画面タイムアウト」などの設定を確認してください。</p>
+      <p class="note">「アプリの固定（画面の固定）」がある端末では、他のアプリへ移動しにくくできます。ただし、これは画面の自動消灯を止める機能とは別です。名称や設定方法は機種によって異なります。</p>
+    </details>
+  </section>
+</main>
+
+<footer>© Kussoon 2026 All rights reserved.</footer>
+</body>
+</html>
