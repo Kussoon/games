@@ -1326,6 +1326,52 @@
       top: max(72px, calc(66px + var(--safe-top))) !important;
     }
 
+
+    /* 縦タイマー：右側パネル内に数字を確実に収めて中央配置 */
+    #portrait-digits-panel {
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #portrait-timer-display {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      white-space: nowrap;
+      font-size: min(20vw, 12dvh) !important;
+      line-height: 1 !important;
+      transform: scaleX(.72) !important;
+      transform-origin: center center !important;
+    }
+
+    body.fullscreen #portrait-visual {
+      grid-template-columns: minmax(105px, 38%) minmax(0, 62%) !important;
+      gap: 12px !important;
+    }
+
+    body.fullscreen #portrait-digits-panel {
+      min-width: 0;
+      overflow: hidden;
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+    }
+
+    body.fullscreen #portrait-timer-display {
+      width: 132%;
+      max-width: none;
+      margin-left: -16%;
+      margin-right: -16%;
+      font-size: min(24vw, 13.5dvh) !important;
+      line-height: 1 !important;
+      text-align: center;
+      transform: scaleX(.68) !important;
+      transform-origin: center center !important;
+    }
+
 </style>
 </head>
 
