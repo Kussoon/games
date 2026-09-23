@@ -121,9 +121,9 @@
 
     body.fullscreen #landscape-year-remaining {
       margin-top: .8vh;
-      font-size: min(4.8vw, 8.8vh);
-      line-height: 1.05;
-      gap: .25vh;
+      font-size: min(3.55vw, 6.2vh);
+      line-height: 1.08;
+      gap: .55vh;
     }
 
     body.fullscreen #portrait-layout {
@@ -147,9 +147,9 @@
 
     body.fullscreen #portrait-year-remaining {
       margin-top: .3vh;
-      font-size: min(9.6vw, 6.4vh);
-      line-height: 1.05;
-      gap: .25vh;
+      font-size: min(6.8vw, 4.7vh);
+      line-height: 1.08;
+      gap: .35vh;
       padding-bottom: .3vh;
     }
 
@@ -379,10 +379,10 @@
     #landscape-year-remaining {
       margin-top: .8vh;
       display: grid;
-      gap: .25vh;
+      gap: .55vh;
       justify-items: center;
-      font-size: min(4.2vw, 7.6vh);
-      line-height: 1.05;
+      font-size: min(3.35vw, 5.8vh);
+      line-height: 1.08;
       font-weight: 500;
       opacity: var(--sub-opacity);
     }
@@ -631,10 +631,10 @@
     #portrait-year-remaining {
       margin-top: .4vh;
       display: grid;
-      gap: .25vh;
+      gap: .35vh;
       justify-items: center;
-      font-size: min(8.4vw, 5.6vh);
-      line-height: 1.05;
+      font-size: min(6.2vw, 4.2vh);
+      line-height: 1.08;
       font-weight: 500;
       opacity: var(--sub-opacity);
       padding-bottom: .4vh;
@@ -1215,8 +1215,9 @@
       <div id="landscape-time"><span class="no-fullscreen-exit">00:00:00</span></div>
       <div id="landscape-date"><span class="no-fullscreen-exit">----</span></div>
       <div id="landscape-year-remaining" class="no-fullscreen-exit">
-        <div id="landscape-weeks-left">今年の残り週数 --週</div>
-        <div id="landscape-days-left">今年の残り日数 --日</div>
+        <div id="landscape-era-line">----</div>
+        <div id="landscape-remaining-line">今年は残り--週・--日です</div>
+        <div id="landscape-anniversary-line">今日は「万年筆の日」です</div>
       </div>
     </section>
 
@@ -1274,8 +1275,9 @@
       <div id="portrait-second" class="portrait-time-part"><span class="no-fullscreen-exit">00</span></div>
       <div id="portrait-date"><span class="no-fullscreen-exit">----</span></div>
       <div id="portrait-year-remaining" class="no-fullscreen-exit">
-        <div id="portrait-weeks-left">今年の残り週数 --週</div>
-        <div id="portrait-days-left">今年の残り日数 --日</div>
+        <div id="portrait-era-line">----</div>
+        <div id="portrait-remaining-line">今年は残り--週・--日です</div>
+        <div id="portrait-anniversary-line">今日は「万年筆の日」です</div>
       </div>
     </section>
 
@@ -1530,10 +1532,12 @@
       const portraitMinute = document.querySelector("#portrait-minute .no-fullscreen-exit");
       const portraitSecond = document.querySelector("#portrait-second .no-fullscreen-exit");
       const portraitDate = document.querySelector("#portrait-date .no-fullscreen-exit");
-      const landscapeWeeksLeft = document.getElementById("landscape-weeks-left");
-      const landscapeDaysLeft = document.getElementById("landscape-days-left");
-      const portraitWeeksLeft = document.getElementById("portrait-weeks-left");
-      const portraitDaysLeft = document.getElementById("portrait-days-left");
+      const landscapeEraLine = document.getElementById("landscape-era-line");
+      const landscapeRemainingLine = document.getElementById("landscape-remaining-line");
+      const landscapeAnniversaryLine = document.getElementById("landscape-anniversary-line");
+      const portraitEraLine = document.getElementById("portrait-era-line");
+      const portraitRemainingLine = document.getElementById("portrait-remaining-line");
+      const portraitAnniversaryLine = document.getElementById("portrait-anniversary-line");
 
       function pad2(n) {
         return String(n).padStart(2, "0");
@@ -1549,13 +1553,67 @@
         return { daysLeft, weeksLeft };
       }
 
+
+      // 西暦から「令和・平成・昭和をそのまま延長した年数」を表示。
+      // 例: 2026年 = 令和8年・平成38年・昭和101年
+      function getEraLine(year) {
+        const reiwa = year - 2018;
+        const heisei = year - 1988;
+        const showa = year - 1925;
+        return `${year}年・令和${reiwa}年・平成${heisei}年・昭和${showa}年`;
+      }
+
+      // 太陽の見かけの黄経を概算し、現在の二十四節気を求める。
+      // 日付固定ではなく、年による切替日の変動にも追従する。
+      function solarLongitude(date) {
+        const jd = date.getTime() / 86400000 + 2440587.5;
+        const T = (jd - 2451545.0) / 36525;
+        let L0 = 280.46646 + 36000.76983 * T + 0.0003032 * T * T;
+        let M = 357.52911 + 35999.05029 * T - 0.0001537 * T * T;
+        const Mr = M * Math.PI / 180;
+        const C =
+          (1.914602 - 0.004817 * T - 0.000014 * T * T) * Math.sin(Mr) +
+          (0.019993 - 0.000101 * T) * Math.sin(2 * Mr) +
+          0.000289 * Math.sin(3 * Mr);
+        const omega = (125.04 - 1934.136 * T) * Math.PI / 180;
+        let lambda = L0 + C - 0.00569 - 0.00478 * Math.sin(omega);
+        lambda %= 360;
+        if (lambda < 0) lambda += 360;
+        return lambda;
+      }
+
+      const solarTerms = [
+        "春分","清明","穀雨","立夏","小満","芒種",
+        "夏至","小暑","大暑","立秋","処暑","白露",
+        "秋分","寒露","霜降","立冬","小雪","大雪",
+        "冬至","小寒","大寒","立春","雨水","啓蟄"
+      ];
+
+      function getSolarTerm(date) {
+        const lon = solarLongitude(date);
+        const index = Math.floor(((lon + 7.5) % 360) / 15);
+        return solarTerms[index];
+      }
+
+      // 代表的な固定日記念日。まず現在日の表示を実装。
+      // 9/23は複数資料で確認できる「万年筆の日」を代表表示に採用。
+      const anniversaryByDate = {
+        "09-23": "万年筆の日"
+      };
+
+      function getAnniversary(date) {
+        const key = `${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+        return anniversaryByDate[key] || "記念日";
+      }
+
       function updateClock() {
         const now = new Date();
         const h = pad2(now.getHours());
         const m = pad2(now.getMinutes());
         const s = pad2(now.getSeconds());
+        const solarTerm = getSolarTerm(now);
         const dateText =
-          `${now.getMonth() + 1}月${now.getDate()}日 ${weekdays[now.getDay()]}曜日`;
+          `${now.getMonth() + 1}月${now.getDate()}日 ${weekdays[now.getDay()]}曜日・${solarTerm}`;
 
         landscapeTime.textContent = `${h}:${m}:${s}`;
         landscapeDate.textContent = dateText;
@@ -1566,13 +1624,16 @@
         portraitDate.textContent = dateText;
 
         const { daysLeft, weeksLeft } = getYearRemaining(now);
-        const weeksText = `今年の残り週数 ${weeksLeft}週`;
-        const daysText = `今年の残り日数 ${daysLeft}日`;
+        const eraText = getEraLine(now.getFullYear());
+        const remainingText = `今年は残り${weeksLeft}週・${daysLeft}日です`;
+        const anniversaryText = `今日は「${getAnniversary(now)}」です`;
 
-        landscapeWeeksLeft.textContent = weeksText;
-        landscapeDaysLeft.textContent = daysText;
-        portraitWeeksLeft.textContent = weeksText;
-        portraitDaysLeft.textContent = daysText;
+        landscapeEraLine.textContent = eraText;
+        landscapeRemainingLine.textContent = remainingText;
+        landscapeAnniversaryLine.textContent = anniversaryText;
+        portraitEraLine.textContent = eraText;
+        portraitRemainingLine.textContent = remainingText;
+        portraitAnniversaryLine.textContent = anniversaryText;
 
         updateClockReminders(now);
       }
