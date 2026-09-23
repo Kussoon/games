@@ -1256,6 +1256,76 @@
       padding-bottom: max(.3vh, var(--safe-bottom));
     }
 
+
+    /* 縦時計 修正版：3つの数字を独立した行に固定し、重なりを防ぐ */
+    #portrait-clock {
+      grid-template-rows: repeat(3, minmax(0, 20.5vh)) auto auto !important;
+      align-content: center !important;
+      row-gap: 0 !important;
+      padding-top: max(102px, calc(82px + var(--safe-top))) !important;
+      padding-bottom: max(8px, var(--safe-bottom)) !important;
+      overflow: hidden;
+    }
+
+    #portrait-clock .portrait-time-part {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 20.5vh;
+      min-height: 0;
+      font-size: min(38vw, 19.5vh) !important;
+      line-height: 1 !important;
+    }
+
+    #portrait-date {
+      margin-top: .6vh;
+      font-size: min(7.8vw, 4.5vh) !important;
+      line-height: 1.08 !important;
+      white-space: nowrap;
+    }
+
+    #portrait-year-remaining {
+      margin-top: .45vh !important;
+      gap: .22vh !important;
+      font-size: min(5vw, 3vh) !important;
+      line-height: 1.1 !important;
+      padding: 0 2vw max(.3vh, var(--safe-bottom)) !important;
+    }
+
+    body.fullscreen #portrait-clock {
+      grid-template-rows: repeat(3, minmax(0, 22vh)) auto auto !important;
+      padding-top: max(10px, var(--safe-top)) !important;
+    }
+
+    body.fullscreen #portrait-clock .portrait-time-part {
+      height: 22vh;
+      font-size: min(41vw, 21vh) !important;
+      line-height: 1 !important;
+    }
+
+    /* 設定（濃淡）ボタンを右上へ。上部切替ボタンの下に置き、重なりを避ける */
+    #menu-btn {
+      top: max(106px, calc(92px + var(--safe-top))) !important;
+      right: max(14px, calc(10px + var(--safe-right))) !important;
+      bottom: auto !important;
+      left: auto !important;
+    }
+
+    #menu {
+      top: max(164px, calc(150px + var(--safe-top))) !important;
+      right: max(14px, calc(10px + var(--safe-right))) !important;
+      bottom: auto !important;
+      left: auto !important;
+    }
+
+    body.fullscreen #menu-btn {
+      top: max(14px, calc(8px + var(--safe-top))) !important;
+    }
+
+    body.fullscreen #menu {
+      top: max(72px, calc(66px + var(--safe-top))) !important;
+    }
+
 </style>
 </head>
 
