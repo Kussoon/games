@@ -173,14 +173,18 @@
     }
 
     body.fullscreen #landscape-timer-display {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 118%;
+      max-width: none;
+      margin: 0;
       font-size: min(13.2vw, 27dvh);
       line-height: .82;
-      transform: scaleX(.82);
-      transform-origin: center center;
-      max-width: 100%;
-      overflow: visible;
       text-align: center;
-      margin-inline: auto;
+      transform: translate(-50%, -50%) scaleX(.82);
+      transform-origin: center center;
+      overflow: visible;
     }
 
     body.fullscreen #landscape-segment-bar {
@@ -462,13 +466,13 @@
     }
 
     #landscape-digits-panel {
+      position: relative;
       min-height: 150px;
       height: min(31vh, 210px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
       text-align: center;
       padding: 10px 8px;
+      overflow: hidden;
     }
 
     #landscape-timer-display {
@@ -480,11 +484,16 @@
       line-height: .84;
       letter-spacing: -.045em;
       white-space: nowrap;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 116%;
+      max-width: none;
+      margin: 0;
       font-size: min(12.2vw, 24dvh);
-      transform: scaleX(.84);
+      transform: translate(-50%, -50%) scaleX(.84);
       transform-origin: center center;
       text-align: center;
-      margin-inline: auto;
     }
 
     #landscape-timer-status {
