@@ -18,6 +18,13 @@ header{
 }
 header h1{font-size:clamp(28px,7vw,44px);margin:0 0 9px;font-weight:800;letter-spacing:.02em}
 header p{margin:0 auto 22px;max-width:680px;line-height:1.7;font-size:15px;opacity:.96}
+.app-label{
+  display:inline-block;max-width:calc(100% - 8px)!important;
+  margin:0 auto 14px!important;padding:7px 14px;border-radius:999px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.42);
+  font-size:clamp(14px,3.8vw,17px)!important;font-weight:750;line-height:1.45!important
+}
+.lead{margin-bottom:22px!important}
 main{width:min(920px,calc(100% - 28px));margin:24px auto 42px}
 .launch{
   display:inline-flex;align-items:center;justify-content:center;
@@ -34,6 +41,13 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 42px}
 .card p{line-height:1.8;margin:9px 0;color:#344139}
 .features{margin:14px 0 20px;padding-left:1.35em;line-height:1.85}
 .features li+li{margin-top:3px}
+.use-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.use-case{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fbfdfb}
+.use-case.recommended{background:var(--pale);border-color:#b9d8c3}
+.use-case h3{margin:0 0 8px;color:#245d3d;font-size:18px}
+.use-case p{margin:6px 0;font-size:14px;line-height:1.7}
+.steps{margin:10px 0 0;padding-left:1.35em;line-height:1.8}
+.important-note{margin-top:16px!important;padding:13px 15px;border-radius:12px;background:#fff7df;color:#594716!important;font-weight:650}
 .action{
   display:flex;justify-content:center;margin-top:19px
 }
@@ -55,17 +69,48 @@ footer{text-align:center;color:#8a958e;font-size:12px;padding:5px 16px 30px}
  header{padding-top:28px}
  .card{padding:21px 18px}
  .features{padding-left:1.2em}
+ .use-cases{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <header>
   <h1>デジタル時計・タイマー</h1>
-  <p>大きく見やすい時計と、時間の経過を色とバーで確認できるタイマーです。スマートフォンを横向き・縦向きのどちらでも使えます。</p>
+  <p class="app-label">iPhoneのホーム画面に追加して使える時計・タイマーWebアプリ</p>
+  <p class="lead">大きく見やすい時計と、時間の経過を色とバーで確認できるタイマーです。スマートフォンを横向き・縦向きのどちらでも使えます。</p>
   <a class="launch" href="clock.html?mode=clock">時計を表示する</a>
 </header>
 
 <main>
+  <section class="card">
+    <h2>この時計の使い方は2通りあります</h2>
+    <p>表示される時計・タイマーの機能は同じですが、開き方と画面の見え方が異なります。</p>
+
+    <div class="use-cases">
+      <div class="use-case">
+        <h3>① 説明書からそのまま開く</h3>
+        <p>このページの「時計を表示する」「タイマーを表示する」を押すと、SafariのWebページとしてすぐに使えます。</p>
+        <p>インストールせずに試したいときや、一時的に使うときに便利です。Safariのアドレスバーや操作部分が表示されることがあります。</p>
+      </div>
+
+      <div class="use-case recommended">
+        <h3>② ホーム画面に追加して開く（おすすめ）</h3>
+        <p>iPhoneのホーム画面にアイコンを追加すると、時計専用のアプリのように、ホーム画面から直接起動できます。</p>
+        <p>通常はSafariのアドレスバーやタブが表示されないため、普段使いはこちらがおすすめです。</p>
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 6px;color:#245d3d;font-size:18px;">ホーム画面への追加方法</h3>
+    <ol class="steps">
+      <li>この説明書をSafariで開きます。</li>
+      <li>Safariの共有ボタン（四角から上向き矢印が出ているボタン）を押します。</li>
+      <li>「ホーム画面に追加」を選び、右上の「追加」を押します。</li>
+      <li>ホーム画面にできたアイコンから時計を起動します。</li>
+    </ol>
+
+    <p class="important-note">この時計は、ホーム画面から起動し、時計・タイマー画面の「全画面」を選んだ状態に最適化しています。通常表示では、端末の向きと「横／縦」の組み合わせによって数字が重なる場合があります。全画面表示は右上の「×」で終了できます。</p>
+  </section>
+
   <section class="card">
     <h2>時計</h2>
     <p>時刻だけでなく、今日と一年の流れもひと目で分かる時計です。</p>
@@ -106,7 +151,7 @@ footer{text-align:center;color:#8a958e;font-size:12px;padding:5px 16px 30px}
     </details>
   </section>
   <section class="card" style="text-align:center;padding:16px 20px;">
-    <p style="margin:0;font-size:14px;color:#647169;"><strong>Version 2.1.2</strong><br>
+    <p style="margin:0;font-size:14px;color:#647169;"><strong>Version 2.1.3</strong><br>
     時計・タイマーは今後も使いやすさを見ながら更新していきます。</p>
   </section>
 
