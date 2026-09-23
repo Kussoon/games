@@ -105,7 +105,7 @@
     }
 
     body.fullscreen #landscape-time {
-      font-size: min(22vw, 46vh);
+      font-size: min(23vw, 49dvh);
       line-height: .86;
     }
 
@@ -128,7 +128,7 @@
     }
 
     body.fullscreen .portrait-time-part {
-      font-size: min(48vw, 29vh);
+      font-size: min(52vw, 30dvh);
       line-height: .84;
     }
 
@@ -163,7 +163,7 @@
     }
 
     body.fullscreen #landscape-timer-display {
-      font-size: min(9.5vw, 16vh);
+      font-size: min(10.4vw, 18dvh);
     }
 
     body.fullscreen #landscape-segment-bar {
@@ -182,7 +182,7 @@
     }
 
     body.fullscreen #portrait-timer-display {
-      font-size: min(19vw, 11.5vh);
+      font-size: min(22vw, 13dvh);
     }
 
     body.fullscreen #portrait-bar-panel,
@@ -335,7 +335,7 @@
       line-height: .90;
       letter-spacing: -.045em;
       white-space: nowrap;
-      font-size: min(19vw, 39vh);
+      font-size: min(21vw, 43dvh);
       opacity: var(--main-opacity);
     }
 
@@ -445,12 +445,14 @@
     }
 
     #landscape-timer-display {
+      max-width: 100%;
+      overflow: hidden;
       color: #f6f6f2;
       font-variant-numeric: tabular-nums;
       font-weight: 500;
       letter-spacing: -.04em;
       white-space: nowrap;
-      font-size: min(8vw, 14vh);
+      font-size: min(9.4vw, 16dvh);
     }
 
     #landscape-timer-status {
@@ -572,7 +574,7 @@
       font-weight: 500;
       line-height: .88;
       letter-spacing: -.035em;
-      font-size: min(42vw, 25vh);
+      font-size: min(48vw, 27dvh);
       opacity: var(--main-opacity);
     }
 
@@ -682,13 +684,15 @@
     }
 
     #portrait-timer-display {
+      max-width: 100%;
+      overflow: hidden;
       color: #f6f6f2;
       font-variant-numeric: tabular-nums;
       font-weight: 500;
       line-height: .95;
       letter-spacing: -.04em;
       white-space: nowrap;
-      font-size: min(16vw, 9vh);
+      font-size: min(20vw, 11dvh);
     }
 
     #portrait-timer-status {
