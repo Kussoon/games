@@ -1396,6 +1396,33 @@
       z-index: 3;
     }
 
+
+    /* タイマーモードでは明るさ（濃淡）ボタンとメニューを表示しない */
+    body.timer-mode #menu-btn,
+    body.timer-mode #menu {
+      display: none !important;
+    }
+
+    /* 縦・全画面タイマー：表示枠＋操作ボタン全体を上下中央に配置 */
+    body.fullscreen.timer-mode #portrait-timer {
+      height: calc(100dvh - var(--safe-top) - var(--safe-bottom)) !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      display: grid !important;
+      grid-template-rows: 70vh auto !important;
+      align-content: center !important;
+      justify-items: center !important;
+      row-gap: 18px !important;
+    }
+
+    body.fullscreen.timer-mode #portrait-visual {
+      height: 70vh !important;
+    }
+
+    body.fullscreen.timer-mode #portrait-timer .timer-controls {
+      margin-top: 0 !important;
+    }
+
 </style>
 </head>
 
@@ -1625,6 +1652,7 @@
       function applyView() {
         const isLandscape = currentLayout === "landscape";
         const isClock = currentMode === "clock";
+        document.body.classList.toggle("timer-mode", !isClock);
 
         landscapeLayout.classList.toggle("hidden", !isLandscape);
         portraitLayout.classList.toggle("hidden", isLandscape);
