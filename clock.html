@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
-  <title>時計・タイマー Ver.2.0.5</title>
+  <title>時計・タイマー Ver.2.1.1</title>
 
   <style>
     :root {
@@ -1470,6 +1470,33 @@
 
     body.fullscreen.timer-mode #landscape-timer-display {
       font-size: min(15.2vw, 30dvh) !important;
+    }
+
+    /* 縦長画面で「横」＋「全画面」を選んだ場合の専用比率 */
+    @media (orientation: portrait) {
+      body.fullscreen.timer-mode #landscape-timer {
+        width: 100% !important;
+        max-width: none !important;
+      }
+
+      body.fullscreen.timer-mode #landscape-visual {
+        width: 100% !important;
+        grid-template-columns: minmax(0, 53fr) minmax(0, 47fr) !important;
+        gap: 12px !important;
+      }
+
+      body.fullscreen.timer-mode #landscape-bar-panel,
+      body.fullscreen.timer-mode #landscape-digits-panel {
+        min-width: 0 !important;
+      }
+
+      body.fullscreen.timer-mode #landscape-bar-panel {
+        padding: 18px 26px 18px 18px !important;
+      }
+
+      body.fullscreen.timer-mode #landscape-timer-display {
+        font-size: min(15.2vw, 13dvh) !important;
+      }
     }
 
 </style>
