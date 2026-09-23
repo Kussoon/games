@@ -105,19 +105,25 @@
     }
 
     body.fullscreen #landscape-time {
-      font-size: min(25.5vw, 56dvh);
+      font-size: min(23vw, 56dvh);
       line-height: .82;
-      letter-spacing: -.055em;
+      letter-spacing: -.06em;
+      max-width: calc(100vw - 44px - var(--safe-left) - var(--safe-right));
+      transform: scaleX(.96);
+      transform-origin: center;
     }
 
     body.fullscreen #landscape-date {
-      margin-top: 2.2vh;
-      font-size: min(4.1vw, 7vh);
+      margin-top: 1.2vh;
+      font-size: min(8.2vw, 14vh);
+      line-height: 1;
     }
 
     body.fullscreen #landscape-year-remaining {
-      margin-top: 1.4vh;
-      font-size: min(2.4vw, 4.4vh);
+      margin-top: .8vh;
+      font-size: min(4.8vw, 8.8vh);
+      line-height: 1.05;
+      gap: .25vh;
     }
 
     body.fullscreen #portrait-layout {
@@ -134,14 +140,17 @@
     }
 
     body.fullscreen #portrait-date {
-      font-size: min(5.8vw, 4vh);
-      padding-bottom: .2vh;
+      font-size: min(11.6vw, 8vh);
+      line-height: 1;
+      padding-bottom: .1vh;
     }
 
     body.fullscreen #portrait-year-remaining {
-      margin-top: .5vh;
-      font-size: min(4.8vw, 3.2vh);
-      padding-bottom: .5vh;
+      margin-top: .3vh;
+      font-size: min(9.6vw, 6.4vh);
+      line-height: 1.05;
+      gap: .25vh;
+      padding-bottom: .3vh;
     }
 
     body.fullscreen #landscape-timer-status,
@@ -153,8 +162,8 @@
     body.fullscreen #landscape-visual {
       min-height: 48vh;
       align-items: center;
-      grid-template-columns: minmax(0, 1fr) minmax(250px, 31%);
-      gap: 1.8vw;
+      grid-template-columns: minmax(0, 1fr) minmax(270px, 34%);
+      gap: 1.4vw;
     }
 
     body.fullscreen #landscape-bar-panel,
@@ -164,10 +173,11 @@
     }
 
     body.fullscreen #landscape-timer-display {
-      font-size: min(15.2vw, 27dvh);
+      font-size: min(12.6vw, 27dvh);
       line-height: .82;
-      transform: scaleX(.78);
+      transform: scaleX(.72);
       transform-origin: center;
+      max-width: 100%;
       overflow: visible;
     }
 
@@ -344,24 +354,29 @@
       line-height: .84;
       letter-spacing: -.055em;
       white-space: nowrap;
-      font-size: min(24vw, 52dvh);
+      font-size: min(22.5vw, 52dvh);
+      max-width: calc(100vw - 36px - var(--safe-left) - var(--safe-right));
+      transform: scaleX(.97);
+      transform-origin: center;
       opacity: var(--main-opacity);
     }
 
     #landscape-date {
-      margin-top: 3.8vh;
-      font-size: min(3.4vw, 6vh);
+      margin-top: 1.8vh;
+      font-size: min(6.8vw, 12vh);
+      line-height: 1;
       font-weight: 500;
       opacity: var(--sub-opacity);
     }
 
 
     #landscape-year-remaining {
-      margin-top: 1.6vh;
+      margin-top: .8vh;
       display: grid;
-      gap: .5vh;
+      gap: .25vh;
       justify-items: center;
-      font-size: min(2.1vw, 3.8vh);
+      font-size: min(4.2vw, 7.6vh);
+      line-height: 1.05;
       font-weight: 500;
       opacity: var(--sub-opacity);
     }
@@ -462,8 +477,8 @@
       line-height: .84;
       letter-spacing: -.045em;
       white-space: nowrap;
-      font-size: min(13.5vw, 24dvh);
-      transform: scaleX(.80);
+      font-size: min(11.6vw, 24dvh);
+      transform: scaleX(.74);
       transform-origin: center;
     }
 
@@ -591,22 +606,24 @@
     }
 
     #portrait-date {
-      font-size: min(5vw, 3.4vh);
+      font-size: min(10vw, 6.8vh);
+      line-height: 1;
       font-weight: 500;
       opacity: var(--sub-opacity);
-      padding-bottom: 1vh;
+      padding-bottom: .4vh;
     }
 
 
     #portrait-year-remaining {
-      margin-top: .8vh;
+      margin-top: .4vh;
       display: grid;
-      gap: .5vh;
+      gap: .25vh;
       justify-items: center;
-      font-size: min(4.2vw, 2.8vh);
+      font-size: min(8.4vw, 5.6vh);
+      line-height: 1.05;
       font-weight: 500;
       opacity: var(--sub-opacity);
-      padding-bottom: 1vh;
+      padding-bottom: .4vh;
     }
 
     #portrait-timer {
