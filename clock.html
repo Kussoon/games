@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="時計・タイマー" />
-  <title>時計・タイマー Ver.2.1.1</title>
+  <title>時計・タイマー Ver.2.1.2</title>
 
   <style>
     :root {
@@ -1496,6 +1496,41 @@
 
       body.fullscreen.timer-mode #landscape-timer-display {
         font-size: min(15.2vw, 13dvh) !important;
+      }
+    }
+
+    /* 横長画面で「縦」＋「全画面」を選んだ場合の専用調整 */
+    @media (orientation: landscape) {
+      /* タイマー：高さ基準の上限を広げ、数字を大きく表示 */
+      body.fullscreen.timer-mode #portrait-timer-display {
+        font-size: min(24vw, 27dvh) !important;
+        transform: scaleX(.78) !important;
+      }
+
+      /* 時計：時・分・秒・日付・補足情報をひとまとまりで上下中央へ */
+      body.fullscreen #portrait-clock {
+        height: auto !important;
+        grid-template-rows: repeat(3, 23.5dvh) auto auto !important;
+        align-content: center !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      body.fullscreen #portrait-clock .portrait-time-part {
+        height: 23.5dvh !important;
+        font-size: min(41vw, 23dvh) !important;
+      }
+
+      body.fullscreen #portrait-date {
+        margin-top: .4dvh !important;
+        font-size: min(8.8vw, 5.6dvh) !important;
+      }
+
+      body.fullscreen #portrait-year-remaining {
+        margin-top: .35dvh !important;
+        gap: .22dvh !important;
+        font-size: min(5.5vw, 3.5dvh) !important;
+        padding-bottom: 0 !important;
       }
     }
 
