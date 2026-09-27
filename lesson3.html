@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://kussoon.com/games/lesson3.html">
+<meta name="description" content="魚へん漢字を学ぶ『さかな当てゲーム』のLesson 3です。20文字のトレーニング、4択クイズ、苦手な漢字の復習ができます。">
+<meta name="theme-color" content="#dff5ff">
 <title>Lesson 3｜さかな当てゲーム</title>
 <style>
 *{box-sizing:border-box}
@@ -33,6 +36,11 @@ button.secondary,a.button.secondary{background:var(--soft);color:var(--accent2);
 .note{background:var(--yellow);border:1px solid #ecd77d;border-radius:12px;padding:13px 14px;font-size:15px;line-height:1.65}
 .nav-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
+.privacy-note{margin-top:14px;background:#f8fcfe;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--muted);line-height:1.7}
+.site-footer{padding:18px 8px 0;line-height:1.7}
+.site-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-bottom:10px}
+.site-links a{color:var(--accent2)}
+.copyright{margin:0}
 </style>
 </head><body><main>
 <section id="menu" class="panel">
@@ -48,6 +56,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
   <div class="nav-row"><a class="button secondary" href="lesson2.html">← 前へ</a><a class="button secondary" href="lesson4.html">次へ →</a></div>
   <a class="button secondary" href="lessons.html">レッスン一覧へ</a>
   <a class="button secondary" href="sakana.html">さかな当てゲームトップへ</a>
+  <div class="privacy-note">トレーニングの進み具合、得点、苦手な漢字は、この端末のブラウザ内に保存されます。これらの情報が運営者へ送信されることはありません。</div>
 </section>
 
 <section id="training" class="panel hidden">
@@ -87,10 +96,18 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
   <button id="punNext">続ける</button>
 </section>
 
-<footer>さかな当てゲーム　如月先生の学習ラボ　Version 5.0</footer>
+<footer class="site-footer">
+  <nav class="site-links" aria-label="サイト案内">
+    <a href="../about/">このサイトについて</a>
+    <a href="../privacy/">プライバシー</a>
+    <a href="../sources/">データ出典</a>
+    <a href="../terms/">利用上の注意</a>
+  </nav>
+  <p class="copyright">さかな当てゲーム　如月先生の学習ラボ　Version 5.0<br>© 2026 Kussoon. All rights reserved.</p>
+</footer>
 <script>
 const DATA=[{"kanji": "魨", "reading": "ふぐ", "meaning": "フグを表す漢字です。", "aliases": ["鮐", "鯸"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%B5%E3%81%90"}, {"kanji": "鯧", "reading": "まながつお", "meaning": "マナガツオを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BE%E3%81%AA%E3%81%8C%E3%81%A4%E3%81%8A"}, {"kanji": "鯥", "reading": "むつ", "meaning": "ムツを表す漢字です。", "aliases": ["鱫"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%82%80%E3%81%A4"}, {"kanji": "魴", "reading": "ほうぼう", "meaning": "ホウボウを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BB%E3%81%86%E3%81%BC%E3%81%86"}, {"kanji": "鰡", "reading": "ぼら", "meaning": "ボラを表す漢字です。", "aliases": ["鯔"], "career": "「オボコ → イナ → ボラ → トド」などと呼び名が変わる出世魚です。地域差があります。", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BC%E3%82%89"}, {"kanji": "鱔", "reading": "たうなぎ", "meaning": "タウナギを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%86%E3%81%AA%E3%81%8E"}, {"kanji": "鱓", "reading": "うつぼ", "meaning": "ウツボを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%86%E3%81%A4%E3%81%BC"}, {"kanji": "鱖", "reading": "けつぎょ", "meaning": "ケツギョを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%91%E3%81%A4%E3%81%8E%E3%82%87"}, {"kanji": "鮚", "reading": "はまぐり", "meaning": "ハマグリを表す漢字として使われることがあります。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%81%BE%E3%81%90%E3%82%8A"}, {"kanji": "鰝", "reading": "いせえび", "meaning": "イセエビを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%9B%E3%81%88%E3%81%B3"}, {"kanji": "鰢", "reading": "うみえび", "meaning": "ウミエビを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%86%E3%81%BF%E3%81%88%E3%81%B3"}, {"kanji": "鱉", "reading": "すっぽん", "meaning": "スッポンを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%99%E3%81%A3%E3%81%BD%E3%82%93"}, {"kanji": "鱟", "reading": "かぶとがに", "meaning": "カブトガニを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%B6%E3%81%A8%E3%81%8C%E3%81%AB"}, {"kanji": "鯢", "reading": "さんしょううお", "meaning": "サンショウウオを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%93%E3%81%97%E3%82%87%E3%81%86%E3%81%86%E3%81%8A"}, {"kanji": "鰐", "reading": "わに", "meaning": "ワニを表す漢字です。", "aliases": ["鱷"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%82%8F%E3%81%AB"}, {"kanji": "鰲", "reading": "おおがめ", "meaning": "大きなカメを表す漢字です。伝説上の大亀を指すこともあります。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8A%E3%81%8A%E3%81%8C%E3%82%81"}, {"kanji": "鱘", "reading": "ちょうざめ", "meaning": "チョウザメを表す漢字です。", "aliases": ["鱣"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%87%E3%81%86%E3%81%96%E3%82%81"}, {"kanji": "鱨", "reading": "ぎぎ", "meaning": "ギギを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8E%E3%81%8E"}, {"kanji": "鰧", "reading": "おこぜ", "meaning": "オコゼを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8A%E3%81%93%E3%81%9C"}, {"kanji": "鮇", "reading": "いわな", "meaning": "イワナを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%82%8F%E3%81%AA"}];
-const KEY="sakana_lesson_2_v1";
+const KEY="sakana_lesson_3_v1";
 const PUNS=["タイはめでたい！", "サバを読んでも、魚へんは正直です。", "イカした漢字を覚えましたね！", "エイっと答えて大正解！", "ハモを覚えれば、もう歯も安心？", "キスの問題でも、答えはそっと選びましょう。"];
 let state=JSON.parse(localStorage.getItem(KEY)||'{"trainIndex":0,"score":0,"weak":{}}');
 let quizItems=[],quizIndex=0,quizCorrect=0,quizMode="normal";
