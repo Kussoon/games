@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <link rel="canonical" href="https://kussoon.com/games/clock.html" />
+  <meta name="description" content="大きなデジタル時計と、60本のカラーバーで残り時間を確認できるタイマーです。横・縦表示、全画面表示、画面の明るさ調整に対応しています。" />
   <meta name="theme-color" content="#000000" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -322,6 +324,33 @@
     .menu-group button.active {
       background: rgba(255,255,255,.22);
       border-color: rgba(255,255,255,.45);
+    }
+
+    .menu-info {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,.16);
+      display: grid;
+      gap: 7px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .menu-info a {
+      color: rgba(255,255,255,.82);
+      text-decoration: none;
+    }
+
+    .menu-info a:focus-visible,
+    .menu-info a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .menu-copyright {
+      color: rgba(255,255,255,.44);
+      font-size: 10px;
+      margin-top: 2px;
     }
 
     #wake-status {
@@ -1679,6 +1708,13 @@
       <button type="button" data-level="1">暗い</button>
       <button type="button" data-level="2">超暗い</button>
     </div>
+    <nav class="menu-info" aria-label="この時計について">
+      <a href="clock-guide.html">使い方・掲載情報について</a>
+      <a href="https://kussoon.com/privacy/">プライバシー</a>
+      <a href="https://kussoon.com/terms/">利用上の注意</a>
+      <a href="https://kussoon.com/games/">ゲーム一覧へ戻る</a>
+      <span class="menu-copyright">© 2026 Kussoon</span>
+    </nav>
   </section>
 
   <div id="wake-status" aria-hidden="true"></div>
