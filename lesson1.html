@@ -2,9 +2,9 @@
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="canonical" href="https://kussoon.com/games/lesson1.html">
-<meta name="description" content="魚へん漢字を学ぶ『さかな当てゲーム』のLesson 1です。20文字のトレーニング、4択クイズ、苦手な漢字の復習ができます。">
+<meta name="description" content="魚へん漢字を学ぶ『さかなへん漢字を覚える』のLesson 1です。20文字のトレーニング、4択クイズ、苦手な漢字の復習ができます。">
 <meta name="theme-color" content="#dff5ff">
-<title>Lesson 1｜さかな当てゲーム</title>
+<title>Lesson 1｜さかなへん漢字を覚える</title>
 <style>
 *{box-sizing:border-box}
 :root{--text:#173042;--muted:#5d7482;--accent:#1480aa;--accent2:#0e6589;--line:#c8e2ec;--soft:#edf8fc;--yellow:#fff9dd}
@@ -48,7 +48,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
   <div class="lesson-chip">Lesson 1・20文字</div>
   <div id="resume" class="note hidden"></div>
   <button id="trainBtn">トレーニング</button>
-  <button id="gameBtn">ゲーム開始</button>
+  <button id="gameBtn">クイズ開始</button>
   <button id="weakBtn" class="secondary">苦手な漢字を復習</button>
   <button id="listBtn" class="secondary">Lesson 1・20文字一覧</button>
   <a class="button secondary" href="guide.html">遊び方</a>
@@ -58,7 +58,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
     <a class="button secondary" href="lesson2.html">次へ →</a>
   </div>
   <a class="button secondary" href="lessons.html">レッスン一覧へ</a>
-  <a class="button secondary" href="sakana.html">さかな当てゲームトップへ</a>
+  <a class="button secondary" href="sakana.html">魚へん学習トップへ</a>
   <div class="privacy-note">トレーニングの進み具合、得点、苦手な漢字は、この端末のブラウザ内に保存されます。これらの情報が運営者へ送信されることはありません。</div>
 </section>
 
@@ -106,7 +106,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
     <a href="../sources/">データ出典</a>
     <a href="../terms/">利用上の注意</a>
   </nav>
-  <p class="copyright">さかな当てゲーム　如月先生の学習ラボ　Version 5.0<br>© 2026 Kussoon. All rights reserved.</p>
+  <p class="copyright">さかなへん漢字を覚える　如月先生の学習ラボ　Version 5.0<br>© 2026 Kussoon. All rights reserved.</p>
 </footer>
 <script>
 const DATA=[{"kanji": "鯛", "reading": "たい", "meaning": "タイを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%84"}, {"kanji": "鯖", "reading": "さば", "meaning": "サバを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%81%B0"}, {"kanji": "鰯", "reading": "いわし", "meaning": "イワシを表す漢字です。", "aliases": ["鰛", "鰮"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%82%8F%E3%81%97"}, {"kanji": "鰹", "reading": "かつお", "meaning": "カツオを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%A4%E3%81%8A"}, {"kanji": "鮭", "reading": "さけ", "meaning": "サケを表す漢字です。", "aliases": ["鮏", "鯹"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%81%91"}, {"kanji": "鱈", "reading": "たら", "meaning": "タラを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%82%89"}, {"kanji": "鰤", "reading": "ぶり", "meaning": "ブリを表す漢字です。", "aliases": [], "career": "関西では「ツバス → ハマチ → メジロ → ブリ」、関東では「ワカシ → イナダ → ワラサ → ブリ」と呼ぶのが代表的です。地方によって呼び方や区切りは異なります。", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%B6%E3%82%8A"}, {"kanji": "鰆", "reading": "さわら", "meaning": "サワラを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%8F%E3%82%89"}, {"kanji": "鯵", "reading": "あじ", "meaning": "アジを表す漢字です。", "aliases": ["鰺"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%81%98"}, {"kanji": "鮪", "reading": "まぐろ", "meaning": "マグロを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BE%E3%81%90%E3%82%8D"}, {"kanji": "鰻", "reading": "うなぎ", "meaning": "ウナギを表す漢字です。", "aliases": ["鱺"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%86%E3%81%AA%E3%81%8E"}, {"kanji": "鮫", "reading": "さめ", "meaning": "サメを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%81"}, {"kanji": "鯉", "reading": "こい", "meaning": "コイを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%93%E3%81%84"}, {"kanji": "鮎", "reading": "あゆ", "meaning": "アユを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%82%86"}, {"kanji": "鱸", "reading": "すずき", "meaning": "スズキを表す漢字です。", "aliases": [], "career": "代表的には「セイゴ → フッコ → スズキ」と呼び名が変わります。さらに小さいものを「コッパ」と呼ぶこともあります。地方や大きさによって呼び方は異なります。", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%99%E3%81%9A%E3%81%8D"}, {"kanji": "鯰", "reading": "なまず", "meaning": "ナマズを表す漢字です。", "aliases": ["鮧", "鰋"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AA%E3%81%BE%E3%81%9A"}, {"kanji": "鰈", "reading": "かれい", "meaning": "カレイを表す漢字です。", "aliases": ["魪", "鰜"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%82%8C%E3%81%84"}, {"kanji": "鮃", "reading": "ひらめ", "meaning": "ヒラメを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%B2%E3%82%89%E3%82%81"}, {"kanji": "鯱", "reading": "しゃち", "meaning": "シャチを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%97%E3%82%83%E3%81%A1"}, {"kanji": "鱒", "reading": "ます", "meaning": "マスを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BE%E3%81%99"}];

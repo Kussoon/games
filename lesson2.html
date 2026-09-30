@@ -2,9 +2,9 @@
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="canonical" href="https://kussoon.com/games/lesson2.html">
-<meta name="description" content="魚へん漢字を学ぶ『さかな当てゲーム』のLesson 2です。20文字のトレーニング、4択クイズ、苦手な漢字の復習ができます。">
+<meta name="description" content="魚へん漢字を学ぶ『さかなへん漢字を覚える』のLesson 2です。20文字のトレーニング、4択クイズ、苦手な漢字の復習ができます。">
 <meta name="theme-color" content="#dff5ff">
-<title>Lesson 2｜さかな当てゲーム</title>
+<title>Lesson 2｜さかなへん漢字を覚える</title>
 <style>
 *{box-sizing:border-box}
 :root{--text:#173042;--muted:#5d7482;--accent:#1480aa;--accent2:#0e6589;--line:#c8e2ec;--soft:#edf8fc;--yellow:#fff9dd}
@@ -48,7 +48,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
   <div class="lesson-chip">Lesson 2・20文字</div>
   <div id="resume" class="note hidden"></div>
   <button id="trainBtn">トレーニング</button>
-  <button id="gameBtn">ゲーム開始</button>
+  <button id="gameBtn">クイズ開始</button>
   <button id="weakBtn" class="secondary">苦手な漢字を復習</button>
   <button id="listBtn" class="secondary">Lesson 2・20文字一覧</button>
   <a class="button secondary" href="guide.html">遊び方</a>
@@ -58,7 +58,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
     <a class="button secondary" href="lesson3.html">次へ →</a>
   </div>
   <a class="button secondary" href="lessons.html">レッスン一覧へ</a>
-  <a class="button secondary" href="sakana.html">さかな当てゲームトップへ</a>
+  <a class="button secondary" href="sakana.html">魚へん学習トップへ</a>
   <div class="privacy-note">トレーニングの進み具合、得点、苦手な漢字は、この端末のブラウザ内に保存されます。これらの情報が運営者へ送信されることはありません。</div>
 </section>
 
@@ -106,7 +106,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
     <a href="../sources/">データ出典</a>
     <a href="../terms/">利用上の注意</a>
   </nav>
-  <p class="copyright">さかな当てゲーム　如月先生の学習ラボ　Version 5.0<br>© 2026 Kussoon. All rights reserved.</p>
+  <p class="copyright">さかなへん漢字を覚える　如月先生の学習ラボ　Version 5.0<br>© 2026 Kussoon. All rights reserved.</p>
 </footer>
 <script>
 const DATA=[{"kanji": "鮑", "reading": "あわび", "meaning": "アワビを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%82%8F%E3%81%B3"}, {"kanji": "魷", "reading": "いか", "meaning": "イカを表す漢字です。", "aliases": ["鰂"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%8B"}, {"kanji": "鱏", "reading": "えい", "meaning": "エイを表す漢字です。", "aliases": ["鱝", "鰩"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%88%E3%81%84"}, {"kanji": "鰕", "reading": "えび", "meaning": "エビを表す漢字です。", "aliases": ["魵"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%88%E3%81%B3"}, {"kanji": "鮋", "reading": "かさご", "meaning": "カサゴを表す漢字です。辞書によってはメバルの読みもあります。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%95%E3%81%94"}, {"kanji": "魳", "reading": "かます", "meaning": "カマスを表す漢字です。", "aliases": ["魣"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%BE%E3%81%99"}, {"kanji": "鮍", "reading": "かわはぎ", "meaning": "カワハギを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%82%8F%E3%81%AF%E3%81%8E"}, {"kanji": "鱚", "reading": "きす", "meaning": "キスを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8D%E3%81%99"}, {"kanji": "鯨", "reading": "くじら", "meaning": "クジラを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8F%E3%81%98%E3%82%89"}, {"kanji": "鯒", "reading": "こち", "meaning": "コチを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%93%E3%81%A1"}, {"kanji": "鮗", "reading": "このしろ", "meaning": "コノシロを表す漢字です。", "aliases": ["鰶", "鯝"], "career": "「シンコ → コハダ → ナカズミ → コノシロ」と呼び名が変わる代表的な出世魚です。地域や大きさによって区切りや呼び名は異なります。", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%93%E3%81%AE%E3%81%97%E3%82%8D"}, {"kanji": "鱵", "reading": "さより", "meaning": "サヨリを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%88%E3%82%8A"}, {"kanji": "鱪", "reading": "しいら", "meaning": "シイラを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%97%E3%81%84%E3%82%89"}, {"kanji": "鮊", "reading": "しらうお", "meaning": "シラウオを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%97%E3%82%89%E3%81%86%E3%81%8A"}, {"kanji": "魛", "reading": "たちうお", "meaning": "タチウオを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%A1%E3%81%86%E3%81%8A"}, {"kanji": "鰌", "reading": "どじょう", "meaning": "ドジョウを表す漢字です。", "aliases": ["鯲"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%A9%E3%81%98%E3%82%87%E3%81%86"}, {"kanji": "鰊", "reading": "にしん", "meaning": "ニシンを表す漢字です。", "aliases": ["鯡"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%97%E3%82%93"}, {"kanji": "鰰", "reading": "はたはた", "meaning": "ハタハタを表す漢字です。", "aliases": ["鱩"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%81%9F%E3%81%AF%E3%81%9F"}, {"kanji": "鱧", "reading": "はも", "meaning": "ハモを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%82%82"}, {"kanji": "鮒", "reading": "ふな", "meaning": "フナを表す漢字です。", "aliases": ["鯽"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%B5%E3%81%AA"}];
