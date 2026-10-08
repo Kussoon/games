@@ -13210,7 +13210,7 @@
       "subject": "唐櫃",
       "subject_reading": "からびつ",
       "topic_key": "唐櫃",
-      "question": "物を納める、足の付いた箱、唐櫃を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "物を納める、足の付いた箱、唐櫃（からびつ）を文化財の資料で数えます。\n数える言葉は、どれ？",
       "choices": [
         {
           "id": "A",
@@ -13249,7 +13249,7 @@
       "answer_counter_id": "合",
       "answer": "合",
       "answer_reading": "ごう",
-      "explanation": "唐櫃には「合（ごう）」を使います。",
+      "explanation": "唐櫃（からびつ）には「合（ごう）」を使います。",
       "condition": "ものを おさめる、あしの ついた はこ、からびつを ぶんかざいの しりょうで かぞえます。",
       "other_valid_counters": [
         "棹",
