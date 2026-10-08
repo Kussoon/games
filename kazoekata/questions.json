@@ -5,7 +5,7 @@
   "checked_date": "2026-10-07",
   "stage": "問題文・4択・解説を作成し、編集監査した第2段階版",
   "play_config": {
-    "questions_per_play": 10,
+    "questions_per_play": 50,
     "selection": "random_without_replacement_within_course",
     "choices_per_question": 4,
     "explanation_after_answer": true,
