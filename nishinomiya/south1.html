@@ -75,6 +75,7 @@ h1{margin:0;text-align:center;font-size:clamp(25px,7.5vw,32px);line-height:1.08;
   .footer{font-size:9px}
 }
 </style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8beb23a4-a36f-4aff-b082-bec86e01a2f7" data-domains="kussoon.com,www.kussoon.com" data-exclude-search="true" data-exclude-hash="true"></script>
 </head>
 <body>
 <div class="app">
@@ -133,6 +134,7 @@ h1{margin:0;text-align:center;font-size:clamp(25px,7.5vw,32px);line-height:1.08;
   <div class="footer"><strong>Kussoon Games　Version 1.0</strong>© KUSSOON 2026 All Rights Reserved.</div>
 </section>
 
+<footer id="siteFooter"><nav aria-label="サイト共通案内" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;padding:16px 10px;font-size:13px;line-height:1.8"><a href="/privacy/">プライバシーポリシー</a></nav></footer>
 <div id="quitOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="quitTitle">
   <div class="dialog">
     <h2 id="quitTitle">ここでやめますか？</h2>
@@ -162,6 +164,7 @@ function shuffle(a){
 }
 function showScreen(id){
   ["intro","quiz","result"].forEach(x=>byId(x).classList.toggle("hidden",x!==id));
+  byId("siteFooter").hidden = id === "quiz";
 }
 function startGame(){
   questions=shuffle(ALL_QUESTIONS);
@@ -231,5 +234,6 @@ byId("retryBtn").addEventListener("click",startGame);
 byId("quitBtn").addEventListener("click",()=>byId("quitOverlay").classList.remove("hidden"));
 byId("cancelQuit").addEventListener("click",()=>byId("quitOverlay").classList.add("hidden"));
 </script>
+<script defer src="/common/footer-links.js"></script>
 </body>
 </html>
