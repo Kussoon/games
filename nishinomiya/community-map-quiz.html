@@ -208,8 +208,7 @@
     const features=communities.map(community=>{
       const members=geometries.filter(item=>mapping.towns[item.properties.S_NAME]?.community===community);
       const merged=topojson.merge(topology,members);
-      merged.properties={community};
-      return merged;
+      return {type:'Feature',properties:{community},geometry:merged};
     });
     const specialGeometry=geometries.find(item=>item.properties.S_NAME==='岡田山');
     const special=topojson.feature(topology,specialGeometry);
