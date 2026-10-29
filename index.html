@@ -38,6 +38,15 @@ a.game small{display:block;font-size:12px;margin-top:4px;font-weight:650}
 .site-links{display:flex;justify-content:center;flex-wrap:wrap;gap:5px 10px;margin-top:12px;font-size:11px;line-height:1.5}
 .site-links a{color:#365f8d}
 footer{text-align:center;margin-top:12px;font-size:12px;color:#6d8390;line-height:1.7}
+@media (min-width:700px){
+  main{max-width:960px;padding:20px 20px 32px}
+  .hero{max-width:680px;margin-left:auto;margin-right:auto;grid-template-columns:180px minmax(0,1fr)}
+  .games{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .game.hyogo,.hanshin{grid-column:1/-1}
+  .city-buttons{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .city-buttons a:first-child{grid-column:auto}
+  .site-note{max-width:760px;margin-left:auto;margin-right:auto}
+}
 </style>
 <!-- Kussoon: Umami analytics (query values are not collected) -->
 <script>
