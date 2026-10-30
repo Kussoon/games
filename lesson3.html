@@ -42,7 +42,8 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
 .site-links a{color:var(--accent2)}
 .copyright{margin:0}
 
-.back-to-top{position:fixed;right:calc(14px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:1000;width:48px;height:48px;min-height:0;margin:0;padding:0;border:1px solid #b8d0e5;border-radius:50%;background:#163c65;color:#fff;box-shadow:0 3px 12px #0003;display:flex;align-items:center;justify-content:center;font-size:25px;line-height:1;cursor:pointer}
+.back-to-top{position:fixed;right:calc(14px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:1000;width:auto;max-width:calc(100vw - 28px);min-height:48px;height:auto;margin:0;padding:9px 14px;border:1px solid #444;border-radius:999px;background:#fff;color:#111;box-shadow:0 3px 12px #0003;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;font-size:14px;font-weight:750;line-height:1.2;cursor:pointer}
+.back-to-top-arrow{font-size:23px;line-height:1;font-weight:800}
 .back-to-top[hidden]{display:none}
 .back-to-top:focus-visible{outline:3px solid #e5b64d;outline-offset:3px}
 </style>
@@ -103,7 +104,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
     <a href="../sources/">データ出典</a>
     <a href="../terms/">利用上の注意</a>
   </nav>
-  <p class="copyright">さかなへん漢字を覚える<br>© 2026 Kussoon. All rights reserved.</p>
+  <p class="copyright">さかなへんの漢字を覚える<br>© 2026 Kussoon. All rights reserved.</p>
 </footer>
 <script>
 const DATA=[{"kanji": "魨", "reading": "ふぐ", "meaning": "フグを表す漢字です。", "aliases": ["鮐", "鯸"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%B5%E3%81%90"}, {"kanji": "鯧", "reading": "まながつお", "meaning": "マナガツオを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BE%E3%81%AA%E3%81%8C%E3%81%A4%E3%81%8A"}, {"kanji": "鯥", "reading": "むつ", "meaning": "ムツを表す漢字です。", "aliases": ["鱫"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%82%80%E3%81%A4"}, {"kanji": "魴", "reading": "ほうぼう", "meaning": "ホウボウを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BB%E3%81%86%E3%81%BC%E3%81%86"}, {"kanji": "鰡", "reading": "ぼら", "meaning": "ボラを表す漢字です。", "aliases": ["鯔"], "career": "「オボコ → イナ → ボラ → トド」などと呼び名が変わる出世魚です。地域差があります。", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%BC%E3%82%89"}, {"kanji": "鱔", "reading": "たうなぎ", "meaning": "タウナギを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%86%E3%81%AA%E3%81%8E"}, {"kanji": "鱓", "reading": "うつぼ", "meaning": "ウツボを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%86%E3%81%A4%E3%81%BC"}, {"kanji": "鱖", "reading": "けつぎょ", "meaning": "ケツギョを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%91%E3%81%A4%E3%81%8E%E3%82%87"}, {"kanji": "鮚", "reading": "はまぐり", "meaning": "ハマグリを表す漢字として使われることがあります。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%81%BE%E3%81%90%E3%82%8A"}, {"kanji": "鰝", "reading": "いせえび", "meaning": "イセエビを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%9B%E3%81%88%E3%81%B3"}, {"kanji": "鰢", "reading": "うみえび", "meaning": "ウミエビを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%86%E3%81%BF%E3%81%88%E3%81%B3"}, {"kanji": "鱉", "reading": "すっぽん", "meaning": "スッポンを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%99%E3%81%A3%E3%81%BD%E3%82%93"}, {"kanji": "鱟", "reading": "かぶとがに", "meaning": "カブトガニを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%B6%E3%81%A8%E3%81%8C%E3%81%AB"}, {"kanji": "鯢", "reading": "さんしょううお", "meaning": "サンショウウオを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%93%E3%81%97%E3%82%87%E3%81%86%E3%81%86%E3%81%8A"}, {"kanji": "鰐", "reading": "わに", "meaning": "ワニを表す漢字です。", "aliases": ["鱷"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%82%8F%E3%81%AB"}, {"kanji": "鰲", "reading": "おおがめ", "meaning": "大きなカメを表す漢字です。伝説上の大亀を指すこともあります。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8A%E3%81%8A%E3%81%8C%E3%82%81"}, {"kanji": "鱘", "reading": "ちょうざめ", "meaning": "チョウザメを表す漢字です。", "aliases": ["鱣"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%87%E3%81%86%E3%81%96%E3%82%81"}, {"kanji": "鱨", "reading": "ぎぎ", "meaning": "ギギを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8E%E3%81%8E"}, {"kanji": "鰧", "reading": "おこぜ", "meaning": "オコゼを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8A%E3%81%93%E3%81%9C"}, {"kanji": "鮇", "reading": "いわな", "meaning": "イワナを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%82%8F%E3%81%AA"}];
@@ -188,7 +189,7 @@ document.querySelectorAll(".homeBtn").forEach(b=>b.onclick=()=>{updateMenu();sho
 updateMenu();show("menu");
 </script>
 </main>
-<button id="backToTop" type="button" class="back-to-top" aria-label="一番上に戻る" title="一番上に戻る" hidden>↑</button>
+<button id="backToTop" type="button" class="back-to-top" aria-label="一番上に戻る" title="一番上に戻る" hidden><span class="back-to-top-arrow" aria-hidden="true">↑</span><span>一番上に戻る</span></button>
 <script>
 (function(){
   const button=document.getElementById("backToTop");
