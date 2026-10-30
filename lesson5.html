@@ -110,6 +110,8 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
 const DATA=[{"kanji": "鰺", "reading": "あじ", "meaning": "アジを表す別の漢字です。", "aliases": ["鯵"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%81%98"}, {"kanji": "鰛", "reading": "いわし", "meaning": "イワシを表す別の漢字です。", "aliases": ["鰯", "鰮"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%82%8F%E3%81%97"}, {"kanji": "鰮", "reading": "いわし", "meaning": "イワシを表す別の漢字です。", "aliases": ["鰯", "鰛"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%82%8F%E3%81%97"}, {"kanji": "鰒", "reading": "あわび／ふぐ", "meaning": "アワビまたはフグを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%82%8F%E3%81%B3"}, {"kanji": "鮏", "reading": "さけ", "meaning": "サケを表す別の漢字です。", "aliases": ["鮭", "鯹"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%81%91"}, {"kanji": "鯹", "reading": "さけ", "meaning": "サケを表す別の漢字です。", "aliases": ["鮭", "鮏"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%81%91"}, {"kanji": "鱩", "reading": "はたはた", "meaning": "ハタハタを表す別の漢字です。", "aliases": ["鰰"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%81%9F%E3%81%AF%E3%81%9F"}, {"kanji": "鮐", "reading": "ふぐ", "meaning": "フグを表す別の漢字です。", "aliases": ["魨", "鯸"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%B5%E3%81%90"}, {"kanji": "鰘", "reading": "むろあじ", "meaning": "ムロアジを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%82%80%E3%82%8D%E3%81%82%E3%81%98"}, {"kanji": "鱫", "reading": "むつ", "meaning": "ムツを表す別の漢字です。", "aliases": ["鯥"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%82%80%E3%81%A4"}, {"kanji": "鱆", "reading": "たこ", "meaning": "タコを表す漢字です。", "aliases": ["鮹"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%93"}, {"kanji": "鱝", "reading": "えい", "meaning": "エイを表す別の漢字です。", "aliases": ["鱏", "鰩"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%88%E3%81%84"}, {"kanji": "鱣", "reading": "ちょうざめ", "meaning": "チョウザメを表す別の漢字です。", "aliases": ["鱘"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%87%E3%81%86%E3%81%96%E3%82%81"}, {"kanji": "鱷", "reading": "わに", "meaning": "ワニを表す別の漢字です。", "aliases": ["鰐"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%82%8F%E3%81%AB"}, {"kanji": "鱺", "reading": "うなぎ", "meaning": "ウナギを表す別の漢字です。", "aliases": ["鰻"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%86%E3%81%AA%E3%81%8E"}, {"kanji": "魣", "reading": "かます", "meaning": "カマスを表す別の漢字です。", "aliases": ["魳"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%BE%E3%81%99"}, {"kanji": "鮧", "reading": "なまず", "meaning": "ナマズを表す別の漢字です。", "aliases": ["鯰", "鰋"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AA%E3%81%BE%E3%81%9A"}, {"kanji": "鰋", "reading": "なまず", "meaning": "ナマズを表す別の漢字です。", "aliases": ["鯰", "鮧"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AA%E3%81%BE%E3%81%9A"}, {"kanji": "鰜", "reading": "かれい", "meaning": "カレイを表す別の漢字です。", "aliases": ["鰈", "魪"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%82%8C%E3%81%84"}, {"kanji": "鯽", "reading": "ふな", "meaning": "フナを表す別の漢字です。", "aliases": ["鮒"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%B5%E3%81%AA"}];
 const KEY="sakana_lesson_5_v1";
 let state=JSON.parse(localStorage.getItem(KEY)||'{"trainIndex":0,"score":0,"weak":{}}');
+// 旧来の1問100ポイントの累計値を、1問5ポイントの単位に一度だけ換算する。
+if(state.scoreUnit!==5){state.score=Math.round((Number(state.score)||0)/20);state.scoreUnit=5;localStorage.setItem(KEY,JSON.stringify(state));}
 let quizItems=[],quizIndex=0,quizCorrect=0,quizMode="normal";
 
 function save(){localStorage.setItem(KEY,JSON.stringify(state));}
@@ -148,7 +150,7 @@ function beginQuiz(mode){
   quizItems=shuffle(pool);quizIndex=0;quizCorrect=0;renderQuiz();
 }
 function renderQuiz(){
-  const f=quizItems[quizIndex];quizCount.textContent=`${quizIndex+1} / ${quizItems.length}`;quizScore.textContent=`正解 ${quizCorrect}`;
+  const f=quizItems[quizIndex];quizCount.textContent=`${quizIndex+1} / ${quizItems.length}`;quizScore.textContent=`得点 ${Math.round(quizCorrect*100/quizItems.length)} / 100点`;
   quizKanji.textContent=f.kanji;answerBox.classList.add("hidden");choices.innerHTML="";
   const wrong=shuffle([...new Set(DATA.map(x=>x.reading).filter(reading=>reading!==f.reading))]).slice(0,3);
   shuffle([f.reading,...wrong]).forEach(r=>{const b=document.createElement("button");b.textContent=r;b.onclick=()=>answer(r);choices.appendChild(b);});
@@ -156,9 +158,10 @@ function renderQuiz(){
 }
 function answer(r){
   const f=quizItems[quizIndex],ok=r===f.reading;
-  if(ok){quizCorrect++;state.score=(state.score||0)+100;delete state.weak[f.kanji];}
+  if(ok){quizCorrect++;state.score=(state.score||0)+5;delete state.weak[f.kanji];}
   else state.weak[f.kanji]=(state.weak[f.kanji]||0)+1;
   save();
+  quizScore.textContent=`得点 ${Math.round(quizCorrect*100/quizItems.length)} / 100点`;
   choices.innerHTML="";
   answerText.innerHTML=`<b>${ok?"正解！":"残念！ 正解は「"+f.reading+"」です。"}</b><br>${f.meaning}`;
   answerAliases.classList.toggle("hidden",!f.aliases.length);
@@ -170,7 +173,7 @@ function answer(r){
 quizNext.onclick=()=>{
   quizIndex++;
   if(quizIndex>=quizItems.length){
-    alert(`ゲーム終了！ ${quizItems.length}問中 ${quizCorrect}問正解、${quizCorrect*100}ポイントです。`);
+    alert(`ゲーム終了！ ${quizItems.length}問中 ${quizCorrect}問正解。${quizCorrect*5}ポイント獲得、100点満点換算で${Math.round(quizCorrect*100/quizItems.length)}点です。`);
     updateMenu();
     show("menu");
   }else renderQuiz();
