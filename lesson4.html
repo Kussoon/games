@@ -42,7 +42,8 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
 .site-links a{color:var(--accent2)}
 .copyright{margin:0}
 
-.back-to-top{position:fixed;right:calc(14px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:1000;width:48px;height:48px;min-height:0;margin:0;padding:0;border:1px solid #b8d0e5;border-radius:50%;background:#163c65;color:#fff;box-shadow:0 3px 12px #0003;display:flex;align-items:center;justify-content:center;font-size:25px;line-height:1;cursor:pointer}
+.back-to-top{position:fixed;right:calc(14px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:1000;width:auto;max-width:calc(100vw - 28px);min-height:48px;height:auto;margin:0;padding:9px 14px;border:1px solid #444;border-radius:999px;background:#fff;color:#111;box-shadow:0 3px 12px #0003;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;font-size:14px;font-weight:750;line-height:1.2;cursor:pointer}
+.back-to-top-arrow{font-size:23px;line-height:1;font-weight:800}
 .back-to-top[hidden]{display:none}
 .back-to-top:focus-visible{outline:3px solid #e5b64d;outline-offset:3px}
 </style>
@@ -103,7 +104,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
     <a href="../sources/">データ出典</a>
     <a href="../terms/">利用上の注意</a>
   </nav>
-  <p class="copyright">さかなへん漢字を覚える<br>© 2026 Kussoon. All rights reserved.</p>
+  <p class="copyright">さかなへんの漢字を覚える<br>© 2026 Kussoon. All rights reserved.</p>
 </footer>
 <script>
 const DATA=[{"kanji": "鯏", "reading": "あさり／うぐい", "meaning": "アサリやウグイを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%81%95%E3%82%8A"}, {"kanji": "鮻", "reading": "いさぎ", "meaning": "イサギを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%95%E3%81%8E"}, {"kanji": "鯆", "reading": "いるか", "meaning": "イルカを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%82%8B%E3%81%8B"}, {"kanji": "鯎", "reading": "うぐい", "meaning": "ウグイを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%86%E3%81%90%E3%81%84"}, {"kanji": "魵", "reading": "えび", "meaning": "エビを表す漢字です。", "aliases": ["鰕"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%88%E3%81%B3"}, {"kanji": "鮖", "reading": "かじか", "meaning": "カジカを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%98%E3%81%8B"}, {"kanji": "鰍", "reading": "かじか／どじょう", "meaning": "カジカやドジョウを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%98%E3%81%8B"}, {"kanji": "魪", "reading": "かれい", "meaning": "カレイを表す漢字です。", "aliases": ["鰈", "鰜"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%82%8C%E3%81%84"}, {"kanji": "鰶", "reading": "このしろ", "meaning": "コノシロを表す漢字です。", "aliases": ["鮗", "鯝"], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%93%E3%81%AE%E3%81%97%E3%82%8D"}, {"kanji": "鮴", "reading": "ごり", "meaning": "ゴリを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%94%E3%82%8A"}, {"kanji": "鯯", "reading": "さっぱ", "meaning": "サッパを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%81%A3%E3%81%B1"}, {"kanji": "鮄", "reading": "さば／ほうぼう", "meaning": "サバやホウボウを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%81%B0"}, {"kanji": "鯳", "reading": "すけとうだら", "meaning": "スケトウダラを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%99%E3%81%91%E3%81%A8%E3%81%86%E3%81%A0%E3%82%89"}, {"kanji": "鯐", "reading": "すばしり", "meaning": "スバシリを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%99%E3%81%B0%E3%81%97%E3%82%8A"}, {"kanji": "鮬", "reading": "せいご", "meaning": "スズキの幼魚であるセイゴを表す漢字です。", "aliases": [], "career": "セイゴは成長するとフッコ、スズキと呼ばれます。", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9B%E3%81%84%E3%81%94"}, {"kanji": "鰖", "reading": "たかべ", "meaning": "タカベを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%8B%E3%81%B9"}, {"kanji": "鰱", "reading": "たなご／れんぎょ", "meaning": "タナゴやレンギョを表す漢字として使われます。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%AA%E3%81%94"}, {"kanji": "鱅", "reading": "ちちかぶり", "meaning": "チチカブリを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%A1%E3%81%A1%E3%81%8B%E3%81%B6%E3%82%8A"}, {"kanji": "鮠", "reading": "はや", "meaning": "ハヤを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%82%84"}, {"kanji": "鰙", "reading": "はえ", "meaning": "ハエを表す漢字です。", "aliases": [], "career": "", "wiki": "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%81%88"}];
@@ -188,7 +189,7 @@ document.querySelectorAll(".homeBtn").forEach(b=>b.onclick=()=>{updateMenu();sho
 updateMenu();show("menu");
 </script>
 </main>
-<button id="backToTop" type="button" class="back-to-top" aria-label="一番上に戻る" title="一番上に戻る" hidden>↑</button>
+<button id="backToTop" type="button" class="back-to-top" aria-label="一番上に戻る" title="一番上に戻る" hidden><span class="back-to-top-arrow" aria-hidden="true">↑</span><span>一番上に戻る</span></button>
 <script>
 (function(){
   const button=document.getElementById("backToTop");

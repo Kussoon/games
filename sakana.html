@@ -45,7 +45,8 @@ footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
 .card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(23,48,66,.10)}
 .banner{display:block;width:100%;height:auto}.menu{padding:16px}
 
-.back-to-top{position:fixed;right:calc(14px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:1000;width:48px;height:48px;min-height:0;margin:0;padding:0;border:1px solid #b8d0e5;border-radius:50%;background:#163c65;color:#fff;box-shadow:0 3px 12px #0003;display:flex;align-items:center;justify-content:center;font-size:25px;line-height:1;cursor:pointer}
+.back-to-top{position:fixed;right:calc(14px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:1000;width:auto;max-width:calc(100vw - 28px);min-height:48px;height:auto;margin:0;padding:9px 14px;border:1px solid #444;border-radius:999px;background:#fff;color:#111;box-shadow:0 3px 12px #0003;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;font-size:14px;font-weight:750;line-height:1.2;cursor:pointer}
+.back-to-top-arrow{font-size:23px;line-height:1;font-weight:800}
 .back-to-top[hidden]{display:none}
 .back-to-top:focus-visible{outline:3px solid #e5b64d;outline-offset:3px}
 </style><!-- Kussoon: Umami analytics (query values are not collected) -->
@@ -80,9 +81,9 @@ window.kussoonUmamiBeforeSend = function (type, payload) {
 <a href="../sources/">データ出典</a>
 <a href="../terms/">利用上の注意</a>
 </nav>
-<p class="copyright">さかなへん漢字を覚える　Version 5.0.2<br>© 2026 Kussoon. All rights reserved.</p>
+<p class="copyright">さかなへんの漢字を覚える　Version 5.0.2<br>© 2026 Kussoon. All rights reserved.</p>
 </footer></main>
-<button id="backToTop" type="button" class="back-to-top" aria-label="一番上に戻る" title="一番上に戻る" hidden>↑</button>
+<button id="backToTop" type="button" class="back-to-top" aria-label="一番上に戻る" title="一番上に戻る" hidden><span class="back-to-top-arrow" aria-hidden="true">↑</span><span>一番上に戻る</span></button>
 <script>
 (function(){
   const button=document.getElementById("backToTop");
