@@ -27,7 +27,7 @@ window.kussoonBeforeSend=function(type,payload){
 'use strict';
 const DATA=JSON.parse(document.getElementById('quiz-data').textContent);
 const app=document.getElementById('app');
-const courseNames={lower:'小学校（しょうがっこう）低学年（ていがくねん）コース',upper:'小学校高学年（こうがくねん）コース',adult:'大人コース',mania:'マニアックコース'};
+const courseNames={lower:'小学校（しょうがっこう）低学年（ていがくねん）コース',upper:'小学校高学年コース',adult:'大人コース',mania:'マニアックコース'};
 const state={course:null,queue:[],index:0,answers:[],locked:false,retry:false,initial:null,currentChoices:[]};
 const upperLearnedCounters=new Set(['本','台','羽','頭','足','通','両','校','室','部','着','曲','首','問','字','点','組','話','社']);
 function choiceHTML(c,courseId){
