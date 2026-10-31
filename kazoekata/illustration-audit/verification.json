@@ -1,902 +1,11 @@
 {
   "functional": {
+    "tested_revision": "b04b77b341a51ada48023d9cb13b02c1b70564e2",
+    "note": "前回400回答の結果。今回、画像マッピング以外のHTMLは前回と同一であることを照合。",
     "dataIdentical": true,
-    "footerIdentical": true,
-    "umamiIdentical": true,
     "engines": [
       {
         "name": "chromium-mobile",
-        "viewport": {
-          "width": 390,
-          "height": 844
-        },
-        "previewQuestions": [
-          {
-            "id": "lower-001",
-            "image": "images/pencil.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 255,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 371.984375,
-              "textTop": 383.984375,
-              "choicesTop": 491.171875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-002",
-            "image": "images/ballpoint_pen.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 255,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 371.984375,
-              "textTop": 383.984375,
-              "choicesTop": 491.171875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-003",
-            "image": "images/crayon.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-004",
-            "image": "images/umbrella.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 462.828125,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-005",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-006",
-            "image": "images/tree.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 462.828125,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-007",
-            "image": "images/paper.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-008",
-            "image": "images/origami.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-009",
-            "image": "images/photograph.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 260,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 376.984375,
-              "textTop": 388.984375,
-              "choicesTop": 535.765625,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-010",
-            "image": "images/straw.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-011",
-            "image": "images/handkerchief.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-012",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-013",
-            "image": "images/plate.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-014",
-            "image": "images/postcard.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 260,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 376.984375,
-              "textTop": 388.984375,
-              "choicesTop": 535.765625,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-015",
-            "image": "images/sticker.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-016",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-017",
-            "image": "images/notebook.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-018",
-            "image": "images/ehon-open-book.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 423.234375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-019",
-            "image": "images/dictionary.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-020",
-            "image": "images/magazine.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-021",
-            "image": "images/car.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 462.828125,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-022",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-023",
-            "image": "images/television.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-024",
-            "image": "images/computer.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 462.828125,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-025",
-            "image": "images/refrigerator.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 462.828125,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-026",
-            "image": "images/washing_machine.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 505.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-027",
-            "image": "images/cat.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 255,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 371.984375,
-              "textTop": 383.984375,
-              "choicesTop": 530.765625,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-028",
-            "image": "images/dog.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-029",
-            "image": "images/goldfish.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-030",
-            "image": "images/medaka.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-031",
-            "image": "images/frog.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-032",
-            "image": "images/rhinoceros_beetle.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-033",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-034",
-            "image": "images/small_bird.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-035",
-            "image": "images/chicken.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-036",
-            "image": "images/duck.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-037",
-            "image": "images/elephant.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-038",
-            "image": "images/cow.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-039",
-            "image": "images/horse.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-040",
-            "image": "images/shoe_pair.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-041",
-            "image": "images/rice.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 462.828125,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-042",
-            "image": "images/beans.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 260,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 376.984375,
-              "textTop": 388.984375,
-              "choicesTop": 496.171875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-043",
-            "image": "images/apple.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-044",
-            "image": "images/mandarin_orange.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-045",
-            "image": "images/egg.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-046",
-            "image": "images/eraser.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-047",
-            "image": "images/ball.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 462.828125,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-048",
-            "image": "images/balloon.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 226.65625,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 343.640625,
-              "textTop": 355.640625,
-              "choicesTop": 502.421875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-049",
-            "image": "images/candy.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 255,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 371.984375,
-              "textTop": 383.984375,
-              "choicesTop": 530.765625,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-050",
-            "image": "images/dice.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 340,
-              "height": 255,
-              "left": 25,
-              "right": 365,
-              "top": 116.984375,
-              "bottom": 371.984375,
-              "textTop": 383.984375,
-              "choicesTop": 491.171875,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          }
-        ],
         "plays": [
           {
             "course": "lower",
@@ -927,902 +36,10 @@
             "sameCoursePassed": true
           }
         ],
-        "pageErrors": [],
-        "darkAndNarrowPassed": true
+        "pageErrors": []
       },
       {
         "name": "chromium-desktop",
-        "viewport": {
-          "width": 1366,
-          "height": 768
-        },
-        "previewQuestions": [
-          {
-            "id": "lower-001",
-            "image": "images/pencil.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-002",
-            "image": "images/ballpoint_pen.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-003",
-            "image": "images/crayon.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-004",
-            "image": "images/umbrella.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-005",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-006",
-            "image": "images/tree.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-007",
-            "image": "images/paper.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-008",
-            "image": "images/origami.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-009",
-            "image": "images/photograph.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-010",
-            "image": "images/straw.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-011",
-            "image": "images/handkerchief.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-012",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-013",
-            "image": "images/plate.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-014",
-            "image": "images/postcard.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-015",
-            "image": "images/sticker.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 568.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-016",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-017",
-            "image": "images/notebook.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-018",
-            "image": "images/ehon-open-book.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 460.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-019",
-            "image": "images/dictionary.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-020",
-            "image": "images/magazine.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-021",
-            "image": "images/car.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-022",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-023",
-            "image": "images/television.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-024",
-            "image": "images/computer.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-025",
-            "image": "images/refrigerator.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-026",
-            "image": "images/washing_machine.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 517.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-027",
-            "image": "images/cat.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-028",
-            "image": "images/dog.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-029",
-            "image": "images/goldfish.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 568.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-030",
-            "image": "images/medaka.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 568.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-031",
-            "image": "images/frog.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-032",
-            "image": "images/rhinoceros_beetle.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-033",
-            "image": null,
-            "passed": true,
-            "metrics": null
-          },
-          {
-            "id": "lower-034",
-            "image": "images/small_bird.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-035",
-            "image": "images/chicken.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-036",
-            "image": "images/duck.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-037",
-            "image": "images/elephant.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-038",
-            "image": "images/cow.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-039",
-            "image": "images/horse.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-040",
-            "image": "images/shoe_pair.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 568.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-041",
-            "image": "images/rice.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-042",
-            "image": "images/beans.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-043",
-            "image": "images/apple.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 568.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-044",
-            "image": "images/mandarin_orange.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-045",
-            "image": "images/egg.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-046",
-            "image": "images/eraser.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-047",
-            "image": "images/ball.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-048",
-            "image": "images/balloon.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 240,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 366.984375,
-              "textTop": 378.984375,
-              "choicesTop": 514.984375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-049",
-            "image": "images/candy.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          },
-          {
-            "id": "lower-050",
-            "image": "images/dice.webp",
-            "passed": true,
-            "metrics": {
-              "loaded": true,
-              "width": 360,
-              "height": 245.75,
-              "left": 503,
-              "right": 863,
-              "top": 126.984375,
-              "bottom": 372.734375,
-              "textTop": 384.734375,
-              "choicesTop": 520.734375,
-              "fit": "contain",
-              "background": "rgb(255, 255, 255)",
-              "overflow": false
-            }
-          }
-        ],
         "plays": [
           {
             "course": "lower",
@@ -1853,8 +70,7 @@
             "sameCoursePassed": true
           }
         ],
-        "pageErrors": [],
-        "darkAndNarrowPassed": true
+        "pageErrors": []
       }
     ]
   },
@@ -1948,9 +164,22 @@
           },
           {
             "id": "lower-005",
-            "image": null,
+            "image": "images/pet-bottle.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 340,
+              "height": 255,
+              "left": 25,
+              "right": 365,
+              "top": 119.984375,
+              "bottom": 374.984375,
+              "textTop": 386.984375,
+              "choicesTop": 573.359375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-006",
@@ -2068,9 +297,22 @@
           },
           {
             "id": "lower-012",
-            "image": null,
+            "image": "images/towel.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 340,
+              "height": 255,
+              "left": 25,
+              "right": 365,
+              "top": 119.984375,
+              "bottom": 374.984375,
+              "textTop": 386.984375,
+              "choicesTop": 573.359375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-013",
@@ -2131,9 +373,22 @@
           },
           {
             "id": "lower-016",
-            "image": null,
+            "image": "images/book.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 340,
+              "height": 255,
+              "left": 25,
+              "right": 365,
+              "top": 119.984375,
+              "bottom": 374.984375,
+              "textTop": 386.984375,
+              "choicesTop": 533.765625,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-017",
@@ -2232,9 +487,22 @@
           },
           {
             "id": "lower-022",
-            "image": null,
+            "image": "images/bicycle.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 340,
+              "height": 255,
+              "left": 25,
+              "right": 365,
+              "top": 119.984375,
+              "bottom": 374.984375,
+              "textTop": 386.984375,
+              "choicesTop": 494.171875,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-023",
@@ -2428,9 +696,22 @@
           },
           {
             "id": "lower-033",
-            "image": null,
+            "image": "images/ant.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 340,
+              "height": 255,
+              "left": 25,
+              "right": 365,
+              "top": 119.984375,
+              "bottom": 374.984375,
+              "textTop": 386.984375,
+              "choicesTop": 573.359375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-034",
@@ -2845,9 +1126,22 @@
           },
           {
             "id": "lower-005",
-            "image": null,
+            "image": "images/pet-bottle.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 360,
+              "height": 245.75,
+              "left": 503,
+              "right": 863,
+              "top": 129.984375,
+              "bottom": 375.734375,
+              "textTop": 387.734375,
+              "choicesTop": 577.734375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-006",
@@ -2965,9 +1259,22 @@
           },
           {
             "id": "lower-012",
-            "image": null,
+            "image": "images/towel.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 360,
+              "height": 245.75,
+              "left": 503,
+              "right": 863,
+              "top": 129.984375,
+              "bottom": 375.734375,
+              "textTop": 387.734375,
+              "choicesTop": 577.734375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-013",
@@ -3028,9 +1335,22 @@
           },
           {
             "id": "lower-016",
-            "image": null,
+            "image": "images/book.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 360,
+              "height": 245.75,
+              "left": 503,
+              "right": 863,
+              "top": 129.984375,
+              "bottom": 375.734375,
+              "textTop": 387.734375,
+              "choicesTop": 577.734375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-017",
@@ -3129,9 +1449,22 @@
           },
           {
             "id": "lower-022",
-            "image": null,
+            "image": "images/bicycle.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 360,
+              "height": 245.75,
+              "left": 503,
+              "right": 863,
+              "top": 129.984375,
+              "bottom": 375.734375,
+              "textTop": 387.734375,
+              "choicesTop": 523.734375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-023",
@@ -3325,9 +1658,22 @@
           },
           {
             "id": "lower-033",
-            "image": null,
+            "image": "images/ant.webp",
             "passed": true,
-            "metrics": null
+            "metrics": {
+              "loaded": true,
+              "width": 360,
+              "height": 245.75,
+              "left": 503,
+              "right": 863,
+              "top": 129.984375,
+              "bottom": 375.734375,
+              "textTop": 387.734375,
+              "choicesTop": 577.734375,
+              "fit": "contain",
+              "background": "rgb(255, 255, 255)",
+              "overflow": false
+            }
           },
           {
             "id": "lower-034",
@@ -3659,14 +2005,39 @@
       }
     ]
   },
-  "extra": {
-    "heroImageLoaded": true,
-    "randomQueuePassed": {
-      "unique": true,
-      "shuffled": true
+  "five_additions": [
+    {
+      "id": "lower-005",
+      "loaded": true,
+      "answerCorrect": true,
+      "nextPassed": true
     },
-    "upperPreviewPassed": true,
-    "missingImageFallbackPassed": true,
-    "invalidPreviewHomePassed": true
-  }
+    {
+      "id": "lower-012",
+      "loaded": true,
+      "answerCorrect": true,
+      "nextPassed": true
+    },
+    {
+      "id": "lower-016",
+      "loaded": true,
+      "answerCorrect": true,
+      "nextPassed": true
+    },
+    {
+      "id": "lower-022",
+      "loaded": true,
+      "answerCorrect": true,
+      "nextPassed": true
+    },
+    {
+      "id": "lower-033",
+      "loaded": true,
+      "answerCorrect": true,
+      "nextPassed": true
+    }
+  ],
+  "mapping_count": 50,
+  "unmatched_count": 0,
+  "questions_and_game_logic_unchanged_from_previous_pr": true
 }

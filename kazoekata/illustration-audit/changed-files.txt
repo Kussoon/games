@@ -1,12 +1,16 @@
+A	kazoekata/illustration-audit/changed-files.txt
 A	kazoekata/illustration-audit/mapping.csv
 A	kazoekata/illustration-audit/report.md
 A	kazoekata/illustration-audit/unmatched.csv
 A	kazoekata/illustration-audit/verification.json
+A	kazoekata/images/ant.webp
 A	kazoekata/images/apple.webp
 A	kazoekata/images/ball.webp
 A	kazoekata/images/balloon.webp
 A	kazoekata/images/ballpoint_pen.webp
 A	kazoekata/images/beans.webp
+A	kazoekata/images/bicycle.webp
+A	kazoekata/images/book.webp
 A	kazoekata/images/candy.webp
 A	kazoekata/images/car.webp
 A	kazoekata/images/cat.webp
@@ -32,6 +36,7 @@ A	kazoekata/images/notebook.webp
 A	kazoekata/images/origami.webp
 A	kazoekata/images/paper.webp
 A	kazoekata/images/pencil.webp
+A	kazoekata/images/pet-bottle.webp
 A	kazoekata/images/photograph.webp
 A	kazoekata/images/plate.webp
 A	kazoekata/images/postcard.webp
@@ -43,8 +48,8 @@ A	kazoekata/images/small_bird.webp
 A	kazoekata/images/sticker.webp
 A	kazoekata/images/straw.webp
 A	kazoekata/images/television.webp
+A	kazoekata/images/towel.webp
 A	kazoekata/images/tree.webp
 A	kazoekata/images/umbrella.webp
 A	kazoekata/images/washing_machine.webp
 M	kazoekata/kazoekata.html
-A	kazoekata/illustration-audit/changed-files.txt
