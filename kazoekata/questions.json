@@ -678,7 +678,7 @@
       "subject": "えんぴつ",
       "subject_reading": "えんぴつ",
       "topic_key": "えんぴつ",
-      "question": "えんぴつを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "えんぴつは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -744,7 +744,7 @@
       "subject": "ボールペン",
       "subject_reading": "ボールペン",
       "topic_key": "ボールペン",
-      "question": "ボールペンを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ボールペンは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -810,7 +810,7 @@
       "subject": "クレヨン",
       "subject_reading": "クレヨン",
       "topic_key": "クレヨン",
-      "question": "クレヨンを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "クレヨンは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -876,7 +876,7 @@
       "subject": "かさ",
       "subject_reading": "かさ",
       "topic_key": "かさ",
-      "question": "かさを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "かさは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -942,7 +942,7 @@
       "subject": "ペットボトル",
       "subject_reading": "ペットボトル",
       "topic_key": "ペットボトル",
-      "question": "のみものの ペットボトルを、ばらばらに かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ペットボトルは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -981,7 +981,7 @@
       "answer_counter_id": "本",
       "answer": "本",
       "answer_reading": "ほん",
-      "explanation": "ほんを つかって、いっぽん、にほん、と かぞえます。はこごとの かずでは ありません。",
+      "explanation": "ペットボトルは、いっぽん、にほん、と かぞえます。はこの かずでは ありません。",
       "condition": "箱やケース単位ではなくボトルそのもの",
       "other_valid_counters": [],
       "source_check_flag": "general_rule_verified",
@@ -1008,7 +1008,7 @@
       "subject": "木",
       "subject_reading": "き",
       "topic_key": "木",
-      "question": "こうえんに はえている きを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "こうえんの きは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1076,7 +1076,7 @@
       "subject": "紙",
       "subject_reading": "かみ",
       "topic_key": "紙",
-      "question": "かみを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "かみは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1142,7 +1142,7 @@
       "subject": "おりがみ",
       "subject_reading": "おりがみ",
       "topic_key": "おりがみ",
-      "question": "おりがみを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "おる まえの おりがみは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1208,7 +1208,7 @@
       "subject": "写真",
       "subject_reading": "しゃしん",
       "topic_key": "写真",
-      "question": "かみに プリントした しゃしんを、ひとつずつ かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "しゃしんは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1276,7 +1276,7 @@
       "subject": "ストロー",
       "subject_reading": "ストロー",
       "topic_key": "ストロー",
-      "question": "ストローを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ストローは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1342,7 +1342,7 @@
       "subject": "ハンカチ",
       "subject_reading": "ハンカチ",
       "topic_key": "ハンカチ",
-      "question": "ハンカチを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ハンカチは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1408,7 +1408,7 @@
       "subject": "タオル",
       "subject_reading": "タオル",
       "topic_key": "タオル",
-      "question": "タオルを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "タオルは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1474,7 +1474,7 @@
       "subject": "お皿",
       "subject_reading": "おさら",
       "topic_key": "お皿",
-      "question": "おさらを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "おさらは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1540,7 +1540,7 @@
       "subject": "はがき",
       "subject_reading": "はがき",
       "topic_key": "はがき",
-      "question": "まだ なにも かいていない はがきを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "はがきは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1608,7 +1608,7 @@
       "subject": "シール",
       "subject_reading": "シール",
       "topic_key": "シール",
-      "question": "シールを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "シールは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1674,7 +1674,7 @@
       "subject": "本",
       "subject_reading": "ほん",
       "topic_key": "本",
-      "question": "ほんを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ほんは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1740,7 +1740,7 @@
       "subject": "ノート",
       "subject_reading": "ノート",
       "topic_key": "ノート",
-      "question": "ノートを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ノートは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1806,7 +1806,7 @@
       "subject": "絵本",
       "subject_reading": "えほん",
       "topic_key": "絵本",
-      "question": "えほんを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "えほんは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1872,7 +1872,7 @@
       "subject": "辞書",
       "subject_reading": "じしょ",
       "topic_key": "辞書",
-      "question": "じしょを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "じしょは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -1938,7 +1938,7 @@
       "subject": "雑誌",
       "subject_reading": "ざっし",
       "topic_key": "雑誌",
-      "question": "ざっしを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ざっしは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2004,7 +2004,7 @@
       "subject": "車",
       "subject_reading": "くるま",
       "topic_key": "車",
-      "question": "くるまを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "くるまは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2072,7 +2072,7 @@
       "subject": "自転車",
       "subject_reading": "じてんしゃ",
       "topic_key": "自転車",
-      "question": "じてんしゃを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "じてんしゃは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2138,7 +2138,7 @@
       "subject": "テレビ",
       "subject_reading": "テレビ",
       "topic_key": "テレビ",
-      "question": "テレビを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "テレビは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2204,7 +2204,7 @@
       "subject": "パソコン",
       "subject_reading": "パソコン",
       "topic_key": "パソコン",
-      "question": "パソコンを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "パソコンは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2270,7 +2270,7 @@
       "subject": "れいぞうこ",
       "subject_reading": "れいぞうこ",
       "topic_key": "れいぞうこ",
-      "question": "れいぞうこを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "れいぞうこは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2336,7 +2336,7 @@
       "subject": "せんたくき",
       "subject_reading": "せんたくき",
       "topic_key": "せんたくき",
-      "question": "せんたくきを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "せんたくきは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2402,7 +2402,7 @@
       "subject": "ねこ",
       "subject_reading": "ねこ",
       "topic_key": "ねこ",
-      "question": "ねこを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ねこは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2470,7 +2470,7 @@
       "subject": "いぬ",
       "subject_reading": "いぬ",
       "topic_key": "いぬ",
-      "question": "いぬを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "いぬは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2538,7 +2538,7 @@
       "subject": "金魚",
       "subject_reading": "きんぎょ",
       "topic_key": "金魚",
-      "question": "きんぎょを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "きんぎょは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2604,7 +2604,7 @@
       "subject": "メダカ",
       "subject_reading": "メダカ",
       "topic_key": "メダカ",
-      "question": "メダカを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "メダカは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2670,7 +2670,7 @@
       "subject": "カエル",
       "subject_reading": "カエル",
       "topic_key": "カエル",
-      "question": "カエルを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "カエルは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2736,7 +2736,7 @@
       "subject": "カブトムシ",
       "subject_reading": "カブトムシ",
       "topic_key": "カブトムシ",
-      "question": "カブトムシを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "カブトムシは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2802,7 +2802,7 @@
       "subject": "アリ",
       "subject_reading": "アリ",
       "topic_key": "アリ",
-      "question": "アリを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "アリは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2868,7 +2868,7 @@
       "subject": "小鳥",
       "subject_reading": "ことり",
       "topic_key": "小鳥",
-      "question": "ことりを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ことりは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -2936,7 +2936,7 @@
       "subject": "ニワトリ",
       "subject_reading": "ニワトリ",
       "topic_key": "ニワトリ",
-      "question": "ニワトリを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ニワトリは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3004,7 +3004,7 @@
       "subject": "アヒル",
       "subject_reading": "アヒル",
       "topic_key": "アヒル",
-      "question": "アヒルを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "アヒルは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3072,7 +3072,7 @@
       "subject": "ゾウ",
       "subject_reading": "ゾウ",
       "topic_key": "ゾウ",
-      "question": "ゾウを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ゾウは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3138,7 +3138,7 @@
       "subject": "ウシ",
       "subject_reading": "ウシ",
       "topic_key": "ウシ",
-      "question": "ウシを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ウシは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3206,7 +3206,7 @@
       "subject": "ウマ",
       "subject_reading": "ウマ",
       "topic_key": "ウマ",
-      "question": "ウマを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ウマは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3274,7 +3274,7 @@
       "subject": "くつ",
       "subject_reading": "くつ",
       "topic_key": "くつ",
-      "question": "みぎと ひだりの くつが、そろった ひとくみを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "みぎと ひだりが そろった くつは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3313,7 +3313,7 @@
       "answer_counter_id": "足",
       "answer": "足",
       "answer_reading": "そく",
-      "explanation": "くつは みぎと ひだりが そろって、いっそくです。にそくなら、ふたくみです。",
+      "explanation": "くつは みぎと ひだりが ひとそろいで、いっそくです。にそくは、ふたそろいの ことです。",
       "condition": "左右一組",
       "other_valid_counters": [],
       "source_check_flag": "explicit_use_verified",
@@ -3340,7 +3340,7 @@
       "subject": "お米のつぶ",
       "subject_reading": "おこめの つぶ",
       "topic_key": "お米のつぶ",
-      "question": "おこめの つぶを、ひとつずつ かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "おこめを ひとつずつ かぞえるときは？",
       "choices": [
         {
           "id": "A",
@@ -3406,7 +3406,7 @@
       "subject": "豆",
       "subject_reading": "まめ",
       "topic_key": "豆",
-      "question": "さやから だした まめを、ひとつずつ かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "まめを ひとつずつ かぞえるときは？",
       "choices": [
         {
           "id": "A",
@@ -3474,7 +3474,7 @@
       "subject": "りんご",
       "subject_reading": "りんご",
       "topic_key": "りんご",
-      "question": "りんごを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "りんごは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3540,7 +3540,7 @@
       "subject": "みかん",
       "subject_reading": "みかん",
       "topic_key": "みかん",
-      "question": "みかんを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "みかんは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3606,7 +3606,7 @@
       "subject": "たまご",
       "subject_reading": "たまご",
       "topic_key": "たまご",
-      "question": "たまごを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "たまごは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3674,7 +3674,7 @@
       "subject": "けしゴム",
       "subject_reading": "けしゴム",
       "topic_key": "けしゴム",
-      "question": "けしゴムを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "けしゴムは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3740,7 +3740,7 @@
       "subject": "ボール",
       "subject_reading": "ボール",
       "topic_key": "ボール",
-      "question": "あそびに つかう ボールそのものを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ボールは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3808,7 +3808,7 @@
       "subject": "風船",
       "subject_reading": "ふうせん",
       "topic_key": "風船",
-      "question": "てに もてる ふつうの ふうせんを、ひとつずつ かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "ふうせんは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3847,7 +3847,7 @@
       "answer_counter_id": "個",
       "answer": "個",
       "answer_reading": "こ",
-      "explanation": "ふつうの ふうせんは、いっこ、にこ、と かぞえられます。そらに あげる おおきな こうこくの ふうせんとは くべつします。",
+      "explanation": "ふうせんは、いっこ、にこ、と かぞえます。",
       "condition": "通常の手持ち風船。アドバルーンは対象外",
       "other_valid_counters": [],
       "source_check_flag": "general_rule_verified",
@@ -3874,7 +3874,7 @@
       "subject": "あめ玉",
       "subject_reading": "あめだま",
       "topic_key": "あめ玉",
-      "question": "ひとくちで たべられる あめだまを、ひとつずつ かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "あめだまは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -3942,7 +3942,7 @@
       "subject": "さいころ",
       "subject_reading": "さいころ",
       "topic_key": "さいころ",
-      "question": "さいころを かぞえます。\nかぞえる ことばは、どれ？",
+      "question": "さいころは どう かぞえる？",
       "choices": [
         {
           "id": "A",
@@ -4008,7 +4008,7 @@
       "subject": "家",
       "subject_reading": "いえ",
       "topic_key": "家",
-      "question": "家を数えます。\n数える言葉は、どれ？",
+      "question": "家は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4047,7 +4047,7 @@
       "answer_counter_id": "軒",
       "answer": "軒",
       "answer_reading": "けん",
-      "explanation": "家には「軒（けん）」を使います。「こ」や「とう」を使う数え方もあります。",
+      "explanation": "家には「軒（けん）」を使います。「戸（こ）」や「棟（とう）」で数えることもあります。",
       "condition": "いえを かぞえます。",
       "other_valid_counters": [
         "戸",
@@ -4077,7 +4077,7 @@
       "subject": "お店",
       "subject_reading": "おみせ",
       "topic_key": "お店",
-      "question": "町に並（なら）んだお店を数えます。\n数える言葉は、どれ？",
+      "question": "お店は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4116,7 +4116,7 @@
       "answer_counter_id": "軒",
       "answer": "軒",
       "answer_reading": "けん",
-      "explanation": "お店は「軒（けん）」で数えます。「てん」と言う言い方もあります。",
+      "explanation": "お店は「軒（けん）」で数えます。「店（てん）」でも数えられます。",
       "condition": "まちに ならんだ おみせを かぞえます。",
       "other_valid_counters": [
         "店"
@@ -4145,7 +4145,7 @@
       "subject": "手紙",
       "subject_reading": "てがみ",
       "topic_key": "手紙",
-      "question": "一人に送る手紙を数えます。\n数える言葉は、どれ？",
+      "question": "手紙は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4214,7 +4214,7 @@
       "subject": "メール",
       "subject_reading": "メール",
       "topic_key": "メール",
-      "question": "送った電子メールを数えます。\n数える言葉は、どれ？",
+      "question": "電子メールは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4282,7 +4282,7 @@
       "subject": "電車の車両",
       "subject_reading": "でんしゃの しゃりょう",
       "topic_key": "電車の車両",
-      "question": "つながった電車の、一つ一つの車両（しゃりょう）を数えます。\n数える言葉は、どれ？",
+      "question": "電車の車両（しゃりょう）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4350,7 +4350,7 @@
       "subject": "飛行機",
       "subject_reading": "ひこうき",
       "topic_key": "飛行機",
-      "question": "飛行機（ひこうき）の機体（きたい）その物を数えます。\n数える言葉は、どれ？",
+      "question": "飛行機（ひこうき）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4389,7 +4389,7 @@
       "answer_counter_id": "機",
       "answer": "機",
       "answer_reading": "き",
-      "explanation": "飛行機（ひこうき）の機体（きたい）は「機（き）」で数えます。フライトの数なら「びん」などを使います。",
+      "explanation": "飛行機（ひこうき）の機体（きたい）は「機（き）」で数えます。運航（うんこう）する便の数なら「便（びん）」を使います。",
       "condition": "ひこうきの きたいそのものを かぞえます。",
       "other_valid_counters": [],
       "source_check_flag": "explicit_use_verified",
@@ -4416,7 +4416,7 @@
       "subject": "学校",
       "subject_reading": "がっこう",
       "topic_key": "学校",
-      "question": "違（ちが）う学校が、いくつあるかを数えます。\n数える言葉は、どれ？",
+      "question": "学校は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4482,7 +4482,7 @@
       "subject": "部屋",
       "subject_reading": "へや",
       "topic_key": "部屋",
-      "question": "ホテルの部屋の数を数えます。\n数える言葉は、どれ？",
+      "question": "ホテルの部屋は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4521,7 +4521,7 @@
       "answer_counter_id": "室",
       "answer": "室",
       "answer_reading": "しつ",
-      "explanation": "部屋は、いっしつ、にしつ、と数えます。「ま」と言う数え方もあります。",
+      "explanation": "部屋は、いっしつ、にしつ、と数えます。「間（ま）」という数え方もあります。",
       "condition": "ホテルの へやの かずを かぞえます。",
       "other_valid_counters": [
         "間"
@@ -4550,7 +4550,7 @@
       "subject": "階段",
       "subject_reading": "かいだん",
       "topic_key": "階段",
-      "question": "階段（かいだん）の、足を乗せる段（だん）を数えます。\n数える言葉は、どれ？",
+      "question": "階段（かいだん）の一つ一つの段は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4616,7 +4616,7 @@
       "subject": "食事用のおはし",
       "subject_reading": "しょくじようの おはし",
       "topic_key": "食事用のおはし",
-      "question": "食事（しょくじ）に使うお箸（はし）、日本で一組を数えます。\n数える言葉は、どれ？",
+      "question": "二本そろったお箸（はし）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4655,7 +4655,7 @@
       "answer_counter_id": "膳",
       "answer": "膳",
       "answer_reading": "ぜん",
-      "explanation": "お箸（はし）は、日本でいちぜんです。菜箸（さいばし）などには、そのままあてはめません。",
+      "explanation": "お箸（はし）は、ひとそろいで、いちぜん、にぜん、と数えます。菜箸（さいばし）などには使いません。",
       "condition": "しょくじに つかう おはし、にほんで ひとくみを かぞえます。",
       "other_valid_counters": [
         "具",
@@ -4685,7 +4685,7 @@
       "subject": "いす",
       "subject_reading": "いす",
       "topic_key": "いす",
-      "question": "足のあるいすを、一つずつ数えます。\n数える言葉は、どれ？",
+      "question": "いすは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4754,7 +4754,7 @@
       "subject": "建物",
       "subject_reading": "たてもの",
       "topic_key": "建物",
-      "question": "大きな建物（たてもの）を、一つ一つの建物（たてもの）として数えます。\n数える言葉は、どれ？",
+      "question": "建物（たてもの）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4793,7 +4793,7 @@
       "answer_counter_id": "棟",
       "answer": "棟",
       "answer_reading": "とう",
-      "explanation": "建物（たてもの）は「棟（とう）」で数えられます。「むね」と読（よ）むこともあります。",
+      "explanation": "建物（たてもの）は「棟（とう）」で数えられます。「棟（むね）」と数えることもあります。",
       "condition": "おおきな たてものを、ひとつひとつの たてものとして かぞえます。",
       "other_valid_counters": [
         "軒"
@@ -4822,7 +4822,7 @@
       "subject": "新聞",
       "subject_reading": "しんぶん",
       "topic_key": "新聞",
-      "question": "一人に配る新聞の一そろいを数えます。\n数える言葉は、どれ？",
+      "question": "新聞は、一つずつどう数える？",
       "choices": [
         {
           "id": "A",
@@ -4888,7 +4888,7 @@
       "subject": "パンフレット",
       "subject_reading": "パンフレット",
       "topic_key": "パンフレット",
-      "question": "配るためのパンフレットを、一人分ずつ数えます。\n数える言葉は、どれ？",
+      "question": "配るパンフレットは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -4957,7 +4957,7 @@
       "subject": "コート",
       "subject_reading": "コート",
       "topic_key": "コート",
-      "question": "冬に着るコートを数えます。\n数える言葉は、どれ？",
+      "question": "コートは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5026,7 +5026,7 @@
       "subject": "着物",
       "subject_reading": "きもの",
       "topic_key": "着物",
-      "question": "着物を、着る服として数えます。\n数える言葉は、どれ？",
+      "question": "着物は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5095,7 +5095,7 @@
       "subject": "手袋",
       "subject_reading": "てぶくろ",
       "topic_key": "手袋",
-      "question": "右と左がそろった手袋（てぶくろ）、一組を数えます。\n数える言葉は、どれ？",
+      "question": "左右そろった手袋（てぶくろ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5164,7 +5164,7 @@
       "subject": "花",
       "subject_reading": "はな",
       "topic_key": "花",
-      "question": "咲（さ）いている花の、一つ一つの花を数えます。\n数える言葉は、どれ？",
+      "question": "さいている花は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5232,7 +5232,7 @@
       "subject": "花束",
       "subject_reading": "はなたば",
       "topic_key": "花束",
-      "question": "花をまとめて結（むす）んだ、花束（はなたば）を数えます。\n数える言葉は、どれ？",
+      "question": "花束（はなたば）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5300,7 +5300,7 @@
       "subject": "山",
       "subject_reading": "やま",
       "topic_key": "山",
-      "question": "地図にある山を、山ごとに数えます。\n数える言葉は、どれ？",
+      "question": "山は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5366,7 +5366,7 @@
       "subject": "歌",
       "subject_reading": "うた",
       "topic_key": "歌",
-      "question": "メロディーのある歌を、作品ごとに数えます。\n数える言葉は、どれ？",
+      "question": "歌は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5432,7 +5432,7 @@
       "subject": "短歌",
       "subject_reading": "たんか",
       "topic_key": "短歌",
-      "question": "五・七・五・七・七の、短歌（たんか）を数えます。\n数える言葉は、どれ？",
+      "question": "短歌（たんか）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5500,7 +5500,7 @@
       "subject": "俳句",
       "subject_reading": "はいく",
       "topic_key": "俳句",
-      "question": "五・七・五を基本とする、俳句（はいく）を数えます。\n数える言葉は、どれ？",
+      "question": "俳句（はいく）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5566,7 +5566,7 @@
       "subject": "問題",
       "subject_reading": "もんだい",
       "topic_key": "問題",
-      "question": "テストに出る問題を、問題ごとに数えます。\n数える言葉は、どれ？",
+      "question": "テストの問題は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5634,7 +5634,7 @@
       "subject": "漢字",
       "subject_reading": "かんじ",
       "topic_key": "漢字",
-      "question": "漢字（かんじ）がいくつ並（なら）んでいるか、文字の数を数えます。\n数える言葉は、どれ？",
+      "question": "漢字（かんじ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5700,7 +5700,7 @@
       "subject": "地図",
       "subject_reading": "ちず",
       "topic_key": "地図",
-      "question": "一枚の紙に印刷（いんさつ）された地図を数えます。\n数える言葉は、どれ？",
+      "question": "紙の地図は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5768,7 +5768,7 @@
       "subject": "道路",
       "subject_reading": "どうろ",
       "topic_key": "道路",
-      "question": "長くのびる道路（どうろ）を数えます。\n数える言葉は、どれ？",
+      "question": "道路（どうろ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5836,7 +5836,7 @@
       "subject": "得点",
       "subject_reading": "とくてん",
       "topic_key": "得点",
-      "question": "ゲームの得点（とくてん）を数えます。\n数える言葉は、どれ？",
+      "question": "ゲームの得点（とくてん）の単位は？",
       "choices": [
         {
           "id": "A",
@@ -5902,7 +5902,7 @@
       "subject": "投票",
       "subject_reading": "とうひょう",
       "topic_key": "投票",
-      "question": "選挙（せんきょ）で、候補者（こうほしゃ）に入った投票（とうひょう）の数を数えます。\n数える言葉は、どれ？",
+      "question": "選挙（せんきょ）の投票（とうひょう）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -5968,7 +5968,7 @@
       "subject": "座席",
       "subject_reading": "ざせき",
       "topic_key": "座席",
-      "question": "会場（かいじょう）に、何人分の座席（ざせき）があるかを数えます。\n数える言葉は、どれ？",
+      "question": "一人分の座席（ざせき）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6034,7 +6034,7 @@
       "subject": "クラス",
       "subject_reading": "クラス",
       "topic_key": "クラス",
-      "question": "一つの学年にあるクラスを数えます。\n数える言葉は、どれ？",
+      "question": "学校のクラスは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6073,7 +6073,7 @@
       "answer_counter_id": "組",
       "answer": "組",
       "answer_reading": "くみ",
-      "explanation": "クラスを数える時は「組（くみ）」を使います。「学級（がっきゅう）」と言う言い方もあります。",
+      "explanation": "クラスは、ひとくみ、ふたくみ、と数えます。",
       "condition": "学年内の学級数",
       "other_valid_counters": [
         "学級"
@@ -6102,7 +6102,7 @@
       "subject": "テニスコート",
       "subject_reading": "テニスコート",
       "topic_key": "テニスコート",
-      "question": "テニスをするコートを、コートごとに数えます。\n数える言葉は、どれ？",
+      "question": "テニスコートは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6168,7 +6168,7 @@
       "subject": "映画",
       "subject_reading": "えいが",
       "topic_key": "映画",
-      "question": "映画（えいが）の作品を数えます。\n数える言葉は、どれ？",
+      "question": "映画（えいが）の作品は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6207,7 +6207,7 @@
       "answer_counter_id": "本",
       "answer": "本",
       "answer_reading": "ほん",
-      "explanation": "映画（えいが）の作品も「本（ほん）」で数えます。「さく」と言う言い方もあります。",
+      "explanation": "映画（えいが）の作品も「本（ほん）」で数えます。「作（さく）」でも数えられます。",
       "condition": "えいがの さくひんを かぞえます。",
       "other_valid_counters": [
         "作"
@@ -6236,7 +6236,7 @@
       "subject": "お弁当",
       "subject_reading": "おべんとう",
       "topic_key": "お弁当",
-      "question": "お弁当（べんとう）を、一人分の食事（しょくじ）として数えます。\n数える言葉は、どれ？",
+      "question": "お弁当は、一食分ずつどう数える？",
       "choices": [
         {
           "id": "A",
@@ -6275,7 +6275,7 @@
       "answer_counter_id": "食",
       "answer": "食",
       "answer_reading": "しょく",
-      "explanation": "一人分の食事（しょくじ）は、いっしょくです。箱やご飯粒（はんつぶ）の数ではありません。",
+      "explanation": "一食分の食事（しょくじ）は、いっしょくです。箱やご飯粒（ごはんつぶ）の数ではありません。",
       "condition": "一人分の食事単位",
       "other_valid_counters": [
         "個"
@@ -6304,7 +6304,7 @@
       "subject": "ドラマ",
       "subject_reading": "ドラマ",
       "topic_key": "ドラマ",
-      "question": "続（つづ）き物のドラマを、第（だい）一話、第（だい）二話、と呼（よ）びたい時。\n数える言葉は、どれ？",
+      "question": "ドラマの各エピソードは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6372,7 +6372,7 @@
       "subject": "絵画",
       "subject_reading": "かいが",
       "topic_key": "絵画",
-      "question": "展覧会（てんらんかい）に出した絵を、作品ごとに数えます。\n数える言葉は、どれ？",
+      "question": "展覧会（てんらんかい）に出した絵は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6442,7 +6442,7 @@
       "subject": "彫刻作品",
       "subject_reading": "ちょうこくさくひん",
       "topic_key": "彫刻作品",
-      "question": "展覧会（てんらんかい）に出した彫刻（ちょうこく）を、作品ごとに数えます。\n数える言葉は、どれ？",
+      "question": "展覧会（てんらんかい）に出した彫刻（ちょうこく）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6511,7 +6511,7 @@
       "subject": "会社",
       "subject_reading": "かいしゃ",
       "topic_key": "会社",
-      "question": "会社を数えます。\n数える言葉は、どれ？",
+      "question": "会社は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6577,7 +6577,7 @@
       "subject": "証明書",
       "subject_reading": "しょうめいしょ",
       "topic_key": "証明書",
-      "question": "証明書（しょうめいしょ）を、一つの書類（しょるい）として数えます。\n数える言葉は、どれ？",
+      "question": "証明書（しょうめいしょ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6645,7 +6645,7 @@
       "subject": "切手",
       "subject_reading": "きって",
       "topic_key": "切手",
-      "question": "貼（は）る前の切手（きって）を、一枚ずつ数えます。\n数える言葉は、どれ？",
+      "question": "切手は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6711,7 +6711,7 @@
       "subject": "くつ下",
       "subject_reading": "くつした",
       "topic_key": "くつ下",
-      "question": "右と左がそろった、くつ下の一組を数えます。\n数える言葉は、どれ？",
+      "question": "左右そろったくつ下は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6750,7 +6750,7 @@
       "answer_counter_id": "足",
       "answer": "足",
       "answer_reading": "そく",
-      "explanation": "くつ下も、右と左でいっそくです。片方ずつなら「まい」などを使います。",
+      "explanation": "くつ下も、右と左でいっそくです。片方だけなら「かたほう」といいます。",
       "condition": "みぎと ひだりが そろった、くつしたの ひとくみを かぞえます。",
       "other_valid_counters": [
         "組"
@@ -6779,7 +6779,7 @@
       "subject": "カーテン",
       "subject_reading": "カーテン",
       "topic_key": "カーテン",
-      "question": "窓（まど）にかけるカーテンを、布（ぬの）の一枚ずつで数えます。\n数える言葉は、どれ？",
+      "question": "カーテンは、片側ずつどう数える？",
       "choices": [
         {
           "id": "A",
@@ -6845,7 +6845,7 @@
       "subject": "ふとん",
       "subject_reading": "ふとん",
       "topic_key": "ふとん",
-      "question": "敷布団（しきぶとん）だけを、一枚ずつ数えます。\n数える言葉は、どれ？",
+      "question": "敷（し）きぶとんは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6911,7 +6911,7 @@
       "subject": "机",
       "subject_reading": "つくえ",
       "topic_key": "机",
-      "question": "足のある机を、一つずつ数えます。\n数える言葉は、どれ？",
+      "question": "机は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -6980,7 +6980,7 @@
       "subject": "ラケット",
       "subject_reading": "ラケット",
       "topic_key": "ラケット",
-      "question": "テニスのラケットを数えます。\n数える言葉は、どれ？",
+      "question": "テニスのラケットは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7048,7 +7048,7 @@
       "subject": "電池",
       "subject_reading": "でんち",
       "topic_key": "電池",
-      "question": "細長い形の、たんさん電池（でんち）を数えます。\n数える言葉は、どれ？",
+      "question": "単三電池（たんさんでんち）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7116,7 +7116,7 @@
       "subject": "ロープ",
       "subject_reading": "ロープ",
       "topic_key": "ロープ",
-      "question": "切り分けたロープを、いっぽんずつ数えます。\n数える言葉は、どれ？",
+      "question": "ロープは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7184,7 +7184,7 @@
       "subject": "打ち上げ花火",
       "subject_reading": "うちあげはなび",
       "topic_key": "打ち上げ花火",
-      "question": "空に打ち上げる花火を、打ち上げた数で数えます。\n数える言葉は、どれ？",
+      "question": "打ち上げた花火は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7250,7 +7250,7 @@
       "subject": "ブドウ",
       "subject_reading": "ブドウ",
       "topic_key": "ブドウ",
-      "question": "枝（えだ）につながったブドウの一まとまりを数えます。\n数える言葉は、どれ？",
+      "question": "実がつながったブドウのまとまりは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7316,7 +7316,7 @@
       "subject": "バナナ",
       "subject_reading": "バナナ",
       "topic_key": "バナナ",
-      "question": "何本かつながった、バナナの一まとまりを数えます。\n数える言葉は、どれ？",
+      "question": "何本かつながったバナナは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7382,7 +7382,7 @@
       "subject": "船",
       "subject_reading": "ふね",
       "topic_key": "船",
-      "question": "大きな船の船体を数えます。\n数える言葉は、どれ？",
+      "question": "大きな船は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7421,7 +7421,7 @@
       "answer_counter_id": "隻",
       "answer": "隻",
       "answer_reading": "せき",
-      "explanation": "船は、いっせき、にせき、と数えます。「そう」など、他の数え方もあります。",
+      "explanation": "船は、いっせき、にせき、と数えます。「艘（そう）」という数え方もあります。",
       "condition": "おおきな ふねの せんたいを かぞえます。",
       "other_valid_counters": [
         "艘",
@@ -7451,7 +7451,7 @@
       "subject": "土地",
       "subject_reading": "とち",
       "topic_key": "土地",
-      "question": "登記で区切られた土地の単位を数えます。\n数える言葉は、どれ？",
+      "question": "登記上の土地は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7517,7 +7517,7 @@
       "subject": "株式",
       "subject_reading": "かぶしき",
       "topic_key": "株式",
-      "question": "株式の数を数えます。\n数える言葉は、どれ？",
+      "question": "株式の数を表す単位は？",
       "choices": [
         {
           "id": "A",
@@ -7583,7 +7583,7 @@
       "subject": "契約",
       "subject_reading": "けいやく",
       "topic_key": "契約",
-      "question": "結んだ契約を、契約ごとに数えます。\n数える言葉は、どれ？",
+      "question": "成立した契約は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7649,7 +7649,7 @@
       "subject": "訴訟",
       "subject_reading": "そしょう",
       "topic_key": "訴訟",
-      "question": "裁判で扱う訴訟の数を数えます。\n数える言葉は、どれ？",
+      "question": "訴訟の数を表す単位は？",
       "choices": [
         {
           "id": "A",
@@ -7715,7 +7715,7 @@
       "subject": "事故",
       "subject_reading": "じこ",
       "topic_key": "事故",
-      "question": "起きた事故の数を数えます。\n数える言葉は、どれ？",
+      "question": "交通事故は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7781,7 +7781,7 @@
       "subject": "墓",
       "subject_reading": "はか",
       "topic_key": "墓",
-      "question": "据え付けられたお墓を数えます。\n数える言葉は、どれ？",
+      "question": "お墓は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7820,7 +7820,7 @@
       "answer_counter_id": "基",
       "answer": "基",
       "answer_reading": "き",
-      "explanation": "お墓は、いっき、にき、と数えます。据え付けた物に使う数え方です。",
+      "explanation": "お墓は、いっき、にき、と数えます。据え付けてあるものに使う数え方です。",
       "condition": "すえつけられた おはかを かぞえます。",
       "other_valid_counters": [],
       "source_check_flag": "explicit_use_verified",
@@ -7847,7 +7847,7 @@
       "subject": "記念碑",
       "subject_reading": "きねんひ",
       "topic_key": "記念碑",
-      "question": "建てられた記念碑を数えます。\n数える言葉は、どれ？",
+      "question": "記念碑は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7913,7 +7913,7 @@
       "subject": "テント",
       "subject_reading": "テント",
       "topic_key": "テント",
-      "question": "キャンプで使うテントを数えます。\n数える言葉は、どれ？",
+      "question": "キャンプのテントは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -7982,7 +7982,7 @@
       "subject": "仏像",
       "subject_reading": "ぶつぞう",
       "topic_key": "仏像",
-      "question": "仏様の姿を表した仏像を数えます。\n数える言葉は、どれ？",
+      "question": "仏像は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8021,7 +8021,7 @@
       "answer_counter_id": "体",
       "answer": "体",
       "answer_reading": "たい",
-      "explanation": "仏像は「体（たい）」で数えられます。「く」や「そん」などの言い方もあります。",
+      "explanation": "仏像は「体（たい）」で数えられます。「軀（く）」や「尊（そん）」などの言い方もあります。",
       "condition": "ほとけさまの すがたを あらわした ぶつぞうを かぞえます。",
       "other_valid_counters": [
         "軀",
@@ -8052,7 +8052,7 @@
       "subject": "にぎりずし",
       "subject_reading": "にぎりずし",
       "topic_key": "にぎりずし",
-      "question": "にぎりずしを数えます。\n数える言葉は、どれ？",
+      "question": "にぎりずしは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8091,7 +8091,7 @@
       "answer_counter_id": "貫",
       "answer": "貫",
       "answer_reading": "かん",
-      "explanation": "にぎりずしは、いっかん、にかん、と数えます。いっかんを一個とするか二個とするかは、使い方に違いがあります。",
+      "explanation": "にぎりずしは、いっかん、にかん、と数えます。一貫を一個とするか二個とするかは、店や地域によって違います。",
       "condition": "にぎりずしを かぞえます。",
       "other_valid_counters": [
         "個"
@@ -8120,7 +8120,7 @@
       "subject": "豆腐",
       "subject_reading": "とうふ",
       "topic_key": "豆腐",
-      "question": "四角い塊の豆腐を数えます。\n数える言葉は、どれ？",
+      "question": "豆腐は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8159,7 +8159,7 @@
       "answer_counter_id": "丁",
       "answer": "丁",
       "answer_reading": "ちょう",
-      "explanation": "豆腐の塊には「丁（ちょう）」を使います。切った一切れずつの数とは区別します。",
+      "explanation": "豆腐は「丁（ちょう）」で数えます。切った一切れずつの数とは区別します。",
       "condition": "しかくい かたまりの とうふを かぞえます。",
       "other_valid_counters": [
         "個"
@@ -8188,7 +8188,7 @@
       "subject": "食パン",
       "subject_reading": "しょくパン",
       "topic_key": "食パン",
-      "question": "食パンを、切る前の塊の単位で数えます。\n数える言葉は、どれ？",
+      "question": "切る前の丸ごとの食パンは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8257,7 +8257,7 @@
       "subject": "イカ",
       "subject_reading": "イカ",
       "topic_key": "イカ",
-      "question": "魚屋で売る、丸ごとのイカを数えます。\n数える言葉は、どれ？",
+      "question": "魚屋に並ぶ丸ごとのイカは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8326,7 +8326,7 @@
       "subject": "カニ",
       "subject_reading": "カニ",
       "topic_key": "カニ",
-      "question": "魚屋で売る、丸ごとのカニを数えます。\n数える言葉は、どれ？",
+      "question": "魚屋に並ぶ丸ごとのカニは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8394,7 +8394,7 @@
       "subject": "かかってきた電話",
       "subject_reading": "かかってきた でんわ",
       "topic_key": "かかってきた電話",
-      "question": "電話がかかってきた数を数えます。\n数える言葉は、どれ？",
+      "question": "かかってきた電話は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8433,7 +8433,7 @@
       "answer_counter_id": "本",
       "answer": "本",
       "answer_reading": "ほん",
-      "explanation": "電話のやり取りには「本（ほん）」を使います。電話機その物を数える「だい」とは違います。",
+      "explanation": "かかってきた電話は「本（ほん）」で数えます。電話機そのものを数える「台（だい）」とは違います。",
       "condition": "でんわが かかってきた かずを かぞえます。",
       "other_valid_counters": [
         "件",
@@ -8463,7 +8463,7 @@
       "subject": "弾丸",
       "subject_reading": "だんがん",
       "topic_key": "弾丸",
-      "question": "銃の玉を数えます。\n数える言葉は、どれ？",
+      "question": "銃の弾は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8531,7 +8531,7 @@
       "subject": "矢",
       "subject_reading": "や",
       "topic_key": "矢",
-      "question": "弓で飛ばす矢を数えます。\n数える言葉は、どれ？",
+      "question": "矢は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8570,7 +8570,7 @@
       "answer_counter_id": "本",
       "answer": "本",
       "answer_reading": "ほん",
-      "explanation": "矢には「本（ほん）」を使います。昔の資料では「すじ」や「じょう」なども使います。",
+      "explanation": "矢には「本（ほん）」を使います。昔の資料では「筋（すじ）」などの数え方も見られます。",
       "condition": "ゆみで とばす やを かぞえます。",
       "other_valid_counters": [
         "筋",
@@ -8601,7 +8601,7 @@
       "subject": "銃",
       "subject_reading": "じゅう",
       "topic_key": "銃",
-      "question": "銃そのものを数えます。\n数える言葉は、どれ？",
+      "question": "銃は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8640,7 +8640,7 @@
       "answer_counter_id": "挺",
       "answer": "挺",
       "answer_reading": "ちょう",
-      "explanation": "銃は「挺（ちょう）」で数えます。「てい」とは読みません。「丁（ちょう）」と書くこともあります。",
+      "explanation": "銃は「挺（ちょう）」で数えます。「丁（ちょう）」と書くこともあります。",
       "condition": "じゅうそのものを かぞえます。",
       "other_valid_counters": [
         "丁",
@@ -8675,7 +8675,7 @@
       "subject": "詩",
       "subject_reading": "し",
       "topic_key": "詩",
-      "question": "一つの詩を、作品として数えます。\n数える言葉は、どれ？",
+      "question": "詩の作品は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8753,7 +8753,7 @@
       "subject": "論文",
       "subject_reading": "ろんぶん",
       "topic_key": "論文",
-      "question": "論文を数えます。\n数える言葉は、どれ？",
+      "question": "論文は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8822,7 +8822,7 @@
       "subject": "神社",
       "subject_reading": "じんじゃ",
       "topic_key": "神社",
-      "question": "神社を数えます。\n数える言葉は、どれ？",
+      "question": "神社は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8890,7 +8890,7 @@
       "subject": "寺院",
       "subject_reading": "じいん",
       "topic_key": "寺院",
-      "question": "お寺を数えます。\n数える言葉は、どれ？",
+      "question": "お寺は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -8958,7 +8958,7 @@
       "subject": "会議",
       "subject_reading": "かいぎ",
       "topic_key": "会議",
-      "question": "会議を開いた回数を数えます。\n数える言葉は、どれ？",
+      "question": "会議の開催数は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9026,7 +9026,7 @@
       "subject": "講演",
       "subject_reading": "こうえん",
       "topic_key": "講演",
-      "question": "講演を行った回数を数えます。\n数える言葉は、どれ？",
+      "question": "講演の開催数は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9095,7 +9095,7 @@
       "subject": "展覧会",
       "subject_reading": "てんらんかい",
       "topic_key": "展覧会",
-      "question": "展覧会を開いた回数を数えます。\n数える言葉は、どれ？",
+      "question": "展覧会の開催数は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9163,7 +9163,7 @@
       "subject": "特許",
       "subject_reading": "とっきょ",
       "topic_key": "特許",
-      "question": "特許の数を数えます。\n数える言葉は、どれ？",
+      "question": "登録された特許は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9229,7 +9229,7 @@
       "subject": "注文",
       "subject_reading": "ちゅうもん",
       "topic_key": "注文",
-      "question": "受けた注文の数を数えます。\n数える言葉は、どれ？",
+      "question": "受け付けた注文は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9295,7 +9295,7 @@
       "subject": "予約",
       "subject_reading": "よやく",
       "topic_key": "予約",
-      "question": "予約を受け付けた数を数えます。\n数える言葉は、どれ？",
+      "question": "受け付けた予約は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9361,7 +9361,7 @@
       "subject": "問い合わせ",
       "subject_reading": "といあわせ",
       "topic_key": "問い合わせ",
-      "question": "届いた問い合わせの数を数えます。\n数える言葉は、どれ？",
+      "question": "問い合わせは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9427,7 +9427,7 @@
       "subject": "いちごの苗",
       "subject_reading": "いちごの なえ",
       "topic_key": "いちごの苗",
-      "question": "根の付いた、いちごの苗を数えます。\n数える言葉は、どれ？",
+      "question": "いちごの苗は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9493,7 +9493,7 @@
       "subject": "錠剤",
       "subject_reading": "じょうざい",
       "topic_key": "錠剤",
-      "question": "錠剤の薬を数えます。\n数える言葉は、どれ？",
+      "question": "錠剤は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9562,7 +9562,7 @@
       "subject": "粉薬",
       "subject_reading": "こなぐすり",
       "topic_key": "粉薬",
-      "question": "粉薬を、一回分ずつ小袋に包んだ数を数えます。\n数える言葉は、どれ？",
+      "question": "小袋に分けた粉薬は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9632,7 +9632,7 @@
       "subject": "目薬のしずく",
       "subject_reading": "めぐすりの しずく",
       "topic_key": "目薬のしずく",
-      "question": "目薬から落ちる滴を、一つずつ数えます。\n数える言葉は、どれ？",
+      "question": "目薬のしずくは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9700,7 +9700,7 @@
       "subject": "うどん",
       "subject_reading": "うどん",
       "topic_key": "うどん",
-      "question": "ゆでる前のうどんを、一食分の麺のまとまりで数えます。\n数える言葉は、どれ？",
+      "question": "一食分の生うどんは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9766,7 +9766,7 @@
       "subject": "キャベツ",
       "subject_reading": "キャベツ",
       "topic_key": "キャベツ",
-      "question": "葉が丸くまとまった、丸ごとのキャベツを数えます。\n数える言葉は、どれ？",
+      "question": "丸ごとのキャベツは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9835,7 +9835,7 @@
       "subject": "にんにく",
       "subject_reading": "にんにく",
       "topic_key": "にんにく",
-      "question": "にんにくの塊をばらして、小さなひとかけずつ数えます。\n数える言葉は、どれ？",
+      "question": "ばらしたにんにくは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9874,7 +9874,7 @@
       "answer_counter_id": "片",
       "answer": "片",
       "answer_reading": "かけ",
-      "explanation": "ばらしたにんにくは「片（かけ）」で数えます。「片（かけ）」と書いて「へん」と読む言い方もあります。",
+      "explanation": "ばらしたにんにくは「片（かけ）」で数えます。ひとかけ、ふたかけ、といいます。",
       "condition": "にんにくの かたまりを ばらして、ちいさな ひとかけずつ かぞえます。",
       "other_valid_counters": [
         "個"
@@ -9908,7 +9908,7 @@
       "subject": "ようかん",
       "subject_reading": "ようかん",
       "topic_key": "ようかん",
-      "question": "切り分ける前の、長い塊のようかんを数えます。\n数える言葉は、どれ？",
+      "question": "切り分ける前の長いようかんは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -9976,7 +9976,7 @@
       "subject": "魚の切り身",
       "subject_reading": "さかなの きりみ",
       "topic_key": "魚の切り身",
-      "question": "切り分けた魚の切り身を、一つずつ数えます。\n数える言葉は、どれ？",
+      "question": "魚の切り身は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10015,7 +10015,7 @@
       "answer_counter_id": "切れ",
       "answer": "切れ",
       "answer_reading": "きれ",
-      "explanation": "切り身は、一切れ、ふたきれ、と数えます。",
+      "explanation": "切り身は、ひときれ、ふたきれ、と数えます。",
       "condition": "きりわけた さかなの きりみを、ひとつずつ かぞえます。",
       "other_valid_counters": [
         "枚",
@@ -10045,7 +10045,7 @@
       "subject": "串だんご",
       "subject_reading": "くしだんご",
       "topic_key": "串だんご",
-      "question": "団子を刺したくしを、串ごとに数えます。\n数える言葉は、どれ？",
+      "question": "串に刺しただんごは、串ごとにどう数える？",
       "choices": [
         {
           "id": "A",
@@ -10113,7 +10113,7 @@
       "subject": "ほうれん草",
       "subject_reading": "ほうれんそう",
       "topic_key": "ほうれん草",
-      "question": "ほうれん草を束ねたまとまりを数えます。\n数える言葉は、どれ？",
+      "question": "束ねたほうれん草は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10190,7 +10190,7 @@
       "subject": "海苔",
       "subject_reading": "のり",
       "topic_key": "海苔",
-      "question": "大判の海苔を、十枚で一まとまりとして数えます。\n数える言葉は、どれ？",
+      "question": "海苔は、十枚ひとまとまりでどう数える？",
       "choices": [
         {
           "id": "A",
@@ -10256,7 +10256,7 @@
       "subject": "折詰",
       "subject_reading": "おりづめ",
       "topic_key": "折詰",
-      "question": "折箱に詰めた料理を、箱ごとに数えます。\n数える言葉は、どれ？",
+      "question": "料理の折詰は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10325,7 +10325,7 @@
       "subject": "茶器",
       "subject_reading": "ちゃき",
       "topic_key": "茶器",
-      "question": "お茶の道具を、揃ったセットとして数えます。\n数える言葉は、どれ？",
+      "question": "茶器のセットは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10394,7 +10394,7 @@
       "subject": "スーツ",
       "subject_reading": "スーツ",
       "topic_key": "スーツ",
-      "question": "ジャケットとズボンなどが揃ったスーツを、セットとして数えます。\n数える言葉は、どれ？",
+      "question": "上下そろったスーツは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10433,7 +10433,7 @@
       "answer_counter_id": "揃い",
       "answer": "揃い",
       "answer_reading": "そろい",
-      "explanation": "揃ったスーツは、ひとそろい、と数えられます。「ちゃく」も使います。",
+      "explanation": "揃ったスーツは、ひとそろい、と数えられます。「着（ちゃく）」も使います。",
       "condition": "ジャケットと ズボンなどが そろった スーツを、セットとして かぞえます。",
       "other_valid_counters": [
         "着"
@@ -10462,7 +10462,7 @@
       "subject": "硬貨",
       "subject_reading": "こうか",
       "topic_key": "硬貨",
-      "question": "お金のコインを、一枚ずつ数えます。\n数える言葉は、どれ？",
+      "question": "硬貨は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10530,7 +10530,7 @@
       "subject": "紙幣",
       "subject_reading": "しへい",
       "topic_key": "紙幣",
-      "question": "お金のお札を、一枚ずつ数えます。\n数える言葉は、どれ？",
+      "question": "お札は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10569,7 +10569,7 @@
       "answer_counter_id": "枚",
       "answer": "枚",
       "answer_reading": "まい",
-      "explanation": "お札は「枚（まい）」で数えます。「よう」と数える言い方もあります。",
+      "explanation": "お札は「枚（まい）」で数えます。「葉（よう）」と数える言い方もあります。",
       "condition": "おかねの おさつを、いちまいずつ かぞえます。",
       "other_valid_counters": [
         "葉"
@@ -10598,7 +10598,7 @@
       "subject": "領収書",
       "subject_reading": "りょうしゅうしょ",
       "topic_key": "領収書",
-      "question": "領収書を数えます。\n数える言葉は、どれ？",
+      "question": "領収書は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10666,7 +10666,7 @@
       "subject": "宿泊",
       "subject_reading": "しゅくはく",
       "topic_key": "宿泊",
-      "question": "ホテルに泊まる夜の数を数えます。\n数える言葉は、どれ？",
+      "question": "ホテルに泊まる夜の数を表す単位は？",
       "choices": [
         {
           "id": "A",
@@ -10732,7 +10732,7 @@
       "subject": "落語",
       "subject_reading": "らくご",
       "topic_key": "落語",
-      "question": "落語の一回の高座を数えます。\n数える言葉は、どれ？",
+      "question": "落語の高座は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -10798,7 +10798,7 @@
       "subject": "たんす",
       "subject_reading": "たんす",
       "topic_key": "たんす",
-      "question": "服をしまうたんす。昔からの数え方の一つは、どれ？",
+      "question": "たんすの昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -10867,7 +10867,7 @@
       "subject": "長持",
       "subject_reading": "ながもち",
       "topic_key": "長持",
-      "question": "服などをしまう、長い箱の長持。昔からの数え方の一つは、どれ？",
+      "question": "長持（ながもち）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -10906,7 +10906,7 @@
       "answer_counter_id": "棹",
       "answer": "棹",
       "answer_reading": "さお",
-      "explanation": "長持は「棹（さお）」で数えられます。「ごう」などの言い方もあります。",
+      "explanation": "長持は「棹（さお）」で数えられます。「合（ごう）」などの言い方もあります。",
       "condition": "ふくなどを しまう、ながい はこの ながもち。むかしからの かぞえかたの ひとつは？",
       "other_valid_counters": [
         "合",
@@ -10936,7 +10936,7 @@
       "subject": "蚊帳",
       "subject_reading": "かや",
       "topic_key": "蚊帳",
-      "question": "寝る場所を囲って、蚊を防ぐ蚊帳を数えます。\n数える言葉は、どれ？",
+      "question": "蚊帳（かや）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -11004,7 +11004,7 @@
       "subject": "蔵",
       "subject_reading": "くら",
       "topic_key": "蔵",
-      "question": "荷物をしまう蔵。昔からの数え方の一つは、どれ？",
+      "question": "蔵（くら）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -11072,7 +11072,7 @@
       "subject": "たらこ",
       "subject_reading": "たらこ",
       "topic_key": "たらこ",
-      "question": "たらこを、魚一匹分の左右の卵巣、一組で数えます。\n数える言葉は、どれ？",
+      "question": "左右そろったたらこは、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -11138,7 +11138,7 @@
       "subject": "行李",
       "subject_reading": "こうり",
       "topic_key": "行李",
-      "question": "竹などで編んだ、荷物を入れる行李。昔からの数え方の一つは、どれ？",
+      "question": "行李（こうり）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -11207,7 +11207,7 @@
       "subject": "香炉",
       "subject_reading": "こうろ",
       "topic_key": "香炉",
-      "question": "お香を焚く器、香炉。昔からの数え方の一つは、どれ？",
+      "question": "香炉（こうろ）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -11246,7 +11246,7 @@
       "answer_counter_id": "合",
       "answer": "合",
       "answer_reading": "ごう",
-      "explanation": "香炉には「合（ごう）」という数え方があります。「こう・く」なども使います。",
+      "explanation": "香炉には「合（ごう）」という数え方があります。「口（こう・く）」なども使います。",
       "condition": "おこうを たく うつわ、こうろ。むかしからの かぞえかたの ひとつは？",
       "other_valid_counters": [
         "口",
@@ -11277,7 +11277,7 @@
       "subject": "石灯籠",
       "subject_reading": "いしどうろう",
       "topic_key": "石灯籠",
-      "question": "石で作られ、据え付けられた石灯籠を数えます。\n数える言葉は、どれ？",
+      "question": "石灯籠（いしどうろう）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -11345,7 +11345,7 @@
       "subject": "菅笠",
       "subject_reading": "すげがさ",
       "topic_key": "菅笠",
-      "question": "菅をあんでつくる菅笠。昔からの数え方の一つは、どれ？",
+      "question": "菅笠（すげがさ）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -11414,7 +11414,7 @@
       "subject": "掛け軸",
       "subject_reading": "かけじく",
       "topic_key": "掛け軸",
-      "question": "壁に掛ける、絵や書の掛け軸を数えます。\n数える言葉は、どれ？",
+      "question": "掛け軸は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -11453,7 +11453,7 @@
       "answer_counter_id": "幅",
       "answer": "幅",
       "answer_reading": "ふく",
-      "explanation": "掛け軸は、いっぷく、にふく、と数えます。「じく」とも数えます。",
+      "explanation": "掛け軸は、いっぷく、にふく、と数えます。「軸（じく）」とも数えます。",
       "condition": "かべに かける、えや しょの かけじくを かぞえます。",
       "other_valid_counters": [
         "軸",
@@ -11483,7 +11483,7 @@
       "subject": "屏風",
       "subject_reading": "びょうぶ",
       "topic_key": "屏風",
-      "question": "左右で対になった屏風、一組を数えます。\n数える言葉は、どれ？",
+      "question": "左右一組の屏風（びょうぶ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -11522,7 +11522,7 @@
       "answer_counter_id": "双",
       "answer": "双",
       "answer_reading": "そう",
-      "explanation": "左右の一組で、いっそうです。片方は「せき」、麺の数は「きょく」であらわします。",
+      "explanation": "左右一組の屏風は、いっそうと数えます。片方だけなら「隻（せき）」、折りたたまれた面の数は「曲（きょく）」で表します。",
       "condition": "さゆうで ついに なった びょうぶ、ひとくみを かぞえます。",
       "other_valid_counters": [],
       "source_check_flag": "explicit_use_verified",
@@ -11549,7 +11549,7 @@
       "subject": "日本刀",
       "subject_reading": "にほんとう",
       "topic_key": "日本刀",
-      "question": "日本刀。昔からの数え方の一つは、どれ？",
+      "question": "日本刀の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -11588,7 +11588,7 @@
       "answer_counter_id": "振",
       "answer": "振",
       "answer_reading": "ふり",
-      "explanation": "日本刀は、ひとふり、ふたふり、と数えます。「こし」や「ほん」なども使います。",
+      "explanation": "日本刀は、ひとふり、ふたふり、と数えます。「腰（こし）」や「本（ほん）」なども使います。",
       "condition": "にほんとう。むかしからの かぞえかたの ひとつは？",
       "other_valid_counters": [
         "口",
@@ -11619,7 +11619,7 @@
       "subject": "鎧",
       "subject_reading": "よろい",
       "topic_key": "鎧",
-      "question": "体を守る鎧を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、鎧（よろい）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -11687,7 +11687,7 @@
       "subject": "梵鐘",
       "subject_reading": "ぼんしょう",
       "topic_key": "梵鐘",
-      "question": "お寺などの大きな鐘、梵鐘を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、梵鐘（ぼんしょう）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -11753,7 +11753,7 @@
       "subject": "茶釜",
       "subject_reading": "ちゃがま",
       "topic_key": "茶釜",
-      "question": "お茶のお湯を沸かす茶釜を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、茶釜（ちゃがま）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -11792,7 +11792,7 @@
       "answer_counter_id": "口",
       "answer": "口",
       "answer_reading": "こう／く",
-      "explanation": "茶釜には「口（こう・く）」を使います。「く」や「こう」と読む数え方です。",
+      "explanation": "茶釜には「口」を使い、「こう」または「く」と読みます。",
       "condition": "おちゃの おゆを わかす ちゃがまを、ぶんかざいの しりょうで かぞえます。",
       "other_valid_counters": [
         "個"
@@ -11826,7 +11826,7 @@
       "subject": "箏",
       "subject_reading": "こと",
       "topic_key": "箏",
-      "question": "弦を弾いて演奏する、和楽器の箏を数えます。\n数える言葉は、どれ？",
+      "question": "楽器の箏（こと）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -11865,7 +11865,7 @@
       "answer_counter_id": "面",
       "answer": "面",
       "answer_reading": "めん",
-      "explanation": "箏は、いちめん、にめん、と数えられます。「はり」なども使われます。",
+      "explanation": "箏は、いちめん、にめん、と数えられます。「張（はり）」なども使われます。",
       "condition": "げんを はじいて えんそうする、わがっきの ことを かぞえます。",
       "other_valid_counters": [
         "張",
@@ -11895,7 +11895,7 @@
       "subject": "琵琶",
       "subject_reading": "びわ",
       "topic_key": "琵琶",
-      "question": "弦をはじく和楽器、琵琶を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、琵琶（びわ）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -11963,7 +11963,7 @@
       "subject": "三味線",
       "subject_reading": "しゃみせん",
       "topic_key": "三味線",
-      "question": "三味線の昔からの数え方の一つは、どれ？",
+      "question": "三味線の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -12002,7 +12002,7 @@
       "answer_counter_id": "棹",
       "answer": "棹",
       "answer_reading": "さお",
-      "explanation": "三味線は、ひとさお、ふたさお、と数えます。「ちょう」とも数えます。",
+      "explanation": "三味線は、ひとさお、ふたさお、と数えます。「挺（ちょう）」とも数えます。",
       "condition": "しゃみせんの むかしからの かぞえかたの ひとつは？",
       "other_valid_counters": [
         "挺",
@@ -12032,7 +12032,7 @@
       "subject": "能面",
       "subject_reading": "のうめん",
       "topic_key": "能面",
-      "question": "能でつけるお面、能面を数えます。\n数える言葉は、どれ？",
+      "question": "能面は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -12100,7 +12100,7 @@
       "subject": "錦旗",
       "subject_reading": "きんき",
       "topic_key": "錦旗",
-      "question": "錦で作った旗、錦旗を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、錦旗（きんき）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -12171,7 +12171,7 @@
       "subject": "神様",
       "subject_reading": "かみさま",
       "topic_key": "神様",
-      "question": "日本の神様を数える、昔からの言葉は？\n数える言葉は、どれ？",
+      "question": "日本の神様は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -12210,7 +12210,7 @@
       "answer_counter_id": "柱",
       "answer": "柱",
       "answer_reading": "はしら",
-      "explanation": "神様は、ひとはしら、ふたはしら、と数えます。木の本数を数える問題ではありません。",
+      "explanation": "神様は、ひとはしら、ふたはしら、と数えます。建物の柱（はしら）の数ではありません。",
       "condition": "にほんの かみさまを かぞえる、むかしからの ことばは？",
       "other_valid_counters": [
         "座"
@@ -12239,7 +12239,7 @@
       "subject": "神札",
       "subject_reading": "おふだ",
       "topic_key": "神札",
-      "question": "神社で受ける神札を、丁寧に数える言葉の一つは、どれ？",
+      "question": "神社の神札（しんさつ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -12278,7 +12278,7 @@
       "answer_counter_id": "体",
       "answer": "体",
       "answer_reading": "たい",
-      "explanation": "神札には「体（たい）」を使います。神宮の公式説明にも、いったいずつ作る様子が出てきます。",
+      "explanation": "神札には「体（たい）」を使います。神宮（じんぐう）の公式な説明にも、一体（いったい）ずつ作る様子が紹介されています。",
       "condition": "じんじゃで うける おふだを、ていねいに かぞえる ことばの ひとつは？",
       "other_valid_counters": [
         "枚"
@@ -12307,7 +12307,7 @@
       "subject": "数珠",
       "subject_reading": "じゅず",
       "topic_key": "数珠",
-      "question": "玉をつないだ数珠を、昔からの言葉で数えます。\n数える言葉は、どれ？",
+      "question": "数珠（じゅず）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -12346,7 +12346,7 @@
       "answer_counter_id": "連",
       "answer": "連",
       "answer_reading": "れん",
-      "explanation": "数珠は、いちれん、にれん、と数えられます。「ぐ」という数え方もあります。",
+      "explanation": "数珠は、いちれん、にれん、と数えられます。「具（ぐ）」という数え方もあります。",
       "condition": "たまを つないだ じゅずを、むかしからの ことばで かぞえます。",
       "other_valid_counters": [
         "具",
@@ -12376,7 +12376,7 @@
       "subject": "兜",
       "subject_reading": "かぶと",
       "topic_key": "兜",
-      "question": "頭を守る兜を、昔からの言葉で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、兜（かぶと）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -12415,7 +12415,7 @@
       "answer_counter_id": "頭かしら",
       "answer": "頭",
       "answer_reading": "かしら",
-      "explanation": "兜には「頭（かしら）」を使います。「頭（かしら）」と書きますが、ここでは「とう」とは読みません。",
+      "explanation": "兜には「頭（かしら）」を使います。「頭」と書いて「かしら」と読み、「とう」とは読みません。",
       "condition": "あたまを まもる かぶとを、むかしからの ことばで かぞえます。",
       "other_valid_counters": [
         "刎",
@@ -12450,7 +12450,7 @@
       "subject": "袈裟",
       "subject_reading": "けさ",
       "topic_key": "袈裟",
-      "question": "お坊さんが身に着ける袈裟を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、袈裟（けさ）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -12519,7 +12519,7 @@
       "subject": "烏帽子",
       "subject_reading": "えぼし",
       "topic_key": "烏帽子",
-      "question": "昔の人がかぶった烏帽子。昔からの数え方の一つは、どれ？",
+      "question": "烏帽子（えぼし）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -12558,7 +12558,7 @@
       "answer_counter_id": "頭かしら",
       "answer": "頭",
       "answer_reading": "かしら",
-      "explanation": "烏帽子には「頭（かしら）」を使います。「頭（かしら）」という漢字の、別の読み方です。",
+      "explanation": "烏帽子には「頭（かしら）」を使います。「頭」を「かしら」と読む数え方です。",
       "condition": "むかしの ひとが かぶった えぼし。むかしからの かぞえかたの ひとつは？",
       "other_valid_counters": [
         "頭",
@@ -12593,7 +12593,7 @@
       "subject": "銅鏡",
       "subject_reading": "どうきょう",
       "topic_key": "銅鏡",
-      "question": "銅で作った鏡、銅鏡を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、銅鏡（どうきょう）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -12662,7 +12662,7 @@
       "subject": "硯",
       "subject_reading": "すずり",
       "topic_key": "硯",
-      "question": "墨をする硯を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、硯（すずり）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -12731,7 +12731,7 @@
       "subject": "羽子板",
       "subject_reading": "はごいた",
       "topic_key": "羽子板",
-      "question": "羽根突きの羽子板を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、羽子板をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -12800,7 +12800,7 @@
       "subject": "位牌",
       "subject_reading": "いはい",
       "topic_key": "位牌",
-      "question": "亡くなった人の名前などを記す、位牌を数えます。\n数える言葉は、どれ？",
+      "question": "位牌（いはい）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -12869,7 +12869,7 @@
       "subject": "狛犬",
       "subject_reading": "こまいぬ",
       "topic_key": "狛犬",
-      "question": "神社などの狛犬を、左右の一組として数えます。\n数える言葉は、どれ？",
+      "question": "左右一組の狛犬（こまいぬ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -12937,7 +12937,7 @@
       "subject": "鞍",
       "subject_reading": "くら",
       "topic_key": "鞍",
-      "question": "馬に乗るための鞍を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、鞍（くら）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13006,7 +13006,7 @@
       "subject": "鐙",
       "subject_reading": "あぶみ",
       "topic_key": "鐙",
-      "question": "馬に乗る時に足を掛ける鐙を、左右の一組として数えます。\n数える言葉は、どれ？",
+      "question": "左右一組の鐙（あぶみ）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -13074,7 +13074,7 @@
       "subject": "笈",
       "subject_reading": "おい",
       "topic_key": "笈",
-      "question": "修験者などが背負う箱、笈を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、笈（おい）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13142,7 +13142,7 @@
       "subject": "硯箱",
       "subject_reading": "すずりばこ",
       "topic_key": "硯箱",
-      "question": "硯などを入れる硯箱を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、硯箱（すずりばこ）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13210,7 +13210,7 @@
       "subject": "唐櫃",
       "subject_reading": "からびつ",
       "topic_key": "唐櫃",
-      "question": "物を納める、足の付いた箱、唐櫃（からびつ）を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、唐櫃（からびつ）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13279,7 +13279,7 @@
       "subject": "厨子",
       "subject_reading": "ずし",
       "topic_key": "厨子",
-      "question": "仏像などを納める厨子を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、厨子（ずし）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13347,7 +13347,7 @@
       "subject": "尺八",
       "subject_reading": "しゃくはち",
       "topic_key": "尺八",
-      "question": "竹で作る吹く楽器、尺八を文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、尺八をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13415,7 +13415,7 @@
       "subject": "胡弓",
       "subject_reading": "こきゅう",
       "topic_key": "胡弓",
-      "question": "弓で弦を擦って演奏する胡弓を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、胡弓（こきゅう）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13485,7 +13485,7 @@
       "subject": "弓",
       "subject_reading": "ゆみ",
       "topic_key": "弓",
-      "question": "矢を飛ばす弓の、昔からの数え方の一つは、どれ？",
+      "question": "弓の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -13553,7 +13553,7 @@
       "subject": "提灯",
       "subject_reading": "ちょうちん",
       "topic_key": "提灯",
-      "question": "明かりを入れる提灯の、昔からの数え方の一つは、どれ？",
+      "question": "提灯（ちょうちん）の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -13622,7 +13622,7 @@
       "subject": "すだれ",
       "subject_reading": "すだれ",
       "topic_key": "すだれ",
-      "question": "竹などを並べた簾の、昔からの数え方の一つは、どれ？",
+      "question": "すだれの昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -13691,7 +13691,7 @@
       "subject": "のれん",
       "subject_reading": "のれん",
       "topic_key": "のれん",
-      "question": "店の入口などに掛ける暖簾を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、のれんをどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13760,7 +13760,7 @@
       "subject": "人力車",
       "subject_reading": "じんりきしゃ",
       "topic_key": "人力車",
-      "question": "人が引いて走る人力車の、昔からの数え方は？\n数える言葉は、どれ？",
+      "question": "人力車の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -13829,7 +13829,7 @@
       "subject": "駕籠",
       "subject_reading": "かご",
       "topic_key": "駕籠",
-      "question": "人を乗せて担ぐ、乗り物の駕籠を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、駕籠（かご）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13898,7 +13898,7 @@
       "subject": "銅鐸",
       "subject_reading": "どうたく",
       "topic_key": "銅鐸",
-      "question": "銅で作った、鐘の形の銅鐸を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "文化財の資料では、銅鐸（どうたく）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -13937,7 +13937,7 @@
       "answer_counter_id": "口",
       "answer": "口",
       "answer_reading": "こう／く",
-      "explanation": "銅鐸には「口（こう・く）」を使います。「こう」や「く」と読む数え方です。",
+      "explanation": "銅鐸には「口」を使い、「こう」または「く」と読みます。",
       "condition": "どうで つくった、かねの かたちの どうたくを、ぶんかざいの しりょうで かぞえます。",
       "other_valid_counters": [
         "個",
@@ -13972,7 +13972,7 @@
       "subject": "勾玉",
       "subject_reading": "まがたま",
       "topic_key": "勾玉",
-      "question": "曲がった形の玉、勾玉を、文化財の資料で数えます。\n数える言葉は、どれ？",
+      "question": "『日本目録規則』では、勾玉（まがたま）をどう数える？",
       "choices": [
         {
           "id": "A",
@@ -14041,7 +14041,7 @@
       "subject": "そろばん",
       "subject_reading": "そろばん",
       "topic_key": "そろばん",
-      "question": "玉を動かして計算するそろばんの、昔からの数え方の一つは、どれ？",
+      "question": "そろばんの昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -14080,7 +14080,7 @@
       "answer_counter_id": "挺",
       "answer": "挺",
       "answer_reading": "ちょう",
-      "explanation": "そろばんには「挺（ちょう）」を使います。「めん」とも数えられます。",
+      "explanation": "そろばんには「挺（ちょう）」を使います。「面（めん）」とも数えられます。",
       "condition": "たまを うごかして けいさんする そろばんの、むかしからの かぞえかたの ひとつは？",
       "other_valid_counters": [
         "面",
@@ -14111,7 +14111,7 @@
       "subject": "神輿",
       "subject_reading": "みこし",
       "topic_key": "神輿",
-      "question": "お祭りで担ぐ神輿を数えます。\n数える言葉は、どれ？",
+      "question": "神輿（みこし）は、どう数える？",
       "choices": [
         {
           "id": "A",
@@ -14177,7 +14177,7 @@
       "subject": "太鼓",
       "subject_reading": "たいこ",
       "topic_key": "太鼓",
-      "question": "皮を張った太鼓の、昔からの数え方の一つは、どれ？",
+      "question": "太鼓の昔ながらの数え方は？",
       "choices": [
         {
           "id": "A",
@@ -14216,7 +14216,7 @@
       "answer_counter_id": "張",
       "answer": "張",
       "answer_reading": "はり",
-      "explanation": "太鼓は、ひとはり、ふたはり、と数えます。「だい」なども使われます。",
+      "explanation": "太鼓は、ひとはり、ふたはり、と数えます。「台（だい）」なども使われます。",
       "condition": "かわを はった たいこの、むかしからの かぞえかたの ひとつは？",
       "other_valid_counters": [
         "台",
