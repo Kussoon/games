@@ -49,12 +49,12 @@ test('All four published pages parse as JavaScript and remain publicly indexable
   assert.match(page,/<meta name="description"/,name);
  }
 });
-test('All four pages have shared Pokemon Master title, footer and v1.0 version',()=>{
+test('All four pages have shared Pokemon Master title, footer and v1.1 version',()=>{
  for(const [name,page] of Object.entries(pages)){
   assert.match(page,/<h1>ポケモンの相性\(あいしょう\)マスター<\/h1>/,name);
   assert.match(page,/<title>ポケモンの相性マスター/,name);
   assert.match(page,/class="page-version"/,name);
-  assert.match(page,/Version 1\.0/,name);
+  assert.match(page,/Version 1\.1/,name);
   assert.match(page,/datetime="2026-11-05"/,name);
   assert.match(page,/class="kussoon-common-footer"/,name);
   assert.match(page,/src="\/common\/site-footer\.js"/,name);
