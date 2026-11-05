@@ -706,24 +706,52 @@ function addFuriganaToText(node){
  flush();
  node.replaceWith(fragment);
 }
-function addVisibleFurigana(){
- const root=document.querySelector("main");
- if(!root)return;
- const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+// Apply readings only to the text nodes actually added or changed.
+// A full document TreeWalker on every MutationObserver callback became expensive
+// during repeated practice taps and during the observer's own ruby insertions.
+const furiganaRoot=document.querySelector("main");
+function furiganaEligible(node){
+ return node && node.nodeType===Node.TEXT_NODE && node.isConnected &&
+   HAS_KANJI.test(node.nodeValue||"") &&
+   !node.parentElement?.closest("ruby,script,style,svg,textarea");
+}
+function annotateFuriganaSubtree(startNode){
+ if(!startNode || !startNode.isConnected)return;
+ if(startNode.nodeType===Node.TEXT_NODE){
+  if(furiganaEligible(startNode))addFuriganaToText(startNode);
+  return;
+ }
+ if(startNode.nodeType!==Node.ELEMENT_NODE &&
+    startNode.nodeType!==Node.DOCUMENT_FRAGMENT_NODE)return;
+ if(startNode.nodeType===Node.ELEMENT_NODE &&
+    startNode.closest("ruby,script,style,svg,textarea"))return;
+ const walker=document.createTreeWalker(startNode,NodeFilter.SHOW_TEXT);
  const pending=[];
  while(walker.nextNode()){
-   const t=walker.currentNode;
-   if(!HAS_KANJI.test(t.nodeValue||""))continue;
-   if(t.parentElement?.closest("ruby,script,style,svg,textarea"))continue;
-   pending.push(t);
+  if(furiganaEligible(walker.currentNode))pending.push(walker.currentNode);
  }
- pending.forEach(addFuriganaToText);
+ pending.forEach(node=>{if(furiganaEligible(node))addFuriganaToText(node)});
 }
-addVisibleFurigana();
-// render() and renderPractice() update text nodes dynamically.
-// Observe additions, not just the first screen, so readings remain after every tap.
-const furiganaObserver=new MutationObserver(()=>addVisibleFurigana());
-furiganaObserver.observe(document.querySelector("main"),{childList:true,subtree:true,characterData:true});
+const furiganaObserveOptions={childList:true,subtree:true,characterData:true};
+const furiganaObserver=new MutationObserver(records=>{
+ // Ignore mutation notifications caused by adding <ruby> markup itself.
+ furiganaObserver.disconnect();
+ try{
+  const targets=new Set();
+  for(const record of records){
+   if(record.type==="characterData")targets.add(record.target);
+   else for(const node of record.addedNodes)targets.add(node);
+  }
+  for(const node of targets)annotateFuriganaSubtree(node);
+ }finally{
+  if(furiganaRoot)furiganaObserver.observe(furiganaRoot,furiganaObserveOptions);
+ }
+});
+if(furiganaRoot){
+ // Process initial text once, before listening for dynamic updates.
+ annotateFuriganaSubtree(furiganaRoot);
+ furiganaObserver.observe(furiganaRoot,furiganaObserveOptions);
+}
 
 </script>
 <script defer src="/common/site-footer.js"></script>
