@@ -83,6 +83,10 @@ test('Beginner practice has compact 53px type choices on narrow screens and cons
  for(const word of ['組(く)み合(あ)わせ','選(えら)んで','試(ため)そう'])assert.ok(main.includes(word),word);
  for(const old of ['組み合わせ(くみあわせ)','選んで(えらんで)','試そう(ためそう)'])assert.ok(!main.includes(old),old);
 });
+test('Back link has consistent readings for 学ぶ and 遊ぶ',()=>{
+ const main=pages['index.html'];
+ assert.ok(main.includes('← 学(まな)ぶ・遊(あそ)ぶへ'));
+});
 test('All study and quiz modes remain reachable by ordinary links',()=>{
  const main=pages['index.html'];
  for(const id of ['tab-study','tab-practice','tab-quiz'])assert.ok(main.includes('id="'+id+'"'),id);
