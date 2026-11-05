@@ -75,7 +75,7 @@ h1{color:#173c61}.mode-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7
 /* Small-reader support: semantic ruby is added to every visible kanji phrase,
    including content that changes after a type selection. */
 ruby{ruby-position:over;white-space:nowrap}
-ruby rt{font-size:.58em;font-weight:600;line-height:1.05;letter-spacing:0}
+
 .tab,.mode,.action,.type,.choice{line-height:1.65}
 .type,.choice{padding-top:9px;padding-bottom:9px}
 .summary,.effect-result p,.group h3{line-height:1.9}
@@ -240,8 +240,8 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 <a class="study-level study-level-link" href="./advanced-practice.html">⭐ 上級(じょうきゅう)：2タイプ</a>
 </div>
 <section class="panel" aria-labelledby="practice-title"><h2 id="practice-title">タイプを2つ選んで(えらんで)相性(あいしょう)を試そう(ためそう)</h2>
-<p class="practice-intro">こうげきする技(わざ)と、あいてのタイプを選んで(えらんで)ください。</p>
-<div class="duo"><div class="duo-card"><h2>⚔️ こうげきする技(わざ)</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="attack" aria-label="攻撃タイプをひとつ戻す">‹</button><div class="chosen" id="attack-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="attack" aria-label="攻撃タイプをひとつ進める">›</button></div></div>
+<p class="practice-intro">攻撃(こうげき)する技(わざ)と、あいてのタイプを選んで(えらんで)ください。</p>
+<div class="duo"><div class="duo-card"><h2>⚔️ 攻撃(こうげき)する技(わざ)</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="attack" aria-label="攻撃タイプをひとつ戻す">‹</button><div class="chosen" id="attack-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="attack" aria-label="攻撃タイプをひとつ進める">›</button></div></div>
 <div class="duo-card target"><h2>🛡️ あいてのタイプ</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="defense" aria-label="相手タイプをひとつ戻す">‹</button><div class="chosen" id="defense-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="defense" aria-label="相手タイプをひとつ進める">›</button></div></div></div>
 <div class="choose-title">下(した)の18タイプから選ぶ(えらぶ)</div>
 <div class="picker-side" role="radiogroup" aria-label="変更する側"><label><input type="radio" name="change-side" value="attack" checked> 攻撃(こうげき)する技(わざ)</label><label><input type="radio" name="change-side" value="defense"> あいてのタイプ</label></div>
@@ -260,7 +260,7 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 <h2 id="quiz-heading">❔ タイプ相性(あいしょう) 4択クイズ</h2>
 <p class="quiz-introduction">わざと あいての タイプを見(み)て、こうかを えらぼう！</p>
 <div class="quiz-settings"><label for="quiz-mode">問題(もんだい)のタイプ</label>
-<select id="quiz-mode"><option value="mixed">こうげき・ぼうぎょ 両方(りょうほう)</option><option value="attack">こうげきだけ</option><option value="defense">ぼうぎょだけ</option></select></div>
+<select id="quiz-mode"><option value="mixed">攻撃(こうげき)・防御(ぼうぎょ) 両方(りょうほう)</option><option value="attack">攻撃(こうげき)だけ</option><option value="defense">防御(ぼうぎょ)だけ</option></select></div>
 <div id="quiz-intro"><p>1回(かい)10問(もん)です。まちがえた問題(もんだい)はあとでふくしゅうできます。</p>
 <div class="actions"><button class="action primary" id="quiz-start" type="button">▶ クイズをはじめる</button>
 <button class="action" id="quiz-review" type="button">🔁 まちがいをふくしゅう（<span id="quiz-mistake-count">0</span>問(もん)）</button></div>
@@ -608,11 +608,11 @@ function quizRender(){
  const q=qstate.items[qstate.index];qstate.answered=false;
  QE("quiz-count").textContent=(qstate.review?"ふくしゅう ":"")+"第(だい)"+(qstate.index+1)+"問(もん) / "+qstate.items.length+"問(もん)";
  QE("quiz-score").textContent="正解(せいかい) "+qstate.correct+"問(もん)";
- QE("quiz-category").textContent=q.direction==="attack"?"⚔️ こうげきの問題(もんだい)":"🛡️ ぼうぎょの問題(もんだい)";
+ QE("quiz-category").textContent=q.direction==="attack"?"⚔️ 攻撃(こうげき)の問題(もんだい)":"🛡️ 防御(ぼうぎょ)の問題(もんだい)";
  quizShowType("quiz-attacker",q.attack,"わざ");
  quizShowType("quiz-defender",q.defense,"あいて");
  QE("quiz-question").textContent=q.direction==="attack"?
-  q.attack+"のわざで "+q.defense+"にこうげきすると、こうかは？":
+  q.attack+"のわざで "+q.defense+"に攻撃(こうげき)すると、こうかは？":
   q.defense+"タイプが "+q.attack+"のわざをうけると、こうかは？";
  const root=QE("quiz-answers");root.replaceChildren();
  QOP.forEach(o=>{
