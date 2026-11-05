@@ -60,6 +60,15 @@ test('All four pages have shared Pokemon Master title, footer and v1.0 version',
   assert.match(page,/src="\/common\/site-footer\.js"/,name);
  }
 });
+test('Beginner furigana observes incremental changes without recursive whole-page rescans',()=>{
+ const main=pages['index.html'];
+ assert.match(main,/function annotateFuriganaSubtree\(startNode\)/);
+ assert.match(main,/record\.addedNodes/);
+ assert.match(main,/record\.type==="characterData"/);
+ assert.match(main,/furiganaObserver\.disconnect\(\)/);
+ assert.match(main,/furiganaObserver\.observe\(furiganaRoot,furiganaObserveOptions\)/);
+ assert.doesNotMatch(main,/new MutationObserver\(\(\)=>addVisibleFurigana\(\)\)/);
+});
 test('All study and quiz modes remain reachable by ordinary links',()=>{
  const main=pages['index.html'];
  for(const id of ['tab-study','tab-practice','tab-quiz'])assert.ok(main.includes('id="'+id+'"'),id);
