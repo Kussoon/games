@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://kussoon.com/games/pokemon-type/">
 <meta name="description" content="18タイプの相性を初級・上級で学べる無料の学習ツール。まなぶ・れんしゅう・クイズに対応。">
 <meta name="theme-color" content="#f5f8fc">
-<title>ポケモンの相性マスター | Kussoon</title>
+<title>ポケモンの相性(あいしょう)マスター | Kussoon</title>
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;color:#18334b;background:#f3f7fb;font-size:16px}
 *{box-sizing:border-box}body{margin:0}main{max-width:960px;margin:auto;padding:18px 14px 60px}
@@ -190,81 +190,81 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 </head>
 <body>
 <main>
-<a href="/games/">← 学ぶ・遊ぶへ</a>
-<p class="eyebrow">Kussoon / <ruby>学習<rt>がくしゅう</rt></ruby>ツール</p>
-<h1>ポケモンの<ruby>相性<rt>あいしょう</rt></ruby>マスター</h1>
-<p class="page-mode">📖 まなぶ ／ 🎯 れんしゅう ／ ❔ クイズ（<ruby>初級<rt>しょきゅう</rt></ruby>・<ruby>上級<rt>じょうきゅう</rt></ruby>）</p>
-<p>18タイプの相性を、調べたり組み合わせたりして覚えよう！</p>
+<a href="/games/">← 学(まな)ぶ・遊ぶへ</a>
+<p class="eyebrow">Kussoon / 学習(がくしゅう)(がくしゅう)ツール</p>
+<h1>ポケモンの相性(あいしょう)(あいしょう)マスター</h1>
+<p class="page-mode">📖 まなぶ ／ 🎯 れんしゅう ／ ❔ クイズ（初級(しょきゅう)(しょきゅう)・上級(じょうきゅう)(じょうきゅう)）</p>
+<p>18タイプの相性(あいしょう)を、調(しら)べたり組み合わせ(くみあわせ)たりして覚(おぼ)えよう！</p>
 <nav class="mode-tabs" role="tablist" aria-label="学習モード"><button class="tab" id="tab-study" role="tab" aria-selected="false" aria-controls="study-page" type="button">📖 まなぶ</button><button class="tab" id="tab-practice" role="tab" aria-selected="true" aria-controls="practice-page" type="button">🎯 れんしゅう</button><button class="tab" id="tab-quiz" role="tab" aria-selected="false" aria-controls="quiz-page" type="button">❔ クイズ</button></nav>
 <div id="study-page" role="tabpanel" aria-labelledby="tab-study" hidden>
 
 <div class="study-levels" role="group" aria-label="まなぶのむずかしさ">
-<button class="study-level" id="study-basic-button" type="button" aria-pressed="true">🌱 初級：1タイプ</button>
-<a class="study-level study-level-link" id="study-advanced-button" href="./advanced.html" aria-pressed="false">⭐ 上級：2タイプ</a>
+<button class="study-level" id="study-basic-button" type="button" aria-pressed="true">🌱 初級(しょきゅう)：1タイプ</button>
+<a class="study-level study-level-link" id="study-advanced-button" href="./advanced.html" aria-pressed="false">⭐ 上級(じょうきゅう)：2タイプ</a>
 </div>
 <div id="study-basic">
 <section class="panel" aria-labelledby="pick-heading">
-<h2 id="pick-heading">① タイプを選ぼう</h2>
+<h2 id="pick-heading">① タイプを選(えら)ぼう</h2>
 <div class="types" id="types" aria-label="18タイプ一覧"></div>
 </section>
 <section class="panel" aria-labelledby="effect-heading">
-<h2 id="effect-heading">② 相性を見よう</h2>
+<h2 id="effect-heading">② 相性(あいしょう)を見(み)よう</h2>
 <div class="modes" role="group" aria-label="攻撃・防御の切り替え">
-<button class="mode" type="button" data-mode="attack" aria-pressed="true">⚔️ 攻撃するとき</button>
-<button class="mode" type="button" data-mode="defense" aria-pressed="false">🛡️ 攻撃されるとき</button>
+<button class="mode" type="button" data-mode="attack" aria-pressed="true">⚔️ 攻撃(こうげき)するとき</button>
+<button class="mode" type="button" data-mode="defense" aria-pressed="false">🛡️ 攻撃(こうげき)されるとき</button>
 </div>
 <div class="summary" id="summary" aria-live="polite"></div>
 <div class="results" id="results"></div>
-<p class="legend">×2：効果ばつぐん ／ ×1：通常 ／ ×0.5：いまひとつ ／ ×0：効果なし</p>
-<p class="notice">※通常のポケットモンスターシリーズの「技のタイプ」と「相手のタイプ」の相性です。特性・持ち物・特殊な技の効果は考慮していません。こちらは初級・単タイプの相性です。</p>
+<p class="legend">×2：効果(こうか)ばつぐん ／ ×1：通常(つうじょう) ／ ×0.5：いまひとつ ／ ×0：効果(こうか)なし</p>
+<p class="notice">※通常(つうじょう)のポケットモンスターシリーズの「技(わざ)のタイプ」と「相手(あいて)のタイプ」の相性(あいしょう)です。特性(とくせい)・持(も)ち物(もの)・特殊(とくしゅ)な技(わざ)の効果(こうか)は考慮(こうりょ)していません。こちらは初級(しょきゅう)・単(たん)タイプの相性(あいしょう)です。</p>
 </section>
 </div>
 <div id="study-advanced" hidden>
 <section class="panel" aria-labelledby="advanced-heading">
-<h2 id="advanced-heading">⭐ 上級：2つのタイプの相性</h2>
-<p class="advanced-lead">あいてのポケモンが持つ2つのタイプをえらぼう。18タイプのわざを受けたときの相性がわかるよ。</p>
+<h2 id="advanced-heading">⭐ 上級(じょうきゅう)：2つのタイプの相性(あいしょう)</h2>
+<p class="advanced-lead">あいてのポケモンが持(も)つ2つのタイプをえらぼう。18タイプのわざを受(う)けたときの相性(あいしょう)がわかるよ。</p>
 <div class="advanced-selectors">
 <label>1つめのタイプ<select id="advanced-first" aria-label="1つめの防御タイプ"></select></label>
 <label>2つめのタイプ<select id="advanced-second" aria-label="2つめの防御タイプ"></select></label>
 </div>
 <div class="advanced-selected" id="advanced-selected" aria-live="polite"></div>
-<p class="advanced-explain">相性は、2つのタイプそれぞれの倍率をかけ算して計算します。</p>
+<p class="advanced-explain">相性(あいしょう)は、2つのタイプそれぞれの倍率(ばいりつ)をかけ算(かけざん)して計算(けいさん)します。</p>
 <div class="advanced-results" id="advanced-results"></div>
-<p class="notice">※1つの技に対する防御側の2タイプの相性です。特性・持ち物・特殊な技の効果は考慮していません。上級の「れんしゅう」「クイズ」は今後追加する予定です。</p>
+<p class="notice">※1つの技(わざ)に対する(たいする)防御(ぼうぎょ)側(がわ)の2タイプの相性(あいしょう)です。特性(とくせい)・持(も)ち物(もの)・特殊(とくしゅ)な技(わざ)の効果(こうか)は考慮(こうりょ)していません。上級(じょうきゅう)の「れんしゅう」「クイズ」は今後(こんご)追加(ついか)する予定(よてい)です。</p>
 </section>
 </div>
 </div>
 <div id="practice-page" role="tabpanel" aria-labelledby="tab-practice">
 <div class="study-levels" role="group" aria-label="れんしゅうのむずかしさ">
-<button class="study-level" type="button" aria-pressed="true">🌱 初級：1タイプ</button>
-<a class="study-level study-level-link" href="./advanced-practice.html">⭐ 上級：2タイプ</a>
+<button class="study-level" type="button" aria-pressed="true">🌱 初級(しょきゅう)：1タイプ</button>
+<a class="study-level study-level-link" href="./advanced-practice.html">⭐ 上級(じょうきゅう)：2タイプ</a>
 </div>
-<section class="panel" aria-labelledby="practice-title"><h2 id="practice-title">タイプを2つ選んで相性を試そう</h2>
-<p class="practice-intro">こうげきする技と、あいてのタイプを選んでください。</p>
-<div class="duo"><div class="duo-card"><h2>⚔️ こうげきする技</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="attack" aria-label="攻撃タイプをひとつ戻す">‹</button><div class="chosen" id="attack-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="attack" aria-label="攻撃タイプをひとつ進める">›</button></div></div>
+<section class="panel" aria-labelledby="practice-title"><h2 id="practice-title">タイプを2つ選んで(えらんで)相性(あいしょう)を試そう(ためそう)</h2>
+<p class="practice-intro">こうげきする技(わざ)と、あいてのタイプを選んで(えらんで)ください。</p>
+<div class="duo"><div class="duo-card"><h2>⚔️ こうげきする技(わざ)</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="attack" aria-label="攻撃タイプをひとつ戻す">‹</button><div class="chosen" id="attack-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="attack" aria-label="攻撃タイプをひとつ進める">›</button></div></div>
 <div class="duo-card target"><h2>🛡️ あいてのタイプ</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="defense" aria-label="相手タイプをひとつ戻す">‹</button><div class="chosen" id="defense-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="defense" aria-label="相手タイプをひとつ進める">›</button></div></div></div>
-<div class="choose-title">下の18タイプから選ぶ</div>
-<div class="picker-side" role="radiogroup" aria-label="変更する側"><label><input type="radio" name="change-side" value="attack" checked> 攻撃する技</label><label><input type="radio" name="change-side" value="defense"> あいてのタイプ</label></div>
+<div class="choose-title">下(した)の18タイプから選ぶ(えらぶ)</div>
+<div class="picker-side" role="radiogroup" aria-label="変更する側"><label><input type="radio" name="change-side" value="attack" checked> 攻撃(こうげき)する技(わざ)</label><label><input type="radio" name="change-side" value="defense"> あいてのタイプ</label></div>
 <div class="choice-grid" id="practice-types" aria-label="18タイプの選択肢"></div>
 <div class="effect-result" id="practice-result" aria-live="polite"><strong id="effect-label"></strong><output id="effect-multiplier"></output><p id="effect-explanation"></p></div>
-<div class="actions"><button class="action" type="button" id="random-match">🔀 べつの組み合わせ</button><button class="action primary" type="button" id="go-study">📖 まなぶへ</button></div>
-<p class="notice">※こちらは初級・単タイプのれんしゅうです。上級は「上級：2タイプ」から始められます。</p></section>
+<div class="actions"><button class="action" type="button" id="random-match">🔀 べつの組み合わせ(くみあわせ)</button><button class="action primary" type="button" id="go-study">📖 まなぶへ</button></div>
+<p class="notice">※こちらは初級(しょきゅう)・単(たん)タイプのれんしゅうです。上級(じょうきゅう)は「上級(じょうきゅう)：2タイプ」から始められます。</p></section>
 </div>
 
 <div id="quiz-page" role="tabpanel" aria-labelledby="tab-quiz" hidden>
 <div class="study-levels advanced-quiz-levels" role="group" aria-label="クイズのむずかしさ">
-<button class="study-level" type="button" aria-pressed="true">🌱 初級：1タイプ</button>
-<a class="study-level study-level-link" href="./advanced-quiz.html">⭐ 上級：2タイプ</a>
+<button class="study-level" type="button" aria-pressed="true">🌱 初級(しょきゅう)：1タイプ</button>
+<a class="study-level study-level-link" href="./advanced-quiz.html">⭐ 上級(じょうきゅう)：2タイプ</a>
 </div>
 <section class="panel quiz-board" aria-labelledby="quiz-heading">
-<h2 id="quiz-heading">❔ タイプ相性 4択クイズ</h2>
-<p class="quiz-introduction">わざと あいての タイプを見て、こうかを えらぼう！</p>
-<div class="quiz-settings"><label for="quiz-mode">問題のタイプ</label>
-<select id="quiz-mode"><option value="mixed">こうげき・ぼうぎょ 両方</option><option value="attack">こうげきだけ</option><option value="defense">ぼうぎょだけ</option></select></div>
-<div id="quiz-intro"><p>1回10問です。まちがえた問題はあとでふくしゅうできます。</p>
+<h2 id="quiz-heading">❔ タイプ相性(あいしょう) 4択クイズ</h2>
+<p class="quiz-introduction">わざと あいての タイプを見(み)て、こうかを えらぼう！</p>
+<div class="quiz-settings"><label for="quiz-mode">問題(もんだい)のタイプ</label>
+<select id="quiz-mode"><option value="mixed">こうげき・ぼうぎょ 両方(りょうほう)</option><option value="attack">こうげきだけ</option><option value="defense">ぼうぎょだけ</option></select></div>
+<div id="quiz-intro"><p>1回(かい)10問(もん)です。まちがえた問題(もんだい)はあとでふくしゅうできます。</p>
 <div class="actions"><button class="action primary" id="quiz-start" type="button">▶ クイズをはじめる</button>
-<button class="action" id="quiz-review" type="button">🔁 まちがいをふくしゅう（<span id="quiz-mistake-count">0</span>問）</button></div>
-<p class="notice">まちがえた問題はこのブラウザに保存されます。ブラウザのデータを消すと記録も消えます。</p></div>
+<button class="action" id="quiz-review" type="button">🔁 まちがいをふくしゅう（<span id="quiz-mistake-count">0</span>問(もん)）</button></div>
+<p class="notice">まちがえた問題(もんだい)はこのブラウザに保存(ほぞん)されます。ブラウザのデータを消す(けす)と記録(きろく)も消え(きえ)ます。</p></div>
 <div id="quiz-play" hidden>
 <div class="quiz-progress"><span id="quiz-count"></span><span id="quiz-score"></span><button class="quiz-stop" id="quiz-stop" type="button">やめる</button></div>
 <div class="quiz-scene"><p id="quiz-category"></p>
@@ -272,13 +272,13 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 <p id="quiz-question"></p></div>
 <div id="quiz-answers" class="quiz-answers" role="group" aria-label="回答を選ぶ"></div>
 <div id="quiz-feedback" class="quiz-feedback" role="status" aria-live="polite" hidden></div>
-<div class="actions quiz-next-area"><button type="button" class="action primary" id="quiz-next" hidden>つぎの問題へ</button></div>
+<div class="actions quiz-next-area"><button type="button" class="action primary" id="quiz-next" hidden>つぎの問題(もんだい)へ</button></div>
 </div>
 <div id="quiz-end" hidden><div class="quiz-end-score" id="quiz-final"></div><p id="quiz-message"></p>
 <div class="actions"><button class="action primary" id="quiz-again" type="button">もういちど</button><button class="action" id="quiz-review-end" type="button">🔁 まちがいをふくしゅう</button></div></div>
 </section></div>
-<p class="foot">キャラクター<ruby>画像<rt>がぞう</rt></ruby>や<ruby>公式<rt>こうしき</rt></ruby>ロゴは<ruby>使用<rt>しよう</rt></ruby>していません。ポケットモンスターのタイプ<ruby>相性<rt>あいしょう</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶ<ruby>非公式<rt>ひこうしき</rt></ruby>の<ruby>学習<rt>がくしゅう</rt></ruby>ツールです。</p>
-<div class="page-version" aria-label="ページのバージョンと最終更新日"><div>Version 1.0</div><div><ruby>最終更新<rt>さいしゅうこうしん</rt></ruby>：<time datetime="2026-11-05">2026<ruby>年<rt>ねん</rt></ruby>11<ruby>月<rt>がつ</rt></ruby>5<ruby>日<rt>にち</rt></ruby></time></div></div>
+<p class="foot">キャラクター画像(がぞう)(がぞう)や公式(こうしき)(こうしき)ロゴは使用(しよう)(しよう)していません。ポケットモンスターのタイプ相性(あいしょう)(あいしょう)を学(まな)(まな)ぶ非公式(ひこうしき)(ひこうしき)の学習(がくしゅう)(がくしゅう)ツールです。</p>
+<div class="page-version" aria-label="ページのバージョンと最終更新日"><div>Version 1.0</div><div>最終更新(さいしゅうこうしん)(さいしゅうこうしん)：<time datetime="2026-11-05">2026年(ねん)(ねん)11月(がつ)(がつ)5日(にち)(にち)</time></div></div>
 </main>
 <footer class="kussoon-common-footer" aria-label="Kussoon共通フッター"><small>© 2026 Kussoon. All rights reserved.</small></footer>
 <script>
@@ -375,15 +375,15 @@ document.querySelectorAll(".mode").forEach(b=>b.addEventListener("click",()=>{mo
 function render(){
  document.querySelectorAll(".type").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.type===selected)));
  document.querySelectorAll(".mode").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===mode)));
- document.getElementById("summary").textContent=mode==="attack" ? selected+"タイプの技で攻撃すると…" : selected+"タイプのポケモンが攻撃を受けると…";
+ document.getElementById("summary").textContent=mode==="attack" ? selected+"タイプの技(わざ)で攻撃(こうげき)すると…" : selected+"タイプのポケモンが攻撃(こうげき)を受ける(うける)と…";
  const results=document.getElementById("results");results.replaceChildren();
- [[2,"×2","効果ばつぐん！","g2"],[1,"×1","通常の効果","g1"],[0.5,"×0.5","効果はいまひとつ","g05"],[0,"×0","効果がない","g0"]].forEach(([val,mult,label,cls])=>{
+ [[2,"×2","効果(こうか)ばつぐん！","g2"],[1,"×1","通常(つうじょう)の効果(こうか)","g1"],[0.5,"×0.5","効果(こうか)はいまひとつ","g05"],[0,"×0","効果(こうか)がない","g0"]].forEach(([val,mult,label,cls])=>{
   const box=document.createElement("section");box.className="group "+cls;
   const head=document.createElement("h3");head.textContent=mult+"　"+label;box.appendChild(head);
-  const note=document.createElement("p");note.className="note";note.textContent=mode==="attack"?"相手の防御タイプ":"相手が使う技のタイプ";box.appendChild(note);
+  const note=document.createElement("p");note.className="note";note.textContent=mode==="attack"?"相手(あいて)の防御(ぼうぎょ)タイプ":"相手(あいて)が使う(つかう)技(わざ)のタイプ";box.appendChild(note);
   const chips=document.createElement("div");chips.className="chips";
   const matches=NAMES.filter(other=>(mode==="attack"?MATRIX[selected][other]:MATRIX[other][selected])===val);
-  if(!matches.length){const span=document.createElement("span");span.className="chip empty";span.textContent="該当なし";chips.appendChild(span)}
+  if(!matches.length){const span=document.createElement("span");span.className="chip empty";span.textContent="該当(がいとう)なし";chips.appendChild(span)}
   matches.forEach(n=>{const span=document.createElement("span");span.className="chip";span.textContent=n;chips.appendChild(span)});
   box.appendChild(chips);results.appendChild(box);
  });
@@ -465,12 +465,12 @@ function renderPractice(){
  }
  palette.querySelectorAll(".choice").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.type===practice[practice.side])));
  const mult=MATRIX[practice.attack][practice.defense];
- const label=mult===2?"こうかは ばつぐん！":mult===0.5?"こうかは いまひとつ":mult===0?"こうかが ない":"通常の効果";
- const phrase=mult===2?"つよい！":mult===0.5?"あまり きかない。":mult===0?"きかない。":"ふつうの効果。";
+ const label=mult===2?"こうかは ばつぐん！":mult===0.5?"こうかは いまひとつ":mult===0?"こうかが ない":"通常(つうじょう)の効果(こうか)";
+ const phrase=mult===2?"つよい！":mult===0.5?"あまり きかない。":mult===0?"きかない。":"ふつうの効果(こうか)。";
  document.getElementById("practice-result").dataset.result=String(mult);
  document.getElementById("effect-label").textContent=label;
  document.getElementById("effect-multiplier").textContent="×"+mult;
- document.getElementById("effect-explanation").textContent=practice.attack+"タイプの技は "+practice.defense+"タイプに "+phrase;
+ document.getElementById("effect-explanation").textContent=practice.attack+"タイプの技(わざ)は "+practice.defense+"タイプに "+phrase;
 }
 renderPractice();
 
@@ -513,12 +513,12 @@ function renderAdvanced(){
  }
  const result=document.getElementById("advanced-results");result.replaceChildren();
  const outcomes=[
-  [4,"×4：とても効果ばつぐん","g2"],
-  [2,"×2：効果ばつぐん","g2"],
-  [1,"×1：通常の効果","g1"],
+  [4,"×4：とても効果(こうか)ばつぐん","g2"],
+  [2,"×2：効果(こうか)ばつぐん","g2"],
+  [1,"×1：通常(つうじょう)の効果(こうか)","g1"],
   [0.5,"×0.5：いまひとつ","g05"],
   [0.25,"×0.25：とてもいまひとつ","g05"],
-  [0,"×0：効果なし","g0"]
+  [0,"×0：効果(こうか)なし","g0"]
  ];
  for(const [mult,title,klass] of outcomes){
   const group=document.createElement("section");group.className="advanced-group "+klass;
@@ -537,7 +537,7 @@ function renderAdvanced(){
    card.append(row,math);group.appendChild(card);
   }
   if(count===0){
-   const empty=document.createElement("p");empty.className="notice";empty.textContent="該当なし";group.appendChild(empty);
+   const empty=document.createElement("p");empty.className="notice";empty.textContent="該当(がいとう)なし";group.appendChild(empty);
   }
   result.appendChild(group);
  }
@@ -606,9 +606,9 @@ function quizShowType(id,name,caption){
 }
 function quizRender(){
  const q=qstate.items[qstate.index];qstate.answered=false;
- QE("quiz-count").textContent=(qstate.review?"ふくしゅう ":"")+"第"+(qstate.index+1)+"問 / "+qstate.items.length+"問";
- QE("quiz-score").textContent="正解 "+qstate.correct+"問";
- QE("quiz-category").textContent=q.direction==="attack"?"⚔️ こうげきの問題":"🛡️ ぼうぎょの問題";
+ QE("quiz-count").textContent=(qstate.review?"ふくしゅう ":"")+"第(だい)"+(qstate.index+1)+"問(もん) / "+qstate.items.length+"問(もん)";
+ QE("quiz-score").textContent="正解(せいかい) "+qstate.correct+"問(もん)";
+ QE("quiz-category").textContent=q.direction==="attack"?"⚔️ こうげきの問題(もんだい)":"🛡️ ぼうぎょの問題(もんだい)";
  quizShowType("quiz-attacker",q.attack,"わざ");
  quizShowType("quiz-defender",q.defense,"あいて");
  QE("quiz-question").textContent=q.direction==="attack"?
@@ -629,7 +629,7 @@ function quizAnswer(value){
  if(ok){qstate.correct++;qerrors.delete(quizId(q))}
  else qerrors.add(quizId(q));
  storeErrors();quizRefreshMistakes();
- QE("quiz-score").textContent="正解 "+qstate.correct+"問";
+ QE("quiz-score").textContent="正解(せいかい) "+qstate.correct+"問(もん)";
  QE("quiz-answers").querySelectorAll("button").forEach(b=>{
   b.disabled=true;
   if(Number(b.dataset.v)===q.v)b.classList.add("correct");
@@ -638,10 +638,10 @@ function quizAnswer(value){
  const f=QE("quiz-feedback");f.hidden=false;f.classList.toggle("wrong",!ok);
  const compactQuiz=window.innerWidth<=430 || window.innerHeight<=650;
  f.textContent=compactQuiz?
-  (ok?"🎉 正解！":"おしい！")+" "+q.attack+" → "+q.defense+" は ×"+q.v+"（"+QOP.find(x=>x.v===q.v).t+"）です。":
-  (ok?"🎉 正解！":"おしい！")+" 正解は ×"+q.v+"（"+QOP.find(x=>x.v===q.v).t+"）です。 "+q.attack+"のわざが "+q.defense+"にあたるときのこうかです。";
+  (ok?"🎉 正解(せいかい)！":"おしい！")+" "+q.attack+" → "+q.defense+" は ×"+q.v+"（"+QOP.find(x=>x.v===q.v).t+"）です。":
+  (ok?"🎉 正解(せいかい)！":"おしい！")+" 正解(せいかい)は ×"+q.v+"（"+QOP.find(x=>x.v===q.v).t+"）です。 "+q.attack+"のわざが "+q.defense+"にあたるときのこうかです。";
  const b=QE("quiz-next");b.hidden=false;
- b.textContent=qstate.index===qstate.items.length-1?"けっかを見る":"つぎの問題へ";
+ b.textContent=qstate.index===qstate.items.length-1?"けっかを見(み)る":"つぎの問題(もんだい)へ";
 }
 function quizNext(){
  if(!qstate.answered)return;
@@ -649,8 +649,8 @@ function quizNext(){
  if(qstate.index<qstate.items.length){quizRender();window.scrollTo(0,0);return}
  QE("quiz-play").hidden=true;QE("quiz-end").hidden=false;
  document.body.classList.remove("quiz-active");
- QE("quiz-final").textContent=qstate.correct+" / "+qstate.items.length+"問 正解！";
- QE("quiz-message").textContent=qstate.correct===qstate.items.length?"すごい！ ぜんもんせいかい！":"よくがんばりました！ まちがえた問題はふくしゅうしよう。";
+ QE("quiz-final").textContent=qstate.correct+" / "+qstate.items.length+"問(もん) 正解(せいかい)！";
+ QE("quiz-message").textContent=qstate.correct===qstate.items.length?"すごい！ ぜんもんせいかい！":"よくがんばりました！ まちがえた問題(もんだい)はふくしゅうしよう。";
  quizRefreshMistakes();
 }
 QE("quiz-stop").addEventListener("click",()=>{
@@ -664,94 +664,6 @@ QE("quiz-next").addEventListener("click",quizNext);
 QE("quiz-again").addEventListener("click",()=>quizStart(false));
 QE("quiz-review-end").addEventListener("click",()=>quizStart(true));
 quizRefreshMistakes();
-
-/* Give each visible kanji a correct kana reading without changing source wording.
-   Ruby is deliberately not applied to SVG, attributes, script, rt or nested ruby. */
-const FURIGANA_WORDS={
-"対する":"たいする","確認":"かくにん","かけ算":"かけざん","計算":"けいさん","倍率":"ばいりつ","初級":"しょきゅう","上級":"じょうきゅう","該当":"がいとう","消す":"けす","消え":"きえ","回":"かい","正解":"せいかい","問題":"もんだい","回答":"かいとう","保存":"ほぞん","記録":"きろく","結果":"けっか","両方":"りょうほう","選択肢":"せんたくし","組み合わせ":"くみあわせ","切り替え":"きりかえ","攻撃":"こうげき","防御":"ぼうぎょ",
-"相性":"あいしょう","効果":"こうか","該当":"がいとう","通常":"つうじょう",
-"学習":"がくしゅう","練習":"れんしゅう","試作":"しさく","検証":"けんしょう",
-"段階":"だんかい","準備中":"じゅんびちゅう","開発":"かいはつ",
-"複合":"ふくごう","今後":"こんご","追加":"ついか","予定":"よてい",
-"相手":"あいて","特性":"とくせい","特殊":"とくしゅ","考慮":"こうりょ",
-"画像":"がぞう","非公式":"ひこうしき","公式":"こうしき","使用":"しよう",
-"本編":"ほんぺん","一覧":"いちらん","変更":"へんこう",
-"選択肢":"せんたくし","選択":"せんたく","同士":"どうし","選ぶ":"えらぶ","覚える":"おぼえる",
-"調べる":"しらべる","受ける":"うける","使う":"つかう",
-"戻す":"もどす","進める":"すすめる","試そう":"ためそう",
-"第":"だい","調":"しら","組":"く","合":"あ","覚":"おぼ",
-"選":"えら","見":"み","技":"わざ","持":"も","物":"もの",
-"単":"たん","試":"ため","下":"した","向":"む",
-"側":"がわ","切":"き","受":"う","使":"つか",
-"次":"つぎ","例":"れい","問":"もん"
-};
-const FURI_KEYS=Object.keys(FURIGANA_WORDS).sort((a,b)=>b.length-a.length);
-const HAS_KANJI=/[一-龯々〆ヶ]/;
-function addFuriganaToText(node){
- const source=node.nodeValue;
- if(!HAS_KANJI.test(source)||!FURI_KEYS.some(k=>source.includes(k)))return;
- const fragment=document.createDocumentFragment();
- let unmarked="", i=0;
- const flush=()=>{if(unmarked){fragment.appendChild(document.createTextNode(unmarked));unmarked=""}};
- while(i<source.length){
-   if(!HAS_KANJI.test(source[i])){unmarked+=source[i++];continue}
-   const key=FURI_KEYS.find(k=>source.startsWith(k,i));
-   if(!key){unmarked+=source[i++];continue}
-   flush();
-   const ruby=document.createElement("ruby");
-   ruby.appendChild(document.createTextNode(key));
-   const rt=document.createElement("rt");rt.textContent=FURIGANA_WORDS[key];ruby.appendChild(rt);
-   fragment.appendChild(ruby);i+=key.length;
- }
- flush();
- node.replaceWith(fragment);
-}
-// Apply readings only to the text nodes actually added or changed.
-// A full document TreeWalker on every MutationObserver callback became expensive
-// during repeated practice taps and during the observer's own ruby insertions.
-const furiganaRoot=document.querySelector("main");
-function furiganaEligible(node){
- return node && node.nodeType===Node.TEXT_NODE && node.isConnected &&
-   HAS_KANJI.test(node.nodeValue||"") &&
-   !node.parentElement?.closest("ruby,script,style,svg,textarea");
-}
-function annotateFuriganaSubtree(startNode){
- if(!startNode || !startNode.isConnected)return;
- if(startNode.nodeType===Node.TEXT_NODE){
-  if(furiganaEligible(startNode))addFuriganaToText(startNode);
-  return;
- }
- if(startNode.nodeType!==Node.ELEMENT_NODE &&
-    startNode.nodeType!==Node.DOCUMENT_FRAGMENT_NODE)return;
- if(startNode.nodeType===Node.ELEMENT_NODE &&
-    startNode.closest("ruby,script,style,svg,textarea"))return;
- const walker=document.createTreeWalker(startNode,NodeFilter.SHOW_TEXT);
- const pending=[];
- while(walker.nextNode()){
-  if(furiganaEligible(walker.currentNode))pending.push(walker.currentNode);
- }
- pending.forEach(node=>{if(furiganaEligible(node))addFuriganaToText(node)});
-}
-const furiganaObserveOptions={childList:true,subtree:true,characterData:true};
-const furiganaObserver=new MutationObserver(records=>{
- // Ignore mutation notifications caused by adding <ruby> markup itself.
- furiganaObserver.disconnect();
- try{
-  const targets=new Set();
-  for(const record of records){
-   if(record.type==="characterData")targets.add(record.target);
-   else for(const node of record.addedNodes)targets.add(node);
-  }
-  for(const node of targets)annotateFuriganaSubtree(node);
- }finally{
-  if(furiganaRoot)furiganaObserver.observe(furiganaRoot,furiganaObserveOptions);
- }
-});
-if(furiganaRoot){
- // Process initial text once, before listening for dynamic updates.
- annotateFuriganaSubtree(furiganaRoot);
- furiganaObserver.observe(furiganaRoot,furiganaObserveOptions);
-}
 
 </script>
 <script defer src="/common/site-footer.js"></script>
