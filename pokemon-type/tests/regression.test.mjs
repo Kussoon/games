@@ -75,6 +75,14 @@ test('Readings are static parenthetical text without ruby or dynamic DOM watcher
  assert.match(beginner,/防御\(ぼうぎょ\)/);
  assert.doesNotMatch(beginner,/FURIGANA_WORDS|furiganaObserver|addFuriganaToText/);
 });
+test('Beginner practice has compact 53px type choices on narrow screens and consistent readings',()=>{
+ const main=pages['index.html'];
+ assert.match(main,/@media\(max-width:480px\)\{\.tab\{font-size:14px\}/);
+ assert.match(main,/\.choice\{min-height:53px;padding-top:3px;padding-bottom:3px;line-height:1\.2;gap:3px\}/);
+ assert.match(main,/\.choice \.type-symbol\{width:24px;height:24px\}/);
+ for(const word of ['組(く)み合(あ)わせ','選(えら)んで','試(ため)そう'])assert.ok(main.includes(word),word);
+ for(const old of ['組み合わせ(くみあわせ)','選んで(えらんで)','試そう(ためそう)'])assert.ok(!main.includes(old),old);
+});
 test('All study and quiz modes remain reachable by ordinary links',()=>{
  const main=pages['index.html'];
  for(const id of ['tab-study','tab-practice','tab-quiz'])assert.ok(main.includes('id="'+id+'"'),id);

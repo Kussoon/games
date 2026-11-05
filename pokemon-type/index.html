@@ -79,7 +79,7 @@ ruby{ruby-position:over;white-space:nowrap}
 .tab,.mode,.action,.type,.choice{line-height:1.65}
 .type,.choice{padding-top:9px;padding-bottom:9px}
 .summary,.effect-result p,.group h3{line-height:1.9}
-@media(max-width:480px){.tab{font-size:14px}.type{min-height:62px}.choice{min-height:75px}}
+@media(max-width:480px){.tab{font-size:14px}.type{min-height:62px}.choice{min-height:53px;padding-top:3px;padding-bottom:3px;line-height:1.2;gap:3px}.choice .type-symbol{width:24px;height:24px}}
 
 
 .quiz-board{background:#fcfdff}
@@ -194,7 +194,7 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 <p class="eyebrow">Kussoon / 学習(がくしゅう)ツール</p>
 <h1>ポケモンの相性(あいしょう)マスター</h1>
 <p class="page-mode">📖 まなぶ ／ 🎯 れんしゅう ／ ❔ クイズ（初級(しょきゅう)・上級(じょうきゅう)）</p>
-<p>18タイプの相性(あいしょう)を、調(しら)べたり組み合わせ(くみあわせ)たりして覚(おぼ)えよう！</p>
+<p>18タイプの相性(あいしょう)を、調(しら)べたり組(く)み合(あ)わせたりして覚(おぼ)えよう！</p>
 <nav class="mode-tabs" role="tablist" aria-label="学習モード"><button class="tab" id="tab-study" role="tab" aria-selected="false" aria-controls="study-page" type="button">📖 まなぶ</button><button class="tab" id="tab-practice" role="tab" aria-selected="true" aria-controls="practice-page" type="button">🎯 れんしゅう</button><button class="tab" id="tab-quiz" role="tab" aria-selected="false" aria-controls="quiz-page" type="button">❔ クイズ</button></nav>
 <div id="study-page" role="tabpanel" aria-labelledby="tab-study" hidden>
 
@@ -239,15 +239,15 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 <button class="study-level" type="button" aria-pressed="true">🌱 初級(しょきゅう)：1タイプ</button>
 <a class="study-level study-level-link" href="./advanced-practice.html">⭐ 上級(じょうきゅう)：2タイプ</a>
 </div>
-<section class="panel" aria-labelledby="practice-title"><h2 id="practice-title">タイプを2つ選んで(えらんで)相性(あいしょう)を試そう(ためそう)</h2>
-<p class="practice-intro">攻撃(こうげき)する技(わざ)と、あいてのタイプを選んで(えらんで)ください。</p>
+<section class="panel" aria-labelledby="practice-title"><h2 id="practice-title">タイプを2つ選(えら)んで相性(あいしょう)を試(ため)そう</h2>
+<p class="practice-intro">攻撃(こうげき)する技(わざ)と、あいてのタイプを選(えら)んでください。</p>
 <div class="duo"><div class="duo-card"><h2>⚔️ 攻撃(こうげき)する技(わざ)</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="attack" aria-label="攻撃タイプをひとつ戻す">‹</button><div class="chosen" id="attack-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="attack" aria-label="攻撃タイプをひとつ進める">›</button></div></div>
 <div class="duo-card target"><h2>🛡️ あいてのタイプ</h2><div class="picker"><button class="pick-arrow" type="button" data-step="-1" data-side="defense" aria-label="相手タイプをひとつ戻す">‹</button><div class="chosen" id="defense-picked"></div><button class="pick-arrow" type="button" data-step="1" data-side="defense" aria-label="相手タイプをひとつ進める">›</button></div></div></div>
 <div class="choose-title">下(した)の18タイプから選ぶ(えらぶ)</div>
 <div class="picker-side" role="radiogroup" aria-label="変更する側"><label><input type="radio" name="change-side" value="attack" checked> 攻撃(こうげき)する技(わざ)</label><label><input type="radio" name="change-side" value="defense"> あいてのタイプ</label></div>
 <div class="choice-grid" id="practice-types" aria-label="18タイプの選択肢"></div>
 <div class="effect-result" id="practice-result" aria-live="polite"><strong id="effect-label"></strong><output id="effect-multiplier"></output><p id="effect-explanation"></p></div>
-<div class="actions"><button class="action" type="button" id="random-match">🔀 べつの組み合わせ(くみあわせ)</button><button class="action primary" type="button" id="go-study">📖 まなぶへ</button></div>
+<div class="actions"><button class="action" type="button" id="random-match">🔀 べつの組(く)み合(あ)わせ</button><button class="action primary" type="button" id="go-study">📖 まなぶへ</button></div>
 <p class="notice">※こちらは初級(しょきゅう)・単(たん)タイプのれんしゅうです。上級(じょうきゅう)は「上級(じょうきゅう)：2タイプ」から始められます。</p></section>
 </div>
 
