@@ -62,17 +62,17 @@ test('All four pages have shared Pokemon Master title, footer and v1.0 version',
 });
 test('Readings are static parenthetical text without ruby or dynamic DOM watchers',()=>{
  for(const [name,page] of Object.entries(pages)){
-  assert.doesNotMatch(page,/<ruby(?:\\s|>)/,name);
-  assert.doesNotMatch(page,/<rt(?:\\s|>)/,name);
+  assert.doesNotMatch(page,/<ruby(?:\s|>)/,name);
+  assert.doesNotMatch(page,/<rt(?:\s|>)/,name);
   assert.doesNotMatch(page,/MutationObserver/,name);
-  assert.match(page,/相性\\(あいしょう\\)/,name);
-  assert.match(page,/初級\\(しょきゅう\\)/,name);
-  assert.match(page,/上級\\(じょうきゅう\\)/,name);
-  assert.doesNotMatch(page,/相性\\(あいしょう\\)\\(あいしょう\\)/,name);
+  assert.match(page,/相性\(あいしょう\)/,name);
+  assert.match(page,/初級\(しょきゅう\)/,name);
+  assert.match(page,/上級\(じょうきゅう\)/,name);
+  assert.doesNotMatch(page,/相性\(あいしょう\)\(あいしょう\)/,name);
  }
  const beginner=pages['index.html'];
- assert.match(beginner,/攻撃\\(こうげき\\)/);
- assert.match(beginner,/防御\\(ぼうぎょ\\)/);
+ assert.match(beginner,/攻撃\(こうげき\)/);
+ assert.match(beginner,/防御\(ぼうぎょ\)/);
  assert.doesNotMatch(beginner,/FURIGANA_WORDS|furiganaObserver|addFuriganaToText/);
 });
 test('All study and quiz modes remain reachable by ordinary links',()=>{
