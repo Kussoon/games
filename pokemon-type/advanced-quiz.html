@@ -43,7 +43,7 @@ button{font:inherit;cursor:pointer}
 .next-row .action{width:100%}
 .score{text-align:center;font-size:30px;font-weight:900;margin:12px 0}
 [hidden]{display:none!important}
-ruby{ruby-position:over}rt{font-size:.6em;line-height:1.05;font-weight:600}
+
 body.playing .intro-only{display:none}
 body.playing main{padding-top:8px}
 body.playing .panel{margin:0;padding:11px}
@@ -57,35 +57,35 @@ body.quiz-active .page-version,body.playing .page-version{display:none}
 .kussoon-common-footer{max-width:none;width:100%;margin:24px auto 0}
 </style></head><body><main>
 <div class="intro-only">
-<a href="/games/">← 学ぶ・遊ぶへ</a>　<a href="./">18タイプ<ruby>相性<rt>あいしょう</rt></ruby>トレーニングへ</a>
-<p class="eyebrow">Kussoon / クイズ・<ruby>上級<rt>じょうきゅう</rt></ruby></p>
-<h1>ポケモンの<ruby>相性<rt>あいしょう</rt></ruby>マスター</h1>
-<p class="page-mode">⭐ <ruby>上級<rt>じょうきゅう</rt></ruby>：2タイプ・❔ クイズ</p>
-<div class="level"><a href="./">🌱 <ruby>初級<rt>しょきゅう</rt></ruby>へもどる</a><a class="current" href="./advanced-quiz.html" aria-current="page">⭐ <ruby>上級<rt>じょうきゅう</rt></ruby>：2タイプ</a></div>
+<a href="/games/">← 学(まな)ぶ・遊ぶへ</a>　<a href="./">18タイプ相性(あいしょう)トレーニングへ</a>
+<p class="eyebrow">Kussoon / クイズ・上級(じょうきゅう)</p>
+<h1>ポケモンの相性(あいしょう)マスター</h1>
+<p class="page-mode">⭐ 上級(じょうきゅう)：2タイプ・❔ クイズ</p>
+<div class="level"><a href="./">🌱 初級(しょきゅう)へもどる</a><a class="current" href="./advanced-quiz.html" aria-current="page">⭐ 上級(じょうきゅう)：2タイプ</a></div>
 </div>
 <section class="panel" aria-label="上級クイズ">
 <div id="intro">
-<p>わざのタイプ1つと、あいてのタイプ2つを見て、わざの<ruby>相性<rt>あいしょう</rt></ruby>を6つの<ruby>倍率<rt>ばいりつ</rt></ruby>からえらびましょう。1<ruby>回<rt>かい</rt></ruby>10<ruby>問<rt>もん</rt></ruby>です。</p>
-<div class="actions"><button type="button" id="start" class="action">▶ クイズをはじめる</button><button type="button" id="review" class="action secondary">🔁 まちがいをふくしゅう（<span id="miss-count">0</span><ruby>問<rt>もん</rt></ruby>）</button></div>
-<p class="note">まちがえた<ruby>問題<rt>もんだい</rt></ruby>は、このブラウザに<ruby>保存<rt>ほぞん</rt></ruby>されます。<ruby>初級<rt>しょきゅう</rt></ruby>の<ruby>記録<rt>きろく</rt></ruby>とは<ruby>別<rt>べつ</rt></ruby>です。</p>
+<p>わざのタイプ1つと、あいてのタイプ2つを見(み)て、わざの相性(あいしょう)を6つの倍率(ばいりつ)からえらびましょう。1回(かい)10問(もん)です。</p>
+<div class="actions"><button type="button" id="start" class="action">▶ クイズをはじめる</button><button type="button" id="review" class="action secondary">🔁 まちがいをふくしゅう（<span id="miss-count">0</span>問(もん)）</button></div>
+<p class="note">まちがえた問題(もんだい)は、このブラウザに保存(ほぞん)されます。初級(しょきゅう)の記録(きろく)とは別(べつ)です。</p>
 </div>
 <div id="play" hidden>
-<div class="progress"><span id="count">1 / 10<ruby>問<rt>もん</rt></ruby></span><span id="current-score">せいかい 0<ruby>問<rt>もん</rt></ruby></span><button type="button" id="stop" class="stop">やめる</button></div>
-<p class="question">このわざで こうげきすると、なん<ruby>倍<rt>ばい</rt></ruby>？</p>
+<div class="progress"><span id="count">1 / 10問(もん)</span><span id="current-score">せいかい 0問(もん)</span><button type="button" id="stop" class="stop">やめる</button></div>
+<p class="question">このわざで 攻撃(こうげき)すると、なん倍(ばい)？</p>
 <div class="match"><div class="match-box attack"><div class="match-label">⚔️ わざのタイプ</div><div id="attack" class="match-types"></div></div>
 <span class="match-arrow" aria-hidden="true">➜</span>
 <div class="match-box"><div class="match-label">🛡️ あいての2タイプ</div><div id="defense" class="match-types"></div></div></div>
 <div id="answers" class="answers" role="group" aria-label="倍率をえらぶ"></div>
 <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
-<div class="next-row"><button type="button" id="next" class="action" hidden>つぎの<ruby>問題<rt>もんだい</rt></ruby>へ</button></div>
+<div class="next-row"><button type="button" id="next" class="action" hidden>つぎの問題(もんだい)へ</button></div>
 </div>
 <div id="end" hidden>
 <div class="score" id="final"></div><p id="message" style="text-align:center"></p>
 <div class="actions"><button type="button" id="again" class="action">もういちど</button><button type="button" id="review-end" class="action secondary">🔁 まちがいをふくしゅう</button></div>
 </div>
 </section>
-<p class="intro-only"><a href="./advanced-practice.html">🎯 <ruby>上級<rt>じょうきゅう</rt></ruby>「れんしゅう」へ</a>　<a href="./advanced.html">📖 <ruby>上級<rt>じょうきゅう</rt></ruby>「まなぶ」へ</a></p>
-<div class="page-version" aria-label="ページのバージョンと最終更新日"><div>Version 1.0</div><div><ruby>最終更新<rt>さいしゅうこうしん</rt></ruby>：<time datetime="2026-11-05">2026<ruby>年<rt>ねん</rt></ruby>11<ruby>月<rt>がつ</rt></ruby>5<ruby>日<rt>にち</rt></ruby></time></div></div>
+<p class="intro-only"><a href="./advanced-practice.html">🎯 上級(じょうきゅう)「れんしゅう」へ</a>　<a href="./advanced.html">📖 上級(じょうきゅう)「まなぶ」へ</a></p>
+<div class="page-version" aria-label="ページのバージョンと最終更新日"><div>Version 1.1</div><div>最終更新(さいしゅうこうしん)：<time datetime="2026-11-05">2026年(ねん)11月(がつ)5日(にち)</time></div></div>
 </main>
 <footer class="kussoon-common-footer" aria-label="Kussoon共通フッター"><small>© 2026 Kussoon. All rights reserved.</small></footer>
 <script>
@@ -247,7 +247,7 @@ function choose(mult){
  const q=state.items[state.index],ok=mult===q.mult;
  state.answered=true;if(ok)state.correct++;
  updateMistake(q,ok);
- $("current-score").textContent="せいかい "+state.correct+"問";
+ $("current-score").textContent="せいかい "+state.correct+"問(もん)";
  for(const button of $("answers").children){
   const value=Number(button.dataset.value);button.disabled=true;
   if(value===q.mult)button.classList.add("correct");
