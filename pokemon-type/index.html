@@ -264,7 +264,9 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 <div id="quiz-intro"><p>1回(かい)10問(もん)です。まちがえた問題(もんだい)はあとでふくしゅうできます。</p>
 <div class="actions"><button class="action primary" id="quiz-start" type="button">▶ クイズをはじめる</button>
 <button class="action" id="quiz-review" type="button">🔁 まちがいをふくしゅう（<span id="quiz-mistake-count">0</span>問(もん)）</button></div>
-<p class="notice">まちがえた問題(もんだい)はこのブラウザに保存(ほぞん)されます。ブラウザのデータを消す(けす)と記録(きろく)も消え(きえ)ます。</p></div>
+<p class="notice">まちがえた問題(もんだい)は、この端末(たんまつ)のブラウザに保存(ほぞん)されます。記録(きろく)を消(け)したいときは、下(した)のボタンを押(お)してください。</p>
+<div class="actions"><button class="action" id="quiz-clear-mistakes" type="button">まちがいの記録(きろく)を消(け)す</button></div>
+<p class="notice" id="quiz-clear-status" role="status" aria-live="polite" hidden></p></div>
 <div id="quiz-play" hidden>
 <div class="quiz-progress"><span id="quiz-count"></span><span id="quiz-score"></span><button class="quiz-stop" id="quiz-stop" type="button">やめる</button></div>
 <div class="quiz-scene"><p id="quiz-category"></p>
@@ -278,7 +280,7 @@ body.quiz-active .page-version,body.playing .page-version,body.quiz-active .page
 <div class="actions"><button class="action primary" id="quiz-again" type="button">もういちど</button><button class="action" id="quiz-review-end" type="button">🔁 まちがいをふくしゅう</button></div></div>
 </section></div>
 <p class="foot">キャラクター画像(がぞう)や公式(こうしき)ロゴは使用(しよう)していません。ポケットモンスターのタイプ相性(あいしょう)を学(まな)ぶ非公式(ひこうしき)の学習(がくしゅう)ツールです。</p>
-<div class="page-version" aria-label="ページのバージョンと最終更新日"><div>Version 1.1</div><div>最終更新(さいしゅうこうしん)：<time datetime="2026-11-05">2026年(ねん)11月(がつ)5日(にち)</time></div></div>
+<div class="page-version" aria-label="ページのバージョンと最終更新日"><div>Version 1.1.1</div><div>最終更新(さいしゅうこうしん)：<time datetime="2026-11-07">2026年(ねん)11月(がつ)7日(にち)</time></div></div>
 </main>
 <footer class="kussoon-common-footer" aria-label="Kussoon共通フッター"><small>© 2026 Kussoon. All rights reserved.</small></footer>
 <script>
@@ -590,6 +592,7 @@ function quizRefreshMistakes(){
  QE("quiz-mistake-count").textContent=String(count);
  QE("quiz-review").disabled=count===0;
  QE("quiz-review-end").disabled=count===0;
+ QE("quiz-clear-mistakes").disabled=count===0;
 }
 function quizStart(review){
  qstate.items=chooseQuiz(review);
@@ -663,6 +666,22 @@ QE("quiz-review").addEventListener("click",()=>quizStart(true));
 QE("quiz-next").addEventListener("click",quizNext);
 QE("quiz-again").addEventListener("click",()=>quizStart(false));
 QE("quiz-review-end").addEventListener("click",()=>quizStart(true));
+QE("quiz-clear-mistakes").addEventListener("click",()=>{
+ if(qerrors.size===0)return;
+ if(!window.confirm("まちがいの記録(きろく)を すべて消(け)しますか？\nこの操作(そうさ)は元(もと)に戻(もど)せません。"))return;
+ // このクイズ専用の保存キーだけ削除。他のページの記録は保持する。
+ try{
+  localStorage.removeItem(QUIZ_KEY);
+ }catch(e){
+  QE("quiz-clear-status").hidden=false;
+  QE("quiz-clear-status").textContent="記録(きろく)を消(け)せませんでした。ブラウザの保存設定(ほぞんせってい)を確認(かくにん)してください。";
+  return;
+ }
+ qerrors.clear();
+ quizRefreshMistakes();
+ QE("quiz-clear-status").hidden=false;
+ QE("quiz-clear-status").textContent="まちがいの記録(きろく)を消(け)しました。";
+});
 quizRefreshMistakes();
 
 </script>
