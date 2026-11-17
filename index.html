@@ -28,6 +28,9 @@ a.game small{display:block;font-size:12px;margin-top:4px;font-weight:650}
 .number10{background:#237a88}
 .todofuken{background:#e49a2f}
 .pokemon{background:#7353a2}
+.coaster{background:#28588d}
+.games .category-heading{grid-column:1/-1;font-size:15px;color:#365b73;font-weight:850;margin:8px 2px 0;padding:0 0 5px;border-bottom:1px solid #cfdeeb}
+.coaster small{color:#f1f7fd}
 .hyogo{background:#6f5aa8}
 .hanshin{background:#3f9b64;border:1px solid #3f9b64;border-radius:16px;padding:13px 12px;box-shadow:0 4px 10px #0001}
 .hanshin-title{font-size:19px;font-weight:900;color:#fff;margin:0 0 3px}
@@ -78,6 +81,12 @@ window.kussoonUmamiBeforeSend = function (type, payload) {
 </section>
 
 <div class="games">
+<h2 class="category-heading">🎮 ミニゲーム</h2>
+<a class="game coaster" href="coaster/" data-umami-event="games-coaster-open">
+🎢 一筆書きコースター
+<small>自分で描いた線路を走ろう！ シンプル版と3D版から選べます</small>
+</a>
+<h2 class="category-heading">🧠 クイズ・学習ゲーム</h2>
 <a class="game fish" href="sakana.html" data-umami-event="games-sakana-click">
 🐟 さかなへん漢字を覚える
 <small>魚へんの漢字を見て、答えて、覚えよう</small>
@@ -131,7 +140,7 @@ window.kussoonUmamiBeforeSend = function (type, payload) {
 <a href="https://kussoon.com/terms/">利用上の注意</a>
 </nav>
 
-<footer>Version 1.7.7<br>© 2026 Kussoon. All rights reserved.</footer>
+<footer>Version 1.7.8<br>© 2026 Kussoon. All rights reserved.</footer>
 </main>
 <script defer src="/common/site-footer.js"></script>
 </body>
