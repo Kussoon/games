@@ -22,6 +22,9 @@ h2{font-size:1.3rem;line-height:1.4;margin:12px 0 14px;border-bottom:2px solid #
 .variants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:12px 0 26px}
 .variant{border:1px solid #bdd8e8;border-radius:16px;padding:20px;background:#f5fbff;display:flex;flex-direction:column;min-width:0}
 .variant.advanced{background:#f4f8ff;border-color:#bdcce7}
+.variant.pro{background:#fff8ed;border-color:#e8c994}
+.pro .eyebrow{color:#a96b1d}
+.pro .launch{background:#b87524}
 .eyebrow{font-size:12px;font-weight:850;color:#397b9b;margin:0 0 4px}
 .variant h3{font-size:1.25rem;margin:0 0 8px;color:#163e61}
 .variant p{font-size:14px;margin:0 0 14px;line-height:1.75}
@@ -66,7 +69,7 @@ window.kussoonUmamiBeforeSend=function(type,payload){
 </header>
 <article>
 <section aria-labelledby="choose">
-<h2 id="choose">2つのコースターから選ぶ</h2>
+<h2 id="choose">3つのコースターから選ぶ</h2>
 <div class="variants">
 <section class="variant" aria-labelledby="simple">
 <p class="eyebrow">まずは手軽に</p>
@@ -81,6 +84,13 @@ window.kussoonUmamiBeforeSend=function(type,payload){
 <p>側面図に加えて平面図も描けます。左右のカーブとGゲージ、全画面走行も楽しめます。</p>
 <ul><li>上下・左右の動きを組み合わせる</li><li>走行と連動するGゲージ（ゲーム上の推定）</li><li>全画面スタート・一時停止・再開</li></ul>
 <a class="launch" href="/v2/one-stroke-coaster-3d-v47.html" data-umami-event="games-coaster-3d-open">3D版で遊ぶ</a>
+</section>
+<section class="variant pro" aria-labelledby="pro3d">
+<p class="eyebrow">立体コースに挑戦</p>
+<h3 id="pro3d">本格派</h3>
+<p>側面図から、坂・谷・縦ループ・左右のカーブを組み合わせたコースを生成。乗車視点で走り、ゴールでは色紙の紙吹雪が舞います。</p>
+<ul><li>側面図を一筆書きしてコースを作成</li><li>縦ループと左右のカーブに対応</li><li>乗車視点・全画面走行・ゴール演出</li></ul>
+<a class="launch" href="/v2/one-stroke-coaster-3d-v84.html" data-umami-event="games-coaster-pro-open">本格派で遊ぶ</a>
 </section>
 </div>
 </section>
